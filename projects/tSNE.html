@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>t-Distributed Stochastic Neighbour Embedding</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-tips.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="/BIO-BTE-10-L-4/">
+                        <figure class="image is-128x128 container">
+                            <img src="/BIO-BTE-10-L-4/img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white pb-4">BIO-BTE-10-L-4</h2>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right searchbox" id="fsdocs-searchbox">
+                                <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">
+  projects
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/tSNE.html">
+    t-Distributed Stochastic Neighbour Embedding
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/hClust.html">
+    efficient agglomerative hierarchical clustering
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    
+<h1><a name="t-Distributed-Stochastic-Neighbour-Embedding-tSNE" class="anchor" href="#t-Distributed-Stochastic-Neighbour-Embedding-tSNE">t-Distributed Stochastic Neighbour Embedding (tSNE)</a></h1>
+<h2><a name="Content" class="anchor" href="#Content">Content</a></h2>
+<p>1.	Introduction</p>
+<p>2.	Coding clues</p>
+<p>3.	References</p>
+<p>4.	Goal/Additional information</p>
+<h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
+<ul>
+<li>
+tSNE is a dimensionality reduction method. It allows you to visualise a multi-dimensional dataset in 2 or 3 dimensional scatter plot. 
+But what does that mean in practice? Imagine you measured height, weight, width, density, brightness, as well as magnetic, chemical,
+and physical properties of a bunch of objects. The simplest technique to summarize your measurements is a spreadsheet table in which each
+row represents an element, and each column represents a measured feature:
+</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th><p>Object ID</p></th>
+<th><p>height</p></th>
+<th><p>weight</p></th>
+<th><p>width</p></th>
+<th><p>density</p></th>
+<th><p>brightness</p></th>
+<th><p>magnetic field</p></th>
+<th><p>...</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>objectA</p></td>
+<td><p>2</p></td>
+<td><p>30</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>200</p></td>
+<td><p>100000</p></td>
+<td><p>...</p></td>
+</tr>
+<tr class="even">
+<td><p>objectB</p></td>
+<td><p>4</p></td>
+<td><p>50</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+<td><p>255</p></td>
+<td><p>130000</p></td>
+<td><p>...</p></td>
+</tr>
+<tr class="odd">
+<td><p>objectC</p></td>
+<td><p>15</p></td>
+<td><p>20</p></td>
+<td><p>1</p></td>
+<td><p>2</p></td>
+<td><p>11</p></td>
+<td><p>10000000</p></td>
+<td><p>...</p></td>
+</tr>
+<tr class="even">
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+<td><p>...</p></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>
+Note that the measured features span multiple orders of magnitude. A change of 1 in height for example has much more value than a change 
+of 1 regarding the magnetic field. If now clusters of similar behaving objects should be identified, you are limited to inspect the data set
+column-wise by repetitive sorting. Just from the table you cannot create a meaningful graph, that allows you to perform a visual inspection of all features at once.
+Like principal component analysis (PCA), tSNE is a method for dimensionality reduction. It aggregates all features to a feature subset that
+allows a visual inspection of the complex data. It often is applied in image processing, NLP, genomic data, and speech processing.
+</li>
+</ul>
+<p><img src="../img/tSNE.png" alt="" />
+Fig. 1: Idea of tSNE. Visualisation of a high dimensional data on a 2-dimensional scatter plot.</p>
+<h2><a name="Coding-Clues" class="anchor" href="#Coding-Clues">Coding Clues</a></h2>
+<h3><a name="Notes" class="anchor" href="#Notes">Notes:</a></h3>
+<ul>
+<li>All functions below are taken from the original publication (van der Maaten and Hinton 2008).</li>
+<li>Be aware, that the original work first describes SNE and later (section 3) describes the differences made to result in t-SNE!</li>
+<li>Although variance is continually referred to as σ<sub>i</sub> in the paper, that is a repeated typo and should be σ<sub>i</sub><sup>2</sup>.</li>
+<li>The data matrix has n rows (without header row). The first index defines the row, the second the column!</li>
+<li>x<sub>i</sub> defines the i<sup>th</sup> row in the data matrix (a vector of measured features).</li>
+<li><p>||x|| indicates the vector norm, in this case it is the Euclidean distance between vector x<sub>i</sub> and y<sub>i</sub>. You can find distance metrics at <code>FSharp.Stats.ML.DistanceMetrics</code>.</p></li>
+<li>exp(t) indicates e<sup>t</sup></li>
+<li>A t distribution with degree of freedom = 1 is equal to 0.3183*(1+t²)-1 where the first constant part can be neglected if the constant term exists in all calculations.</li>
+</ul>
+<h4><a name="0-sup-th-sup-step" class="anchor" href="#0-sup-th-sup-step">0<sup>th</sup> step:</a></h4>
+<ul>
+<li>Read the publication and visit further introduction material you can find below (References)</li>
+</ul>
+<h4><a name="1-sup-st-sup-step" class="anchor" href="#1-sup-st-sup-step">1<sup>st</sup> step:</a></h4>
+<ul>
+<li><p>create a F# script (.fsx), load and open <code>FSharp.Stats</code>, <code>FSharpAux</code>, and <code>Plotly.NET</code></p></li>
+<li>
+<p>import test data</p>
+<ul>
+<li><p>You can find the classic clustering dataset "iris" <a href="https://github.com/fslaborg/FSharp.Stats/tree/developer/docs/data">here</a>.</p></li>
+</ul>
+</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.1&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-beta9&quot;</span>
+            
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="id">Plotly</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="id">NET</span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 5)" onmouseover="showTip(event, 'fs5', 5)" class="fn">fromFileWithSep</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs6', 6)" onmouseover="showTip(event, 'fs6', 6)" class="fn">separator</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs7', 7)" onmouseover="showTip(event, 'fs7', 7)" class="vt">char</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs8', 8)" onmouseover="showTip(event, 'fs8', 8)" class="fn">filePath</span><span class="pn">)</span> <span class="o">=</span>     
+    <span class="c">// The function is implemented using a sequence expression</span>
+    <span onmouseout="hideTip(event, 'fs9', 9)" onmouseover="showTip(event, 'fs9', 9)" class="fn">seq</span> <span class="pn">{</span>   <span class="k">let</span> <span onmouseout="hideTip(event, 'fs10', 10)" onmouseover="showTip(event, 'fs10', 10)" class="d">sr</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs11', 11)" onmouseover="showTip(event, 'fs11', 11)" class="id">System</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 12)" onmouseover="showTip(event, 'fs12', 12)" class="id">IO</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs13', 13)" onmouseover="showTip(event, 'fs13', 13)" class="rt">File</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 14)" onmouseover="showTip(event, 'fs14', 14)" class="id">OpenText</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs8', 15)" onmouseover="showTip(event, 'fs8', 15)" class="fn">filePath</span><span class="pn">)</span>
+            <span class="k">while</span> <span onmouseout="hideTip(event, 'fs15', 16)" onmouseover="showTip(event, 'fs15', 16)" class="fn">not</span> <span onmouseout="hideTip(event, 'fs10', 17)" onmouseover="showTip(event, 'fs10', 17)" class="d">sr</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs16', 18)" onmouseover="showTip(event, 'fs16', 18)" class="id">EndOfStream</span> <span class="k">do</span> 
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 19)" onmouseover="showTip(event, 'fs17', 19)" class="fn">line</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="d">sr</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs18', 21)" onmouseover="showTip(event, 'fs18', 21)" class="id">ReadLine</span><span class="pn">(</span><span class="pn">)</span> 
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 22)" onmouseover="showTip(event, 'fs19', 22)" class="fn">words</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="fn">line</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 24)" onmouseover="showTip(event, 'fs20', 24)" class="id">Split</span> <span onmouseout="hideTip(event, 'fs6', 25)" onmouseover="showTip(event, 'fs6', 25)" class="fn">separator</span><span class="c">//[|&#39;,&#39;;&#39; &#39;;&#39;\t&#39;|] </span>
+                <span class="k">yield</span> <span onmouseout="hideTip(event, 'fs19', 26)" onmouseover="showTip(event, 'fs19', 26)" class="fn">words</span> <span class="pn">}</span>
+
+                
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="id">lables</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="id">data</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs5', 29)" onmouseover="showTip(event, 'fs5', 29)" class="fn">fromFileWithSep</span> <span class="s">&#39;,&#39;</span> <span class="pn">(</span><span class="k">__SOURCE_DIRECTORY__</span> <span class="o">+</span> <span class="s">&quot;../content/irisData.csv&quot;</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 30)" onmouseover="showTip(event, 'fs23', 30)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 31)" onmouseover="showTip(event, 'fs24', 31)" class="id">skip</span> <span class="n">1</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 32)" onmouseover="showTip(event, 'fs23', 32)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs26', 34)" onmouseover="showTip(event, 'fs26', 34)" class="fn">arr</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs26', 35)" onmouseover="showTip(event, 'fs26', 35)" class="fn">arr</span><span class="id">.</span><span class="pn">[</span><span class="n">4</span><span class="pn">]</span><span class="pn">,</span> <span class="pn">[|</span> <span onmouseout="hideTip(event, 'fs27', 36)" onmouseover="showTip(event, 'fs27', 36)" class="fn">float</span> <span onmouseout="hideTip(event, 'fs26', 37)" onmouseover="showTip(event, 'fs26', 37)" class="fn">arr</span><span class="id">.</span><span class="pn">[</span><span class="n">0</span><span class="pn">]</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs27', 38)" onmouseover="showTip(event, 'fs27', 38)" class="fn">float</span> <span onmouseout="hideTip(event, 'fs26', 39)" onmouseover="showTip(event, 'fs26', 39)" class="fn">arr</span><span class="id">.</span><span class="pn">[</span><span class="n">1</span><span class="pn">]</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs27', 40)" onmouseover="showTip(event, 'fs27', 40)" class="fn">float</span> <span onmouseout="hideTip(event, 'fs26', 41)" onmouseover="showTip(event, 'fs26', 41)" class="fn">arr</span><span class="id">.</span><span class="pn">[</span><span class="n">2</span><span class="pn">]</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs27', 42)" onmouseover="showTip(event, 'fs27', 42)" class="fn">float</span> <span onmouseout="hideTip(event, 'fs26', 43)" onmouseover="showTip(event, 'fs26', 43)" class="fn">arr</span><span class="id">.</span><span class="pn">[</span><span class="n">3</span><span class="pn">]</span><span class="pn">;</span> <span class="pn">|]</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs23', 44)" onmouseover="showTip(event, 'fs23', 44)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs28', 45)" onmouseover="showTip(event, 'fs28', 45)" class="id">toArray</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs29', 46)" onmouseover="showTip(event, 'fs29', 46)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs30', 47)" onmouseover="showTip(event, 'fs30', 47)" class="id">shuffleFisherYates</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs29', 48)" onmouseover="showTip(event, 'fs29', 48)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 49)" onmouseover="showTip(event, 'fs31', 49)" class="id">mapi</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs32', 50)" onmouseover="showTip(event, 'fs32', 50)" class="fn">i</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs33', 51)" onmouseover="showTip(event, 'fs33', 51)" class="fn">lable</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs34', 52)" onmouseover="showTip(event, 'fs34', 52)" class="fn">data</span><span class="pn">)</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs35', 53)" onmouseover="showTip(event, 'fs35', 53)" class="fn">sprintf</span> <span class="s">&quot;</span><span class="pf">%s</span><span class="s">_</span><span class="pf">%i</span><span class="s">&quot;</span> <span onmouseout="hideTip(event, 'fs33', 54)" onmouseover="showTip(event, 'fs33', 54)" class="fn">lable</span> <span onmouseout="hideTip(event, 'fs32', 55)" onmouseover="showTip(event, 'fs32', 55)" class="fn">i</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs34', 56)" onmouseover="showTip(event, 'fs34', 56)" class="fn">data</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs29', 57)" onmouseover="showTip(event, 'fs29', 57)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs36', 58)" onmouseover="showTip(event, 'fs36', 58)" class="id">unzip</span>
+</code></pre>
+<h4><a name="1-sup-st-sup-step-1" class="anchor" href="#1-sup-st-sup-step-1">1<sup>st</sup> step:</a></h4>
+<ul>
+<li><p>Calculate a Euclidean distance matrix using <code>ML.DistanceMetrics.euclidean</code>. The matrix’ dimensions are n x n.</p></li>
+<li>
+<p>Define functions that calculate similarity measures using the prior defined distance matrix:</p>
+<ul>
+<li>
+<p>(1) high dimensional affinity p (p<sub>i|j</sub>)(Equation 1)</p>
+<ul>
+<li>Inform yourself how the variance is determined. If required define a Perplexity beforehand.</li>
+</ul>
+</li>
+<li>(2) low dimensional affinity q (q<sub>ij</sub>) (Equation 4)</li>
+</ul>
+</li>
+</ul>
+<h4><a name="2-sup-nd-sup-step" class="anchor" href="#2-sup-nd-sup-step">2<sup>nd</sup> step:</a></h4>
+<ul>
+<li>
+<p>Calculate the high dimensional affinity matrix between every data pair.</p>
+<ul>
+<li>Note: p<sub>ij</sub> ≠ p<sub>i|j</sub></li>
+<li>p<sub>ij</sub> = (p<sub>j|i</sub> + p<sub>i|j</sub>) / 2n</li>
+</ul>
+</li>
+<li>The matrix has the dimensions n x n . The similarity of a point to itself is 0.</li>
+</ul>
+<h4><a name="3-sup-rd-sup-step" class="anchor" href="#3-sup-rd-sup-step">3<sup>rd</sup> step:</a></h4>
+<ul>
+<li>
+<p>Create an initial solution y(0) so that:</p>
+<ul>
+<li>y(0) is a matrix (n x d)</li>
+<li>y(0) contains as many rows as the original data matrix has rows (n)</li>
+<li>The number of values in each row is the number of dimensions you want to obtain in the end (d; in most cases 1-3, but should be defined by user).</li>
+<li>Each value is a randomly sampled from a normal distribution with mean = 0 and var = 0.0001.</li>
+</ul>
+</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// defines a normal distribuiton with mean = 3 and stDev = 2</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs37', 59)" onmouseover="showTip(event, 'fs37', 59)" class="id">normalDist</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs38', 60)" onmouseover="showTip(event, 'fs38', 60)" class="id">Distributions</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs39', 61)" onmouseover="showTip(event, 'fs39', 61)" class="m">Continuous</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs40', 62)" onmouseover="showTip(event, 'fs40', 62)" class="id">normal</span> <span class="n">3.</span> <span class="n">2.</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs41', 63)" onmouseover="showTip(event, 'fs41', 63)" class="fn">createInitialGuess</span> <span onmouseout="hideTip(event, 'fs42', 64)" onmouseover="showTip(event, 'fs42', 64)" class="fn">n</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs29', 65)" onmouseover="showTip(event, 'fs29', 65)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs43', 66)" onmouseover="showTip(event, 'fs43', 66)" class="id">init</span> <span onmouseout="hideTip(event, 'fs42', 67)" onmouseover="showTip(event, 'fs42', 67)" class="fn">n</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs44', 68)" onmouseover="showTip(event, 'fs44', 68)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs37', 69)" onmouseover="showTip(event, 'fs37', 69)" class="id">normalDist</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 70)" onmouseover="showTip(event, 'fs45', 70)" class="id">Sample</span><span class="pn">(</span><span class="pn">)</span><span class="pn">)</span>
+
+<span class="c">// see FSharp.Stats documentation for probability distributions in the first code block for details</span>
+<span class="c">// https://fslab.org/FSharp.Stats/Distributions.html#Normal-distribution)</span>
+</code></pre>
+<h4><a name="4-sup-th-sup-step" class="anchor" href="#4-sup-th-sup-step">4<sup>th</sup> step:</a></h4>
+<ul>
+<li>Recursively loop from t=1 to T (number of iterations)</li>
+</ul>
+<ul>
+<li>calculate low dimensional affinities (q<sub>ij</sub> (Equation 4)) for all low dimensional result vectors from 3<sup>rd</sup> step. Collect results in a matrix (n x n).</li>
+<li>compute gradient (Equation 5)</li>
+<li>calculate the updated result y(t) and repeat.</li>
+</ul>
+<h4><a name="5-sup-th-sup-step" class="anchor" href="#5-sup-th-sup-step">5<sup>th</sup> step:</a></h4>
+<ul>
+<li>report y(T) as final result</li>
+</ul>
+<h4><a name="6-sup-th-sup-step" class="anchor" href="#6-sup-th-sup-step">6<sup>th</sup> step:</a></h4>
+<ul>
+<li>Use a 2D and 3D scatter plot from Plotly.NET to visualize your result.</li>
+</ul>
+<h3><a name="Pseudocode" class="anchor" href="#Pseudocode">Pseudocode:</a></h3>
+<p><img src="../img/tSNE_pc.png" alt="" /></p>
+<h2><a name="References" class="anchor" href="#References">References</a></h2>
+<ul>
+<li><p>original work: <a href="https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf">https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf</a></p></li>
+<li><p><a href="https://cran.r-project.org/web/packages/Rtsne/Rtsne.pdf">https://cran.r-project.org/web/packages/Rtsne/Rtsne.pdf</a> page 5</p></li>
+<li>
+<p><a href="https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/">https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/</a></p>
+<ul>
+<li>Note: Inform yourself if the variance in Step 4 is in fact based on t distribution or if at this point of the algorithm a standard gaussian normal distribution is used!</li>
+</ul>
+</li>
+<li><p><a href="https://www.datacamp.com/community/tutorials/introduction-t-sne">https://www.datacamp.com/community/tutorials/introduction-t-sne</a></p></li>
+<li><p><a href="https://www.youtube.com/watch?v=NEaUSP4YerM">https://www.youtube.com/watch?v=NEaUSP4YerM</a></p></li>
+</ul>
+<h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+<p>Aim for this project:</p>
+<ol>
+<li>
+<p>Blog post introducing the method, its applications, and limitations.</p>
+<ul>
+<li>Don’t forget to describe the limits/weaknesses of the approach in your blog post.</li>
+<li>How to handle/preprocess ties?</li>
+</ul>
+</li>
+<li>
+<p>Function with parameters (suggestion):</p>
+<table>
+<thead>
+<tr class="header">
+<th><p>Parameter name</p></th>
+<th><p>data type</p></th>
+<th><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>data</p></td>
+<td><p><code>matrix</code></p></td>
+<td><p>datamatrix (cols=features, rows=elements)</p></td>
+</tr>
+<tr class="even">
+<td><p>dimensions</p></td>
+<td><p><code>int</code></p></td>
+<td><p>number of dimensions the final output data points have</p></td>
+</tr>
+<tr class="odd">
+<td><p>maxIter</p></td>
+<td><p><code>int</code></p></td>
+<td><p>maximal number of iterations</p></td>
+</tr>
+<tr class="even">
+<td><p>perplexity</p></td>
+<td><p><code>float</code></p></td>
+<td><p>inform yourself if the perplexity should be defined by the user, or is calculated within the algorithm</p></td>
+</tr>
+<tr class="odd">
+<td><p>learnRate</p></td>
+<td><p><code>float</code></p></td>
+<td><p>inform yourself</p></td>
+</tr>
+<tr class="even">
+<td><p>momentum</p></td>
+<td><p><code>float</code></p></td>
+<td><p>inform yourself</p></td>
+</tr>
+</tbody>
+</table>
+
+<ul>
+<li>Define default parameters.</li>
+</ul>
+</li>
+<li>Apply tSNE to a dataset of your choice.</li>
+<li>Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.</li>
+<li>Optional: Compare the method to PCA.</li>
+<li>If you have any questions mail to venn@bio.uni-kl.de.</li>
+</ol>
+
+                </div>
+            </div>
+        </div>
+        <div class="fsdocs-tip" id="fs1">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
+<div class="fsdocs-tip" id="fs2">namespace FSharp.Stats</div>
+<div class="fsdocs-tip" id="fs3">namespace Plotly</div>
+<div class="fsdocs-tip" id="fs4">namespace Plotly.NET</div>
+<div class="fsdocs-tip" id="fs5">val fromFileWithSep : separator:char -&gt; filePath:string -&gt; seq&lt;string []&gt;</div>
+<div class="fsdocs-tip" id="fs6">val separator : char</div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br />val char : value:&#39;T -&gt; char (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type char = System.Char</div>
+<div class="fsdocs-tip" id="fs8">val filePath : string</div>
+<div class="fsdocs-tip" id="fs9">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs10">val sr : System.IO.StreamReader</div>
+<div class="fsdocs-tip" id="fs11">namespace System</div>
+<div class="fsdocs-tip" id="fs12">namespace System.IO</div>
+<div class="fsdocs-tip" id="fs13">type File =<br />&#160;&#160;static member AppendAllLines : path: string * contents: IEnumerable&lt;string&gt; -&gt; unit + 1 overload<br />&#160;&#160;static member AppendAllLinesAsync : path: string * contents: IEnumerable&lt;string&gt; * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload<br />&#160;&#160;static member AppendAllText : path: string * contents: string -&gt; unit + 1 overload<br />&#160;&#160;static member AppendAllTextAsync : path: string * contents: string * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload<br />&#160;&#160;static member AppendText : path: string -&gt; StreamWriter<br />&#160;&#160;static member Copy : sourceFileName: string * destFileName: string -&gt; unit + 1 overload<br />&#160;&#160;static member Create : path: string -&gt; FileStream + 2 overloads<br />&#160;&#160;static member CreateText : path: string -&gt; StreamWriter<br />&#160;&#160;static member Decrypt : path: string -&gt; unit<br />&#160;&#160;static member Delete : path: string -&gt; unit<br />&#160;&#160;...</div>
+<div class="fsdocs-tip" id="fs14">System.IO.File.OpenText(path: string) : System.IO.StreamReader</div>
+<div class="fsdocs-tip" id="fs15">val not : value:bool -&gt; bool</div>
+<div class="fsdocs-tip" id="fs16">property System.IO.StreamReader.EndOfStream: bool with get</div>
+<div class="fsdocs-tip" id="fs17">val line : string</div>
+<div class="fsdocs-tip" id="fs18">System.IO.StreamReader.ReadLine() : string</div>
+<div class="fsdocs-tip" id="fs19">val words : string []</div>
+<div class="fsdocs-tip" id="fs20">System.String.Split([&lt;System.ParamArray&gt;] separator: char []) : string []<br />System.String.Split(separator: string [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int) : string []<br />System.String.Split(separator: char,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string, count: int,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char, count: int,?options: System.StringSplitOptions) : string []</div>
+<div class="fsdocs-tip" id="fs21">val lables : string []</div>
+<div class="fsdocs-tip" id="fs22">val data : float [] []</div>
+<div class="fsdocs-tip" id="fs23">Multiple items<br />module Seq<br /><br />from Plotly.NET<br /><br />--------------------<br />module Seq<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Seq<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="fsdocs-tip" id="fs24">val skip : count:int -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs25">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;</div>
+<div class="fsdocs-tip" id="fs26">val arr : string []</div>
+<div class="fsdocs-tip" id="fs27">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type float = System.Double<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =<br />&#160;&#160;float</div>
+<div class="fsdocs-tip" id="fs28">val toArray : source:seq&lt;&#39;T&gt; -&gt; &#39;T []</div>
+<div class="fsdocs-tip" id="fs29">Multiple items<br />module Array<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Array<br /><br />from Microsoft.FSharp.Collections</div>
+<div class="fsdocs-tip" id="fs30">val shuffleFisherYates : arr:&#39;b [] -&gt; &#39;b []</div>
+<div class="fsdocs-tip" id="fs31">val mapi : mapping:(int -&gt; &#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []</div>
+<div class="fsdocs-tip" id="fs32">val i : int</div>
+<div class="fsdocs-tip" id="fs33">val lable : string</div>
+<div class="fsdocs-tip" id="fs34">val data : float []</div>
+<div class="fsdocs-tip" id="fs35">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T</div>
+<div class="fsdocs-tip" id="fs36">val unzip : array:(&#39;T1 * &#39;T2) [] -&gt; &#39;T1 [] * &#39;T2 []</div>
+<div class="fsdocs-tip" id="fs37">val normalDist : Distributions.Distribution&lt;float,float&gt;</div>
+<div class="fsdocs-tip" id="fs38">namespace FSharp.Stats.Distributions</div>
+<div class="fsdocs-tip" id="fs39">module Continuous<br /><br />from FSharp.Stats.Distributions</div>
+<div class="fsdocs-tip" id="fs40">val normal : mu:float -&gt; sigma:float -&gt; Distributions.Distribution&lt;float,float&gt;</div>
+<div class="fsdocs-tip" id="fs41">val createInitialGuess : n:int -&gt; float []</div>
+<div class="fsdocs-tip" id="fs42">val n : int</div>
+<div class="fsdocs-tip" id="fs43">val init : count:int -&gt; initializer:(int -&gt; &#39;T) -&gt; &#39;T []</div>
+<div class="fsdocs-tip" id="fs44">val x : int</div>
+<div class="fsdocs-tip" id="fs45">abstract member Distributions.Distribution.Sample : unit -&gt; &#39;b</div>
+
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = '/BIO-BTE-10-L-4/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+<footer>
+    <script>
+        bulmaCollapsible.attach('.is-collapsible');
+    </script>
+</footer>
+</html>
