@@ -234,22 +234,23 @@ let neighbours =
     Neighbour.Create 7. [1]      [2]
     |]
 
+////// usage of PriorityQueue
 let myPQueue = PriorityQueue(neighbours,fun x -> x.Similarity)
+myPQueue.GetHead                                                                     // reports queues
+myPQueue.RemoveElement (Neighbour.Create 5. [3] [5])                                 // removes element from queue
+myPQueue.UpdateElement (Neighbour.Create 2. [0] [6]) (Neighbour.Create 200. [0] [6]) // update element in queue 
+myPQueue.RemoveElementsBy (fun x -> not (List.contains 3 x.Source))                  // update element in queue 
+myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.Source x.Target else x)// update elements in queue  by given function
 
-// reports queues
-myPQueue.GetHead
+////// usage of IntervalHeap
+#r "nuget: C5, 2.5.3"
+open C5
+let myHeap : IntervalHeap<Neighbour> = IntervalHeap(MemoryType.Normal)
 
-// removes element from queue
-myPQueue.RemoveElement (Neighbour.Create 5. [3] [5])
-
-// update element in queue 
-myPQueue.UpdateElement (Neighbour.Create 2. [0] [6]) (Neighbour.Create 200. [0] [6])
-
-// update element in queue 
-myPQueue.RemoveElementsBy (fun x -> not (List.contains 3 x.Source)) 
-
-// update elements in queue  by given function
-myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.Source x.Target else x)
+myHeap.AddAll(neighbours)                   // adds array of neighbours
+let max = myHeap.FindMax()                  // finds max value entry
+myHeap.DeleteMax()                          // deletes max value entry 
+myHeap.Filter (fun x -> x.Similarity = 5.)  // filters entries based on predicate function
 
 
 (**
@@ -291,6 +292,19 @@ myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.So
       - Replace the distances with new distances of the merged mergedCluster to all other clusters.
 
     - repeat cycle with next merge
+
+### 5<sup>th</sup> step:
+
+  - Clustering list now contains all possible cluster configurations. Convert the clustering list into
+  a binary tree structure such as ```ML.Unsupervised.HierarchicalClustering.Cluster<'a>```
+
+#### 6<sup>th</sup> step:
+
+  - Removing elements from the priority queue is slow. Is there a better way to avoid the deletion? 
+  
+    - maybe a Map(int[],bool) would be beneficial
+
+    - or another implementation of heap/priority queues like C5.IntervalHeap could be faster
 
 ## Goal/Additional information
 
