@@ -22,10 +22,12 @@ index: 1
 4.	Goal/Additional information
 
 ## Introduction
+
   - tSNE is a dimensionality reduction method. It allows you to visualise a multi-dimensional dataset in 2 or 3 dimensional scatter plot. 
 But what does that mean in practice? Imagine you measured height, weight, width, density, brightness, as well as magnetic, chemical, 
 and physical properties of a bunch of objects. The simplest technique to summarize your measurements is a spreadsheet table in which each 
 row represents an element, and each column represents a measured feature:
+
 
   |Object ID|height|weight|width|density|brightness|magnetic field|...|
   |---------|------|------|-----|-------|----------|--------------|---|
@@ -34,16 +36,19 @@ row represents an element, and each column represents a measured feature:
   |objectC|15|20|1|2|11|10000000|...|
   |...|...|...|...|...|...|...|...|
   
+  
 
   - Note that the measured features span multiple orders of magnitude. A change of 1 in height for example has much more value than a change 
 of 1 regarding the magnetic field. If now clusters of similar behaving objects should be identified, you are limited to inspect the data set 
 column-wise by repetitive sorting. Just from the table you cannot create a meaningful graph, that allows you to perform a visual inspection of all features at once. 
 Like principal component analysis (PCA), tSNE is a method for dimensionality reduction. It aggregates all features to a feature subset that 
 allows a visual inspection of the complex data. It often is applied in image processing, NLP, genomic data, and speech processing. 
-
+  
+  
   ![](../img/tSNE.png)
-
-
+  Fig. 1: Idea of tSNE. Visualisation of a high dimensional data on a 2-dimensional scatter plot. 
+  
+  
 ## Coding Clues
 
 ### Notes:
@@ -205,13 +210,13 @@ let createInitialGuess n = Array.init n (fun x -> normalDist.Sample())
 
 Aim for this project: 
 
-  1. Blog post introducing the method, its applications, and limitations.
+1. Blog post introducing the method, its applications, and limitations.
 
-    - Don’t forget to describe the limits/weaknesses of the approach in your blog post.
+  - Don’t forget to describe the limits/weaknesses of the approach in your blog post.
 
-    - How to handle/preprocess ties?
+  - How to handle/preprocess ties?
 
-  2. Function with parameters (suggestion):
+2. Function with parameters (suggestion):
     
   |Parameter name|data type|description|
   |--------------|---------|-----------|
@@ -222,15 +227,15 @@ Aim for this project:
   |learnRate|```float```|inform yourself|
   |momentum|```float```|inform yourself|
 
-    - Define default parameters.
+  - Define default parameters.
 
-  3. Apply tSNE to a dataset of your choice.
+3. Apply tSNE to a dataset of your choice.
 
-  4. Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.
+4. Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.
 
-  5. Optional: Compare the method to PCA.
+5. Optional: Compare the method to PCA.
 
-
+6. If you have any questions mail to venn@bio.uni-kl.de.
 
 *)
 

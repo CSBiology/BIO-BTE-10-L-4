@@ -28,6 +28,10 @@ index: 2
 
 ## Introduction
 
+![](../img/overview.png)
+
+Fig 1: Generating a hierarchical tree structure from a complex data set. Vertical thresholds (yellow, green, violet) generate different cluster numbers.
+
 Clustering methods can be used to group elements of a huge data set based on their similarity. Elements sharing similar properties cluster together and can be 
 reported as coherent group. These properties could be e.g. (a) similar gene expression kinetics in time series, (b) similar physicochemical properties, (c) genetic 
 similarity measures for phylogenetic trees, etc.
@@ -51,18 +55,15 @@ There are two types of _hClust_:
   - The presented implementation is an agglomerative type.
 
 
-  ![](../img/overview.png)
-  Fig 1: Generating a hierarchical tree structure from a complex data set. Vertical thresholds (yellow, green, violet) creates different cluster numbers.
-
 There are several distance metrics, that can be used as distance function. The commonly used one probably is Euclidean distance. By inverting the distance, you end up with a similarity. High similarities indicate low distances, and vice versa. By calculating the similarities for every element pair, a similarity matrix can be generated.
 
-  ![](../img/simMatrix.png)
-  Fig 2: Data matrix (left) with measurement types as columns and (biological) entities as rows. The data matrix can be converted into a similarity matrix, that contain the inverse of distances.
+![](../img/simMatrix.png)
 
+Fig 2: Data matrix (left) with measurement types as columns and (biological) entities as rows. The data matrix can be converted into a similarity matrix, that contain the inverse of distances.
 
+![](../img/workflow.png)
 
-  ![](../img/workflow.png)
-  Fig 3: Workflow as proposed in pseudo code in Reference#2. 
+Fig 3: Workflow as proposed in pseudo code in Reference#2. 
 
 ## References
 
@@ -88,7 +89,7 @@ There are several distance metrics, that can be used as distance function. The c
 
     - single linkage, complete linkage, and centroid based linkage types
 
-  - Down below you can see the Pseudocode the efficient agglomerative hierarchical clustering (HAC) is based on:
+  - Down below you can see the pseudo code (not F#!) the efficient agglomerative hierarchical clustering (_HAC_) is based on:
 
     ```
     // Generating priority queue
@@ -252,17 +253,19 @@ myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.So
 
 
 (**
+  - Some example applications of the PriorityQueue type are shown above.
+  
   - Generate a priority queue that is descending regarding the similarity. 
 
 
 ### 3<sup>rd</sup> step:
   - Create a clustering list, that contains information of the current clustering state. This could be an ```int list []``` where each of the lists contains indices of clustered data points. Since in the beginning all data points are in its own cluster the clustering list could look as follows: 
 
-    - ```[|[0];[1];[2];...[n-1]|]```
+    - ```let clusteringList = [|[0];[1];[2];...[n-1]|]```
 
   - When cluster 1 and 2 merge, the clustering list may look like this:
 
-    - ```[|[0];[1;2];[];...[n-1]|]```
+    - ```let clusteringList = [|[0];[1;2];[];...[n-1]|]```
 
 ### 4<sup>th</sup> step:
   - Now the agglomeration starts. Since every data point is in its own cluster, you can perform n-1 agglomeration (merging) steps before you result in a single cluster that contains all data points.
@@ -291,15 +294,15 @@ myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.So
 
 ## Goal/Additional information
 
-  - Introduction into hierarchical clustering:
+1. Introduction into hierarchical clustering:
 
-    - What is solved by the usage of hClust?
-    
-    - Classical application examples.
-    
-    - Limitations/Drawbacks of hClust.
+  - What is solved by the usage of hClust?
+  
+  - Classical application examples.
+  
+  - Limitations/Drawbacks of hClust.
 
-  - Implement hClust functions with parameters:
+2. Implement hClust functions with parameters:
 
     |Parameter name|data type|description|
     |--------------|---------|-----------|
@@ -309,12 +312,12 @@ myPQueue.UpdateBy (fun x -> if x.Similarity > 2. then Neighbour.Create 100. x.So
     ||||
     |output|```ML.Unsupervised.HierarchicalClustering.Cluster<'a>``` or cluster configuration list||
 
-  - Short description of the algorithm: 
+3. Short description of the algorithm: 
 
   - maybe with flowchart visualization
 
-  - Test the algorithm on a data set of your choice
+4. Test the algorithm with a data set of your choice.
 
-
+5. If you have any questions mail to venn@bio.uni-kl.de.
 
 *)
