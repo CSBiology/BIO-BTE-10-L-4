@@ -31,9 +31,9 @@ Setzen Sie Ihre Fähigkeiten mit einer individuellen Projektarbeit im Bereich de
 
 - **Themenwahl**: Die angebotenen Projektarbeitsthemen können sie der Sidebar links entnehmen. Die jeweiligen Artikel geben bereits einen detailierten Überblick über das Thema und verschiedene Hinweise und Tipps für deren Bearbeitung. 
 
-- **Themenbearbeitung**: Nach einem Einführungsgespräch bearbeiten sie das Thema digital in Eigenregie. Wir stehen ihnen dabei natürlich bei technischen und/oder Verständnisproblemen zur Verfügung. 
+- **Themenbearbeitung**: Nach einem Einführungsgespräch bearbeiten sie das Thema digital in Eigenregie. Wir stehen Ihnen dabei natürlich bei technischen und/oder Verständnisproblemen zur Verfügung. 
 
-    _[Optional]_ Um ihre Arbeit zu versionieren und leichter teilbar zu machen, empfiehlt sich die Einrichtung und Pflege eines [Repositories auf GitHub](https://guides.github.com/activities/hello-world/). Bei Interesse kann hier auch eine Einführung unsererseits erfolgen.
+    _[Optional]_ Um Ihre Arbeit zu versionieren und leichter teilbar zu machen, empfiehlt sich die Einrichtung und Pflege eines [Repositories auf GitHub](https://guides.github.com/activities/hello-world/). Bei Interesse kann hier auch eine Einführung unsererseits erfolgen.
 
 - **Leistungsnachweis**: Der Leistungsnachweis erfolgt durch eine Nachbesprechung und ein Protokoll mitsamt Dokumentation und Anwendungsbeispiel des Projekts. Art und Präsentation des Protokolls kann abhängig vom Projekt leicht unterschiedlich sein, grundsätzlich sollten Folgende Punkte aber immer beachtet werden:
     - Einleitender Text zu Problemstellung, Themenfeld, etc. (hier gerne an der Projektvorstellung orientieren)
