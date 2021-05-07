@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Phylogenetic tree reconstruction based on evolutionary distance</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-tips.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="/BIO-BTE-10-L-4/">
+                        <figure class="image is-128x128 container">
+                            <img src="/BIO-BTE-10-L-4/img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white pb-4">BIO-BTE-10-L-4</h2>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right searchbox" id="fsdocs-searchbox">
+                                <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">
+  projects
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/tSNE.html">
+    t-Distributed Stochastic Neighbour Embedding
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/hClust.html">
+    efficient agglomerative hierarchical clustering
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/evolutionary-distance.html">
+    Phylogenetic tree reconstruction based on evolutionary distance
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    
+<h1><a name="Phylogenetic-tree-reconstruction-based-on-evolutionary-distance" class="anchor" href="#Phylogenetic-tree-reconstruction-based-on-evolutionary-distance">Phylogenetic tree reconstruction based on evolutionary distance</a></h1>
+<p><strong>Interested?</strong> Contact <a href="mailto:muehlhaus@bio.uni-kl.de">muehlhaus@bio.uni-kl.de</a> or <a href="mailto:schneike@bio.uni-kl.de">schneike@bio.uni-kl.de</a></p>
+<h4><a name="Table-of-contents" class="anchor" href="#Table-of-contents">Table of contents</a></h4>
+<ul>
+<li>
+<a href="#Introduction">Introduction</a>
+<ul>
+<li><a href="#Phylogenetic-trees">Phylogenetic trees</a></li>
+<li>
+<a href="#Evolutionary-Distance-of-DNA-sequences">Evolutionary Distance of DNA sequences</a>
+<ul>
+<li><a href="#Pairwise-p-distance">Pairwise p distance</a></li>
+</ul>
+</li>
+<li>
+<a href="#Distance-Corrections-based-on-evolutionary-Models">Distance Corrections based on evolutionary Models</a>
+<ul>
+<li><a href="#The-Jukes-Cantor-Model">The Jukes-Cantor Model</a></li>
+<li><a href="#The-Kimura-Model">The Kimura Model</a></li>
+<li><a href="#The-Kimura-2-Parameter-Model">The Kimura 2-Parameter Model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Aim-for-this-project">Aim for this project</a></li>
+<li><a href="#Coding-clues">Coding clues</a></li>
+<li><a href="#References">References</a></li>
+<li><a href="#Additional-information">Additional information</a></li>
+</ul>
+<h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
+<h3><a name="Phylogenetic-trees" class="anchor" href="#Phylogenetic-trees">Phylogenetic trees</a></h3>
+<p>Phylogenetic trees are diagrams that visualize inferred evolutionary relationships between a set of organisms. Consider this tree diagram:</p>
+<pre class="fssnip highlighted"><code lang="fsharp">         <span class="id">____</span> <span class="id">A</span>
+       <span class="id">_</span><span class="pn">|</span>
+      <span class="pn">|</span> <span class="pn">|</span><span class="id">____</span> <span class="id">B</span>
+<span class="id">______</span><span class="pn">|</span>
+      <span class="pn">|</span><span class="id">______</span> <span class="id">C</span>
+</code></pre>
+<p>Ancestors are shown as nodes on the tree, while the leaves represent the respective organisms.
+It tells you that A and B share a common ancestor, and that that ancestor shares a common ancestor with C.
+In other words, A and B are closer related to each other, than each of them to C.</p>
+<p>A and B form a <em>clade</em> together with their common ancestor (also known as a <em>monophyletic group</em>) - a group of organisms that includes a single ancestor
+and all of its descendents that represent unbroken lines of evolutionary descent.</p>
+<p>But based on what information do we construct such trees? There are different classes of approaches to this problem, but to stay beginner-friendy,
+only <em>distance-based</em> methods will be discussed in the scope of this project. For sake of completeness, other approaches include <em>parsimony</em>,
+<em>maximum likelihood</em> and <em>Bayesian approaches</em> to searching the possible tree space.</p>
+<p>The first step in any (distance-based) phylogenetic tree reconstruction is the selection of the characteristic to infer evolutionary relationships from,
+and subsequently the determination of the phylogenetic distance between the organisms of interest based on that characteristic.</p>
+<hr />
+<h3><a name="Evolutionary-Distance-of-DNA-sequences" class="anchor" href="#Evolutionary-Distance-of-DNA-sequences">Evolutionary Distance of DNA sequences</a></h3>
+<p>Any kind of characteristic of organisms can be used to try to infer phylogenetic relationships - like for example beaks of Darwin finches -
+but DNA sequences have proven to be incredibliy helpful to reconstruct phylogenetic trees, as the nucleotide alphabet is relatively
+simple and sequencing data has reached unparalleled throughput and accuracy. Likewise, there are a wide range of sophisticated methods to
+calculate phylogenetic distance based on DNA sequences.</p>
+<p>In the scope of this project, you will take a step back and look at some classic evolutionary models that can be used to model phylogenetic
+distance based on DNA sequences.</p>
+<p>A few important bits of jargon for the following chapters:</p>
+<ul>
+<li>
+DNA substitution mutations can be classified by 2 types:
+<ul>
+<li><em>Transitions</em> are interchanges of two-ring purines (A <> G) or of one-ring pyrimidines (C <> T)</li>
+<li><em>Transversions</em> are interchanges of purine for pyrimidine bases or vice versa (A <> T | A <> C | G <> T | G <> C)</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h4><a name="Proportional-distance" class="anchor" href="#Proportional-distance">Proportional distance</a></h4>
+<p>The pairwise proportional distance (or <em>p distance</em>) is the classical 'naive' approach to estimate pairwise distances between two sequences.</p>
+<p>It is simply the ratio between substitution sites and</p>
+<p>It does not make any correction for multiple substitutions at the same site, substitution rate biases (for example, differences in the transitional and transversional rates), or differences in evolutionary rates among sites.</p>
+<h3><a name="Distance-Corrections-based-on-evolutionary-Models" class="anchor" href="#Distance-Corrections-based-on-evolutionary-Models">Distance Corrections based on evolutionary Models</a></h3>
+<hr />
+<h4><a name="The-Jukes-Cantor-Model" class="anchor" href="#The-Jukes-Cantor-Model">The Jukes-Cantor Model</a></h4>
+<hr />
+<h4><a name="The-Kimura-2-Parameter-Model" class="anchor" href="#The-Kimura-2-Parameter-Model">The Kimura 2-Parameter Model</a></h4>
+<hr />
+<h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
+<p>You understand the following evolutionary distance models and are able to explain the differences between them (required in your final report)
+Also, you implement them in F# for the BioFSharp library:</p>
+<ul>
+<li>Pairwise p Distance</li>
+<li>JC69 evolutionary distance based on the model by Jukes and Cantor</li>
+<li>K81 evolutionary distance based on the Kimura two-parameter model</li>
+</ul>
+<p>As a demonstration of your implementations, as well as to show the differences between these models,
+You construct at least 10 adequate test sequences of equal length, and construct phyologenetic trees from them.
+Investigate the most interesting and obvious differences, and relate them to the different model assumptions.</p>
+<p>Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.</p>
+<h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
+<h3><a name="Before-you-start" class="anchor" href="#Before-you-start">Before you start</a></h3>
+<ul>
+<li>make sure you (re)familiarize yourself with the basics behind phylogenetic trees.</li>
+<li></li>
+</ul>
+<h3><a name="Scripting-environment-and-necessary-libraries" class="anchor" href="#Scripting-environment-and-necessary-libraries">Scripting environment and necessary libraries</a></h3>
+<ul>
+<li>
+create a F# script (.fsx), load and open the following libraries:
+<ul>
+<li><code>FSharpAux</code></li>
+<li><code>FSharpAux.IO</code></li>
+<li><code>FSharp.Stats</code></li>
+<li><code>BioFSharp</code></li>
+<li><code>BioFSharp.IO</code></li>
+<li><code>Plotly.NET</code></li>
+</ul>
+</li>
+</ul>
+<p>the top of your script file should look like this:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux.IO&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.1&quot;</span> 
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-beta5&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp.IO, 2.0.0-beta5&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-beta9&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharpAux</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="id">FSharpAux</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="id">IO</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="id">BioFSharp</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">BioFSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">IO</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">Plotly</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="id">NET</span>
+</code></pre>
+<h3><a name="General-coding-advice" class="anchor" href="#General-coding-advice">General coding advice</a></h3>
+<ul>
+<li>
+<p>All pairwise distance functions should be able to operate on either <code>BioArray</code>, <code>BioList</code>, or <code>BioSeq</code>.
+You can use the fact that all of these sequence types are implementing <code>IEnumerable</code> and can only contain <code>IBioItem</code>s.</p>
+<p>The adequate functions therefore all should have the following signature:</p>
+<p><code>seq&lt;#IBioItem&gt; -&gt; seq&lt;#IBioItem&gt; -&gt; float</code></p>
+</li>
+<li>
+<p>To perform hierarchical clustering to reconstruct the phylogenetic trees, use the respective module from the <code>FSharp.Stats</code> library:</p>
+<ul>
+<li>use your distance function as distance metric</li>
+<li><p>use the <code>upgmaLwLinker</code> function as linker, this determines the function that is used to determine the distance between newly created ancestor nodes.</p></li>
+<li><p>Documentation of these functions can be found <a href="https://fslab.org/FSharp.Stats/Clustering.html#Hierarchical-clustering">here</a></p></li>
+</ul>
+</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 11)" onmouseover="showTip(event, 'fs3', 11)" class="id">BioFSharp</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 13)" onmouseover="showTip(event, 'fs6', 13)" class="id">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 15)" onmouseover="showTip(event, 'fs6', 15)" class="id">Stats</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="id">ML</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 17)" onmouseover="showTip(event, 'fs5', 17)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 18)" onmouseover="showTip(event, 'fs6', 18)" class="id">Stats</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 19)" onmouseover="showTip(event, 'fs9', 19)" class="id">ML</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="id">Unsupervised</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="fn">yourDistance</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="fn">seqA</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs13', 23)" onmouseover="showTip(event, 'fs13', 23)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="fn">seqB</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 27)" onmouseover="showTip(event, 'fs14', 27)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+
+<span class="c">//construct a function that clusters input data based on your diostance function(s)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="fn">clusterSequences</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs17', 29)" onmouseover="showTip(event, 'fs17', 29)" class="fn">data</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 30)" onmouseover="showTip(event, 'fs13', 30)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs13', 31)" onmouseover="showTip(event, 'fs13', 31)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 32)" onmouseover="showTip(event, 'fs14', 32)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs18', 33)" onmouseover="showTip(event, 'fs18', 33)" class="m">HierarchicalClustering</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 34)" onmouseover="showTip(event, 'fs19', 34)" class="id">generate</span> 
+        <span onmouseout="hideTip(event, 'fs11', 35)" onmouseover="showTip(event, 'fs11', 35)" class="fn">yourDistance</span> <span class="c">// your distance function for either p, jc69, or K81 distance</span>
+        <span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="m">HierarchicalClustering</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 37)" onmouseover="showTip(event, 'fs20', 37)" class="m">Linker</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 38)" onmouseover="showTip(event, 'fs21', 38)" class="id">upgmaLwLinker</span> <span class="c">//use this premade linker function  </span>
+        <span onmouseout="hideTip(event, 'fs17', 39)" onmouseover="showTip(event, 'fs17', 39)" class="fn">data</span>
+</code></pre>
+<p>to perform Multiple sequence alignment between your real worl sequence examples, use the respective functions from <code>BioFSharp</code>:</p>
+<ul>
+<li>There are two ways of handling the gaps produced by alignments: <em>Complete-Deletion</em> and <em>Pairwise Deletion</em> inform yourself about them.</li>
+</ul>
+<p>-</p>
+<hr />
+<h2><a name="References" class="anchor" href="#References">References</a></h2>
+<p>Nei, M. &amp; Zhang J. Evolutionary Distance: Estimation 2006 <a href="https://doi.org/10.1038/npg.els.0005108">https://doi.org/10.1038/npg.els.0005108</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">https://en.wikipedia.org/wiki/Models_of_DNA_evolution</a></p>
+<p><a href="https://www.cs.rice.edu/~nakhleh/COMP571/Slides/Phylogenetics-DistanceMethods-Full.pdf">https://www.cs.rice.edu/~nakhleh/COMP571/Slides/Phylogenetics-DistanceMethods-Full.pdf</a></p>
+<p><a href="https://www.megasoftware.net/mega1_manual/Distance.html">https://www.megasoftware.net/mega1_manual/Distance.html</a></p>
+<h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="fsdocs-tip" id="fs1">namespace FSharpAux</div>
+<div class="fsdocs-tip" id="fs2">namespace FSharpAux.IO</div>
+<div class="fsdocs-tip" id="fs3">namespace BioFSharp</div>
+<div class="fsdocs-tip" id="fs4">namespace BioFSharp.IO</div>
+<div class="fsdocs-tip" id="fs5">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
+<div class="fsdocs-tip" id="fs6">namespace FSharp.Stats</div>
+<div class="fsdocs-tip" id="fs7">namespace Plotly</div>
+<div class="fsdocs-tip" id="fs8">namespace Plotly.NET</div>
+<div class="fsdocs-tip" id="fs9">namespace FSharp.Stats.ML</div>
+<div class="fsdocs-tip" id="fs10">namespace FSharp.Stats.ML.Unsupervised</div>
+<div class="fsdocs-tip" id="fs11">val yourDistance : seqA:seq&lt;IBioItem&gt; -&gt; seqB:seq&lt;IBioItem&gt; -&gt; &#39;a</div>
+<div class="fsdocs-tip" id="fs12">val seqA : seq&lt;IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs13">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs14">type IBioItem =<br />&#160;&#160;abstract member Formula : Formula<br />&#160;&#160;abstract member Name : string<br />&#160;&#160;abstract member Symbol : char<br />&#160;&#160;abstract member isGap : bool<br />&#160;&#160;abstract member isTerminator : bool</div>
+<div class="fsdocs-tip" id="fs15">val seqB : seq&lt;IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs16">val clusterSequences : data:seq&lt;seq&lt;IBioItem&gt;&gt; -&gt; HierarchicalClustering.Cluster&lt;seq&lt;IBioItem&gt;&gt;</div>
+<div class="fsdocs-tip" id="fs17">val data : seq&lt;seq&lt;IBioItem&gt;&gt;</div>
+<div class="fsdocs-tip" id="fs18">module HierarchicalClustering<br /><br />from FSharp.Stats.ML.Unsupervised</div>
+<div class="fsdocs-tip" id="fs19">val generate : distance:DistanceMetrics.Distance&lt;&#39;T&gt; -&gt; linker:HierarchicalClustering.Linker.LancWilliamsLinker -&gt; data:seq&lt;&#39;T&gt; -&gt; HierarchicalClustering.Cluster&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs20">module Linker<br /><br />from FSharp.Stats.ML.Unsupervised.HierarchicalClustering</div>
+<div class="fsdocs-tip" id="fs21">val upgmaLwLinker : int * int * int -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float</div>
+
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = '/BIO-BTE-10-L-4/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+<footer>
+    <script>
+        bulmaCollapsible.attach('.is-collapsible');
+    </script>
+</footer>
+</html>
