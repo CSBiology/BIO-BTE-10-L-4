@@ -70,55 +70,72 @@ In Prim's algorithm, you start a new graph by selecting a single vertex in the o
 - [Introduction to graphs and networks](http://networksciencebook.com/chapter/2#networks-graphs)
 - [Minimum spanning tree](https://en.wikipedia.org/wiki/Minimum_spanning_tree)
 - [Prim's algorithm](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
+- [Graph Visualization](https://fslab.org/Cyjs.NET/)
 
 ## Coding clues
+
+### General steps:
 
 1. Initialize a tree with a single vertex, chosen arbitrarily from the graph.
 2. Grow the tree by one edge: of the edges that connect the tree to vertices not yet in the tree, find the minimum-weight edge, and transfer it to the tree.
 3. Repeat step 2 (until all vertices are in the tree).
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-
-
-
-
-
-
-
-
-1. Associate with each vertex v of the graph a number C[v] (the cheapest cost of a connection to v) and an edge E[v] (the edge providing that cheapest connection). To initialize these values, set all values of C[v] to +∞ (or to any number larger than the maximum edge weight) and set each E[v] to a special flag value indicating that there is no edge connecting v to earlier vertices.
-
-2. Initialize an empty forest F and a set Q of vertices that have not yet been included in F (initially, all vertices).
-
-3. Repeat the following steps until Q is empty:
-
-    - Find and remove a vertex v from Q having the minimum possible value of C[v]
-    - Add v to F and, if E[v] is not the special flag value, also add E[v] to F
-    - Loop over the edges vw connecting v to other vertices w. For each such edge, if w still belongs to Q and vw has smaller weight than C[w], perform the following steps:
-        - Set C[w] to the cost of edge vw
-        - Set E[w] to point to edge vw.
-
-4. Return F
+### Using the graph library:
 
 *)
 
-let f x = 1
+#r "nuget: FSharp.FGL" 
+
+open FSharp.FGL
+open FSharp.FGL.Undirected
+
+// Create a new graph
+let g : Graph<int,string,float> = Graph.empty
+
+
+// Add vertices 
+let v1 = (1,"VertexNumeroUno")
+let v2 = (2,"VertexNumeroDos")
+
+let gWithVertices = 
+    Vertices.add v1 g
+    |> Vertices.add v2
+
+// Add edges
+let e = (1,2,1.)
+
+let gWithEdge = 
+    Edges.add e gWithVertices
+
+// Show all edges to find the best
+Edges.toEdgeList
+
+// Remove vertex (Including its edges)
+Vertices.remove (fst v1) gWithEdge
+
+(**
+### Visualize the graph:
+*)
+
+#r "nuget: Cyjs.NET"
+
+open Cyjs.NET
+
+let inline toCyJS (g : Graph<'Vertex,'Label,float>) =
+    let vertices = 
+        g
+        |> Vertices.toVertexList
+        |> List.map (fun (id,name) -> Elements.node (string id) [CyParam.label (string name)])
+
+    let edges =
+        g
+        |> Edges.toEdgeList
+        |> List.map (fun (v1,v2,weight) -> Elements.edge (string v1 + string v2) (string v1) (string v2) [CyParam.weight (weight)])
+
+    CyGraph.initEmpty ()
+    |> CyGraph.withElements vertices
+    |> CyGraph.withElements edges
+
+gWithEdge
+|> toCyJS
+|> CyGraph.show
