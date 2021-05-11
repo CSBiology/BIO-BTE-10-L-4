@@ -135,7 +135,23 @@ let inline toCyJS (g : Graph<'Vertex,'Label,float>) =
     CyGraph.initEmpty ()
     |> CyGraph.withElements vertices
     |> CyGraph.withElements edges
+    |> CyGraph.withStyle "node" [CyParam.content =. CyParam.label]
+    |> CyGraph.withStyle "edge" [CyParam.content =. CyParam.weight]
 
+(***do-not-eval***)
 gWithEdge
 |> toCyJS
 |> CyGraph.show
+
+(**
+<br>
+
+#### The visualized graph should look as follows:
+*)
+
+(*** hide ***)
+gWithEdge
+|> toCyJS
+|> CyGraph.withSize(600, 400) 
+|> Cyjs.NET.HTML.toEmbeddedHTML
+(*** include-it-raw ***)
