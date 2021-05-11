@@ -1,0 +1,1 @@
+bulmaCollapsible.attach('.is-collapsible');

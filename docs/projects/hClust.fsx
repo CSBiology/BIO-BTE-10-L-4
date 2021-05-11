@@ -13,18 +13,25 @@ index: 2
 
 **Interested?** Contact [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de) or [venn@bio.uni-kl.de](mailto:venn@bio.uni-kl.de)
 
-## Content
+#### Table of contents
 
-1. Introduction
+#### Table of contents
 
-2. Aim for this project
-
-3. Coding clues
-
-4. References
-
-5. Additional information
-
+- [Introduction](#Introduction) 
+- [Aim for this project](#Aim-for-this-project)
+- [Coding clues](#Coding-clues)
+    - [Step 0](#0-sup-th-sup-step)
+    - [Step 1](#1-sup-st-sup-step)
+    - [Step 2 - generate priority queue](#2-sup-nd-sup-step-Generate-priority-queue)
+    - [Step 3](#3-sup-rd-sup-step)
+    - [Step 4](#4-sup-th-sup-step)
+    - [Step 5](#5-sup-th-sup-step)
+    - [Step 6 - Function implementation in F#](#6-sup-th-sup-step-Function-implementation-in-F)
+    - [Step 7 - Further coding considerations](#7-sup-th-sup-step-Further-coding-considerations)
+- [References](#References)
+- [Additional information](#Additional-information)
+    - [Testing](#Testing)
+    - [Blog post](#Blog-post)
 
 
 ## Introduction
@@ -65,16 +72,6 @@ Fig 2: Data matrix (left) with measurement types as columns and (biological) ent
 ![](../img/workflow.png)
 
 Fig 3: Workflow as proposed in pseudo code in Reference#2. 
-
-## References
-
-- https://www.youtube.com/watch?v=7xHsRkOdVwo
-
-- https://github.com/srirambaskaran/efficient-hierarchical-clustering
-
-- https://nlp.stanford.edu/IR-book/pdf/17hier.pdf
-
-- https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b
 
 
 ## Aim for this project
@@ -325,6 +322,16 @@ myHeap.Filter (fun x -> x.Similarity = 5.)  // filters entries based on predicat
     - maybe a Map(int[],bool), or a nested priority queue (see Reference#2) would be beneficial
 
     - or another implementation of heap/priority queues like C5.IntervalHeap could be faster
+
+## References
+
+- https://www.youtube.com/watch?v=7xHsRkOdVwo
+
+- https://github.com/srirambaskaran/efficient-hierarchical-clustering
+
+- https://nlp.stanford.edu/IR-book/pdf/17hier.pdf
+
+- https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b
 
 
 ## Additional information

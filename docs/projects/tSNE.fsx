@@ -13,17 +13,26 @@ index: 1
 
 **Interested?** Contact [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de) or [venn@bio.uni-kl.de](mailto:venn@bio.uni-kl.de)
 
-## Content
+#### Table of contents
 
-1. Introduction
-
-2. Aim for this project
-
-3. Coding clues
-
-4. References
-
-5. Additional information
+- [Introduction](#Introduction) 
+- [Aim for this project](#Aim-for-this-project)
+- [Coding clues](#Coding-clues)
+    - [Notes](#Notes)
+    - [Pseudocode](#Pseudocode)
+    - [Step 0](#0-sup-th-sup-step)
+    - [Step 1](#1-sup-st-sup-step)
+    - [Step 2](#2-sup-nd-sup-step)
+    - [Step 3](#3-sup-rd-sup-step)
+    - [Step 4](#4-sup-th-sup-step)
+    - [Step 5](#5-sup-th-sup-step)
+    - [Step 6](#6-sup-th-sup-step)
+    - [Step 7](#7-sup-th-sup-step)
+    - [Step 8 - Function implementation in F#](#8-sup-th-sup-step-Function-implementation-in-F)
+- [References](#References)
+- [Additional information](#Additional-information)
+    - [Testing](#Testing)
+    - [Blog post](#Blog-post)
 
 ## Introduction
 
@@ -58,7 +67,7 @@ allows a visual inspection of the complex data. It often is applied in image pro
 2. Implement t-Distributed Stochastic Neighbour Embedding in FSharp.Stats.
 
   
-## Coding Clues
+## Coding clues
 
 ### Notes:
 
