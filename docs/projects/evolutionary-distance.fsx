@@ -17,13 +17,15 @@ index: 3
 - [Introduction](#Introduction) 
     - [Phylogenetic trees](#Phylogenetic-trees)
     - [Evolutionary Distance of DNA sequences](#Evolutionary-Distance-of-DNA-sequences)
-        - [Pairwise p distance](#Pairwise-p-distance)
+        - [Proportional distance](#Proportional-distance)
     - [Distance Corrections based on evolutionary Models](#Distance-Corrections-based-on-evolutionary-Models)
         - [The Jukes-Cantor Model](#The-Jukes-Cantor-Model)
-        - [The Kimura Model](#The-Kimura-Model)
         - [The Kimura 2-Parameter Model](#The-Kimura-2-Parameter-Model)
 - [Aim for this project](#Aim-for-this-project)
 - [Coding clues](#Coding-clues)
+    - [Before you start](#Before-you-start)
+    - [Scripting environment and necessary libraries](#Scripting-environment-and-necessary-libraries)
+    - [General coding advice](#General-coding-advice)
 - [References](#References)
 - [Additional information](#Additional-information)
 
@@ -55,6 +57,8 @@ _maximum likelihood_ and _Bayesian approaches_ to searching the possible tree sp
 The first step in any (distance-based) phylogenetic tree reconstruction is the selection of the characteristic to infer evolutionary relationships from, 
 and subsequently the determination of the phylogenetic distance between the organisms of interest based on that characteristic.
 
+<br>
+
 ---
 
 ### Evolutionary Distance of DNA sequences
@@ -73,23 +77,80 @@ A few important bits of jargon for the following chapters:
     - _Transitions_ are interchanges of two-ring purines (A <> G) or of one-ring pyrimidines (C <> T)
     - _Transversions_ are interchanges of purine for pyrimidine bases or vice versa (A <> T | A <> C | G <> T | G <> C)
 
+<img style="max-width:30%" src="../img/transitions-transversions.svg"></img>
+
+<br>
+
 ---
 
 #### Proportional distance
 
 The pairwise proportional distance (or _p distance_) is the classical 'naive' approach to estimate pairwise distances between two sequences. 
 
-It is simply the ratio between substitution sites and 
+It is simply the ratio between substitution sites and the length of the sequences. Note that - as in all distances you will implement - both 
+sequences have to be of the same length or have to be aligned before calculating distances. It is obtained by dividing the amount of substitutions 
+by the total amount of compared nucleotides:
 
-It does not make any correction for multiple substitutions at the same site, substitution rate biases (for example, differences in the transitional and transversional rates), or differences in evolutionary rates among sites.
+$p = \frac{d}{L},$
+
+where 
+
+$d = s + v$
+
+$s : Transitions$
+
+$v : Transversions$
+
+$L : length$
+
+What are the advantages and weaknesses of this approach? Inform yourself.
+
+<br>
+
+---
 
 ### Distance Corrections based on evolutionary Models
 
+To overcome the shortcomings of the simple proportional distance, many evolutionary models for biological sequences are available.
+Most of the time, sequence evolution by mutation is described as a stochastic process modelled by continuous-time Markov chains, with 
+the alphabet (for DNA: _A, C, G, T_) as possible states.
 
+For any sequence position, these models are then defining a substitution probability matrix based that acts as the stochastic matrix of the markov chain.
+
+A basic understanding of markov chains may be beneficial, but not necessary. It is just important that these models define probabilities 
+for transitions and transversions, and can be solved for a corrected pairwise distance that suffices the model substitution criteria.
+
+<br>
 
 ---
 
 #### The Jukes-Cantor Model
+
+The Jukes-Cantor model is the simplest form of these kinds of models. It makes no difference between transitions and transversions, 
+meaning that all substitutions have the same substitution rate ($\alpha$). Also, all sites are modelled independently.
+
+The substitution matrix is:
+
+$$$
+\begin{matrix}
+& \begin{matrix}A & & C & & G & & T\end{matrix} \\\\
+\begin{matrix}A\\\\C\\\\G\\\\T\end{matrix} & 
+  \begin{pmatrix}
+    -3\alpha&\alpha&\alpha&\alpha\\\\
+    \alpha&-3\alpha&\alpha&\alpha\\\\
+    \alpha&\alpha&-3\alpha&\alpha\\\\
+    \alpha&\alpha&\alpha&-3\alpha
+  \end{pmatrix}\\\\
+\end{matrix}
+
+$3\alpha t$ mutations would be expected during a time $t$ for each sequence site on each sequence, leading to
+a correction factor for the proportional distance $d_{JC}$ :
+
+$$d_{JC}=-\frac{3}{4}ln(1-\frac{4}{3}p)$$
+
+What are the advantages and weaknesses of this approach? Inform yourself.
+
+<br>
 
 
 
@@ -97,7 +158,33 @@ It does not make any correction for multiple substitutions at the same site, sub
 
 #### The Kimura 2-Parameter Model
 
+The substitution matrix is:
 
+$$$
+\begin{matrix}
+& \begin{matrix}A & & & & C & & & & G & & & & T\end{matrix} \\\\
+\begin{matrix}A\\\\C\\\\G\\\\T\end{matrix} & 
+  \begin{pmatrix}
+    -2\beta-\alpha&\beta&\alpha&\beta\\\\
+    \beta&-2\beta-\alpha&\beta&\alpha\\\\
+    \alpha&\beta&-2\beta-\alpha&\beta\\\\
+    \beta&\alpha&\beta&-2\beta-\alpha
+  \end{pmatrix}\\\\
+\end{matrix}
+
+It results in a corrected distance $d_{K2P}$:
+
+$d_{K2P}=-\frac{1}{2}ln(1-2P-Q)-\frac{1}{4}ln(1-2Q)$,
+
+where
+
+$P=\frac{s}{L}$
+
+$Q=\frac{v}{L}$
+
+What are the advantages and weaknesses of this approach? Inform yourself.
+
+<br>
 
 ---
 
@@ -116,13 +203,17 @@ Investigate the most interesting and obvious differences, and relate them to the
 
 Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.
 
+**Bonus**: You implement a visualization method for phylogenetic trees for [Cyjs.NET](). 
+
 ## Coding clues
 
 ### Before you start 
 
-- make sure you (re)familiarize yourself with the basics behind phylogenetic trees.
+- (re)familiarize yourself with the basics behind phylogenetic trees.
 
-- 
+- (re)familiarize yourself with F# function signatures and the basics of F# programming.
+
+- A basic understanding of Markov chains is beneficial, but not necessary.
 
 ### Scripting environment and necessary libraries
 
@@ -140,8 +231,8 @@ the top of your script file should look like this:
 #r "nuget: FSharpAux"
 #r "nuget: FSharpAux.IO"
 #r "nuget: FSharp.Stats, 0.4.1" 
-#r "nuget: BioFSharp, 2.0.0-beta5"
-#r "nuget: BioFSharp.IO, 2.0.0-beta5"
+#r "nuget: BioFSharp, 2.0.0-beta6"
+#r "nuget: BioFSharp.IO, 2.0.0-beta6"
 #r "nuget: Plotly.NET, 2.0.0-beta9"
 
 open FSharpAux
@@ -156,42 +247,93 @@ open Plotly.NET
 ### General coding advice
 
 - All pairwise distance functions should be able to operate on either `BioArray`, `BioList`, or `BioSeq`. 
-You can use the fact that all of these sequence types are implementing `IEnumerable` and can only contain `IBioItem`s.
+You can use the fact that all of these sequence types are implementing `IEnumerable` and can only contain nucleotides.
 
-    The adequate functions therefore all should have the following signature: 
+<br>
 
-    ```seq<#IBioItem> -> seq<#IBioItem> -> float```
+---
 
-- To perform hierarchical clustering to reconstruct the phylogenetic trees, use the respective module from the `FSharp.Stats` library:
-    - use your distance function as distance metric
-    - use the `upgmaLwLinker` function as linker, this determines the function that is used to determine the distance between newly created ancestor nodes.
-    - Documentation of these functions can be found [here](https://fslab.org/FSharp.Stats/Clustering.html#Hierarchical-clustering)
+- To perform hierarchical clustering to reconstruct the phylogenetic trees, use the respective module from the `BioFSharp` library 
+(`PhylogeneticTree` functions) and work with `TaggedSequence`s:
+
+<br>
+
 *)
-
 
 (***do-not-eval***)
 open BioFSharp
-open FSharp.Stats
-open FSharp.Stats.ML
-open FSharp.Stats.ML.Unsupervised
 
+(***do-not-eval***)
 let yourDistance (seqA: seq<IBioItem>) (seqB:seq<IBioItem>) = ...
 
-//construct a function that clusters input data based on your diostance function(s)
-let clusterSequences (data:seq<seq<IBioItem>>) = 
-    HierarchicalClustering.generate 
-        yourDistance // your distance function for either p, jc69, or K81 distance
-        HierarchicalClustering.Linker.upgmaLwLinker //use this premade linker function  
-        data
+(***do-not-eval***)
+//reconstruct a phylogenetic tree from tagged sequences
+let myTree =
+    PhylogeneticTree.ofTaggedBioSequences
+        yourDistance // your distance function for either p, JC69, or K81 distance
+        yourSequences // your adequate nucleotide test sequences as tagged sequences 
 
 (**
+<br>
 
-to perform Multiple sequence alignment between your real worl sequence examples, use the respective functions from `BioFSharp`:
+---
 
+- to perform Multiple sequence alignment between your real world sequence examples, use the respective functions from `BioFSharp`:
 
-- There are two ways of handling the gaps produced by alignments: _Complete-Deletion_ and _Pairwise Deletion_ inform yourself about them.
+    For that, you have to first install [clustal omega](http://www.clustal.org/omega/clustal-omega-1.2.2-win64.zip), a very nice multiple sequence aligment tool. 
+    You can use it directly in F# interactive via BioFSharp's `ClustalOWrapper`:
 
--
+<br>
+
+*)
+
+open ClustalOWrapper
+let cw = ClustalOWrapper("path/where/you/extracted/clustal-omega-1.2.2-win64/clustalo.exe") // replace with real path from your machine here!
+
+let sequences = 
+    [
+    TaggedSequence.create "seq1" ("ATGAAAAA")
+    TaggedSequence.create "seq2" ("ATGAAACA")
+    TaggedSequence.create "seq3" ("ATGAAAAAAT")
+    TaggedSequence.create "seq4" ("ATGGAAAA")
+    ]
+
+let alignedSequences = 
+    cw.AlignSequences(sequences,Seq.empty)
+
+(**
+<br>
+
+---
+
+- There are two ways of handling the gaps produced by alignments: _Complete-Deletion_ and _Pairwise Deletion_ inform yourself about them.  
+
+    _Hint1_: The output of above alignment contains conservation information about the alignment. 
+
+    _Hint2_: You might want to add an additional parameter to your distance function modelling this behaviour. For that, use a Discriminated Union type.
+
+<br>
+
+---
+
+- Here is a suggestion for the general workflow for the real-world sequences:
+
+>**Suggested workflow**
+>
+>Read your fasta formatted sequences
+>
+>Perform multiple sequence alignment $A$
+>
+>for each implemented distance function $dist$:
+>
+>$\quad$reconstruct phylogenetic tree for $A$ with $dist$ function
+>
+>$\quad$Write as newick format
+>
+>$\quad$Visualize tree, for example on http://etetoolkit.org/treeview/
+
+---
+
 *)
 
 
