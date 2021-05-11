@@ -20,36 +20,49 @@ Problem's like this are predetermined to be regarded as a graph problem. Graphs 
 Although simple in principal, graphs can become complex as they grow. Graph algorithms have emerged for all kinds of problems. One of them is finding minimum spanning trees which have been used to solve the problem described in the beginning.
 
 
-
 ##### Interested?
 
-Continue reading and write a mail to [Lukas](mailto:weil@bio.uni-kl.de) or [Timo](mailto:muehlhaus@bio.uni-kl.de)
+Continue reading and write a mail to [weil@bio.uni-kl.de](mailto:weil@bio.uni-kl.de) or [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de)
 
 ## Content
 
-1. Minimum spanning trees
+<br>
 
-2. Prim's algorithm
+1. [Minimum spanning trees](#Minimum-spanning-trees) 
 
-3. Aim for this project
+2. [Aim for this project](#Aim-for-this-project)
 
-4. References
+3. [Prim's algorithm](#Prim-s-algorithm) 
 
-5. Coding clues
+4. [References](#References)
 
-
-
-
-
+5. [Coding clues](#Coding-clues)
 
 ## Minimum spanning trees
 
 A minimum spanning tree (MST) or minimum weight spanning tree is a subset of the edges of a connected, edge-weighted undirected graph that connects all the vertices together, without any cycles and with the minimum possible total edge weight.
 
+As indicated above, MSTs have applications everytime someone needs to design an efficient grid. Examples for this might be electric grids, road grids or water pipe grids. 
+Besides that, MSTs can be used for studying epidemeology by finding the shortest paths trough which pathogens might traverse a population network.
+
+In biological research, MFTs might be used for visualization or clustering purposes. An example for this can be seen in the picture below, where phylogenetic groups were found and visualized using an MST.
+
 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Minimum_spanning_tree.svg/1200px-Minimum_spanning_tree.svg.png" alt="drawing" width="45%"/>
 <img src="https://www.researchgate.net/profile/Michel-Fabre-2/publication/234090394/figure/fig11/AS:341854030712841@1458515760884/Minimum-spanning-tree-based-upon-whole-genome-SNP-analysis-The-tree-is-based-upon-13382.png" alt="drawing" width="45%"/>
 
-Some more motivational words
+<br>
+
+Several algorithms exist for finding MST, where often there is a tradeoff made between performance and quality of the result. Your task will be to implement one of them.
+
+## Aim for this project
+
+<br>
+
+- Get a basic understanding of network science
+
+- Implement Prim's algorithm for finding minimum spanning trees
+
+- Write a blogpost entry 
 
 ## Prim's algorithm
 
@@ -58,12 +71,6 @@ Prim's algorithm is a simple, greedy approach for finding the MST of a network. 
 In Prim's algorithm, you start a new graph by selecting a single vertex in the original graph. This new graph is repetitively grown by finding the closest connections to vertices not yet included in the MST.
 
 ![prims](https://upload.wikimedia.org/wikipedia/commons/9/9b/PrimAlgDemo.gif)
-
-## Aim for this project
-
-- Get a basic understanding of network science
-- Implement Prim's algorithm for finding minimum spanning trees
-- Write a blogpost entry 
 
 ## References
 
