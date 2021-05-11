@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>efficient agglomerative hierarchical clustering</title>
+    <title>Efficient agglomerative hierarchical clustering</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
@@ -62,7 +62,7 @@
 </li>             
 <li class="nav-item">
   <a class="nav-link" href="/BIO-BTE-10-L-4/projects/hClust.html">
-    efficient agglomerative hierarchical clustering
+    Efficient agglomerative hierarchical clustering
   </a>
 </li>             
 <li class="nav-item">
@@ -79,11 +79,15 @@
                 <div class="container" id="fsdocs-content">
                     
 <h1><a name="Implementation-of-an-efficient-hierarchical-agglomerative-clustering-algorithm" class="anchor" href="#Implementation-of-an-efficient-hierarchical-agglomerative-clustering-algorithm">Implementation of an efficient hierarchical agglomerative clustering algorithm</a></h1>
+<p><strong>Interested?</strong> Contact <a href="mailto:muehlhaus@bio.uni-kl.de">muehlhaus@bio.uni-kl.de</a> or <a href="mailto:venn@bio.uni-kl.de">venn@bio.uni-kl.de</a></p>
 <h2><a name="Content" class="anchor" href="#Content">Content</a></h2>
-<p>1.	Introduction</p>
-<p>2.	Coding clues</p>
-<p>3.	References</p>
-<p>4.	Goal/Additional information</p>
+<ol>
+<li>Introduction</li>
+<li>Aim for this project</li>
+<li>Coding clues</li>
+<li>References</li>
+<li>Additional information</li>
+</ol>
 <h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 <p><img src="../img/overview.png" alt="" /></p>
 <p>Fig 1: Generating a hierarchical tree structure from a complex data set. Vertical thresholds (yellow, green, violet) generate different cluster numbers.</p>
@@ -116,6 +120,11 @@ Subsequently the tree can be cut at any vertical line which will result in a def
 <li><p><a href="https://nlp.stanford.edu/IR-book/pdf/17hier.pdf">https://nlp.stanford.edu/IR-book/pdf/17hier.pdf</a></p></li>
 <li><p><a href="https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b">https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b</a></p></li>
 </ul>
+<h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
+<ol>
+<li>Blog post introducing the method, its applications, and limitations.</li>
+<li>Implement an efficient agglomerative hierarchical clustering in FSharp.Stats.</li>
+</ol>
 <h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
 <h3><a name="0-sup-th-sup-step" class="anchor" href="#0-sup-th-sup-step">0<sup>th</sup> step:</a></h3>
 <ul>
@@ -339,28 +348,10 @@ Clustering list now contains all possible cluster configurations. Convert the cl
 a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Cluster&lt;'a&gt;</code>
 </li>
 </ul>
-<h4><a name="6-sup-th-sup-step" class="anchor" href="#6-sup-th-sup-step">6<sup>th</sup> step:</a></h4>
+<h3><a name="6-sup-th-sup-step-Function-implementation-in-F" class="anchor" href="#6-sup-th-sup-step-Function-implementation-in-F">6<sup>th</sup> step: Function implementation in F#</a></h3>
 <ul>
-<li>
-<p>Removing elements from the priority queue is slow. Is there a better way to avoid the deletion?</p>
-<ul>
-<li><p>maybe a Map(int[],bool) would be beneficial</p></li>
-<li>or another implementation of heap/priority queues like C5.IntervalHeap could be faster</li>
+<li>create a function, that contains all necessary helper functions in its body and takes the following parameters (suggestion):</li>
 </ul>
-</li>
-</ul>
-<h2><a name="Goal-Additional-information" class="anchor" href="#Goal-Additional-information">Goal/Additional information</a></h2>
-<ol>
-<li>
-<p>Introduction into hierarchical clustering:</p>
-<ul>
-<li>What is solved by the usage of hClust?</li>
-<li>Classical application examples.</li>
-<li>Limitations/Drawbacks of hClust.</li>
-</ul>
-</li>
-<li>
-<p>Implement hClust functions with parameters:</p>
 <table>
 <thead>
 <tr class="header">
@@ -398,16 +389,29 @@ a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Clu
 </tbody>
 </table>
 
-</li>
-<li>
-<p>Short description of the algorithm:</p>
+<h3><a name="7-sup-th-sup-step-Further-coding-considerations" class="anchor" href="#7-sup-th-sup-step-Further-coding-considerations">7<sup>th</sup> step: Further coding considerations</a></h3>
 <ul>
-<li>maybe with flowchart visualization</li>
+<li>
+<p>Removing elements from the priority queue is slow. Is there a better way to avoid the deletion?</p>
+<ul>
+<li><p>maybe a Map(int[],bool), or a nested priority queue (see Reference#2) would be beneficial</p></li>
+<li>or another implementation of heap/priority queues like C5.IntervalHeap could be faster</li>
 </ul>
 </li>
-<li>Test the algorithm with a data set of your choice.</li>
-<li>If you have any questions mail to venn@bio.uni-kl.de.</li>
-</ol>
+</ul>
+<h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+<h3><a name="Testing" class="anchor" href="#Testing">Testing</a></h3>
+<ul>
+<li>apply hClust to a dataset of your choice</li>
+<li>optional: Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.</li>
+</ul>
+<h3><a name="Blog-post" class="anchor" href="#Blog-post">Blog post</a></h3>
+<ul>
+<li>What is solved by the usage of hClust?</li>
+<li>classical application examples</li>
+<li>limitations/drawbacks of hClust</li>
+<li>short description of the algorithm (maybe with flowchart visualization)</li>
+</ul>
 
                 </div>
             </div>

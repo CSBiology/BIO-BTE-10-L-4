@@ -3,15 +3,19 @@
 
 # t-Distributed Stochastic Neighbour Embedding (tSNE)
 
+**Interested?** Contact [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de) or [venn@bio.uni-kl.de](mailto:venn@bio.uni-kl.de)
+
 ## Content
 
-1.	Introduction
+1. Introduction
 
-2.	Coding clues
+2. Aim for this project
 
-3.	References
+3. Coding clues
 
-4.	Goal/Additional information
+4. References
+
+5. Additional information
 
 ## Introduction
 
@@ -28,7 +32,6 @@ row represents an element, and each column represents a measured feature:
   |objectC|15|20|1|2|11|10000000|...|
   |...|...|...|...|...|...|...|...|
   
-  
 
   - Note that the measured features span multiple orders of magnitude. A change of 1 in height for example has much more value than a change 
 of 1 regarding the magnetic field. If now clusters of similar behaving objects should be identified, you are limited to inspect the data set 
@@ -40,6 +43,12 @@ allows a visual inspection of the complex data. It often is applied in image pro
   ![](../img/tSNE.png)
   Fig. 1: Idea of tSNE. Visualisation of a high dimensional data on a 2-dimensional scatter plot. 
   
+## Aim for this project
+
+1. Blog post introducing the method, its applications, and limitations.
+
+2. Implement t-Distributed Stochastic Neighbour Embedding in FSharp.Stats.
+
   
 ## Coding Clues
 
@@ -60,6 +69,10 @@ allows a visual inspection of the complex data. It often is applied in image pro
   - exp(t) indicates e<sup>t</sup>
 
   - A t distribution with degree of freedom = 1 is equal to 0.3183*(1+t²)-1 where the first constant part can be neglected if the constant term exists in all calculations.
+
+### Pseudocode:
+
+![](../img/tSNE_pc.png)
 
 #### 0<sup>th</sup> step: 
 
@@ -100,7 +113,7 @@ let lables,data =
     |> Array.mapi (fun i (lable,data) -> sprintf "%s_%i" lable i, data)
     |> Array.unzip
 (**
-#### 1<sup>st</sup> step:
+#### 2<sup>nd</sup> step:
 
   - Calculate a Euclidean distance matrix using ```ML.DistanceMetrics.euclidean```. The matrix’ dimensions are n x n.
   
@@ -113,7 +126,7 @@ let lables,data =
     - (2) low dimensional affinity q (q<sub>ij</sub>) (Equation 4)
 
 
-#### 2<sup>nd</sup> step: 
+#### 3<sup>rd</sup> step: 
 
   - Calculate the high dimensional affinity matrix between every data pair.
 
@@ -124,7 +137,7 @@ let lables,data =
   - The matrix has the dimensions n x n . The similarity of a point to itself is 0.
 
 
-#### 3<sup>rd</sup> step: 
+#### 4<sup>th</sup> step: 
 
   - Create an initial solution y(0) so that:
 
@@ -146,7 +159,7 @@ let createInitialGuess n = Array.init n (fun x -> normalDist.Sample())
 // see FSharp.Stats documentation for probability distributions in the first code block for details
 // https://fslab.org/FSharp.Stats/Distributions.html#Normal-distribution)
 (**
-#### 4<sup>th</sup> step:
+#### 5<sup>th</sup> step:
 
   - Recursively loop from t=1 to T (number of iterations)
 
@@ -157,49 +170,18 @@ let createInitialGuess n = Array.init n (fun x -> normalDist.Sample())
 
   - calculate the updated result y(t) and repeat.
 
-
-#### 5<sup>th</sup> step:
+#### 6<sup>th</sup> step:
 
   - report y(T) as final result
 
-
-#### 6<sup>th</sup> step:
-
+#### 7<sup>th</sup> step:
+  
   - Use a 2D and 3D scatter plot from Plotly.NET to visualize your result.
 
+#### 8<sup>th</sup> step: Function implementation in F#
 
-### Pseudocode:
-
-![](../img/tSNE_pc.png)
-
-
-## References
-
-  - original work: https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf 
-
-  - https://cran.r-project.org/web/packages/Rtsne/Rtsne.pdf page 5
-
-  - https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/
-
-    - Note: Inform yourself if the variance in Step 4 is in fact based on t distribution or if at this point of the algorithm a standard gaussian normal distribution is used!
-
-  - https://www.datacamp.com/community/tutorials/introduction-t-sne
-
-  - https://www.youtube.com/watch?v=NEaUSP4YerM 
-
-
-## Additional information
-
-Aim for this project: 
-
-1. Blog post introducing the method, its applications, and limitations.
-
-  - Don’t forget to describe the limits/weaknesses of the approach in your blog post.
-
-  - How to handle/preprocess ties?
-
-2. Function with parameters (suggestion):
-    
+  - create a function, that contains all necessary helper functions in its body and takes the following parameters (suggestion):
+  
   |Parameter name|data type|description|
   |--------------|---------|-----------|
   |data|```matrix```|datamatrix (cols=features, rows=elements)|
@@ -209,15 +191,39 @@ Aim for this project:
   |learnRate|```float```|inform yourself|
   |momentum|```float```|inform yourself|
 
-  - Define default parameters.
+  - Default parameters should be given in the function description or as optional paramter.
 
-3. Apply tSNE to a dataset of your choice.
 
-4. Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.
+## References
 
-5. Optional: Compare the method to PCA.
+  - van der Maaten & Hinton; Visualizing Data using t-SNE (2008) [PDF](https://lvdmaaten.github.io/publications/papers/JMLR_2008.pdf )
 
-6. If you have any questions mail to venn@bio.uni-kl.de.
+  - https://www.youtube.com/watch?v=NEaUSP4YerM 
+
+  - https://cran.r-project.org/web/packages/Rtsne/Rtsne.pdf page 5
+
+  - https://www.analyticsvidhya.com/blog/2017/01/t-sne-implementation-r-python/
+
+    - Note: Inform yourself if the variance in Step 4 is in fact based on t distribution or if at this point of the algorithm a standard gaussian normal distribution is used!
+
+  - https://www.datacamp.com/community/tutorials/introduction-t-sne
+
+
+## Additional information
+
+### Testing
+
+  - Apply tSNE to a dataset of your choice.
+
+  - optional: Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.
+
+### Blog post 
+
+  - Don’t forget to describe the limits/weaknesses of the approach in your blog post.
+
+  - How to handle/preprocess ties?
+
+  - optional: Compare the method to PCA.
 
 
 *)
