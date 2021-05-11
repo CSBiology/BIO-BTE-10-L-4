@@ -14,6 +14,7 @@
     <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-default.css" />
     <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-custom.css" />
     <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-tips.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/init.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css">
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -89,21 +90,27 @@
 <li>
 <a href="#Evolutionary-Distance-of-DNA-sequences">Evolutionary Distance of DNA sequences</a>
 <ul>
-<li><a href="#Pairwise-p-distance">Pairwise p distance</a></li>
+<li><a href="#Proportional-distance">Proportional distance</a></li>
 </ul>
 </li>
 <li>
 <a href="#Distance-Corrections-based-on-evolutionary-Models">Distance Corrections based on evolutionary Models</a>
 <ul>
 <li><a href="#The-Jukes-Cantor-Model">The Jukes-Cantor Model</a></li>
-<li><a href="#The-Kimura-Model">The Kimura Model</a></li>
 <li><a href="#The-Kimura-2-Parameter-Model">The Kimura 2-Parameter Model</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li><a href="#Aim-for-this-project">Aim for this project</a></li>
-<li><a href="#Coding-clues">Coding clues</a></li>
+<li>
+<a href="#Coding-clues">Coding clues</a>
+<ul>
+<li><a href="#Before-you-start">Before you start</a></li>
+<li><a href="#Scripting-environment-and-necessary-libraries">Scripting environment and necessary libraries</a></li>
+<li><a href="#General-coding-advice">General coding advice</a></li>
+</ul>
+</li>
 <li><a href="#References">References</a></li>
 <li><a href="#Additional-information">Additional information</a></li>
 </ul>
@@ -126,6 +133,7 @@ only <em>distance-based</em> methods will be discussed in the scope of this proj
 <em>maximum likelihood</em> and <em>Bayesian approaches</em> to searching the possible tree space.</p>
 <p>The first step in any (distance-based) phylogenetic tree reconstruction is the selection of the characteristic to infer evolutionary relationships from,
 and subsequently the determination of the phylogenetic distance between the organisms of interest based on that characteristic.</p>
+<br>
 <hr />
 <h3><a name="Evolutionary-Distance-of-DNA-sequences" class="anchor" href="#Evolutionary-Distance-of-DNA-sequences">Evolutionary Distance of DNA sequences</a></h3>
 <p>Any kind of characteristic of organisms can be used to try to infer phylogenetic relationships - like for example beaks of Darwin finches -
@@ -144,16 +152,71 @@ DNA substitution mutations can be classified by 2 types:
 </ul>
 </li>
 </ul>
+<img style="max-width:30%" src="../img/transitions-transversions.svg"></img>
+<br>
 <hr />
 <h4><a name="Proportional-distance" class="anchor" href="#Proportional-distance">Proportional distance</a></h4>
 <p>The pairwise proportional distance (or <em>p distance</em>) is the classical 'naive' approach to estimate pairwise distances between two sequences.</p>
-<p>It is simply the ratio between substitution sites and</p>
-<p>It does not make any correction for multiple substitutions at the same site, substitution rate biases (for example, differences in the transitional and transversional rates), or differences in evolutionary rates among sites.</p>
+<p>It is simply the ratio between substitution sites and the length of the sequences. Note that - as in all distances you will implement - both
+sequences have to be of the same length or have to be aligned before calculating distances. It is obtained by dividing the amount of substitutions
+by the total amount of compared nucleotides:</p>
+<p><span class="math">\(p = \frac{d}{L},\)</span></p>
+<p>where</p>
+<p><span class="math">\(d = s + v\)</span></p>
+<p><span class="math">\(s : Transitions\)</span></p>
+<p><span class="math">\(v : Transversions\)</span></p>
+<p><span class="math">\(L : length\)</span></p>
+<p>What are the advantages and weaknesses of this approach? Inform yourself.</p>
+<br>
+<hr />
 <h3><a name="Distance-Corrections-based-on-evolutionary-Models" class="anchor" href="#Distance-Corrections-based-on-evolutionary-Models">Distance Corrections based on evolutionary Models</a></h3>
+<p>To overcome the shortcomings of the simple proportional distance, many evolutionary models for biological sequences are available.
+Most of the time, sequence evolution by mutation is described as a stochastic process modelled by continuous-time Markov chains, with
+the alphabet (for DNA: <em>A, C, G, T</em>) as possible states.</p>
+<p>For any sequence position, these models are then defining a substitution probability matrix based that acts as the stochastic matrix of the markov chain.</p>
+<p>A basic understanding of markov chains may be beneficial, but not necessary. It is just important that these models define probabilities
+for transitions and transversions, and can be solved for a corrected pairwise distance that suffices the model substitution criteria.</p>
+<br>
 <hr />
 <h4><a name="The-Jukes-Cantor-Model" class="anchor" href="#The-Jukes-Cantor-Model">The Jukes-Cantor Model</a></h4>
+<p>The Jukes-Cantor model is the simplest form of these kinds of models. It makes no difference between transitions and transversions,
+meaning that all substitutions have the same substitution rate (<span class="math">\(\alpha\)</span>). Also, all sites are modelled independently.</p>
+<p>The substitution matrix is:</p>
+<p><span class="math">\[\begin{matrix}
+&amp; \begin{matrix}A &amp; &amp; C &amp; &amp; G &amp; &amp; T\end{matrix} \\\\
+\begin{matrix}A\\\\C\\\\G\\\\T\end{matrix} &amp; 
+  \begin{pmatrix}
+    -3\alpha&amp;\alpha&amp;\alpha&amp;\alpha\\\\
+    \alpha&amp;-3\alpha&amp;\alpha&amp;\alpha\\\\
+    \alpha&amp;\alpha&amp;-3\alpha&amp;\alpha\\\\
+    \alpha&amp;\alpha&amp;\alpha&amp;-3\alpha
+  \end{pmatrix}\\\\
+\end{matrix}\]</span></p>
+<p><span class="math">\(3\alpha t\)</span> mutations would be expected during a time <span class="math">\(t\)</span> for each sequence site on each sequence, leading to
+a correction factor for the proportional distance <span class="math">\(d_{JC}\)</span> :</p>
+<p><span class="math">\[d_{JC}=-\frac{3}{4}ln(1-\frac{4}{3}p)\]</span></p>
+<p>What are the advantages and weaknesses of this approach? Inform yourself.</p>
+<br>
 <hr />
 <h4><a name="The-Kimura-2-Parameter-Model" class="anchor" href="#The-Kimura-2-Parameter-Model">The Kimura 2-Parameter Model</a></h4>
+<p>The substitution matrix is:</p>
+<p><span class="math">\[\begin{matrix}
+&amp; \begin{matrix}A &amp; &amp; &amp; &amp; C &amp; &amp; &amp; &amp; G &amp; &amp; &amp; &amp; T\end{matrix} \\\\
+\begin{matrix}A\\\\C\\\\G\\\\T\end{matrix} &amp; 
+  \begin{pmatrix}
+    -2\beta-\alpha&amp;\beta&amp;\alpha&amp;\beta\\\\
+    \beta&amp;-2\beta-\alpha&amp;\beta&amp;\alpha\\\\
+    \alpha&amp;\beta&amp;-2\beta-\alpha&amp;\beta\\\\
+    \beta&amp;\alpha&amp;\beta&amp;-2\beta-\alpha
+  \end{pmatrix}\\\\
+\end{matrix}\]</span></p>
+<p>It results in a corrected distance <span class="math">\(d_{K2P}\)</span>:</p>
+<p><span class="math">\(d_{K2P}=-\frac{1}{2}ln(1-2P-Q)-\frac{1}{4}ln(1-2Q)\)</span>,</p>
+<p>where</p>
+<p><span class="math">\(P=\frac{s}{L}\)</span></p>
+<p><span class="math">\(Q=\frac{v}{L}\)</span></p>
+<p>What are the advantages and weaknesses of this approach? Inform yourself.</p>
+<br>
 <hr />
 <h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
 <p>You understand the following evolutionary distance models and are able to explain the differences between them (required in your final report)
@@ -167,11 +230,13 @@ Also, you implement them in F# for the BioFSharp library:</p>
 You construct at least 10 adequate test sequences of equal length, and construct phyologenetic trees from them.
 Investigate the most interesting and obvious differences, and relate them to the different model assumptions.</p>
 <p>Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.</p>
+<p><strong>Bonus</strong>: You implement a visualization method for phylogenetic trees for <a href="">Cyjs.NET</a>.</p>
 <h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
 <h3><a name="Before-you-start" class="anchor" href="#Before-you-start">Before you start</a></h3>
 <ul>
-<li>make sure you (re)familiarize yourself with the basics behind phylogenetic trees.</li>
-<li></li>
+<li>(re)familiarize yourself with the basics behind phylogenetic trees.</li>
+<li>(re)familiarize yourself with F# function signatures and the basics of F# programming.</li>
+<li>A basic understanding of Markov chains is beneficial, but not necessary.</li>
 </ul>
 <h3><a name="Scripting-environment-and-necessary-libraries" class="anchor" href="#Scripting-environment-and-necessary-libraries">Scripting environment and necessary libraries</a></h3>
 <ul>
@@ -191,8 +256,8 @@ create a F# script (.fsx), load and open the following libraries:
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux.IO&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.1&quot;</span> 
-<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-beta5&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp.IO, 2.0.0-beta5&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-beta6&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp.IO, 2.0.0-beta6&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-beta9&quot;</span>
 
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharpAux</span>
@@ -205,39 +270,80 @@ create a F# script (.fsx), load and open the following libraries:
 <h3><a name="General-coding-advice" class="anchor" href="#General-coding-advice">General coding advice</a></h3>
 <ul>
 <li>
-<p>All pairwise distance functions should be able to operate on either <code>BioArray</code>, <code>BioList</code>, or <code>BioSeq</code>.
-You can use the fact that all of these sequence types are implementing <code>IEnumerable</code> and can only contain <code>IBioItem</code>s.</p>
-<p>The adequate functions therefore all should have the following signature:</p>
-<p><code>seq&lt;#IBioItem&gt; -&gt; seq&lt;#IBioItem&gt; -&gt; float</code></p>
+All pairwise distance functions should be able to operate on either <code>BioArray</code>, <code>BioList</code>, or <code>BioSeq</code>. 
+You can use the fact that all of these sequence types are implementing <code>IEnumerable</code> and can only contain nucleotides.
 </li>
+</ul>
+<br>
+<hr />
+<ul>
 <li>
-<p>To perform hierarchical clustering to reconstruct the phylogenetic trees, use the respective module from the <code>FSharp.Stats</code> library:</p>
-<ul>
-<li>use your distance function as distance metric</li>
-<li><p>use the <code>upgmaLwLinker</code> function as linker, this determines the function that is used to determine the distance between newly created ancestor nodes.</p></li>
-<li><p>Documentation of these functions can be found <a href="https://fslab.org/FSharp.Stats/Clustering.html#Hierarchical-clustering">here</a></p></li>
-</ul>
+To perform hierarchical clustering to reconstruct the phylogenetic trees, use the respective module from the <code>BioFSharp</code> library 
+(<code>PhylogeneticTree</code> functions) and work with <code>TaggedSequence</code>s:
 </li>
 </ul>
+<br>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 11)" onmouseover="showTip(event, 'fs3', 11)" class="id">BioFSharp</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 12)" onmouseover="showTip(event, 'fs5', 12)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 13)" onmouseover="showTip(event, 'fs6', 13)" class="id">Stats</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 14)" onmouseover="showTip(event, 'fs5', 14)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 15)" onmouseover="showTip(event, 'fs6', 15)" class="id">Stats</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 16)" onmouseover="showTip(event, 'fs9', 16)" class="id">ML</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs5', 17)" onmouseover="showTip(event, 'fs5', 17)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 18)" onmouseover="showTip(event, 'fs6', 18)" class="id">Stats</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs9', 19)" onmouseover="showTip(event, 'fs9', 19)" class="id">ML</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="id">Unsupervised</span>
-
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs11', 21)" onmouseover="showTip(event, 'fs11', 21)" class="fn">yourDistance</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs12', 22)" onmouseover="showTip(event, 'fs12', 22)" class="fn">seqA</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs13', 23)" onmouseover="showTip(event, 'fs13', 23)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 24)" onmouseover="showTip(event, 'fs14', 24)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs15', 25)" onmouseover="showTip(event, 'fs15', 25)" class="fn">seqB</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 26)" onmouseover="showTip(event, 'fs13', 26)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 27)" onmouseover="showTip(event, 'fs14', 27)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
-
-<span class="c">//construct a function that clusters input data based on your diostance function(s)</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 28)" onmouseover="showTip(event, 'fs16', 28)" class="fn">clusterSequences</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs17', 29)" onmouseover="showTip(event, 'fs17', 29)" class="fn">data</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs13', 30)" onmouseover="showTip(event, 'fs13', 30)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs13', 31)" onmouseover="showTip(event, 'fs13', 31)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs14', 32)" onmouseover="showTip(event, 'fs14', 32)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> 
-    <span onmouseout="hideTip(event, 'fs18', 33)" onmouseover="showTip(event, 'fs18', 33)" class="m">HierarchicalClustering</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs19', 34)" onmouseover="showTip(event, 'fs19', 34)" class="id">generate</span> 
-        <span onmouseout="hideTip(event, 'fs11', 35)" onmouseover="showTip(event, 'fs11', 35)" class="fn">yourDistance</span> <span class="c">// your distance function for either p, jc69, or K81 distance</span>
-        <span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="m">HierarchicalClustering</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 37)" onmouseover="showTip(event, 'fs20', 37)" class="m">Linker</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 38)" onmouseover="showTip(event, 'fs21', 38)" class="id">upgmaLwLinker</span> <span class="c">//use this premade linker function  </span>
-        <span onmouseout="hideTip(event, 'fs17', 39)" onmouseover="showTip(event, 'fs17', 39)" class="fn">data</span>
 </code></pre>
-<p>to perform Multiple sequence alignment between your real worl sequence examples, use the respective functions from <code>BioFSharp</code>:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="fn">yourDistance</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="fn">seqA</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="fn">seqB</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+</code></pre>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//reconstruct a phylogenetic tree from tagged sequences</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="id">myTree</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="rt">PhylogeneticTree</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="id">ofTaggedBioSequences</span>
+        <span onmouseout="hideTip(event, 'fs9', 22)" onmouseover="showTip(event, 'fs9', 22)" class="fn">yourDistance</span> <span class="c">// your distance function for either p, JC69, or K81 distance</span>
+        <span class="id">yourSequences</span> <span class="c">// your adequate nucleotide test sequences as tagged sequences </span>
+</code></pre>
+<br>
+<hr />
 <ul>
-<li>There are two ways of handling the gaps produced by alignments: <em>Complete-Deletion</em> and <em>Pairwise Deletion</em> inform yourself about them.</li>
+<li>
+to perform Multiple sequence alignment between your real world sequence examples, use the respective functions from <code>BioFSharp</code>:
+
+  For that, you have to first install <a href="http://www.clustal.org/omega/clustal-omega-1.2.2-win64.zip">clustal omega</a>, a very nice multiple sequence aligment tool. 
+  You can use it directly in F# interactive via BioFSharp's <code>ClustalOWrapper</code>:
+</li>
 </ul>
-<p>-</p>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="m">ClustalOWrapper</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="id">cw</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="fn">ClustalOWrapper</span><span class="pn">(</span><span class="s">&quot;path/where/you/extracted/clustal-omega-1.2.2-win64/clustalo.exe&quot;</span><span class="pn">)</span> <span class="c">// replace with real path from your machine here!</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="id">sequences</span> <span class="o">=</span> 
+    <span class="pn">[</span>
+    <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="id">create</span> <span class="s">&quot;seq1&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAA&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs21', 29)" onmouseover="showTip(event, 'fs21', 29)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="id">create</span> <span class="s">&quot;seq2&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAACA&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs21', 31)" onmouseover="showTip(event, 'fs21', 31)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="id">create</span> <span class="s">&quot;seq3&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAAAT&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="id">create</span> <span class="s">&quot;seq4&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGGAAAA&quot;</span><span class="pn">)</span>
+    <span class="pn">]</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="id">alignedSequences</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="id">cw</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 37)" onmouseover="showTip(event, 'fs24', 37)" class="id">AlignSequences</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs20', 38)" onmouseover="showTip(event, 'fs20', 38)" class="id">sequences</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs25', 39)" onmouseover="showTip(event, 'fs25', 39)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 40)" onmouseover="showTip(event, 'fs26', 40)" class="id">empty</span><span class="pn">)</span>
+</code></pre>
+<br>
+<hr />
+<ul>
+<li>
+There are two ways of handling the gaps produced by alignments: <em>Complete-Deletion</em> and <em>Pairwise Deletion</em> inform yourself about them.<br />
+
+  <em>Hint1</em>: The output of above alignment contains conservation information about the alignment. 
+
+  <em>Hint2</em>: You might want to add an additional parameter to your distance function modelling this behaviour. For that, use a Discriminated Union type.
+</li>
+</ul>
+<br>
+<hr />
+<ul>
+<li>Here is a suggestion for the general workflow for the real-world sequences:</li>
+</ul>
+<blockquote>
+<p><strong>Suggested workflow</strong></p>
+<p>Read your fasta formatted sequences</p>
+<p>Perform multiple sequence alignment <span class="math">\(A\)</span></p>
+<p>for each implemented distance function <span class="math">\(dist\)</span>:</p>
+<p><span class="math">\(\quad\)</span>reconstruct phylogenetic tree for <span class="math">\(A\)</span> with <span class="math">\(dist\)</span> function</p>
+<p><span class="math">\(\quad\)</span>Write as newick format</p>
+<p><span class="math">\(\quad\)</span>Visualize tree, for example on <a href="http://etetoolkit.org/treeview/">http://etetoolkit.org/treeview/</a></p>
+</blockquote>
+<hr />
 <hr />
 <h2><a name="References" class="anchor" href="#References">References</a></h2>
 <p>Nei, M. &amp; Zhang J. Evolutionary Distance: Estimation 2006 <a href="https://doi.org/10.1038/npg.els.0005108">https://doi.org/10.1038/npg.els.0005108</a></p>
@@ -257,19 +363,24 @@ You can use the fact that all of these sequence types are implementing <code>IEn
 <div class="fsdocs-tip" id="fs6">namespace FSharp.Stats</div>
 <div class="fsdocs-tip" id="fs7">namespace Plotly</div>
 <div class="fsdocs-tip" id="fs8">namespace Plotly.NET</div>
-<div class="fsdocs-tip" id="fs9">namespace FSharp.Stats.ML</div>
-<div class="fsdocs-tip" id="fs10">namespace FSharp.Stats.ML.Unsupervised</div>
-<div class="fsdocs-tip" id="fs11">val yourDistance : seqA:seq&lt;IBioItem&gt; -&gt; seqB:seq&lt;IBioItem&gt; -&gt; &#39;a</div>
-<div class="fsdocs-tip" id="fs12">val seqA : seq&lt;IBioItem&gt;</div>
-<div class="fsdocs-tip" id="fs13">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;</div>
-<div class="fsdocs-tip" id="fs14">type IBioItem =<br />&#160;&#160;abstract member Formula : Formula<br />&#160;&#160;abstract member Name : string<br />&#160;&#160;abstract member Symbol : char<br />&#160;&#160;abstract member isGap : bool<br />&#160;&#160;abstract member isTerminator : bool</div>
-<div class="fsdocs-tip" id="fs15">val seqB : seq&lt;IBioItem&gt;</div>
-<div class="fsdocs-tip" id="fs16">val clusterSequences : data:seq&lt;seq&lt;IBioItem&gt;&gt; -&gt; HierarchicalClustering.Cluster&lt;seq&lt;IBioItem&gt;&gt;</div>
-<div class="fsdocs-tip" id="fs17">val data : seq&lt;seq&lt;IBioItem&gt;&gt;</div>
-<div class="fsdocs-tip" id="fs18">module HierarchicalClustering<br /><br />from FSharp.Stats.ML.Unsupervised</div>
-<div class="fsdocs-tip" id="fs19">val generate : distance:DistanceMetrics.Distance&lt;&#39;T&gt; -&gt; linker:HierarchicalClustering.Linker.LancWilliamsLinker -&gt; data:seq&lt;&#39;T&gt; -&gt; HierarchicalClustering.Cluster&lt;&#39;T&gt;</div>
-<div class="fsdocs-tip" id="fs20">module Linker<br /><br />from FSharp.Stats.ML.Unsupervised.HierarchicalClustering</div>
-<div class="fsdocs-tip" id="fs21">val upgmaLwLinker : int * int * int -&gt; dAB:float -&gt; dAC:float -&gt; dBC:float -&gt; float</div>
+<div class="fsdocs-tip" id="fs9">val yourDistance : seqA:seq&lt;IBioItem&gt; -&gt; seqB:seq&lt;IBioItem&gt; -&gt; &#39;a</div>
+<div class="fsdocs-tip" id="fs10">val seqA : seq&lt;IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs11">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs12">type IBioItem =<br />&#160;&#160;abstract member Formula : Formula<br />&#160;&#160;abstract member Name : string<br />&#160;&#160;abstract member Symbol : char<br />&#160;&#160;abstract member isGap : bool<br />&#160;&#160;abstract member isTerminator : bool</div>
+<div class="fsdocs-tip" id="fs13">val seqB : seq&lt;IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs14">val myTree : PhylogeneticTree&lt;TaggedSequence&lt;string,IBioItem&gt; * string&gt;</div>
+<div class="fsdocs-tip" id="fs15">type PhylogeneticTree&lt;&#39;T&gt; =<br />&#160;&#160;| Branch of &#39;T * List&lt;PhylogeneticTree&lt;&#39;T&gt;&gt;<br />&#160;&#160;&#160;&#160;static member addChildToNodes : condition:(PhylogeneticTree&lt;&#39;T&gt; -&gt; bool) -&gt; child:PhylogeneticTree&lt;&#39;T&gt; -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;static member countLeafs : tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; int<br />&#160;&#160;&#160;&#160;static member fold : acc:&#39;State -&gt; folder:(&#39;State -&gt; PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State<br />&#160;&#160;&#160;&#160;static member iter : action:(PhylogeneticTree&lt;&#39;T&gt; -&gt; unit) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; unit<br />&#160;&#160;&#160;&#160;static member map : mapping:(PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;t) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;t&gt;<br />&#160;&#160;&#160;&#160;static member mapFold : acc:&#39;State -&gt; mapping:(PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;t) -&gt; folder:(&#39;State -&gt; &#39;t -&gt; &#39;State) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State<br />&#160;&#160;&#160;&#160;static member ofHierarchicalCluster : branchTag:&#39;T -&gt; distanceConverter:(float -&gt; &#39;Distance) -&gt; hCluster:Cluster&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T * &#39;Distance&gt;<br />&#160;&#160;&#160;&#160;static member ofTaggedBioSequences : distanceFunction:(seq&lt;&#39;a1&gt; -&gt; seq&lt;&#39;a1&gt; -&gt; float) -&gt; sequences:seq&lt;TaggedSequence&lt;string,&#39;a1&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;string,&#39;a1&gt; * string&gt; (requires &#39;a1 :&gt; IBioItem)<br />&#160;&#160;&#160;&#160;static member ofTaggedSequencesWithLinker : branchTag:&#39;T -&gt; distanceConverter:(float -&gt; &#39;Distance) -&gt; distanceFunction:(seq&lt;&#39;S&gt; -&gt; seq&lt;&#39;S&gt; -&gt; float) -&gt; linker:LancWilliamsLinker -&gt; sequences:seq&lt;TaggedSequence&lt;&#39;T,&#39;S&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;&#39;T,&#39;S&gt; * &#39;Distance&gt;<br />&#160;&#160;&#160;&#160;static member tryGetNodeBy : condition:(PhylogeneticTree&lt;&#39;T&gt; -&gt; bool) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T&gt; option</div>
+<div class="fsdocs-tip" id="fs16">static member PhylogeneticTree.ofTaggedBioSequences : distanceFunction:(seq&lt;&#39;a1&gt; -&gt; seq&lt;&#39;a1&gt; -&gt; float) -&gt; sequences:seq&lt;TaggedSequence&lt;string,&#39;a1&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;string,&#39;a1&gt; * string&gt; (requires &#39;a1 :&gt; IBioItem)</div>
+<div class="fsdocs-tip" id="fs17">module ClustalOWrapper<br /><br />from BioFSharp.IO</div>
+<div class="fsdocs-tip" id="fs18">val cw : ClustalOWrapper</div>
+<div class="fsdocs-tip" id="fs19">Multiple items<br />module ClustalOWrapper<br /><br />from BioFSharp.IO<br /><br />--------------------<br />type ClustalOWrapper =<br />&#160;&#160;new : ?rootPath:string -&gt; ClustalOWrapper<br />&#160;&#160;member AlignFromFile : inputPath:Input * outputPath:string * parameters:seq&lt;ClustalParams&gt; * ?name:string -&gt; unit<br />&#160;&#160;member AlignSequences : input:seq&lt;TaggedSequence&lt;string,char&gt;&gt; * parameters:seq&lt;ClustalParams&gt; * ?name:string -&gt; Alignment&lt;TaggedSequence&lt;string,char&gt;,AlignmentInfo&gt;<br /><br />--------------------<br />new : ?rootPath:string -&gt; ClustalOWrapper</div>
+<div class="fsdocs-tip" id="fs20">val sequences : TaggedSequence&lt;string,char&gt; list</div>
+<div class="fsdocs-tip" id="fs21">type TaggedSequence&lt;&#39;T,&#39;S&gt; =<br />&#160;&#160;{ Tag: &#39;T<br />&#160;&#160;&#160;&#160;Sequence: seq&lt;&#39;S&gt; }<br />&#160;&#160;&#160;&#160;static member create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;<br />&#160;&#160;&#160;&#160;static member mapSequence : mapping:(seq&lt;&#39;S&gt; -&gt; seq&lt;&#39;M&gt;) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;M&gt;<br />&#160;&#160;&#160;&#160;static member mapTag : mapping:(&#39;T -&gt; &#39;U) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;U,&#39;S&gt;</div>
+<div class="fsdocs-tip" id="fs22">static member TaggedSequence.create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;</div>
+<div class="fsdocs-tip" id="fs23">val alignedSequences : Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
+<div class="fsdocs-tip" id="fs24">member ClustalOWrapper.AlignSequences : input:seq&lt;TaggedSequence&lt;string,char&gt;&gt; * parameters:seq&lt;Parameters.ClustalParams&gt; * ?name:string -&gt; Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
+<div class="fsdocs-tip" id="fs25">Multiple items<br />module Seq<br /><br />from Plotly.NET<br /><br />--------------------<br />module Seq<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Seq<br /><br />from FSharpAux<br /><br />--------------------<br />module Seq<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type Seq =<br />&#160;&#160;static member CSV : separator:string -&gt; header:bool -&gt; flatten:bool -&gt; data:seq&lt;&#39;a&gt; -&gt; seq&lt;string&gt;<br />&#160;&#160;static member CSVwith : valFunc:(&#39;a -&gt; (&#39;a -&gt; obj) []) -&gt; strFunc:(string -&gt; bool -&gt; obj -&gt; obj -&gt; string) -&gt; separator:string -&gt; header:bool -&gt; flatten:bool -&gt; data:seq&lt;&#39;a&gt; -&gt; seq&lt;string&gt;<br />&#160;&#160;static member fromFile : filePath:string -&gt; seq&lt;string&gt;<br />&#160;&#160;static member fromFileWithCsvSchema : filePath:string * separator:char * firstLineHasHeader:bool * ?skipLines:int * ?skipLinesBeforeHeader:int * ?schemaMode:SchemaModes -&gt; seq&lt;&#39;schema&gt;<br />&#160;&#160;static member fromFileWithSep : separator:char -&gt; filePath:string -&gt; seq&lt;string []&gt;<br />&#160;&#160;static member stringFunction : separator:string -&gt; flatten:bool -&gt; input:&#39;a -&gt; (obj -&gt; string)<br />&#160;&#160;static member valueFunction : dataEntry:&#39;a -&gt; (&#39;a -&gt; obj) []<br />&#160;&#160;static member write : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit<br />&#160;&#160;static member writeOrAppend : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit</div>
+<div class="fsdocs-tip" id="fs26">val empty&lt;&#39;T&gt; : seq&lt;&#39;T&gt;</div>
 
     </div>
 
