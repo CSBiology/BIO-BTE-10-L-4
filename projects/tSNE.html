@@ -81,14 +81,35 @@
                     
 <h1><a name="t-Distributed-Stochastic-Neighbour-Embedding-tSNE" class="anchor" href="#t-Distributed-Stochastic-Neighbour-Embedding-tSNE">t-Distributed Stochastic Neighbour Embedding (tSNE)</a></h1>
 <p><strong>Interested?</strong> Contact <a href="mailto:muehlhaus@bio.uni-kl.de">muehlhaus@bio.uni-kl.de</a> or <a href="mailto:venn@bio.uni-kl.de">venn@bio.uni-kl.de</a></p>
-<h2><a name="Content" class="anchor" href="#Content">Content</a></h2>
-<ol>
-<li>Introduction</li>
-<li>Aim for this project</li>
-<li>Coding clues</li>
-<li>References</li>
-<li>Additional information</li>
-</ol>
+<h4><a name="Table-of-contents" class="anchor" href="#Table-of-contents">Table of contents</a></h4>
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Aim-for-this-project">Aim for this project</a></li>
+<li>
+<a href="#Coding-clues">Coding clues</a>
+<ul>
+<li><a href="#Notes">Notes</a></li>
+<li><a href="#Pseudocode">Pseudocode</a></li>
+<li><a href="#0-sup-th-sup-step">Step 0</a></li>
+<li><a href="#1-sup-st-sup-step">Step 1</a></li>
+<li><a href="#2-sup-nd-sup-step">Step 2</a></li>
+<li><a href="#3-sup-rd-sup-step">Step 3</a></li>
+<li><a href="#4-sup-th-sup-step">Step 4</a></li>
+<li><a href="#5-sup-th-sup-step">Step 5</a></li>
+<li><a href="#6-sup-th-sup-step">Step 6</a></li>
+<li><a href="#7-sup-th-sup-step">Step 7</a></li>
+<li><a href="#8-sup-th-sup-step-Function-implementation-in-F">Step 8 - Function implementation in F#</a></li>
+</ul>
+</li>
+<li><a href="#References">References</a></li>
+<li>
+<a href="#Additional-information">Additional information</a>
+<ul>
+<li><a href="#Testing">Testing</a></li>
+<li><a href="#Blog-post">Blog post</a></li>
+</ul>
+</li>
+</ul>
 <h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 <ul>
 <li>
@@ -171,7 +192,7 @@ Fig. 1: Idea of tSNE. Visualisation of a high dimensional data on a 2-dimensiona
 <li>Blog post introducing the method, its applications, and limitations.</li>
 <li>Implement t-Distributed Stochastic Neighbour Embedding in FSharp.Stats.</li>
 </ol>
-<h2><a name="Coding-Clues" class="anchor" href="#Coding-Clues">Coding Clues</a></h2>
+<h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
 <h3><a name="Notes" class="anchor" href="#Notes">Notes:</a></h3>
 <ul>
 <li>All functions below are taken from the original publication (van der Maaten and Hinton 2008).</li>

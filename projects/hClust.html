@@ -81,14 +81,33 @@
                     
 <h1><a name="Implementation-of-an-efficient-hierarchical-agglomerative-clustering-algorithm" class="anchor" href="#Implementation-of-an-efficient-hierarchical-agglomerative-clustering-algorithm">Implementation of an efficient hierarchical agglomerative clustering algorithm</a></h1>
 <p><strong>Interested?</strong> Contact <a href="mailto:muehlhaus@bio.uni-kl.de">muehlhaus@bio.uni-kl.de</a> or <a href="mailto:venn@bio.uni-kl.de">venn@bio.uni-kl.de</a></p>
-<h2><a name="Content" class="anchor" href="#Content">Content</a></h2>
-<ol>
-<li>Introduction</li>
-<li>Aim for this project</li>
-<li>Coding clues</li>
-<li>References</li>
-<li>Additional information</li>
-</ol>
+<h4><a name="Table-of-contents" class="anchor" href="#Table-of-contents">Table of contents</a></h4>
+<h4><a name="Table-of-contents-1" class="anchor" href="#Table-of-contents-1">Table of contents</a></h4>
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Aim-for-this-project">Aim for this project</a></li>
+<li>
+<a href="#Coding-clues">Coding clues</a>
+<ul>
+<li><a href="#0-sup-th-sup-step">Step 0</a></li>
+<li><a href="#1-sup-st-sup-step">Step 1</a></li>
+<li><a href="#2-sup-nd-sup-step-Generate-priority-queue">Step 2 - generate priority queue</a></li>
+<li><a href="#3-sup-rd-sup-step">Step 3</a></li>
+<li><a href="#4-sup-th-sup-step">Step 4</a></li>
+<li><a href="#5-sup-th-sup-step">Step 5</a></li>
+<li><a href="#6-sup-th-sup-step-Function-implementation-in-F">Step 6 - Function implementation in F#</a></li>
+<li><a href="#7-sup-th-sup-step-Further-coding-considerations">Step 7 - Further coding considerations</a></li>
+</ul>
+</li>
+<li><a href="#References">References</a></li>
+<li>
+<a href="#Additional-information">Additional information</a>
+<ul>
+<li><a href="#Testing">Testing</a></li>
+<li><a href="#Blog-post">Blog post</a></li>
+</ul>
+</li>
+</ul>
 <h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 <p><img src="../img/overview.png" alt="" /></p>
 <p>Fig 1: Generating a hierarchical tree structure from a complex data set. Vertical thresholds (yellow, green, violet) generate different cluster numbers.</p>
@@ -114,13 +133,6 @@ Subsequently the tree can be cut at any vertical line which will result in a def
 <p>Fig 2: Data matrix (left) with measurement types as columns and (biological) entities as rows. The data matrix can be converted into a similarity matrix, that contain the inverse of distances.</p>
 <p><img src="../img/workflow.png" alt="" /></p>
 <p>Fig 3: Workflow as proposed in pseudo code in Reference#2.</p>
-<h2><a name="References" class="anchor" href="#References">References</a></h2>
-<ul>
-<li><p><a href="https://www.youtube.com/watch?v=7xHsRkOdVwo">https://www.youtube.com/watch?v=7xHsRkOdVwo</a></p></li>
-<li><p><a href="https://github.com/srirambaskaran/efficient-hierarchical-clustering">https://github.com/srirambaskaran/efficient-hierarchical-clustering</a></p></li>
-<li><p><a href="https://nlp.stanford.edu/IR-book/pdf/17hier.pdf">https://nlp.stanford.edu/IR-book/pdf/17hier.pdf</a></p></li>
-<li><p><a href="https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b">https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b</a></p></li>
-</ul>
 <h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
 <ol>
 <li>Blog post introducing the method, its applications, and limitations.</li>
@@ -399,6 +411,13 @@ a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Clu
 <li>or another implementation of heap/priority queues like C5.IntervalHeap could be faster</li>
 </ul>
 </li>
+</ul>
+<h2><a name="References" class="anchor" href="#References">References</a></h2>
+<ul>
+<li><p><a href="https://www.youtube.com/watch?v=7xHsRkOdVwo">https://www.youtube.com/watch?v=7xHsRkOdVwo</a></p></li>
+<li><p><a href="https://github.com/srirambaskaran/efficient-hierarchical-clustering">https://github.com/srirambaskaran/efficient-hierarchical-clustering</a></p></li>
+<li><p><a href="https://nlp.stanford.edu/IR-book/pdf/17hier.pdf">https://nlp.stanford.edu/IR-book/pdf/17hier.pdf</a></p></li>
+<li><p><a href="https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b">https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b</a></p></li>
 </ul>
 <h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
 <h3><a name="Testing" class="anchor" href="#Testing">Testing</a></h3>
