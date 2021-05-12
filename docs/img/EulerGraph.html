@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style id="__________cytoscape_stylesheet">.__________cytoscape_container { position: relative; }</style><script src="EulerGraph_files/cytoscape.js"></script>
+<script src="EulerGraph_files/require.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="fsharp-cyjs" data-requiremodule="cyjs" src="EulerGraph_files/cytoscape.js"></script></head>
+<body> <style>#e56388c55f6 { width: 100%; height: 100%; position: absolute; top: 0px; left: 0px } </style>
+<div id="e56388c55f6" class=" __________cytoscape_container"><div style="position: relative; z-index: 0; overflow: hidden; width: 1920px; height: 938px;"><canvas style="user-select: none; outline-style: none; position: absolute; z-index: 3; width: 1920px; height: 938px;" data-id="layer0-selectbox" width="1920" height="938"></canvas><canvas style="user-select: none; outline-style: none; position: absolute; z-index: 2; width: 1920px; height: 938px;" data-id="layer1-drag" width="1920" height="938"></canvas><canvas style="user-select: none; outline-style: none; position: absolute; z-index: 1; width: 1920px; height: 938px;" data-id="layer2-node" width="1920" height="938"></canvas></div></div>
+<script type="text/javascript">
+
+            var renderCyjs_5ea3620558b24a1b9ca8afaae9983f28 = function() {
+            var fsharpCyjsRequire = requirejs.config({context:'fsharp-cyjs',paths:{cyjs:'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min'}}) || require;
+            fsharpCyjsRequire(['cyjs'], function(Cyjs) {
+
+            var graphdata = {"container":document.getElementById('e56388c55f6'),"elements":[{"data":{"id":"1","label":"AT"}},{"data":{"id":"2","label":"TG"}},{"data":{"id":"3","label":"GT"}},{"data":{"id":"4","label":"GG"}},{"data":{"id":"5","label":"GC"}},{"data":{"id":"6","label":"CG"}},{"data":{"id":"7","label":"CA"}},{"data":{"id":"12","source":"1","target":"2","weight":"ATG"}},{"data":{"id":"24","source":"2","target":"4","weight":"TGG"}},{"data":{"id":"25","source":"2","target":"5","weight":"TGC"}},{"data":{"id":"32","source":"3","target":"2","weight":"GTG"}},{"data":{"id":"45","source":"4","target":"5","weight":"GGC"}},{"data":{"id":"56","source":"5","target":"6","weight":"GCG"}},{"data":{"id":"57","source":"5","target":"7","weight":"GCA"}},{"data":{"id":"63","source":"6","target":"3","weight":"CGT"}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"content":"data(weight)"}}],"layout":{"name":"random"}}
+            var cy = cytoscape( graphdata );
+            cy.userZoomingEnabled( false );
+            
+});
+            };
+            if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
+                var script = document.createElement("script");
+                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
+                script.onload = function(){
+                    renderCyjs_5ea3620558b24a1b9ca8afaae9983f28();
+                };
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+            else {
+                renderCyjs_5ea3620558b24a1b9ca8afaae9983f28();
+            }
+</script>
+ 
+
+</body></html>
