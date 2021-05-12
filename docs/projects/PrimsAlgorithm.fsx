@@ -3,7 +3,7 @@
 title: Reduce complex graphs to the best paths
 category: projects
 categoryindex: 1
-index: 3
+index: 4
 ---
 *)
 
