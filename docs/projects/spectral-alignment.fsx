@@ -323,11 +323,11 @@ let calcSimilarityAt_simple k (specA:int[]) (specB:int[]) =
 
 
 (**
-Using this implementation we can follow the chapter "Spectral Alignment" in the book "An Introduction to Bioinformatics Algorithms" (see References), 
-which takes a deep dive into the topic. In the following code snippet we will apply our naive implementation to examples from the book - something we also 
+Using this implementation we encourage you to read the paper "Mutation-Tolerant Protein Identification by Mass Spectrometry" (see References), 
+which takes a deep dive into the topic. In the following code snippet we will apply our naive implementation to examples from the paper - something we also 
 advise you to do - once you come up with your first implementation. 
 *)
-// Example 1, see page 295.
+// Example 1
 let sa = [|10; 20; 30; 40; 50; 60; 70; 80; 90; 100|]
 let sb = [|10; 20; 30; 40; 50; 55; 65; 75; 85; 95|]
 let sc = [|10; 15; 30; 35; 50; 55; 70; 75; 90; 95|]
@@ -339,7 +339,7 @@ let D_1_sa_sb =  calcSimilarityAt_simple 1 sa sb
 let D_1_sa_sc =  calcSimilarityAt_simple 1 sa sc  
 
 
-// Example 2, see page 298, Figure 8.28
+// Example 2
 let sd = [|7; 11; 15; 18; 21; 24; 30; 38; 43|]
 let se = [|7; 11; 13; 19; 22; 25; 31; 33; 38|]
 
@@ -352,8 +352,6 @@ let D_2_sd_se =  calcSimilarityAt_simple 2 sd se
 (**
 ## References
 
-An Introduction to Bioinformatics Algorithms, N. C. Jones, P. A. Pevzner, The MIT Press, Cambridge, MA 2004
-
 Mutation-Tolerant Protein Identification by Mass Spectrometry, P. A. Pevzner et al. 2000
 
 Efficiency of Database Search for Identification of Mutated and Modified Proteins via Mass Spectrometry, P. A. Pevzner et al. 2001
@@ -363,8 +361,7 @@ Efficiency of Database Search for Identification of Mutated and Modified Protein
 (**
 ## Additional information
 
-- We strongly advise to work through the chapter "Spectral Alignment" in the book "An Introduction to Bioinformatics Algorithms". It contains
+- We strongly advise to work through the paper "Mutation-Tolerant Protein Identification by Mass Spectrometry". It 
 serves as a very good introduction into the topic and gives you many ideas on how to write an efficient implementation.
 
-- Reading the book gives a good overview, as usual some interesting details are described more precise in the original publication: "Mutation-Tolerant Protein Identification by Mass Spectrometry".
 *)
