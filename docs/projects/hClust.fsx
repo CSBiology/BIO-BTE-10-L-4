@@ -1,6 +1,6 @@
 (**
 ---
-title: efficient agglomerative hierarchical clustering
+title: Efficient agglomerative hierarchical clustering
 category: projects
 categoryindex: 1
 index: 2
@@ -9,21 +9,29 @@ index: 2
 
 
 (**
-
-
 # Implementation of an efficient hierarchical agglomerative clustering algorithm
 
+**Interested?** Contact [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de) or [venn@bio.uni-kl.de](mailto:venn@bio.uni-kl.de)
 
-## Content
+#### Table of contents
 
-1.	Introduction
+#### Table of contents
 
-2.	Coding clues
-
-3.	References
-
-4.	Goal/Additional information
-
+- [Introduction](#Introduction) 
+- [Aim for this project](#Aim-for-this-project)
+- [Coding clues](#Coding-clues)
+    - [Step 0](#0-sup-th-sup-step)
+    - [Step 1](#1-sup-st-sup-step)
+    - [Step 2 - generate priority queue](#2-sup-nd-sup-step-Generate-priority-queue)
+    - [Step 3](#3-sup-rd-sup-step)
+    - [Step 4](#4-sup-th-sup-step)
+    - [Step 5](#5-sup-th-sup-step)
+    - [Step 6 - Function implementation in F#](#6-sup-th-sup-step-Function-implementation-in-F)
+    - [Step 7 - Further coding considerations](#7-sup-th-sup-step-Further-coding-considerations)
+- [References](#References)
+- [Additional information](#Additional-information)
+    - [Testing](#Testing)
+    - [Blog post](#Blog-post)
 
 
 ## Introduction
@@ -65,16 +73,12 @@ Fig 2: Data matrix (left) with measurement types as columns and (biological) ent
 
 Fig 3: Workflow as proposed in pseudo code in Reference#2. 
 
-## References
 
-- https://www.youtube.com/watch?v=7xHsRkOdVwo
+## Aim for this project
 
-- https://github.com/srirambaskaran/efficient-hierarchical-clustering
+1. Blog post introducing the method, its applications, and limitations.
 
-- https://nlp.stanford.edu/IR-book/pdf/17hier.pdf
-
-- https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b
-
+2. Implement an efficient agglomerative hierarchical clustering in FSharp.Stats.
 
 
 ## Coding clues
@@ -298,40 +302,55 @@ myHeap.Filter (fun x -> x.Similarity = 5.)  // filters entries based on predicat
   - Clustering list now contains all possible cluster configurations. Convert the clustering list into
   a binary tree structure such as ```ML.Unsupervised.HierarchicalClustering.Cluster<'a>```
 
-#### 6<sup>th</sup> step:
+
+### 6<sup>th</sup> step: Function implementation in F#
+
+  - create a function, that contains all necessary helper functions in its body and takes the following parameters (suggestion):
+
+|Parameter name|data type|description|
+|--------------|---------|-----------|
+|data|```seq<'a>```|data|
+|distFu|```'a->'a->float```|distance Function from ```FSharp.Stats.ML.DistanceMetrics```|
+|linkageType|```Linker.LancWilliamsLinker``` or self defined|linkage type that is used during clustering|
+||||
+|output|```ML.Unsupervised.HierarchicalClustering.Cluster<'a>``` or cluster configuration list||
+
+### 7<sup>th</sup> step: Further coding considerations
 
   - Removing elements from the priority queue is slow. Is there a better way to avoid the deletion? 
   
-    - maybe a Map(int[],bool) would be beneficial
+    - maybe a Map(int[],bool), or a nested priority queue (see Reference#2) would be beneficial
 
     - or another implementation of heap/priority queues like C5.IntervalHeap could be faster
 
-## Goal/Additional information
+## References
 
-1. Introduction into hierarchical clustering:
+- https://www.youtube.com/watch?v=7xHsRkOdVwo
+
+- https://github.com/srirambaskaran/efficient-hierarchical-clustering
+
+- https://nlp.stanford.edu/IR-book/pdf/17hier.pdf
+
+- https://medium.com/machine-learning-researcher/clustering-k-mean-and-hierarchical-cluster-fa2de08b4a4b
+
+
+## Additional information
+
+### Testing
+
+  - apply hClust to a dataset of your choice
+
+  - optional: Test your results against implementations in R/Python or in the best case against the datasets proposed in the original publication.
+
+### Blog post
 
   - What is solved by the usage of hClust?
   
-  - Classical application examples.
+  - classical application examples
   
-  - Limitations/Drawbacks of hClust.
+  - limitations/drawbacks of hClust
 
-2. Implement hClust functions with parameters:
+  - short description of the algorithm (maybe with flowchart visualization)
 
-    |Parameter name|data type|description|
-    |--------------|---------|-----------|
-    |data|```seq<'a>```|data|
-    |distFu|```'a->'a->float```|distance Function from ```FSharp.Stats.ML.DistanceMetrics```|
-    |linkageType|```Linker.LancWilliamsLinker``` or self defined|linkage type that is used during clustering|
-    ||||
-    |output|```ML.Unsupervised.HierarchicalClustering.Cluster<'a>``` or cluster configuration list||
-
-3. Short description of the algorithm: 
-
-  - maybe with flowchart visualization
-
-4. Test the algorithm with a data set of your choice.
-
-5. If you have any questions mail to venn@bio.uni-kl.de.
 
 *)
