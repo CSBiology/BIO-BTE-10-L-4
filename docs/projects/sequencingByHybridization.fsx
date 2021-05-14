@@ -195,9 +195,52 @@ but not necessarily covering all vertices and edges.
 
 * Since we assume the original graph is connected, repeating the previous step will cover all edges of the graph.
 
+* Implement the algorithm, so that it works on a `FSharp.FGL.Graph`
+
+### Working with `FSharp.FGL.Graph`s
+
+* Returns all outward edges of vertex 1
 
 *)
+Graph.getContext 1 graphWithEdges
+|> Vertices.outwardEdges
+(***include-it***)
+(**
+<br>
 
+* Returns all inward edges of vertex 2
+
+<br>
+*)
+Graph.getContext 2 graphWithEdges
+|> Vertices.inwardEdges
+(***include-it***)
+(**
+<br>
+
+* Returns all inward edges for all vertices in the graph
+
+<br>
+*)
+Graph.mapContexts Vertices.inwardEdges graphWithEdges
+(***include-it***)
+(**
+<br>
+
+* Returns all outward edges for all vertices in the graph
+
+<br>
+*)
+Graph.mapContexts Vertices.outwardEdges graphWithEdges
+(***include-it***)
+(**
+<br>
+
+* Returns the adjacency matrix representation of the graph
+
+<br>
+*)
+Graph.toAdjacencyMatrix graphWithEdges
 (**
 ## References
 
