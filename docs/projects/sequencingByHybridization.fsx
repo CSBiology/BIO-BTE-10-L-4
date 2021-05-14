@@ -48,16 +48,138 @@ rather than vertices, correspond to those l-mers, and then to find a path in thi
 
 ## Coding clues
 
-### Eulerian Graph of l-mers
+### Setting up the environment
+
+* Create a F# script file (.fsx) and paste the following text at the top of your file:
+
+```
+#r "nuget: FSharpAux"
+#r "nuget: BioFSharp"
+#r "nuget: FSharp.FGL"
+#r "nuget: Cyjs.NET"
+
+open FSharpAux
+open BioFSharp
+open FSharp.FGL
+open FSharp.FGL.Directed
+open Cyjs.NET
+```
+
+### Creating an Eulerian Graph of l-mers with FSharp.FGL
 
 * Vertices correspond to (l-1)-mers
-
 * Edges correspond to l-mers from the spectrum
+* All functions should operate on either `BioArray`, `BioList` or `BioSeq`
+*)
+(***hide***)
+#r "nuget: FSharpAux"
+#r "nuget: BioFSharp"
+#r "nuget: FSharp.FGL"
+#r "nuget: Cyjs.NET"
 
-![]({{root}}img/EulerGraph.png)
+open FSharpAux
+open BioFSharp
+open BioFSharp.Nucleotides
+open FSharp.FGL
+open FSharp.FGL.Directed
+open Cyjs.NET
+(**
+<br>
 
-[How to use the graph library FSharp.FGL]({{root}}projects/PrimsAlgorithm.html#Using-the-graph-library)
+* Start with any Nucleotide array
 
+<br>
+*)
+let sampleSequence: array<Nucleotide> = 
+    "ATGGCGTGCA"
+    |> BioArray.ofNucleotideString
+(**
+<br>
+
+* Compute the l-mers of the Nucleotide array (in this case 3-mers)
+
+<br>
+*)
+let lMers3: array<array<Nucleotide>> = 
+    [|[|A;T;G|]; [|T;G;G|]; [|T;G;C|]; [|G;T;G|]; [|G;G;C|]; [|G;C;A|]; [|G;C;G|]; [|C;G;T|]|]
+(**
+<br>
+
+* Initialize a directed graph
+
+<br>
+*)
+let graph: Graph<int,array<Nucleotide>,array<Nucleotide>> = Graph.empty
+(**
+<br>
+
+* Create a list with vertices based on the l-mers and add them to the graph
+
+<br>
+*)
+let vertices: list<int*array<Nucleotide>> =
+    [(1, [|A; T|]); (2, [|T; G|]); (3, [|G; T|]); (4, [|G; G|]); (5, [|G; C|]);(6, [|C; G|]); (7, [|C; A|])]
+
+let graphWithVertices: Graph<int,array<Nucleotide>,array<Nucleotide>> =
+    Vertices.addMany vertices graph
+(**
+<br>
+
+* Create a list with edges based in the vertices and l-mers and add them to the graph
+
+<br>
+*)
+let edges: list<int*int*array<Nucleotide>>=
+    [(1, 2, [|A; T; G|]); (2, 4, [|T; G; G|]); (2, 5, [|T; G; C|]); (3, 2, [|G; T; G|]);
+    (4, 5, [|G; G; C|]); (5, 7, [|G; C; A|]); (5, 6, [|G; C; G|]); (6, 3, [|C; G; T|])]
+
+let graphWithEdges: Graph<int,array<Nucleotide>,array<Nucleotide>> =
+    Edges.addMany edges graphWithVertices
+(**
+<br>
+
+* You can visualize the graph using Cyjs.NET
+
+<br>
+*)
+let inline toCyJS (g : Graph<'Vertex,array<Nucleotide>,array<Nucleotide>>) =
+    let vertices = 
+        g
+        |> Vertices.toVertexList
+        |> List.map (fun (id,name) ->
+            Elements.node (string id) [CyParam.label (name |> BioArray.toString)]
+        )
+
+    let edges =
+        g
+        |> Edges.toEdgeList
+        |> List.map (fun (v1,v2,weight) -> 
+            Elements.edge (string v1 + string v2) (string v1) (string v2) [CyParam.weight (weight |> BioArray.toString)]
+        )
+
+    CyGraph.initEmpty ()
+    |> CyGraph.withElements vertices
+    |> CyGraph.withElements edges
+    |> CyGraph.withLayout (Layout.initBreadthfirst id)
+    |> CyGraph.withStyle "node" [CyParam.content =. CyParam.label]
+    |> CyGraph.withStyle "edge"     
+                [
+                    CyParam.Curve.style "bezier"
+                    CyParam.opacity 0.666
+                    CyParam.width <=. (CyParam.weight, 70, 100, 5, 5)
+                    CyParam.Target.Arrow.shape "triangle"
+                    CyParam.Line.color =. CyParam.color
+                    CyParam.Target.Arrow.color =. CyParam.color
+                    CyParam.Source.Arrow.color =. CyParam.color
+                ]
+
+graphWithEdges
+|> toCyJS
+
+(***hide***)
+graphWithEdges |> toCyJS |> CyGraph.withSize(600, 400) |> Cyjs.NET.HTML.toEmbeddedHTML
+(***include-it-raw***)    
+(**
 * This graph is semibalanced `(|indegree - outdegree| = 1)`. If a graph has an Eulerian path starting at vertex *s* and ending at vertex *t*, then all its vertices are balanced, 
 with the possible exception of *s* and *t*, which may be semibalanced.
 
