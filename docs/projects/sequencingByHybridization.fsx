@@ -1,6 +1,6 @@
 (**
 ---
-title: Sequencing by Hybridization
+title: Sequencing by Hybridization as an Eulerian Path Problem
 category: projects
 categoryindex: 1
 index: 5
@@ -12,8 +12,6 @@ index: 5
 # Sequencing by Hybridization as an Eulerian Path Problem
 
 **Interested?** Contact [muehlhaus@bio.uni-kl.de](mailto:muehlhaus@bio.uni-kl.de) or [ottj@rhrk.uni-kl.de](mailto:ottj@rhrk.uni-kl.de)
-
-#### Table of contents
 
 #### Table of contents
 
@@ -58,36 +56,22 @@ rather than vertices, correspond to those l-mers, and then to find a path in thi
 
 ![]({{root}}img/EulerGraph.png)
 
-[Interactive Version]({{root}}img/EulerGraph.html)
+[How to use the graph library FSharp.FGL]({{root}}projects/PrimsAlgorithm.html#Using-the-graph-library)
+
+* This graph is semibalanced `(|indegree - outdegree| = 1)`. If a graph has an Eulerian path starting at vertex *s* and ending at vertex *t*, then all its vertices are balanced, 
+with the possible exception of *s* and *t*, which may be semibalanced.
+
+* The Eulerian path problem can be reduced to the Eulerian cycle problem by adding an edge between two semibalanced vertices.
 
 ### Hierholzer's algorithm
 
+* Choose any starting vertex, and follow a path along the unused edges from that vertex until you return to it. You will alway return to the starting vertex in a balanced Eulerian graph. 
+Since every vertex has `indegreee = outdegree`, there is always an unused edge to leave the current vertex. The path found by doing this is a closed tour, starting and ending at the same vertex, 
+but not necessarily covering all vertices and edges.
 
-```
-Input: Undirected graph G=(V,E), no or exactly two nodes have odd degree
-Output: List of nodes in Eulerian cycle/path
+* As long as there exists a vertex in the current closed tour that has unused edges, you can start finding a new closed tour and join it with the previously found tour.
 
-BEGIN
-    IF graph infeasible THEN END
-    IF graph semi-Eulerian THEN
-        start <- node with odd degree
-    ELSE
-        start <- arbitrary node
-    subtour <- O
-    tour <- {start}
-    REPEAT
-        start <-  node in tour with unvisited edge
-        subtour <- {start}
-        current = start
-        DO
-            {current, u} <- take unvisited edge leaving current
-            subtour <- subtour U {u}
-            current <- u
-        WHILE start != current
-        Integrate subtour in tour
-    UNTIL tour is Eulerian cycle/path
-END
-```
+* Since we assume the original graph is connected, repeating the previous step will cover all edges of the graph.
 
 
 *)
@@ -95,9 +79,23 @@ END
 (**
 ## References
 
+* https://en.wikipedia.org/wiki/Eulerian_path
+* https://www-m9.ma.tum.de/graph-algorithms/hierholzer/index_en.html#tab_ti
+* https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/
+
 ## Additional information
 
+###Testing
+
+* Implement a function that returns an array of l-mers for any given DNA-Sequence
+* Generate an Eulerian Graph based on the returned set of l-mers
+* Compare the reconstructed sequence to the original sequence
+* Optional: Implement a function that performs the steps above for a large number of sequences with varying l-mer lengths
 
 ### Blog post
+
+* Introduction about SBH, and how it is used today
+* Describe the limits and weaknesses of the approach in your blog post
+* Compare Hierholzer's algorithm to Fleury's algorithm
 
 *)
