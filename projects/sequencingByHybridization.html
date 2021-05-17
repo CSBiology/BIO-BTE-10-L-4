@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sequencing by Hybridization as an Eulerian Path Problem</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-tips.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/init.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="/BIO-BTE-10-L-4/">
+                        <figure class="image is-128x128 container">
+                            <img src="/BIO-BTE-10-L-4/img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white pb-4">BIO-BTE-10-L-4</h2>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right searchbox" id="fsdocs-searchbox">
+                                <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">
+  projects
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/tSNE.html">
+    t-Distributed Stochastic Neighbour Embedding
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/hClust.html">
+    Efficient agglomerative hierarchical clustering
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/spectral-alignment.html">
+    Alignment of Peptide derived MS Spectra
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/evolutionary-distance.html">
+    Phylogenetic tree reconstruction based on evolutionary distance
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/PrimsAlgorithm.html">
+    Reduce complex graphs to the best paths
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/sequencingByHybridization.html">
+    Sequencing by Hybridization as an Eulerian Path Problem
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    
+<h1><a name="Sequencing-by-Hybridization-as-an-Eulerian-Path-Problem" class="anchor" href="#Sequencing-by-Hybridization-as-an-Eulerian-Path-Problem">Sequencing by Hybridization as an Eulerian Path Problem</a></h1>
+<p><strong>Interested?</strong> Contact <a href="mailto:muehlhaus@bio.uni-kl.de">muehlhaus@bio.uni-kl.de</a> or <a href="mailto:ottj@rhrk.uni-kl.de">ottj@rhrk.uni-kl.de</a></p>
+<h4><a name="Table-of-contents" class="anchor" href="#Table-of-contents">Table of contents</a></h4>
+<ul>
+<li><a href="#Introduction">Introduction</a></li>
+<li><a href="#Aim-for-this-project">Aim for this project</a></li>
+<li><a href="#Coding-clues">Coding clues</a></li>
+<li><a href="#References">References</a></li>
+<li>
+<a href="#Additional-information">Additional information</a>
+<ul>
+<li><a href="#Testing">Testing</a></li>
+<li><a href="#Blog-post">Blog post</a></li>
+</ul>
+</li>
+</ul>
+<h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
+<p>Sequencing by Hybridization (SBH) involves building a miniature DNA array (or DNA chip), that contains thousands of short DNA fragments (probes). Each of these probes gives information about the presence
+of a known, but short, sequence in the unknown DNA sequence. All these pieces of information together should reveal the identity of the target DNA sequence.
+Given a short probe (an 8- to 30-nucleotide single-stranded synthetic DNA fragment) and a single-stranded target DNA fragment, the target will hybridize
+with the probe if the probe is a substring of the target's complement. When the probe and the target are mixed together, they form a
+weak chemical bond and stick together. For example, a probe ACCGTGGA will hybridize to a target CCC<strong>TGGCACCT</strong>A since it is complementary to the substring TGGCACCT of the target.</p>
+<p>Given an unknown DNA sequence, an array provides information about all strings of length <em>l</em> (l-mer) that the sequence contains, but does not provide information
+about their positions in the sequence. For example, the 8-mer composition of CCCTGGCACCTA is {CCCTGGCA, CCTGGCAC, CTGGCACC, TGGCACCT,GGCACCTA}
+The reduction of the SBH problem to an <a href="https://en.wikipedia.org/wiki/Eulerian_path">Eulerian Path</a> problem is to construct a graph whose edges,
+rather than vertices, correspond to those l-mers, and then to find a path in this graph visiting every edge exactly once. Paths visiting <strong>ALL EDGES</strong> correspond to sequence reconstructions.</p>
+<h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
+<ol>
+<li>Blog post introducing the method, its applications, and limitations.</li>
+<li>Implement a function which creates a directed graph from a given set of l-mers</li>
+<li><p>Implement <a href="https://www-m9.ma.tum.de/graph-algorithms/hierholzer/index_en.html#tab_ti">Hierholzer's algorithm</a> for finding Eulerian paths in <strong>directed</strong> graphs</p></li>
+</ol>
+<h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
+<h3><a name="Setting-up-the-environment" class="anchor" href="#Setting-up-the-environment">Setting up the environment</a></h3>
+<ul>
+<li>Create a F# script file (.fsx) and paste the following text at the top of your file:</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.FGL&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Cyjs.NET&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharpAux</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">BioFSharp</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="id">FGL</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">FGL</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">Directed</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Cyjs</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">NET</span>
+</code></pre>
+<h3><a name="Creating-an-Eulerian-Graph-of-l-mers-with-FSharp-FGL" class="anchor" href="#Creating-an-Eulerian-Graph-of-l-mers-with-FSharp-FGL">Creating an Eulerian Graph of l-mers with FSharp.FGL</a></h3>
+<ul>
+<li>Vertices correspond to (l-1)-mers</li>
+<li>Edges correspond to l-mers from the spectrum</li>
+<li>All functions should operate on either <code>BioArray</code>, <code>BioList</code> or <code>BioSeq</code></li>
+</ul>
+<br>
+<ul>
+<li>Start with any Nucleotide array</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 21)" onmouseover="showTip(event, 'fs9', 21)" class="id">sampleSequence</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 22)" onmouseover="showTip(event, 'fs10', 22)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 23)" onmouseover="showTip(event, 'fs11', 23)" class="rt">Nucleotide</span><span class="pn">&gt;</span> <span class="o">=</span> 
+    <span class="s">&quot;ATGGCGTGCA&quot;</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs12', 24)" onmouseover="showTip(event, 'fs12', 24)" class="m">BioArray</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs13', 25)" onmouseover="showTip(event, 'fs13', 25)" class="id">ofNucleotideString</span>
+</code></pre>
+<br>
+<ul>
+<li>Compute the l-mers of the Nucleotide array (in this case 3-mers)</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 26)" onmouseover="showTip(event, 'fs14', 26)" class="id">lMers3</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 27)" onmouseover="showTip(event, 'fs10', 27)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs10', 28)" onmouseover="showTip(event, 'fs10', 28)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 29)" onmouseover="showTip(event, 'fs11', 29)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span> <span class="o">=</span> 
+    <span class="pn">[|</span><span class="pn">[|</span><span onmouseout="hideTip(event, 'fs15', 30)" onmouseover="showTip(event, 'fs15', 30)" class="uc">A</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs16', 31)" onmouseover="showTip(event, 'fs16', 31)" class="uc">T</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 32)" onmouseover="showTip(event, 'fs17', 32)" class="uc">G</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs16', 33)" onmouseover="showTip(event, 'fs16', 33)" class="uc">T</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 34)" onmouseover="showTip(event, 'fs17', 34)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 35)" onmouseover="showTip(event, 'fs17', 35)" class="uc">G</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs16', 36)" onmouseover="showTip(event, 'fs16', 36)" class="uc">T</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 37)" onmouseover="showTip(event, 'fs17', 37)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs18', 38)" onmouseover="showTip(event, 'fs18', 38)" class="uc">C</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 39)" onmouseover="showTip(event, 'fs17', 39)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs16', 40)" onmouseover="showTip(event, 'fs16', 40)" class="uc">T</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 41)" onmouseover="showTip(event, 'fs17', 41)" class="uc">G</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 42)" onmouseover="showTip(event, 'fs17', 42)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 43)" onmouseover="showTip(event, 'fs17', 43)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs18', 44)" onmouseover="showTip(event, 'fs18', 44)" class="uc">C</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 45)" onmouseover="showTip(event, 'fs17', 45)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs18', 46)" onmouseover="showTip(event, 'fs18', 46)" class="uc">C</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs15', 47)" onmouseover="showTip(event, 'fs15', 47)" class="uc">A</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 48)" onmouseover="showTip(event, 'fs17', 48)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs18', 49)" onmouseover="showTip(event, 'fs18', 49)" class="uc">C</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 50)" onmouseover="showTip(event, 'fs17', 50)" class="uc">G</span><span class="pn">|]</span><span class="pn">;</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs18', 51)" onmouseover="showTip(event, 'fs18', 51)" class="uc">C</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs17', 52)" onmouseover="showTip(event, 'fs17', 52)" class="uc">G</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs16', 53)" onmouseover="showTip(event, 'fs16', 53)" class="uc">T</span><span class="pn">|]</span><span class="pn">|]</span>
+</code></pre>
+<br>
+<ul>
+<li>Initialize a directed graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 54)" onmouseover="showTip(event, 'fs19', 54)" class="id">graph</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs20', 55)" onmouseover="showTip(event, 'fs20', 55)" class="rt">Graph</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs21', 56)" onmouseover="showTip(event, 'fs21', 56)" class="vt">int</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 57)" onmouseover="showTip(event, 'fs10', 57)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 58)" onmouseover="showTip(event, 'fs11', 58)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 59)" onmouseover="showTip(event, 'fs10', 59)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 60)" onmouseover="showTip(event, 'fs11', 60)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs20', 61)" onmouseover="showTip(event, 'fs20', 61)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 62)" onmouseover="showTip(event, 'fs22', 62)" class="id">empty</span>
+</code></pre>
+<br>
+<ul>
+<li>Create a list with vertices based on the l-mers and add them to the graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 63)" onmouseover="showTip(event, 'fs23', 63)" class="id">vertices</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs24', 64)" onmouseover="showTip(event, 'fs24', 64)" class="rt">list</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs21', 65)" onmouseover="showTip(event, 'fs21', 65)" class="vt">int</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs10', 66)" onmouseover="showTip(event, 'fs10', 66)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 67)" onmouseover="showTip(event, 'fs11', 67)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span> <span class="o">=</span>
+    <span class="pn">[</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs15', 68)" onmouseover="showTip(event, 'fs15', 68)" class="uc">A</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs16', 69)" onmouseover="showTip(event, 'fs16', 69)" class="uc">T</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">2</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs16', 70)" onmouseover="showTip(event, 'fs16', 70)" class="uc">T</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 71)" onmouseover="showTip(event, 'fs17', 71)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">3</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 72)" onmouseover="showTip(event, 'fs17', 72)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs16', 73)" onmouseover="showTip(event, 'fs16', 73)" class="uc">T</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">4</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 74)" onmouseover="showTip(event, 'fs17', 74)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 75)" onmouseover="showTip(event, 'fs17', 75)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">5</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 76)" onmouseover="showTip(event, 'fs17', 76)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs18', 77)" onmouseover="showTip(event, 'fs18', 77)" class="uc">C</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span><span class="pn">(</span><span class="n">6</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs18', 78)" onmouseover="showTip(event, 'fs18', 78)" class="uc">C</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 79)" onmouseover="showTip(event, 'fs17', 79)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">7</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs18', 80)" onmouseover="showTip(event, 'fs18', 80)" class="uc">C</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs15', 81)" onmouseover="showTip(event, 'fs15', 81)" class="uc">A</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">]</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 82)" onmouseover="showTip(event, 'fs25', 82)" class="id">graphWithVertices</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs20', 83)" onmouseover="showTip(event, 'fs20', 83)" class="rt">Graph</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs21', 84)" onmouseover="showTip(event, 'fs21', 84)" class="vt">int</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 85)" onmouseover="showTip(event, 'fs10', 85)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 86)" onmouseover="showTip(event, 'fs11', 86)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 87)" onmouseover="showTip(event, 'fs10', 87)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 88)" onmouseover="showTip(event, 'fs11', 88)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs26', 89)" onmouseover="showTip(event, 'fs26', 89)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs27', 90)" onmouseover="showTip(event, 'fs27', 90)" class="id">addMany</span> <span onmouseout="hideTip(event, 'fs23', 91)" onmouseover="showTip(event, 'fs23', 91)" class="id">vertices</span> <span onmouseout="hideTip(event, 'fs19', 92)" onmouseover="showTip(event, 'fs19', 92)" class="id">graph</span>
+</code></pre>
+<br>
+<ul>
+<li>Create a list with edges based in the vertices and l-mers and add them to the graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 93)" onmouseover="showTip(event, 'fs28', 93)" class="id">edges</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs24', 94)" onmouseover="showTip(event, 'fs24', 94)" class="rt">list</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs21', 95)" onmouseover="showTip(event, 'fs21', 95)" class="vt">int</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs21', 96)" onmouseover="showTip(event, 'fs21', 96)" class="vt">int</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs10', 97)" onmouseover="showTip(event, 'fs10', 97)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 98)" onmouseover="showTip(event, 'fs11', 98)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span><span class="o">=</span>
+    <span class="pn">[</span><span class="pn">(</span><span class="n">1</span><span class="pn">,</span> <span class="n">2</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs15', 99)" onmouseover="showTip(event, 'fs15', 99)" class="uc">A</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs16', 100)" onmouseover="showTip(event, 'fs16', 100)" class="uc">T</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 101)" onmouseover="showTip(event, 'fs17', 101)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">2</span><span class="pn">,</span> <span class="n">4</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs16', 102)" onmouseover="showTip(event, 'fs16', 102)" class="uc">T</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 103)" onmouseover="showTip(event, 'fs17', 103)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 104)" onmouseover="showTip(event, 'fs17', 104)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">2</span><span class="pn">,</span> <span class="n">5</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs16', 105)" onmouseover="showTip(event, 'fs16', 105)" class="uc">T</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 106)" onmouseover="showTip(event, 'fs17', 106)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs18', 107)" onmouseover="showTip(event, 'fs18', 107)" class="uc">C</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">3</span><span class="pn">,</span> <span class="n">2</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 108)" onmouseover="showTip(event, 'fs17', 108)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs16', 109)" onmouseover="showTip(event, 'fs16', 109)" class="uc">T</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 110)" onmouseover="showTip(event, 'fs17', 110)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span>
+    <span class="pn">(</span><span class="n">4</span><span class="pn">,</span> <span class="n">5</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 111)" onmouseover="showTip(event, 'fs17', 111)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 112)" onmouseover="showTip(event, 'fs17', 112)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs18', 113)" onmouseover="showTip(event, 'fs18', 113)" class="uc">C</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">5</span><span class="pn">,</span> <span class="n">7</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 114)" onmouseover="showTip(event, 'fs17', 114)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs18', 115)" onmouseover="showTip(event, 'fs18', 115)" class="uc">C</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs15', 116)" onmouseover="showTip(event, 'fs15', 116)" class="uc">A</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">5</span><span class="pn">,</span> <span class="n">6</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs17', 117)" onmouseover="showTip(event, 'fs17', 117)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs18', 118)" onmouseover="showTip(event, 'fs18', 118)" class="uc">C</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 119)" onmouseover="showTip(event, 'fs17', 119)" class="uc">G</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">;</span> <span class="pn">(</span><span class="n">6</span><span class="pn">,</span> <span class="n">3</span><span class="pn">,</span> <span class="pn">[|</span><span onmouseout="hideTip(event, 'fs18', 120)" onmouseover="showTip(event, 'fs18', 120)" class="uc">C</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs17', 121)" onmouseover="showTip(event, 'fs17', 121)" class="uc">G</span><span class="pn">;</span> <span onmouseout="hideTip(event, 'fs16', 122)" onmouseover="showTip(event, 'fs16', 122)" class="uc">T</span><span class="pn">|]</span><span class="pn">)</span><span class="pn">]</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 123)" onmouseover="showTip(event, 'fs29', 123)" class="id">graphWithEdges</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs20', 124)" onmouseover="showTip(event, 'fs20', 124)" class="rt">Graph</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs21', 125)" onmouseover="showTip(event, 'fs21', 125)" class="vt">int</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 126)" onmouseover="showTip(event, 'fs10', 126)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 127)" onmouseover="showTip(event, 'fs11', 127)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 128)" onmouseover="showTip(event, 'fs10', 128)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 129)" onmouseover="showTip(event, 'fs11', 129)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs30', 130)" onmouseover="showTip(event, 'fs30', 130)" class="m">Edges</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs31', 131)" onmouseover="showTip(event, 'fs31', 131)" class="id">addMany</span> <span onmouseout="hideTip(event, 'fs28', 132)" onmouseover="showTip(event, 'fs28', 132)" class="id">edges</span> <span onmouseout="hideTip(event, 'fs25', 133)" onmouseover="showTip(event, 'fs25', 133)" class="id">graphWithVertices</span>
+</code></pre>
+<br>
+<ul>
+<li>You can visualize the graph using Cyjs.NET</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span class="k">inline</span> <span onmouseout="hideTip(event, 'fs32', 134)" onmouseover="showTip(event, 'fs32', 134)" class="fn">toCyJS</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs33', 135)" onmouseover="showTip(event, 'fs33', 135)" class="fn">g</span> <span class="pn">:</span> <span onmouseout="hideTip(event, 'fs20', 136)" onmouseover="showTip(event, 'fs20', 136)" class="rt">Graph</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">Vertex</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 137)" onmouseover="showTip(event, 'fs10', 137)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 138)" onmouseover="showTip(event, 'fs11', 138)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs10', 139)" onmouseover="showTip(event, 'fs10', 139)" class="rt">array</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs11', 140)" onmouseover="showTip(event, 'fs11', 140)" class="rt">Nucleotide</span><span class="pn">&gt;</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs34', 141)" onmouseover="showTip(event, 'fs34', 141)" class="fn">vertices</span> <span class="o">=</span> 
+        <span onmouseout="hideTip(event, 'fs33', 142)" onmouseover="showTip(event, 'fs33', 142)" class="fn">g</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 143)" onmouseover="showTip(event, 'fs26', 143)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs35', 144)" onmouseover="showTip(event, 'fs35', 144)" class="id">toVertexList</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs36', 145)" onmouseover="showTip(event, 'fs36', 145)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 146)" onmouseover="showTip(event, 'fs37', 146)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs38', 147)" onmouseover="showTip(event, 'fs38', 147)" class="fn">id</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs39', 148)" onmouseover="showTip(event, 'fs39', 148)" class="fn">name</span><span class="pn">)</span> <span class="k">-&gt;</span>
+            <span onmouseout="hideTip(event, 'fs40', 149)" onmouseover="showTip(event, 'fs40', 149)" class="m">Elements</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs41', 150)" onmouseover="showTip(event, 'fs41', 150)" class="id">node</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs42', 151)" onmouseover="showTip(event, 'fs42', 151)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs38', 152)" onmouseover="showTip(event, 'fs38', 152)" class="fn">id</span><span class="pn">)</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs43', 153)" onmouseover="showTip(event, 'fs43', 153)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs44', 154)" onmouseover="showTip(event, 'fs44', 154)" class="id">label</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs39', 155)" onmouseover="showTip(event, 'fs39', 155)" class="fn">name</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs12', 156)" onmouseover="showTip(event, 'fs12', 156)" class="m">BioArray</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 157)" onmouseover="showTip(event, 'fs45', 157)" class="id">toString</span><span class="pn">)</span><span class="pn">]</span>
+        <span class="pn">)</span>
+
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs46', 158)" onmouseover="showTip(event, 'fs46', 158)" class="fn">edges</span> <span class="o">=</span>
+        <span onmouseout="hideTip(event, 'fs33', 159)" onmouseover="showTip(event, 'fs33', 159)" class="fn">g</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs30', 160)" onmouseover="showTip(event, 'fs30', 160)" class="m">Edges</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs47', 161)" onmouseover="showTip(event, 'fs47', 161)" class="id">toEdgeList</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs36', 162)" onmouseover="showTip(event, 'fs36', 162)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 163)" onmouseover="showTip(event, 'fs37', 163)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs48', 164)" onmouseover="showTip(event, 'fs48', 164)" class="fn">v1</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs49', 165)" onmouseover="showTip(event, 'fs49', 165)" class="fn">v2</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs50', 166)" onmouseover="showTip(event, 'fs50', 166)" class="fn">weight</span><span class="pn">)</span> <span class="k">-&gt;</span> 
+            <span onmouseout="hideTip(event, 'fs40', 167)" onmouseover="showTip(event, 'fs40', 167)" class="m">Elements</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs51', 168)" onmouseover="showTip(event, 'fs51', 168)" class="id">edge</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs42', 169)" onmouseover="showTip(event, 'fs42', 169)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs48', 170)" onmouseover="showTip(event, 'fs48', 170)" class="fn">v1</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs42', 171)" onmouseover="showTip(event, 'fs42', 171)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs49', 172)" onmouseover="showTip(event, 'fs49', 172)" class="fn">v2</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs42', 173)" onmouseover="showTip(event, 'fs42', 173)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs48', 174)" onmouseover="showTip(event, 'fs48', 174)" class="fn">v1</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs42', 175)" onmouseover="showTip(event, 'fs42', 175)" class="fn">string</span> <span onmouseout="hideTip(event, 'fs49', 176)" onmouseover="showTip(event, 'fs49', 176)" class="fn">v2</span><span class="pn">)</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs43', 177)" onmouseover="showTip(event, 'fs43', 177)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs52', 178)" onmouseover="showTip(event, 'fs52', 178)" class="id">weight</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 179)" onmouseover="showTip(event, 'fs50', 179)" class="fn">weight</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs12', 180)" onmouseover="showTip(event, 'fs12', 180)" class="m">BioArray</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 181)" onmouseover="showTip(event, 'fs45', 181)" class="id">toString</span><span class="pn">)</span><span class="pn">]</span>
+        <span class="pn">)</span>
+
+    <span onmouseout="hideTip(event, 'fs53', 182)" onmouseover="showTip(event, 'fs53', 182)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs54', 183)" onmouseover="showTip(event, 'fs54', 183)" class="id">initEmpty</span> <span class="pn">(</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs53', 184)" onmouseover="showTip(event, 'fs53', 184)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 185)" onmouseover="showTip(event, 'fs55', 185)" class="id">withElements</span> <span onmouseout="hideTip(event, 'fs34', 186)" onmouseover="showTip(event, 'fs34', 186)" class="fn">vertices</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs53', 187)" onmouseover="showTip(event, 'fs53', 187)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs55', 188)" onmouseover="showTip(event, 'fs55', 188)" class="id">withElements</span> <span onmouseout="hideTip(event, 'fs46', 189)" onmouseover="showTip(event, 'fs46', 189)" class="fn">edges</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs53', 190)" onmouseover="showTip(event, 'fs53', 190)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs56', 191)" onmouseover="showTip(event, 'fs56', 191)" class="id">withLayout</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs57', 192)" onmouseover="showTip(event, 'fs57', 192)" class="m">Layout</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs58', 193)" onmouseover="showTip(event, 'fs58', 193)" class="id">initBreadthfirst</span> <span onmouseout="hideTip(event, 'fs59', 194)" onmouseover="showTip(event, 'fs59', 194)" class="fn">id</span><span class="pn">)</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs53', 195)" onmouseover="showTip(event, 'fs53', 195)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs60', 196)" onmouseover="showTip(event, 'fs60', 196)" class="id">withStyle</span> <span class="s">&quot;node&quot;</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs43', 197)" onmouseover="showTip(event, 'fs43', 197)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs61', 198)" onmouseover="showTip(event, 'fs61', 198)" class="id">content</span> <span class="o">=.</span> <span onmouseout="hideTip(event, 'fs43', 199)" onmouseover="showTip(event, 'fs43', 199)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs44', 200)" onmouseover="showTip(event, 'fs44', 200)" class="id">label</span><span class="pn">]</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs53', 201)" onmouseover="showTip(event, 'fs53', 201)" class="m">CyGraph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs60', 202)" onmouseover="showTip(event, 'fs60', 202)" class="id">withStyle</span> <span class="s">&quot;edge&quot;</span>     
+                <span class="pn">[</span>
+                    <span onmouseout="hideTip(event, 'fs43', 203)" onmouseover="showTip(event, 'fs43', 203)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs62', 204)" onmouseover="showTip(event, 'fs62', 204)" class="m">Curve</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs63', 205)" onmouseover="showTip(event, 'fs63', 205)" class="id">style</span> <span class="s">&quot;bezier&quot;</span>
+                    <span onmouseout="hideTip(event, 'fs43', 206)" onmouseover="showTip(event, 'fs43', 206)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs64', 207)" onmouseover="showTip(event, 'fs64', 207)" class="id">opacity</span> <span class="n">0.666</span>
+                    <span onmouseout="hideTip(event, 'fs43', 208)" onmouseover="showTip(event, 'fs43', 208)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs65', 209)" onmouseover="showTip(event, 'fs65', 209)" class="id">width</span> <span class="o">&lt;=.</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs43', 210)" onmouseover="showTip(event, 'fs43', 210)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs52', 211)" onmouseover="showTip(event, 'fs52', 211)" class="id">weight</span><span class="pn">,</span> <span class="n">70</span><span class="pn">,</span> <span class="n">100</span><span class="pn">,</span> <span class="n">5</span><span class="pn">,</span> <span class="n">5</span><span class="pn">)</span>
+                    <span onmouseout="hideTip(event, 'fs43', 212)" onmouseover="showTip(event, 'fs43', 212)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs66', 213)" onmouseover="showTip(event, 'fs66', 213)" class="m">Target</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs67', 214)" onmouseover="showTip(event, 'fs67', 214)" class="m">Arrow</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs68', 215)" onmouseover="showTip(event, 'fs68', 215)" class="id">shape</span> <span class="s">&quot;triangle&quot;</span>
+                    <span onmouseout="hideTip(event, 'fs43', 216)" onmouseover="showTip(event, 'fs43', 216)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs69', 217)" onmouseover="showTip(event, 'fs69', 217)" class="m">Line</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 218)" onmouseover="showTip(event, 'fs70', 218)" class="id">color</span> <span class="o">=.</span> <span onmouseout="hideTip(event, 'fs43', 219)" onmouseover="showTip(event, 'fs43', 219)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 220)" onmouseover="showTip(event, 'fs70', 220)" class="id">color</span>
+                    <span onmouseout="hideTip(event, 'fs43', 221)" onmouseover="showTip(event, 'fs43', 221)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs66', 222)" onmouseover="showTip(event, 'fs66', 222)" class="m">Target</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs67', 223)" onmouseover="showTip(event, 'fs67', 223)" class="m">Arrow</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 224)" onmouseover="showTip(event, 'fs70', 224)" class="id">color</span> <span class="o">=.</span> <span onmouseout="hideTip(event, 'fs43', 225)" onmouseover="showTip(event, 'fs43', 225)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 226)" onmouseover="showTip(event, 'fs70', 226)" class="id">color</span>
+                    <span onmouseout="hideTip(event, 'fs43', 227)" onmouseover="showTip(event, 'fs43', 227)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs71', 228)" onmouseover="showTip(event, 'fs71', 228)" class="m">Source</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs72', 229)" onmouseover="showTip(event, 'fs72', 229)" class="m">Arrow</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 230)" onmouseover="showTip(event, 'fs70', 230)" class="id">color</span> <span class="o">=.</span> <span onmouseout="hideTip(event, 'fs43', 231)" onmouseover="showTip(event, 'fs43', 231)" class="m">CyParam</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs70', 232)" onmouseover="showTip(event, 'fs70', 232)" class="id">color</span>
+                <span class="pn">]</span>
+
+<span onmouseout="hideTip(event, 'fs29', 233)" onmouseover="showTip(event, 'fs29', 233)" class="id">graphWithEdges</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs32', 234)" onmouseover="showTip(event, 'fs32', 234)" class="fn">toCyJS</span>
+</code></pre>
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min.js"></script>
+</head>
+<body> <style>#ec611d476d0 { width: 600px; height: 400px; display: block } </style>
+<div id="ec611d476d0"></div>
+<script type="text/javascript">
+
+            var renderCyjs_3d1f8a1711014bdaa4145cd9d0ce7f94 = function() {
+            var fsharpCyjsRequire = requirejs.config({context:'fsharp-cyjs',paths:{cyjs:'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min'}}) || require;
+            fsharpCyjsRequire(['cyjs'], function(Cyjs) {
+
+            var graphdata = {"container":document.getElementById('ec611d476d0'),"elements":[{"data":{"id":"1","label":"AT"}},{"data":{"id":"2","label":"TG"}},{"data":{"id":"3","label":"GT"}},{"data":{"id":"4","label":"GG"}},{"data":{"id":"5","label":"GC"}},{"data":{"id":"6","label":"CG"}},{"data":{"id":"7","label":"CA"}},{"data":{"id":"12","source":"1","target":"2","weight":"ATG"}},{"data":{"id":"24","source":"2","target":"4","weight":"TGG"}},{"data":{"id":"25","source":"2","target":"5","weight":"TGC"}},{"data":{"id":"32","source":"3","target":"2","weight":"GTG"}},{"data":{"id":"45","source":"4","target":"5","weight":"GGC"}},{"data":{"id":"56","source":"5","target":"6","weight":"GCG"}},{"data":{"id":"57","source":"5","target":"7","weight":"GCA"}},{"data":{"id":"63","source":"6","target":"3","weight":"CGT"}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"curve-style":"bezier","opacity":0.666,"width":"mapData(weight,70,100,5,5)","target-arrow-shape":"triangle","line-color":"data(color)","target-arrow-color":"data(color)","source-arrow-color":"data(color)"}}],"layout":{"name":"breadthfirst"}}
+            var cy = cytoscape( graphdata );
+            cy.userZoomingEnabled( false );
+            
+});
+            };
+            if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
+                var script = document.createElement("script");
+                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
+                script.onload = function(){
+                    renderCyjs_3d1f8a1711014bdaa4145cd9d0ce7f94();
+                };
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+            else {
+                renderCyjs_3d1f8a1711014bdaa4145cd9d0ce7f94();
+            }
+</script>
+ </body>
+</html>
+
+<ul>
+<li>
+<p>This graph is semibalanced <code>(|indegree - outdegree| = 1)</code>. If a graph has an Eulerian path starting at vertex <em>s</em> and ending at vertex <em>t</em>, then all its vertices are balanced,
+with the possible exception of <em>s</em> and <em>t</em>, which may be semibalanced.</p>
+</li>
+<li>The Eulerian path problem can be reduced to the Eulerian cycle problem by adding an edge between two semibalanced vertices.</li>
+</ul>
+<h3><a name="Hierholzer-s-algorithm" class="anchor" href="#Hierholzer-s-algorithm">Hierholzer's algorithm</a></h3>
+<ul>
+<li>
+<p>Choose any starting vertex, and follow a path along the unused edges from that vertex until you return to it. You will alway return to the starting vertex in a balanced Eulerian graph.
+Since every vertex has <code>indegreee = outdegree</code>, there is always an unused edge to leave the current vertex. The path found by doing this is a closed tour, starting and ending at the same vertex,
+but not necessarily covering all vertices and edges.</p>
+</li>
+<li>As long as there exists a vertex in the current closed tour that has unused edges, you can start finding a new closed tour and join it with the previously found tour.</li>
+<li>Since we assume the original graph is connected, repeating the previous step will cover all edges of the graph.</li>
+<li><p>Implement the algorithm, so that it works on a <code>FSharp.FGL.Graph</code></p></li>
+</ul>
+<h3><a name="Working-with-s" class="anchor" href="#Working-with-s">Working with <code>FSharp.FGL.Graph</code>s</a></h3>
+<ul>
+<li>Returns all outward edges of vertex 1</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs20', 243)" onmouseover="showTip(event, 'fs20', 243)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs76', 244)" onmouseover="showTip(event, 'fs76', 244)" class="id">getContext</span> <span class="n">1</span> <span onmouseout="hideTip(event, 'fs29', 245)" onmouseover="showTip(event, 'fs29', 245)" class="id">graphWithEdges</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 246)" onmouseover="showTip(event, 'fs26', 246)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 247)" onmouseover="showTip(event, 'fs77', 247)" class="id">outwardEdges</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[(1, 2, [|A; T; G|])]</code></pre></td></tr></table>
+<br>
+<ul>
+<li>Returns all inward edges of vertex 2</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs20', 248)" onmouseover="showTip(event, 'fs20', 248)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs76', 249)" onmouseover="showTip(event, 'fs76', 249)" class="id">getContext</span> <span class="n">2</span> <span onmouseout="hideTip(event, 'fs29', 250)" onmouseover="showTip(event, 'fs29', 250)" class="id">graphWithEdges</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs26', 251)" onmouseover="showTip(event, 'fs26', 251)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs78', 252)" onmouseover="showTip(event, 'fs78', 252)" class="id">inwardEdges</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>[(1, 2, [|A; T; G|]); (3, 2, [|G; T; G|])]</code></pre></td></tr></table>
+<br>
+<ul>
+<li>Returns all inward edges for all vertices in the graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs20', 253)" onmouseover="showTip(event, 'fs20', 253)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs79', 254)" onmouseover="showTip(event, 'fs79', 254)" class="id">mapContexts</span> <span onmouseout="hideTip(event, 'fs26', 255)" onmouseover="showTip(event, 'fs26', 255)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs78', 256)" onmouseover="showTip(event, 'fs78', 256)" class="id">inwardEdges</span> <span onmouseout="hideTip(event, 'fs29', 257)" onmouseover="showTip(event, 'fs29', 257)" class="id">graphWithEdges</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>map
+  [(1, []); (2, [(1, 2, [|A; T; G|]); (3, 2, [|G; T; G|])]);
+   (3, [(6, 3, [|C; G; T|])]); (4, [(2, 4, [|T; G; G|])]);
+   (5, [(2, 5, [|T; G; C|]); (4, 5, [|G; G; C|])]); (6, [(5, 6, [|G; C; G|])]);
+   (7, [(5, 7, [|G; C; A|])])]</code></pre></td></tr></table>
+<br>
+<ul>
+<li>Returns all outward edges for all vertices in the graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs20', 258)" onmouseover="showTip(event, 'fs20', 258)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs79', 259)" onmouseover="showTip(event, 'fs79', 259)" class="id">mapContexts</span> <span onmouseout="hideTip(event, 'fs26', 260)" onmouseover="showTip(event, 'fs26', 260)" class="m">Vertices</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 261)" onmouseover="showTip(event, 'fs77', 261)" class="id">outwardEdges</span> <span onmouseout="hideTip(event, 'fs29', 262)" onmouseover="showTip(event, 'fs29', 262)" class="id">graphWithEdges</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>map
+  [(1, [(1, 2, [|A; T; G|])]); (2, [(2, 4, [|T; G; G|]); (2, 5, [|T; G; C|])]);
+   (3, [(3, 2, [|G; T; G|])]); (4, [(4, 5, [|G; G; C|])]);
+   (5, [(5, 6, [|G; C; G|]); (5, 7, [|G; C; A|])]); (6, [(6, 3, [|C; G; T|])]);
+   (7, [])]</code></pre></td></tr></table>
+<br>
+<ul>
+<li>Returns the adjacency matrix representation of the graph</li>
+</ul>
+<br>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs20', 263)" onmouseover="showTip(event, 'fs20', 263)" class="m">Graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs80', 264)" onmouseover="showTip(event, 'fs80', 264)" class="id">toAdjacencyMatrix</span> <span onmouseout="hideTip(event, 'fs29', 265)" onmouseover="showTip(event, 'fs29', 265)" class="id">graphWithEdges</span>
+</code></pre>
+<h2><a name="References" class="anchor" href="#References">References</a></h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Eulerian_path">https://en.wikipedia.org/wiki/Eulerian_path</a></li>
+<li><a href="https://www-m9.ma.tum.de/graph-algorithms/hierholzer/index_en.html#tab_ti">https://www-m9.ma.tum.de/graph-algorithms/hierholzer/index_en.html#tab_ti</a></li>
+<li><a href="https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/">https://www.geeksforgeeks.org/hierholzers-algorithm-directed-graph/</a></li>
+</ul>
+<h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+<h3><a name="Testing" class="anchor" href="#Testing">Testing</a></h3>
+<ul>
+<li>Implement a function that returns an array of l-mers for any given DNA-Sequence</li>
+<li>Generate an Eulerian Graph based on the returned set of l-mers</li>
+<li>Compare the reconstructed sequence to the original sequence</li>
+<li>Optional: Implement a function that performs the steps above for a large number of sequences with varying l-mer lengths</li>
+</ul>
+<h3><a name="Blog-post" class="anchor" href="#Blog-post">Blog post</a></h3>
+<ul>
+<li>Introduction about SBH, and how it is used today</li>
+<li>Describe the limits and weaknesses of the approach in your blog post</li>
+<li>Compare Hierholzer's algorithm to Fleury's algorithm</li>
+</ul>
+
+                </div>
+            </div>
+        </div>
+        <div class="fsdocs-tip" id="fs1">namespace FSharpAux</div>
+<div class="fsdocs-tip" id="fs2">namespace BioFSharp</div>
+<div class="fsdocs-tip" id="fs3">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
+<div class="fsdocs-tip" id="fs4">namespace FSharp.FGL</div>
+<div class="fsdocs-tip" id="fs5">namespace FSharp.FGL.Directed</div>
+<div class="fsdocs-tip" id="fs6">namespace Cyjs</div>
+<div class="fsdocs-tip" id="fs7">namespace Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs8">module Nucleotides<br /><br />from BioFSharp</div>
+<div class="fsdocs-tip" id="fs9">val sampleSequence : Nucleotide array</div>
+<div class="fsdocs-tip" id="fs10">type &#39;T array = &#39;T []</div>
+<div class="fsdocs-tip" id="fs11">type Nucleotide =<br />&#160;&#160;| A<br />&#160;&#160;| T<br />&#160;&#160;| G<br />&#160;&#160;| C<br />&#160;&#160;| U<br />&#160;&#160;| I<br />&#160;&#160;| Gap<br />&#160;&#160;| Ter<br />&#160;&#160;| R<br />&#160;&#160;| Y<br />&#160;&#160;...<br />&#160;&#160;&#160;&#160;interface IBioItem<br />&#160;&#160;&#160;&#160;static member op_Explicit : value:#IBioItem -&gt; byte + 1 overload</div>
+<div class="fsdocs-tip" id="fs12">module BioArray<br /><br />from BioFSharp</div>
+<div class="fsdocs-tip" id="fs13">val ofNucleotideString : s:#seq&lt;char&gt; -&gt; BioArray.BioArray&lt;Nucleotide&gt;</div>
+<div class="fsdocs-tip" id="fs14">val lMers3 : Nucleotide array array</div>
+<div class="fsdocs-tip" id="fs15">union case Nucleotide.A: Nucleotide</div>
+<div class="fsdocs-tip" id="fs16">union case Nucleotide.T: Nucleotide</div>
+<div class="fsdocs-tip" id="fs17">union case Nucleotide.G: Nucleotide</div>
+<div class="fsdocs-tip" id="fs18">union case Nucleotide.C: Nucleotide</div>
+<div class="fsdocs-tip" id="fs19">val graph : Graph&lt;int,Nucleotide array,Nucleotide array&gt;</div>
+<div class="fsdocs-tip" id="fs20">Multiple items<br />module Graph<br /><br />from FSharp.FGL.Directed<br /><br />--------------------<br />module Graph<br /><br />from FSharp.FGL<br /><br />--------------------<br />module Graph<br /><br />from FSharpAux<br /><br />--------------------<br />type Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge (requires comparison)&gt; = Map&lt;&#39;Vertex,MContext&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt;&gt;</div>
+<div class="fsdocs-tip" id="fs21">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type int = int32<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =<br />&#160;&#160;int</div>
+<div class="fsdocs-tip" id="fs22">val empty : Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs23">val vertices : (int * Nucleotide array) list</div>
+<div class="fsdocs-tip" id="fs24">type &#39;T list = List&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs25">val graphWithVertices : Graph&lt;int,Nucleotide array,Nucleotide array&gt;</div>
+<div class="fsdocs-tip" id="fs26">Multiple items<br />module Vertices<br /><br />from FSharp.FGL.Directed<br /><br />--------------------<br />module Vertices<br /><br />from FSharp.FGL</div>
+<div class="fsdocs-tip" id="fs27">val addMany : vertices:LVertex&lt;&#39;Vertex,&#39;Label&gt; list -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs28">val edges : (int * int * Nucleotide array) list</div>
+<div class="fsdocs-tip" id="fs29">val graphWithEdges : Graph&lt;int,Nucleotide array,Nucleotide array&gt;</div>
+<div class="fsdocs-tip" id="fs30">module Edges<br /><br />from FSharp.FGL.Directed</div>
+<div class="fsdocs-tip" id="fs31">val addMany : edges:LEdge&lt;&#39;Vertex,&#39;Edge&gt; list -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs32">val toCyJS : g:Graph&lt;&#39;Vertex,Nucleotide array,Nucleotide array&gt; -&gt; CyGraph.CyGraph (requires comparison)</div>
+<div class="fsdocs-tip" id="fs33">val g : Graph&lt;&#39;Vertex,Nucleotide array,Nucleotide array&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs34">val vertices : Elements.Node list</div>
+<div class="fsdocs-tip" id="fs35">val toVertexList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LVertex&lt;&#39;Vertex,&#39;Label&gt; list (requires comparison)</div>
+<div class="fsdocs-tip" id="fs36">Multiple items<br />module List<br /><br />from FSharpAux<br /><br />--------------------<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;&#160;&#160;interface IReadOnlyList&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IEnumerable<br />&#160;&#160;&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member GetReverseIndex : rank:int * offset:int -&gt; int<br />&#160;&#160;&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;member Head : &#39;T<br />&#160;&#160;&#160;&#160;member IsEmpty : bool<br />&#160;&#160;&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;&#160;&#160;...</div>
+<div class="fsdocs-tip" id="fs37">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs38">val id : &#39;Vertex (requires comparison)</div>
+<div class="fsdocs-tip" id="fs39">val name : Nucleotide array</div>
+<div class="fsdocs-tip" id="fs40">Multiple items<br />module Elements<br /><br />from Cyjs.NET<br /><br />--------------------<br />module Elements<br /><br />from BioFSharp</div>
+<div class="fsdocs-tip" id="fs41">val node : id:string -&gt; dataAttributes:CyParam.CyStyleParam list -&gt; Elements.Node</div>
+<div class="fsdocs-tip" id="fs42">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />--------------------<br />type string = System.String</div>
+<div class="fsdocs-tip" id="fs43">module CyParam<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs44">val label : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs45">val toString : bs:BioArray.BioArray&lt;#IBioItem&gt; -&gt; string</div>
+<div class="fsdocs-tip" id="fs46">val edges : Elements.Edge list</div>
+<div class="fsdocs-tip" id="fs47">val toEdgeList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LEdge&lt;&#39;Vertex,&#39;Edge&gt; list (requires comparison)</div>
+<div class="fsdocs-tip" id="fs48">val v1 : &#39;Vertex (requires comparison)</div>
+<div class="fsdocs-tip" id="fs49">val v2 : &#39;Vertex (requires comparison)</div>
+<div class="fsdocs-tip" id="fs50">val weight : Nucleotide array</div>
+<div class="fsdocs-tip" id="fs51">val edge : id:string -&gt; sourceId:string -&gt; targetId:string -&gt; dataAttributes:CyParam.CyStyleParam list -&gt; Elements.Edge</div>
+<div class="fsdocs-tip" id="fs52">val weight : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs53">module CyGraph<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs54">val initEmpty : unit -&gt; CytoscapeModel.Cytoscape</div>
+<div class="fsdocs-tip" id="fs55">val withElements : elems:seq&lt;CytoscapeModel.Element&gt; -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
+<div class="fsdocs-tip" id="fs56">val withLayout : ly:Layout -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
+<div class="fsdocs-tip" id="fs57">Multiple items<br />module Layout<br /><br />from Cyjs.NET<br /><br />--------------------<br />type Layout =<br />&#160;&#160;inherit DynamicObj<br />&#160;&#160;new : name:string -&gt; Layout<br />&#160;&#160;member name : string<br /><br />--------------------<br />new : name:string -&gt; Layout</div>
+<div class="fsdocs-tip" id="fs58">val initBreadthfirst : applyOption:(Layout -&gt; Layout) -&gt; Layout</div>
+<div class="fsdocs-tip" id="fs59">val id : x:&#39;T -&gt; &#39;T</div>
+<div class="fsdocs-tip" id="fs60">val withStyle : selector:string -&gt; cyStyles:seq&lt;CyParam.CyStyleParam&gt; -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
+<div class="fsdocs-tip" id="fs61">val content : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs62">module Curve<br /><br />from Cyjs.NET.CyParam</div>
+<div class="fsdocs-tip" id="fs63">val style : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs64">val opacity : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs65">val width : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs66">module Target<br /><br />from Cyjs.NET.CyParam</div>
+<div class="fsdocs-tip" id="fs67">module Arrow<br /><br />from Cyjs.NET.CyParam.Target</div>
+<div class="fsdocs-tip" id="fs68">val shape : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs69">module Line<br /><br />from Cyjs.NET.CyParam</div>
+<div class="fsdocs-tip" id="fs70">val color : v:&#39;a -&gt; CyParam.CyStyleParam</div>
+<div class="fsdocs-tip" id="fs71">module Source<br /><br />from Cyjs.NET.CyParam</div>
+<div class="fsdocs-tip" id="fs72">module Arrow<br /><br />from Cyjs.NET.CyParam.Source</div>
+<div class="fsdocs-tip" id="fs73">val withSize : width:int * height:int -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
+<div class="fsdocs-tip" id="fs74">module HTML<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs75">val toEmbeddedHTML : cy:CytoscapeModel.Cytoscape -&gt; string</div>
+<div class="fsdocs-tip" id="fs76">val getContext : v:&#39;Vertex -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Context&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs77">val outwardEdges : Adj&lt;&#39;Vertex,&#39;Edge&gt; * &#39;Vertex * &#39;Label * Adj&lt;&#39;Vertex,&#39;Edge&gt; -&gt; LEdge&lt;&#39;Vertex,&#39;Edge&gt; list (requires comparison)</div>
+<div class="fsdocs-tip" id="fs78">val inwardEdges : Adj&lt;&#39;Vertex,&#39;Edge&gt; * &#39;Vertex * &#39;Label * Adj&lt;&#39;Vertex,&#39;Edge&gt; -&gt; LEdge&lt;&#39;Vertex,&#39;Edge&gt; list (requires comparison)</div>
+<div class="fsdocs-tip" id="fs79">val mapContexts : mapping:(Context&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; &#39;T) -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Map&lt;&#39;Vertex,&#39;T&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs80">val toAdjacencyMatrix : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; &#39;Edge [] [] (requires comparison)</div>
+
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = '/BIO-BTE-10-L-4/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+<footer>
+    <script>
+        bulmaCollapsible.attach('.is-collapsible');
+    </script>
+</footer>
+</html>
