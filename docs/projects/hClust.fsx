@@ -15,8 +15,6 @@ index: 2
 
 #### Table of contents
 
-#### Table of contents
-
 - [Introduction](#Introduction) 
 - [Aim for this project](#Aim-for-this-project)
 - [Coding clues](#Coding-clues)
