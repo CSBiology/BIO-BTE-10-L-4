@@ -19,7 +19,6 @@ index: 4
     - [Prim's algorithm](#Prim-s-algorithm) 
 2. [Aim for this project](#Aim-for-this-project)
 4. [References](#References)
-
 5. [Coding clues](#Coding-clues)
 
 ## Introduction

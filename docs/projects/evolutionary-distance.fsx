@@ -28,6 +28,8 @@ index: 3
     - [General coding advice](#General-coding-advice)
 - [References](#References)
 - [Additional information](#Additional-information)
+    - [Testing](#Testing)
+    - [Blog post](#Blog-post)
 
 ## Introduction
 
@@ -190,20 +192,22 @@ What are the advantages and weaknesses of this approach? Inform yourself.
 
 ## Aim for this project
 
-You understand the following evolutionary distance models and are able to explain the differences between them (required in your final report)
-Also, you implement them in F# for the BioFSharp library:
+- You understand the following evolutionary distance models and are able to explain the differences between them (required in your final report)
+    Also, you implement them in F# for the BioFSharp library:
 
-- Pairwise p Distance
-- JC69 evolutionary distance based on the model by Jukes and Cantor
-- K81 evolutionary distance based on the Kimura two-parameter model
+    - Pairwise p Distance
+    - JC69 evolutionary distance based on the model by Jukes and Cantor
+    - K81 evolutionary distance based on the Kimura two-parameter model
 
-As a demonstration of your implementations, as well as to show the differences between these models,
-You construct at least 10 adequate test sequences of equal length, and construct phyologenetic trees from them. 
-Investigate the most interesting and obvious differences, and relate them to the different model assumptions.
+- As a demonstration of your implementations, as well as to show the differences between these models,
+    You construct at least 10 adequate test sequences of equal length, and construct phyologenetic trees from them. 
+    Investigate the most interesting and obvious differences, and relate them to the different model assumptions.
 
-Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.
+- Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.
 
-**Bonus**: You implement a visualization method for phylogenetic trees for [Cyjs.NET](). 
+- You present above results in a blog post resembling your final report.
+
+- **Bonus**: You implement a visualization method for phylogenetic trees for [Cyjs.NET](https://fslab.org/Cyjs.NET/). 
 
 ## Coding clues
 
@@ -349,8 +353,32 @@ https://en.wikipedia.org/wiki/Models_of_DNA_evolution
 
 https://www.cs.rice.edu/~nakhleh/COMP571/Slides/Phylogenetics-DistanceMethods-Full.pdf
 
+https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm
+
 https://www.megasoftware.net/mega1_manual/Distance.html
 
 ## Additional information
+
+### Testing
+
+  - the [MEGA software suit](https://www.megasoftware.net/active_download) contains many evolutionary distance functions. 
+    You can use it as reference implementation to check wether your functions return correct results. To do that, download the GUI version, install it,
+    and follow these steps:
+
+    - Click the `Distances` button and choose `pairwise distance`:
+
+        ![](../img/mega1.png)
+
+    - Select a fasta file containing the sequences of interest, and choose the reference model from this dialogue:
+
+        ![](../img/mega2.png)
+
+### Blog post 
+
+  - Don’t forget to describe the limits/weaknesses of the models in your blog post.
+
+  - How to handle gaps in aligned sequences?
+
+  - Provide reasoning why you chose your real world sequences
 
 *)
