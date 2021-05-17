@@ -127,7 +127,13 @@
 </ul>
 </li>
 <li><a href="#References">References</a></li>
-<li><a href="#Additional-information">Additional information</a></li>
+<li>
+<a href="#Additional-information">Additional information</a>
+<ul>
+<li><a href="#Testing">Testing</a></li>
+<li><a href="#Blog-post">Blog post</a></li>
+</ul>
+</li>
 </ul>
 <h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 <h3><a name="Phylogenetic-trees" class="anchor" href="#Phylogenetic-trees">Phylogenetic trees</a></h3>
@@ -234,6 +240,8 @@ a correction factor for the proportional distance <span class="math">\(d_{JC}\)<
 <br>
 <hr />
 <h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
+<ul>
+<li>
 <p>You understand the following evolutionary distance models and are able to explain the differences between them (required in your final report)
 Also, you implement them in F# for the BioFSharp library:</p>
 <ul>
@@ -241,11 +249,16 @@ Also, you implement them in F# for the BioFSharp library:</p>
 <li>JC69 evolutionary distance based on the model by Jukes and Cantor</li>
 <li>K81 evolutionary distance based on the Kimura two-parameter model</li>
 </ul>
+</li>
+<li>
 <p>As a demonstration of your implementations, as well as to show the differences between these models,
 You construct at least 10 adequate test sequences of equal length, and construct phyologenetic trees from them.
 Investigate the most interesting and obvious differences, and relate them to the different model assumptions.</p>
-<p>Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.</p>
-<p><strong>Bonus</strong>: You implement a visualization method for phylogenetic trees for <a href="">Cyjs.NET</a>.</p>
+</li>
+<li>Finally, you choose adequate sequences of at least 6 organisms, perform a multiple alignment for them and repeat above process for real-world sequences.</li>
+<li>You present above results in a blog post resembling your final report.</li>
+<li><p><strong>Bonus</strong>: You implement a visualization method for phylogenetic trees for <a href="https://fslab.org/Cyjs.NET/">Cyjs.NET</a>.</p></li>
+</ul>
 <h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
 <h3><a name="Before-you-start" class="anchor" href="#Before-you-start">Before you start</a></h3>
 <ul>
@@ -364,8 +377,33 @@ There are two ways of handling the gaps produced by alignments: <em>Complete-Del
 <p>Nei, M. &amp; Zhang J. Evolutionary Distance: Estimation 2006 <a href="https://doi.org/10.1038/npg.els.0005108">https://doi.org/10.1038/npg.els.0005108</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Models_of_DNA_evolution">https://en.wikipedia.org/wiki/Models_of_DNA_evolution</a></p>
 <p><a href="https://www.cs.rice.edu/~nakhleh/COMP571/Slides/Phylogenetics-DistanceMethods-Full.pdf">https://www.cs.rice.edu/~nakhleh/COMP571/Slides/Phylogenetics-DistanceMethods-Full.pdf</a></p>
+<p><a href="https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm">https://www.megasoftware.net/web_help_10/index.htm#t=Models_for_estimating_distances.htm</a></p>
 <p><a href="https://www.megasoftware.net/mega1_manual/Distance.html">https://www.megasoftware.net/mega1_manual/Distance.html</a></p>
 <h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+<h3><a name="Testing" class="anchor" href="#Testing">Testing</a></h3>
+<ul>
+<li>
+<p>the <a href="https://www.megasoftware.net/active_download">MEGA software suit</a> contains many evolutionary distance functions.
+You can use it as reference implementation to check wether your functions return correct results. To do that, download the GUI version, install it,
+and follow these steps:</p>
+<ul>
+<li>
+<p>Click the <code>Distances</code> button and choose <code>pairwise distance</code>:</p>
+<p><img src="../img/mega1.png" alt="" /></p>
+</li>
+<li>
+<p>Select a fasta file containing the sequences of interest, and choose the reference model from this dialogue:</p>
+<p><img src="../img/mega2.png" alt="" /></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3><a name="Blog-post" class="anchor" href="#Blog-post">Blog post</a></h3>
+<ul>
+<li>Don’t forget to describe the limits/weaknesses of the models in your blog post.</li>
+<li>How to handle gaps in aligned sequences?</li>
+<li>Provide reasoning why you chose your real world sequences</li>
+</ul>
 
                 </div>
             </div>
