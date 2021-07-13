@@ -108,6 +108,13 @@
 <li><a href="#Aim-for-this-project">Aim for this project</a></li>
 <li><a href="#References">References</a></li>
 <li><a href="#Coding-clues">Coding clues</a></li>
+<li>
+<a href="#Additional-information">Additional information</a>
+<ul>
+<li><a href="#Testing">Testing</a></li>
+<li><a href="#Blog-post">Blog post</a></li>
+</ul>
+</li>
 </ul>
 <h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
 <p><code>Imagine you're elected Minister of Infrastructure and tasked to build a road grid. This grid is supposed to connect all cities. Your budget is pretty tight though so the combined length of the roads should be as low as possible</code></p>
@@ -120,14 +127,14 @@
 <p>As indicated above, MSTs have applications everytime someone needs to design an efficient grid. Examples for this might be electric grids, road grids or water pipe grids.
 Besides that, MSTs can be used for studying epidemeology by finding the shortest paths trough which pathogens might traverse a population network.</p>
 <p>In biological research, MSTs might be used for visualization or clustering purposes. An example for this can be seen in the picture below, where phylogenetic groups were found and visualized using an MST.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Minimum_spanning_tree.svg/1200px-Minimum_spanning_tree.svg.png" alt="drawing" width="45%"/>
-<img src="https://www.researchgate.net/profile/Michel-Fabre-2/publication/234090394/figure/fig11/AS:341854030712841@1458515760884/Minimum-spanning-tree-based-upon-whole-genome-SNP-analysis-The-tree-is-based-upon-13382.png" alt="drawing" width="45%"/></p>
+<img src="../img/Prims_MST.png" alt="drawing" width="45%"/>
+<img src="../img/Prims_Phylo.png" alt="drawing" width="45%"/>
 <br>
 <p>Several algorithms exist for finding MST, where often there is a tradeoff made between performance and quality of the result. Your task will be to implement one of them.</p>
 <h3><a name="Prim-s-algorithm" class="anchor" href="#Prim-s-algorithm">Prim's algorithm</a></h3>
 <p>Prim's algorithm is a simple, greedy approach for finding the MST of a network. Greedy approaches always find the best solution in exchange for lower performance.</p>
 <p>In Prim's algorithm, you start a new graph by selecting a single vertex in the original graph. This new graph is repetitively grown by finding the closest connections to vertices not yet included in the MST.</p>
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/PrimAlgDemo.gif" alt="prims" /></p>
+<p><img src="../img/Prims_Demo.gif" alt="" /></p>
 <h2><a name="Aim-for-this-project" class="anchor" href="#Aim-for-this-project">Aim for this project</a></h2>
 <br>
 <ul>
@@ -212,15 +219,15 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min.js"></script>
 </head>
-<body> <style>#e9aed48504c { width: 600px; height: 400px; display: block } </style>
-<div id="e9aed48504c"></div>
+<body> <style>#ea4466da224 { width: 600px; height: 400px; display: block } </style>
+<div id="ea4466da224"></div>
 <script type="text/javascript">
 
-            var renderCyjs_c3626a8f8d88403cba0c48131f4ab018 = function() {
+            var renderCyjs_c19c669465f54a22a95b05deae9953ca = function() {
             var fsharpCyjsRequire = requirejs.config({context:'fsharp-cyjs',paths:{cyjs:'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min'}}) || require;
             fsharpCyjsRequire(['cyjs'], function(Cyjs) {
 
-            var graphdata = {"container":document.getElementById('e9aed48504c'),"elements":[{"data":{"id":"1","label":"VertexNumeroUno"}},{"data":{"id":"2","label":"VertexNumeroDos"}},{"data":{"id":"12","source":"1","target":"2","weight":1.0}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"content":"data(weight)"}}],"layout":{"name":"random"}}
+            var graphdata = {"container":document.getElementById('ea4466da224'),"elements":[{"data":{"id":"1","label":"VertexNumeroUno"}},{"data":{"id":"2","label":"VertexNumeroDos"}},{"data":{"id":"12","source":"1","target":"2","weight":1.0}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"content":"data(weight)"}}],"layout":{"name":"random"}}
             var cy = cytoscape( graphdata );
             cy.userZoomingEnabled( false );
             
@@ -230,17 +237,29 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderCyjs_c3626a8f8d88403cba0c48131f4ab018();
+                    renderCyjs_c19c669465f54a22a95b05deae9953ca();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderCyjs_c3626a8f8d88403cba0c48131f4ab018();
+                renderCyjs_c19c669465f54a22a95b05deae9953ca();
             }
 </script>
  </body>
 </html>
 
+<h2><a name="Additional-information" class="anchor" href="#Additional-information">Additional information</a></h2>
+<h3><a name="Testing" class="anchor" href="#Testing">Testing</a></h3>
+<p>For testing whether your implementation does return the correct results, you can use this website:</p>
+<p><a href="https://algorithms.discrete.ma.tum.de/graph-algorithms/mst-prim/index_en.html">https://algorithms.discrete.ma.tum.de/graph-algorithms/mst-prim/index_en.html</a></p>
+<p><img src="../img/Prims_Testing.png" alt="" /></p>
+<h3><a name="Blog-post" class="anchor" href="#Blog-post">Blog post</a></h3>
+<ul>
+<li>What is a minimum spanning tree</li>
+<li>Classical application examples</li>
+<li>Advantages and drawbacks of Prim's algorithm</li>
+<li>Short description of the algorithm</li>
+</ul>
 
                 </div>
             </div>
