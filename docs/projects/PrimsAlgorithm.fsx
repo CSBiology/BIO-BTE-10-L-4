@@ -17,9 +17,12 @@ index: 4
 - [Introduction](#Introduction)
     - [Minimum spanning trees](#Minimum-spanning-trees) 
     - [Prim's algorithm](#Prim-s-algorithm) 
-2. [Aim for this project](#Aim-for-this-project)
-4. [References](#References)
-5. [Coding clues](#Coding-clues)
+- [Aim for this project](#Aim-for-this-project)
+- [References](#References)
+- [Coding clues](#Coding-clues)
+- [Additional information](#Additional-information)
+    - [Testing](#Testing) 
+    - [Blog post](#Blog-post) 
 
 ## Introduction
 
@@ -40,8 +43,8 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
 
 In biological research, MSTs might be used for visualization or clustering purposes. An example for this can be seen in the picture below, where phylogenetic groups were found and visualized using an MST.
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Minimum_spanning_tree.svg/1200px-Minimum_spanning_tree.svg.png" alt="drawing" width="45%"/>
-<img src="https://www.researchgate.net/profile/Michel-Fabre-2/publication/234090394/figure/fig11/AS:341854030712841@1458515760884/Minimum-spanning-tree-based-upon-whole-genome-SNP-analysis-The-tree-is-based-upon-13382.png" alt="drawing" width="45%"/>
+<img src="../img/Prims_MST.png" alt="drawing" width="45%"/>
+<img src="../img/Prims_Phylo.png" alt="drawing" width="45%"/>
 
 <br>
 
@@ -53,7 +56,7 @@ Prim's algorithm is a simple, greedy approach for finding the MST of a network. 
 
 In Prim's algorithm, you start a new graph by selecting a single vertex in the original graph. This new graph is repetitively grown by finding the closest connections to vertices not yet included in the MST.
 
-![prims](https://upload.wikimedia.org/wikipedia/commons/9/9b/PrimAlgDemo.gif)
+![](../img/Prims_Demo.gif)
 
 ## Aim for this project
 
@@ -155,3 +158,23 @@ gWithEdge
 |> CyGraph.withSize(600, 400) 
 |> Cyjs.NET.HTML.toEmbeddedHTML
 (*** include-it-raw ***)
+
+(** 
+## Additional information
+
+### Testing
+
+For testing whether your implementation does return the correct results, you can use this website: 
+
+https://algorithms.discrete.ma.tum.de/graph-algorithms/mst-prim/index_en.html
+
+![](../img/Prims_Testing.png)
+
+### Blog post
+
+- What is a minimum spanning tree
+- Classical application examples
+- Advantages and drawbacks of Prim's algorithm
+- Short description of the algorithm
+
+*)
