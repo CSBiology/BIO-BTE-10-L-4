@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BIO-BTE-10-L-4
-</title>
+    <title>Blog post guide</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
@@ -107,52 +106,78 @@
         <div class="column is-10 is-paddingless">
             <div class="section pt-4">
                 <div class="container" id="fsdocs-content">
-                    <h1><a name="BIO-BTE-10-L-4" class="anchor" href="#BIO-BTE-10-L-4">BIO-BTE-10-L-4</a></h1>
-<br>
-<p>Deutscher titel: <strong>Wissenschaftliche Programmierung für Biolog*innen (Projektarbeit)</strong></p>
-<p>English title: <strong>Scientific Programming For Biologists (project work)</strong></p>
-<p>KIS: <a href="https://www.kis.uni-kl.de/campus/all/event.asp?gguid=0xE21F6D88E774426AAF47627AB6FC59BB&amp;tguid=0xA0CC12CC38514E09833533E643742D94">BIO-BTE-10-L-4</a></p>
-<p><strong>Credit Points (CP): 9</strong></p>
-<p><strong>Vorraussetzungen/Requirements:</strong> <a href="https://csbiology.github.io/BIO-BTE-12-V-4/">BIO-BTE-12-V-4</a></p>
+                    
+<h1><a name="Blog-post-guide" class="anchor" href="#Blog-post-guide">Blog post guide</a></h1>
+<p>This is a guide on how to create content for the blog post that marks the final submission for your project work.</p>
 <p><strong>Table of contents</strong></p>
-<!-- TOC -->
 <ul>
 <li>
-<a href="#kursbeschreibungdeutsch">Kursbeschreibung(deutsch)</a>
+<a href="#setup">Setup</a>
 <ul>
-<li><a href="#ablauf">Ablauf</a></li>
-</ul>
-</li>
 <li>
-<a href="#course-descriptionenglish">Course description(english)</a>
+<a href="#indepth-info-for-the-interested">Indepth info for the interested</a>
 <ul>
-<li><a href="#procedure">Procedure</a></li>
+<li><a href="#dotnet-tools">dotnet tools</a></li>
+<li><a href="#fsdocs">fsdocs</a></li>
 </ul>
 </li>
 </ul>
-<!-- /TOC -->
-<h2><a name="Kursbeschreibung-deutsch" class="anchor" href="#Kursbeschreibung-deutsch">Kursbeschreibung(deutsch)</a></h2>
-<p>Setzen Sie Ihre Fähigkeiten mit einer individuellen Projektarbeit im Bereich der Bioinformatik in die Praxis um. Mögliche Projektthemen erstrecken sich über das gesamte Spektrum der Bioinformatik von Algorithmus- bis zur Webdienstimplementierung. Besprechen sie ihre eigene Themenidee oder wählen Sie ein vorgeschlagenes Projekt für sich aus.</p>
-<h3><a name="Ablauf" class="anchor" href="#Ablauf">Ablauf</a></h3>
-<ul>
-<li><p><strong>Themenwahl</strong>: Die angebotenen Projektarbeitsthemen können sie der Sidebar links entnehmen. Die jeweiligen Artikel geben bereits einen detailierten Überblick über das Thema und verschiedene Hinweise und Tipps für deren Bearbeitung.</p></li>
-<li>
-<p><strong>Themenbearbeitung</strong>: Nach einem Einführungsgespräch bearbeiten sie das Thema digital in Eigenregie. Die Literaturrecherche, das Suchen und Analysieren eventueller Referenzimplementationen, sowie das Implementieren ihrer Lösungen in F# sollten eigenständig durchgeführt werden. Wir stehen ihnen dabei natürlich bei technischen und/oder Verständnisproblemen zur Verfügung -</p>
-<p><em>[Optional]</em> Um ihre Arbeit zu versionieren und leichter teilbar zu machen, empfiehlt sich die Einrichtung und Pflege eines <a href="https://guides.github.com/activities/hello-world/">Repositories auf GitHub</a>. Bei Interesse kann hier auch eine Einführung unsererseits erfolgen.</p>
 </li>
 <li>
-<p><strong>Leistungsnachweis</strong>: Der Leistungsnachweis erfolgt durch eine Nachbesprechung und ein Protokoll mitsamt Dokumentation und Anwendungsbeispiel des Projekts. Art und Präsentation des Protokolls kann abhängig vom Projekt leicht unterschiedlich sein, grundsätzlich sollten Folgende Punkte aber immer beachtet werden:</p>
+<a href="#creating-content">Creating content</a>
 <ul>
-<li>Einleitender Text zu Problemstellung, Themenfeld, etc. (hier gerne an der Projektvorstellung orientieren)</li>
-<li><p>Schritt-für-Schritt Erklärung der Implementation der Problemlösung <strong>mit Codebeispielen</strong> im <a href=""><em>Blogpost Stil</em></a></p></li>
-<li><p>Anwendungsbeispiel <strong>mit Codebeispielen</strong></p></li>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#literate-f-scripts">Literate F# scripts</a></li>
+<li><a href="#code-examples">Code examples</a></li>
+<li><a href="#rendering-charts">rendering charts</a></li>
+</ul>
+</li>
+<li>
+<a href="#submission-guidelines">Submission guidelines</a>
+<ul>
+<li><a href="#general-content-guidelines">General content guidelines</a></li>
+<li><a href="#submitting-your-blog-post">Submitting your blog post</a></li>
 </ul>
 </li>
 </ul>
-<h2><a name="Course-description-english" class="anchor" href="#Course-description-english">Course description(english)</a></h2>
-<p>Put your skills into practice by working on an individual project work in the field of bioinformatics. Project topics span the range of bioinformatic application from algorithms to web service implementation. Discuss your own ideas as project topic or select a suggested project.</p>
-<h3><a name="Procedure" class="anchor" href="#Procedure">Procedure</a></h3>
-<p>coming soon</p>
+<p><em>! This document is WIP. Please finish your project before writing the blog post to prevent usage of outdated information. !</em></p>
+<h2><a name="Setup" class="anchor" href="#Setup">Setup</a></h2>
+<p>At this point you should have the <a href="https://dotnet.microsoft.com/download/dotnet/5.0">.NET SDK</a> installed, as it is a mandatory installation.
+Otherwise we strongly recommend to consider first writing some code and getting into the project before reading to deep into how to create a blog post about your results.</p>
+<p>That said, follow these steps to set up the blogpost project:</p>
+<ol>
+<li>Create a new folder for your blogpost</li>
+<li>Open a terminal (e.g. powershell/cmd on windows, bash on linux/macOS). Pro tip: Visual Studio Code has a built in terminal, which is very handy.</li>
+<li>Navigate to the new folder (type <code>cd replace/this/text/with/path/to/your/folder</code>)</li>
+<li>use the <code>dotnet new tool-manifest</code> command to create a dotnet tool resgistry in the folder. This is basically a document that tracks what tools can be used in your project.</li>
+<li>Install the fslab template for fsdocs via <code>dotnet new -i FsLab.DocumentationTemplate</code>. You can learn more about this template <a href="https://fslab.org/docs-template/">here</a></li>
+<li>Initialize the template via <code>dotnet new fslab-docs</code>. When asked for permission to install the fsdocs tool, type <code>y</code> to continue.</li>
+<li>
+Test the template via <code>dotnet fsdocs watch --eval --clean</code>. Here is what this means in a bit more detail:
+<ul>
+<li>The <code>dotnet</code> command prefix always means "use the dotnet CLI(command line interface) to do the following:"</li>
+<li><code>fsdocs</code> means you will use the <code>fsdocs</code> tool</li>
+<li><code>watch</code> means that you will use <code>fsdocs</code> in watch mode, an interactive mode where you will have the live output of your documents open in a local browser and can see the changes live.</li>
+<li><code>--eval</code> means that you want to evaluate (meaning execute) any F# script content. More on that later.</li>
+<li><code>--clean</code> means that you want to clean up any leftover stuff from the last run before starting.</li>
+<li>
+There may be a question for permission to start the local webserver. Allow it. You should now see this in your browser:
+<img src="" alt="" />
+</li>
+</ul>
+</li>
+</ol>
+<h3><a name="Indepth-info-for-the-interested" class="anchor" href="#Indepth-info-for-the-interested">Indepth info for the interested</a></h3>
+<h4><a name="dotnet-tools" class="anchor" href="#dotnet-tools">dotnet tools</a></h4>
+<h4><a name="fsdocs" class="anchor" href="#fsdocs">fsdocs</a></h4>
+<h2><a name="Creating-content" class="anchor" href="#Creating-content">Creating content</a></h2>
+<h3><a name="Markdown" class="anchor" href="#Markdown">Markdown</a></h3>
+<h3><a name="Literate-F-scripts" class="anchor" href="#Literate-F-scripts">Literate F# scripts</a></h3>
+<h3><a name="Code-examples" class="anchor" href="#Code-examples">Code examples</a></h3>
+<h3><a name="rendering-charts" class="anchor" href="#rendering-charts">rendering charts</a></h3>
+<h2><a name="Submission-guidelines" class="anchor" href="#Submission-guidelines">Submission guidelines</a></h2>
+<h3><a name="General-content-guidelines" class="anchor" href="#General-content-guidelines">General content guidelines</a></h3>
+<h3><a name="Submitting-your-blog-post" class="anchor" href="#Submitting-your-blog-post">Submitting your blog post</a></h3>
 
                 </div>
             </div>
