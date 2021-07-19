@@ -2,7 +2,7 @@
 ---
 title: Reduce complex graphs to the best paths
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 4
 ---
 *)

@@ -2,7 +2,7 @@
 ---
 title: Sequencing by Hybridization as an Eulerian Path Problem
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 5
 ---
 *)

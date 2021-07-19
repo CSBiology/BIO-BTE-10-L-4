@@ -2,11 +2,10 @@
 ---
 title: Efficient agglomerative hierarchical clustering
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 2
 ---
 *)
-
 
 (**
 # Implementation of an efficient hierarchical agglomerative clustering algorithm

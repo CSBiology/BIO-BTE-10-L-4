@@ -2,7 +2,7 @@
 ---
 title: t-Distributed Stochastic Neighbour Embedding
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 1
 ---
 *)

@@ -2,7 +2,7 @@
 ---
 title: Phylogenetic tree reconstruction based on evolutionary distance
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 3
 ---
 *)

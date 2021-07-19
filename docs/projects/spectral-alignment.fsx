@@ -2,7 +2,7 @@
 ---
 title: Alignment of Peptide derived MS Spectra
 category: projects
-categoryindex: 1
+categoryindex: 2
 index: 3
 ---
 *)
@@ -35,10 +35,10 @@ Let us motivate this problem by visual examination of the fragment spectra*'* of
 #r "nuget: FSharpAux"
 #r "nuget: FSharpAux.IO"
 #r "nuget: FSharp.Stats, 0.4.1" 
-#r "nuget: BioFSharp, 2.0.0-beta5"
+#r "nuget: BioFSharp, 2.0.0-beta6"
 #r "nuget: BioFSharp.Mz, 0.1.5-beta"
-#r "nuget: BioFSharp.IO, 2.0.0-beta5"
-#r "nuget: Plotly.NET, 2.0.0-beta9"
+#r "nuget: BioFSharp.IO, 2.0.0-beta6"
+#r "nuget: Plotly.NET, 2.0.0-preview.6"
 open FSharpAux
 open FSharpAux.IO
 open BioFSharp
