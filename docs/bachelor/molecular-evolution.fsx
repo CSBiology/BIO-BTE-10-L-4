@@ -1,8 +1,8 @@
 ﻿(**
 ---
 title: Molecular evolution of thermolabile proteins in microalgae 
-category: bachelor
-categoryindex: 2
+category: bachelor thesis
+categoryindex: 3
 index: 1
 ---
 *)
