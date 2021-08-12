@@ -47,18 +47,51 @@ That said, follow these steps to set up the blogpost project:
    - `--clean` means that you want to clean up any leftover stuff from the last run before starting.
    - There may be a question for permission to start the local webserver. Allow it. You should now see this in your browser:
     ![]()
+8. You have now set up an interactive blog post creation engine. changes to files in your folder will be reflected on the webpage that opened in your browser. 
+9. To stop the tool, either press any button in the terminal you are running it, or interrupt the process by pressing `ctrl + c` in the terminal.
 
 ### Indepth info for the interested
 
 #### dotnet tools
 
+Coming soon<sup>TM</sup>
+
 #### fsdocs
+
+Coming soon<sup>TM</sup>
 
 ## Creating content
 
+If you followed the setup steps, you have a folder set up to create content in. You can always preview your content by running `dotnet fsdocs watch --eval --clean`.
+
+Content for fsdocs can be created in two kinds of files: `markdown` (`.md`) files and `literate F# scripts`. The core difference is that you can only write styled text in markdown, while you can add real code in literate F# scripts.
+
 ### Markdown
 
+Markdown is a set of easy to use formatting rules to create structured text. In fact, the very document you are reading is written in markdown.
+
+for example, this is how to create a heading:
+
+```
+# Hi, i am a large heading
+```
+
+will become:
+
+# Hi, i am a large heading
+
+You may have realized that your initialized template contains a markdown cheatsheat. Use this cheatsheet for all your markdown needs. an online version is also available [here]({{root}}general/markdown_cheatsheet.html).
+
+You might also have realized that the styling of your markdown looks different than this page (see the screenshot below for reference as well). 
+That is not a problem and depends on the styling that fsdocs uses. please use the default one that is coming with the template.
+
+![cheatsheet_screenshot](/img/markdown_cheatsheet.png)
+
 ### Literate F# scripts
+
+Literate F# scripts are a powerfull fusion of markdown with F# scripting and advanced formatting methods. 
+
+
 
 ### Code examples
 

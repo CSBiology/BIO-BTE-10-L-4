@@ -3,7 +3,7 @@
 title: Example blog post
 category: general
 categoryindex: 1
-index: 1
+index: 3
 ---
 *)
 
