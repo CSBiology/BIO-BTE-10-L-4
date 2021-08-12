@@ -57,13 +57,18 @@
   general
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
-    Example blog post
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
+    Blog post guide
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
-    Blog post guide
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">
+    Markdown cheatsheet
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
+    Example blog post
   </a>
 </li>             
 <li class="nav-header">
@@ -240,15 +245,15 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
 <head>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min.js"></script>
 </head>
-<body> <style>#e81caf53df1 { width: 600px; height: 400px; display: block } </style>
-<div id="e81caf53df1"></div>
+<body> <style>#e844eddb5d3 { width: 600px; height: 400px; display: block } </style>
+<div id="e844eddb5d3"></div>
 <script type="text/javascript">
 
-            var renderCyjs_c7ecf8ac6a1346c8b4311272bf22105f = function() {
+            var renderCyjs_a1c191468bc6475fa80787c97c84fde0 = function() {
             var fsharpCyjsRequire = requirejs.config({context:'fsharp-cyjs',paths:{cyjs:'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min'}}) || require;
             fsharpCyjsRequire(['cyjs'], function(Cyjs) {
 
-            var graphdata = {"container":document.getElementById('e81caf53df1'),"elements":[{"data":{"id":"1","label":"VertexNumeroUno"}},{"data":{"id":"2","label":"VertexNumeroDos"}},{"data":{"id":"12","source":"1","target":"2","weight":1.0}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"content":"data(weight)"}}],"layout":{"name":"random"}}
+            var graphdata = {"container":document.getElementById('e844eddb5d3'),"elements":[{"data":{"id":"1","label":"VertexNumeroUno"}},{"data":{"id":"2","label":"VertexNumeroDos"}},{"data":{"id":"12","source":"1","target":"2","weight":1.0}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"content":"data(weight)"}}],"layout":{"name":"random"}}
             var cy = cytoscape( graphdata );
             cy.userZoomingEnabled( false );
             
@@ -258,12 +263,12 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderCyjs_c7ecf8ac6a1346c8b4311272bf22105f();
+                    renderCyjs_a1c191468bc6475fa80787c97c84fde0();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderCyjs_c7ecf8ac6a1346c8b4311272bf22105f();
+                renderCyjs_a1c191468bc6475fa80787c97c84fde0();
             }
 </script>
  </body>
@@ -289,36 +294,109 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
 <div class="fsdocs-tip" id="fs2">namespace FSharp.FGL</div>
 <div class="fsdocs-tip" id="fs3">namespace FSharp.FGL.Undirected</div>
 <div class="fsdocs-tip" id="fs4">val g : Graph&lt;int,string,float&gt;</div>
-<div class="fsdocs-tip" id="fs5">Multiple items<br />module Graph<br /><br />from FSharp.FGL.Undirected<br /><br />--------------------<br />module Graph<br /><br />from FSharp.FGL<br /><br />--------------------<br />type Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge (requires comparison)&gt; = Map&lt;&#39;Vertex,MContext&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt;&gt;</div>
-<div class="fsdocs-tip" id="fs6">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type int = int32<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =<br />&#160;&#160;int</div>
-<div class="fsdocs-tip" id="fs7">Multiple items<br />val string : value:&#39;T -&gt; string<br /><br />--------------------<br />type string = System.String</div>
-<div class="fsdocs-tip" id="fs8">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type float = System.Double<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =<br />&#160;&#160;float</div>
-<div class="fsdocs-tip" id="fs9">val empty : Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs5">Multiple items<br />module Graph
+
+from FSharp.FGL.Undirected<br /><br />--------------------<br />module Graph
+
+from FSharp.FGL<br /><em>&lt;summary&gt;
+General functions for both directed and undirected graphs
+&lt;/summary&gt;</em><br /><br />--------------------<br />type Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge (requires comparison)&gt; = Map&lt;&#39;Vertex,MContext&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt;&gt;<br /><em>&lt;summary&gt;
+Map of Vertices as keys and MContexts as values
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs6">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs7">Multiple items<br />val string : value:&#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;</em><br /><br />--------------------<br />type string = System.String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs8">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure. 
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs9">val empty : Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)<br /><em>&lt;summary&gt;
+Creates a new, empty graph.
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs10">val v1 : int * string</div>
 <div class="fsdocs-tip" id="fs11">val v2 : int * string</div>
 <div class="fsdocs-tip" id="fs12">val gWithVertices : Graph&lt;int,string,float&gt;</div>
-<div class="fsdocs-tip" id="fs13">Multiple items<br />module Vertices<br /><br />from FSharp.FGL.Undirected<br /><br />--------------------<br />module Vertices<br /><br />from FSharp.FGL</div>
-<div class="fsdocs-tip" id="fs14">val add : &#39;Vertex * &#39;Label -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
+<div class="fsdocs-tip" id="fs13">Multiple items<br />module Vertices
+
+from FSharp.FGL.Undirected<br /><em>&lt;summary&gt;
+Functions for vertices of undirected Graphs
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Vertices
+
+from FSharp.FGL<br /><em>&lt;summary&gt;
+Functions for vertices of both directed and undirected graphs
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs14">val add : &#39;Vertex * &#39;Label -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)<br /><em>&lt;summary&gt;
+Adds a labeled vertex to the graph.
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs15">val e : int * int * float</div>
 <div class="fsdocs-tip" id="fs16">val gWithEdge : Graph&lt;int,string,float&gt;</div>
-<div class="fsdocs-tip" id="fs17">module Edges<br /><br />from FSharp.FGL.Undirected</div>
-<div class="fsdocs-tip" id="fs18">val add : &#39;Vertex * &#39;Vertex * &#39;Edge -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
-<div class="fsdocs-tip" id="fs19">val toEdgeList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LEdge&lt;&#39;Vertex,&#39;Edge&gt; list (requires comparison and equality)</div>
-<div class="fsdocs-tip" id="fs20">val remove : v:&#39;Vertex -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)</div>
-<div class="fsdocs-tip" id="fs21">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1</div>
+<div class="fsdocs-tip" id="fs17">module Edges
+
+from FSharp.FGL.Undirected<br /><em>&lt;summary&gt;
+Functions for edges of undirected Graphs
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs18">val add : &#39;Vertex * &#39;Vertex * &#39;Edge -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)<br /><em>&lt;summary&gt;
+Adds a labeled, undirected edge to the graph.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs19">val toEdgeList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LEdge&lt;&#39;Vertex,&#39;Edge&gt; list (requires comparison and equality)<br /><em>&lt;summary&gt;
+Creates a list of all edges and their labels.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs20">val remove : v:&#39;Vertex -&gt; g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; (requires comparison)<br /><em>&lt;summary&gt;
+Removes a vertex from the graph.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs21">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1<br /><em>&lt;summary&gt;Return the first element of a tuple, &lt;c&gt;fst (a,b) = a&lt;/c&gt;.&lt;/summary&gt;<br />&lt;param name=&quot;tuple&quot;&gt;The input tuple.&lt;/param&gt;<br />&lt;returns&gt;The first value.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs22">namespace Cyjs</div>
 <div class="fsdocs-tip" id="fs23">namespace Cyjs.NET</div>
 <div class="fsdocs-tip" id="fs24">val toCyJS : g:Graph&lt;&#39;Vertex,&#39;Label,float&gt; -&gt; CyGraph.CyGraph (requires comparison)</div>
 <div class="fsdocs-tip" id="fs25">val g : Graph&lt;&#39;Vertex,&#39;Label,float&gt; (requires comparison)</div>
 <div class="fsdocs-tip" id="fs26">val vertices : Elements.Node list</div>
-<div class="fsdocs-tip" id="fs27">val toVertexList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LVertex&lt;&#39;Vertex,&#39;Label&gt; list (requires comparison)</div>
-<div class="fsdocs-tip" id="fs28">Multiple items<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;&#160;&#160;interface IReadOnlyList&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IEnumerable<br />&#160;&#160;&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member GetReverseIndex : rank:int * offset:int -&gt; int<br />&#160;&#160;&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;member Head : &#39;T<br />&#160;&#160;&#160;&#160;member IsEmpty : bool<br />&#160;&#160;&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;&#160;&#160;...</div>
-<div class="fsdocs-tip" id="fs29">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs27">val toVertexList : g:Graph&lt;&#39;Vertex,&#39;Label,&#39;Edge&gt; -&gt; LVertex&lt;&#39;Vertex,&#39;Label&gt; list (requires comparison)<br /><em>&lt;summary&gt;
+Creates a list of all vertices and their labels.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs28">Multiple items<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | ( [] )
+  | ( :: ) of Head: &#39;T * Tail: &#39;T list
+    interface IReadOnlyList&lt;&#39;T&gt;
+    interface IReadOnlyCollection&lt;&#39;T&gt;
+    interface IEnumerable
+    interface IEnumerable&lt;&#39;T&gt;
+    member GetReverseIndex : rank:int * offset:int -&gt; int
+    member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list
+    static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list
+    member Head : &#39;T
+    member IsEmpty : bool
+    member Item : index:int -&gt; &#39;T with get
+    ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs29">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to each of the elements of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The list of transformed elements.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs30">val id : &#39;Vertex (requires comparison)</div>
 <div class="fsdocs-tip" id="fs31">val name : &#39;Label</div>
-<div class="fsdocs-tip" id="fs32">module Elements<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs32">module Elements
+
+from Cyjs.NET</div>
 <div class="fsdocs-tip" id="fs33">val node : id:string -&gt; dataAttributes:CyParam.CyStyleParam list -&gt; Elements.Node</div>
-<div class="fsdocs-tip" id="fs34">module CyParam<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs34">module CyParam
+
+from Cyjs.NET</div>
 <div class="fsdocs-tip" id="fs35">val label : v:&#39;a -&gt; CyParam.CyStyleParam</div>
 <div class="fsdocs-tip" id="fs36">val edges : Elements.Edge list</div>
 <div class="fsdocs-tip" id="fs37">val v1 : &#39;Vertex (requires comparison)</div>
@@ -326,15 +404,23 @@ Besides that, MSTs can be used for studying epidemeology by finding the shortest
 <div class="fsdocs-tip" id="fs39">val weight : float</div>
 <div class="fsdocs-tip" id="fs40">val edge : id:string -&gt; sourceId:string -&gt; targetId:string -&gt; dataAttributes:CyParam.CyStyleParam list -&gt; Elements.Edge</div>
 <div class="fsdocs-tip" id="fs41">val weight : v:&#39;a -&gt; CyParam.CyStyleParam</div>
-<div class="fsdocs-tip" id="fs42">module CyGraph<br /><br />from Cyjs.NET</div>
+<div class="fsdocs-tip" id="fs42">module CyGraph
+
+from Cyjs.NET</div>
 <div class="fsdocs-tip" id="fs43">val initEmpty : unit -&gt; CytoscapeModel.Cytoscape</div>
 <div class="fsdocs-tip" id="fs44">val withElements : elems:seq&lt;CytoscapeModel.Element&gt; -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
 <div class="fsdocs-tip" id="fs45">val withStyle : selector:string -&gt; cyStyles:seq&lt;CyParam.CyStyleParam&gt; -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
 <div class="fsdocs-tip" id="fs46">val content : v:&#39;a -&gt; CyParam.CyStyleParam</div>
 <div class="fsdocs-tip" id="fs47">val show : cy:CyGraph.CyGraph -&gt; unit</div>
 <div class="fsdocs-tip" id="fs48">val withSize : width:int * height:int -&gt; cy:CyGraph.CyGraph -&gt; CyGraph.CyGraph</div>
-<div class="fsdocs-tip" id="fs49">module HTML<br /><br />from Cyjs.NET</div>
-<div class="fsdocs-tip" id="fs50">val toEmbeddedHTML : cy:CytoscapeModel.Cytoscape -&gt; string</div>
+<div class="fsdocs-tip" id="fs49">module HTML
+
+from Cyjs.NET<br /><em>&lt;summary&gt;
+ HTML template for Cytoscape
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs50">val toEmbeddedHTML : cy:CytoscapeModel.Cytoscape -&gt; string<br /><em>&lt;summary&gt;
+ Converts a CyGraph to it HTML representation and embeds it into a html page.
+&lt;/summary&gt;</em></div>
 
     </div>
 

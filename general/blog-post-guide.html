@@ -57,13 +57,18 @@
   general
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
-    Example blog post
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
+    Blog post guide
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
-    Blog post guide
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">
+    Markdown cheatsheet
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
+    Example blog post
   </a>
 </li>             
 <li class="nav-header">
@@ -174,13 +179,30 @@ There may be a question for permission to start the local webserver. Allow it. Y
 </li>
 </ul>
 </li>
+<li>You have now set up an interactive blog post creation engine. changes to files in your folder will be reflected on the webpage that opened in your browser.</li>
+<li>To stop the tool, either press any button in the terminal you are running it, or interrupt the process by pressing <code>ctrl + c</code> in the terminal.</li>
 </ol>
 <h3><a name="Indepth-info-for-the-interested" class="anchor" href="#Indepth-info-for-the-interested">Indepth info for the interested</a></h3>
 <h4><a name="dotnet-tools" class="anchor" href="#dotnet-tools">dotnet tools</a></h4>
+<p>Coming soon<sup>TM</sup></p>
 <h4><a name="fsdocs" class="anchor" href="#fsdocs">fsdocs</a></h4>
+<p>Coming soon<sup>TM</sup></p>
 <h2><a name="Creating-content" class="anchor" href="#Creating-content">Creating content</a></h2>
+<p>If you followed the setup steps, you have a folder set up to create content in. You can always preview your content by running <code>dotnet fsdocs watch --eval --clean</code>.</p>
+<p>Content for fsdocs can be created in two kinds of files: <code>markdown</code> (<code>.md</code>) files and <code>literate F# scripts</code>. The core difference is that you can only write styled text in markdown, while you can add real code in literate F# scripts.</p>
 <h3><a name="Markdown" class="anchor" href="#Markdown">Markdown</a></h3>
+<p>Markdown is a set of easy to use formatting rules to create structured text. In fact, the very document you are reading is written in markdown.</p>
+<p>for example, this is how to create a heading:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">#</span><span class="id">Hi</span><span class="pn">,</span> <span class="id">i</span> <span class="id">am</span> <span class="id">a</span> <span class="id">large</span> <span class="id">heading</span>
+</code></pre>
+<p>will become:</p>
+<h1><a name="Hi-i-am-a-large-heading" class="anchor" href="#Hi-i-am-a-large-heading">Hi, i am a large heading</a></h1>
+<p>You may have realized that your initialized template contains a markdown cheatsheat. Use this cheatsheet for all your markdown needs. an online version is also available <a href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">here</a>.</p>
+<p>You might also have realized that the styling of your markdown looks different than this page (see the screenshot below for reference as well).
+That is not a problem and depends on the styling that fsdocs uses. please use the default one that is coming with the template.</p>
+<p><img src="/img/markdown_cheatsheet.png" alt="cheatsheet_screenshot" /></p>
 <h3><a name="Literate-F-scripts" class="anchor" href="#Literate-F-scripts">Literate F# scripts</a></h3>
+<p>Literate F# scripts are a powerfull fusion of markdown with F# scripting and advanced formatting methods.</p>
 <h3><a name="Code-examples" class="anchor" href="#Code-examples">Code examples</a></h3>
 <h3><a name="rendering-charts" class="anchor" href="#rendering-charts">rendering charts</a></h3>
 <h2><a name="Submission-guidelines" class="anchor" href="#Submission-guidelines">Submission guidelines</a></h2>

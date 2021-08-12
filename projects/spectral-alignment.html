@@ -57,13 +57,18 @@
   general
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
-    Example blog post
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
+    Blog post guide
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
-    Blog post guide
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">
+    Markdown cheatsheet
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
+    Example blog post
   </a>
 </li>             
 <li class="nav-header">
@@ -131,29 +136,29 @@ While the whole process is complex enough to fill whole textbooks, this project 
 <p><strong>The alignment of peptide derived MS spectra.</strong></p>
 <p>Let us motivate this problem by visual examination of the fragment spectra<em>'</em> of two example peptides with the sequences 'PRTEIINNEE' (blue) and 'PRTEYINNEE' (orange).</p>
 <p><em>'</em>: For simplicity we will only consider b-ions at charge 1.</p>
-<div id="0c7f0895-afba-4ee5-8caa-2197b5c4779e" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="ba566df5-f0a6-475c-9711-5e866abbf6a6" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_0c7f0895afba4ee58caa2197b5c4779e = function() {
+            var renderPlotly_ba566df5f0a6475c97115e866abbf6a6 = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"bar","x":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,596.32821040148,709.4122743780499,823.4552018180699,937.4981292580899,1066.54072234438,1195.58331543067],"y":[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0],"marker":{},"name":"PRTEIINNEE"},{"type":"bar","x":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553],"y":[1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0],"marker":{},"name":"PRTEYINNEE"}];
             var layout = {};
             var config = {};
-            Plotly.newPlot('0c7f0895-afba-4ee5-8caa-2197b5c4779e', data, layout, config);
+            Plotly.newPlot('ba566df5-f0a6-475c-9711-5e866abbf6a6', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_0c7f0895afba4ee58caa2197b5c4779e();
+                    renderPlotly_ba566df5f0a6475c97115e866abbf6a6();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_0c7f0895afba4ee58caa2197b5c4779e();
+                renderPlotly_ba566df5f0a6475c97115e866abbf6a6();
             }
 </script>
 
@@ -165,56 +170,56 @@ the fragment spectra of the b-ions of 'PRTEIINNEE' versus the one of 'PRTEYINNEE
 The plot contains every possible pair of peaks (eg. the first peak of spectrum 1 and the second peak of spectrum 2) depicted as grey crosses.
 Additionally, we added matching peaks as blue circles and non-matching peaks as orange triangles. You can see, that all matching peaks are placed
 on the main diagonal (blue line), while the non-matching peaks are lined up at a constant offset, parallel to the main diagonal.</p>
-<div id="8ddd5d41-da91-427c-abc4-3fc51e83dfaf" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="c6259b62-f8aa-4c06-8a20-b5f925bd1ba3" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_8ddd5d41da91427cabc43fc51e83dfaf = function() {
+            var renderPlotly_c6259b62f8aa4c068a20b5f925bd1ba3 = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067],"y":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553],"mode":"markers","marker":{"size":5,"color":"#A5A5A5","symbol":3}},{"type":"scatter","x":[97.05276384829,253.15387487133,354.20155333862,483.24414642491],"y":[97.05276384829,253.15387487133,354.20155333862,483.24414642491],"mode":"markers","marker":{"size":10,"color":"#41719C","symbol":0}},{"type":"scatter","x":[0.0,1400.0],"y":[0.0,1400.0],"mode":"lines","line":{},"marker":{"size":10,"color":"#41719C","symbol":0}},{"type":"scatter","x":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,596.32821040148,709.4122743780499,823.4552018180699,937.4981292580899,1066.54072234438,1195.58331543067],"y":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553],"mode":"lines","line":{"color":"#70AD47","dash":"dash"},"marker":{}},{"type":"scatter","x":[596.32821040148,709.4122743780499,823.4552018180699,937.4981292580899,1066.54072234438,1195.58331543067],"y":[646.30747495634,759.39153893291,873.4344663729299,987.4773938129499,1116.51998689924,1245.56257998553],"mode":"markers","marker":{"size":10,"color":"#ED7D31","symbol":5}}];
             var layout = {"yaxis":{"title":"PRTEIINNEE","range":[1250.0,0.0]},"xaxis":{"title":"PRTEYINNEE","range":[0.0,1250.0]},"showlegend":false};
             var config = {};
-            Plotly.newPlot('8ddd5d41-da91-427c-abc4-3fc51e83dfaf', data, layout, config);
+            Plotly.newPlot('c6259b62-f8aa-4c06-8a20-b5f925bd1ba3', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_8ddd5d41da91427cabc43fc51e83dfaf();
+                    renderPlotly_c6259b62f8aa4c068a20b5f925bd1ba3();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_8ddd5d41da91427cabc43fc51e83dfaf();
+                renderPlotly_c6259b62f8aa4c068a20b5f925bd1ba3();
             }
 </script>
 
 <p>The pattern which we want to highlight here becomes even more evident if we raise the amount of amino acid mutations by one and plotting the b-ion spectrum of 'PRTEIINNEE' versus the one of 'PRTEYINYEE'.</p>
-<div id="576b1b4c-32bd-4334-93ae-8ce023be21a3" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="2d84852e-daa4-45e7-a677-4441c63f282b" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_576b1b4c32bd433493ae8ce023be21a3 = function() {
+            var renderPlotly_2d84852edaa445e7a6774441c63f282b = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,97.05276384829,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,253.15387487133,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,354.20155333862,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,483.24414642491,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,596.32821040148,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,709.4122743780499,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,823.4552018180699,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,937.4981292580899,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1066.54072234438,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067,1195.58331543067],"y":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694,97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694],"mode":"markers","marker":{"size":5,"color":"#A5A5A5","symbol":3}},{"type":"scatter","x":[0.0,97.05276384829,253.15387487133,354.20155333862,483.24414642491],"y":[0.0,97.05276384829,253.15387487133,354.20155333862,483.24414642491],"mode":"markers","marker":{"size":10,"color":"#41719C","symbol":0}},{"type":"scatter","x":[0.0,1400.0],"y":[0.0,1400.0],"mode":"lines","line":{},"marker":{"size":10,"color":"#41719C","symbol":0}},{"type":"scatter","x":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,596.32821040148,709.4122743780499,823.4552018180699,937.4981292580899,1066.54072234438,1195.58331543067],"y":[97.05276384829,253.15387487133,354.20155333862,483.24414642491,646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694],"mode":"lines","line":{"color":"#70AD47","dash":"dash"},"marker":{}},{"type":"scatter","x":[596.32821040148,709.4122743780499,823.4552018180699,937.4981292580899,1066.54072234438,1195.58331543067],"y":[646.30747495634,759.39153893291,873.4344663729299,1036.49779490436,1165.54038799065,1294.58298107694],"mode":"markers","marker":{"size":10,"color":"#ED7D31","symbol":5}}];
             var layout = {"yaxis":{"title":"PRTEIINNEE","range":[1350.0,0.0]},"xaxis":{"title":"PRTEYINYEE","range":[0.0,1350.0]},"showlegend":false};
             var config = {};
-            Plotly.newPlot('576b1b4c-32bd-4334-93ae-8ce023be21a3', data, layout, config);
+            Plotly.newPlot('2d84852e-daa4-45e7-a677-4441c63f282b', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_576b1b4c32bd433493ae8ce023be21a3();
+                    renderPlotly_2d84852edaa445e7a6774441c63f282b();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_576b1b4c32bd433493ae8ce023be21a3();
+                renderPlotly_2d84852edaa445e7a6774441c63f282b();
             }
 </script>
 
@@ -394,57 +399,191 @@ serves as a very good introduction into the topic and gives you many ideas on ho
 <div class="fsdocs-tip" id="fs8">namespace Plotly</div>
 <div class="fsdocs-tip" id="fs9">namespace Plotly.NET</div>
 <div class="fsdocs-tip" id="fs10">val PRTEIINNEE : (float * float) list</div>
-<div class="fsdocs-tip" id="fs11">module BioList<br /><br />from BioFSharp</div>
-<div class="fsdocs-tip" id="fs12">val ofAminoAcidString : s:#seq&lt;char&gt; -&gt; BioList.BioList&lt;AminoAcids.AminoAcid&gt;</div>
-<div class="fsdocs-tip" id="fs13">module Fragmentation<br /><br />from BioFSharp.Mz</div>
-<div class="fsdocs-tip" id="fs14">module Series<br /><br />from BioFSharp.Mz.Fragmentation</div>
-<div class="fsdocs-tip" id="fs15">val bOfBioList : massfunction:(IBioItem -&gt; float) -&gt; aal:AminoAcids.AminoAcid list -&gt; PeakFamily&lt;TaggedMass.TaggedMass&gt; list</div>
-<div class="fsdocs-tip" id="fs16">module BioItem<br /><br />from BioFSharp</div>
-<div class="fsdocs-tip" id="fs17">val monoisoMass&lt;&#39;a (requires &#39;a :&gt; IBioItem)&gt; : (IBioItem -&gt; float) (requires &#39;a :&gt; IBioItem)</div>
-<div class="fsdocs-tip" id="fs18">Multiple items<br />module List<br /><br />from FSharp.Stats<br /><br />--------------------<br />module List<br /><br />from FSharpAux<br /><br />--------------------<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;&#160;&#160;interface IReadOnlyList&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IEnumerable<br />&#160;&#160;&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member GetReverseIndex : rank:int * offset:int -&gt; int<br />&#160;&#160;&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;member Head : &#39;T<br />&#160;&#160;&#160;&#160;member IsEmpty : bool<br />&#160;&#160;&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;&#160;&#160;...</div>
-<div class="fsdocs-tip" id="fs19">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs11">module BioList
+
+from BioFSharp<br /><em>&lt;summary&gt;
+This module contains the BioList type and its according functions. The BioList type is a List of objects using the IBioItem interface
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs12">val ofAminoAcidString : s:#seq&lt;char&gt; -&gt; BioList.BioList&lt;AminoAcids.AminoAcid&gt;<br /><em>&lt;summary&gt;
+ Generates amino acid sequence of one-letter-code raw string
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs13">module Fragmentation
+
+from BioFSharp.Mz</div>
+<div class="fsdocs-tip" id="fs14">module Series
+
+from BioFSharp.Mz.Fragmentation</div>
+<div class="fsdocs-tip" id="fs15">val bOfBioList : massfunction:(IBioItem -&gt; float) -&gt; aal:AminoAcids.AminoAcid list -&gt; PeakFamily&lt;TaggedMass.TaggedMass&gt; list<br /><em>&lt;summary&gt;
+ Returns the b series of the given amino acids list. The mass accuracy is determined by the massfunction applied.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs16">module BioItem
+
+from BioFSharp<br /><em>&lt;summary&gt;
+ Basic functions on IBioItems interface
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs17">val monoisoMass&lt;&#39;a (requires &#39;a :&gt; IBioItem)&gt; : (IBioItem -&gt; float) (requires &#39;a :&gt; IBioItem)<br /><em>&lt;summary&gt;
+ Returns the monoisotopic mass of a bio item (without H20)
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs18">Multiple items<br />module List
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on list
+&lt;/summary&gt;</em><br /><br />--------------------<br />module List
+
+from FSharpAux<br /><br />--------------------<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | ( [] )
+  | ( :: ) of Head: &#39;T * Tail: &#39;T list
+    interface IReadOnlyList&lt;&#39;T&gt;
+    interface IReadOnlyCollection&lt;&#39;T&gt;
+    interface IEnumerable
+    interface IEnumerable&lt;&#39;T&gt;
+    member GetReverseIndex : rank:int * offset:int -&gt; int
+    member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list
+    static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list
+    member Head : &#39;T
+    member IsEmpty : bool
+    member Item : index:int -&gt; &#39;T with get
+    ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs19">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to each of the elements of the collection.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements from the input list.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The list of transformed elements.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs20">val x : PeakFamily&lt;TaggedMass.TaggedMass&gt;</div>
 <div class="fsdocs-tip" id="fs21">PeakFamily.MainPeak: TaggedMass.TaggedMass</div>
 <div class="fsdocs-tip" id="fs22">property TaggedMass.TaggedMass.Mass: float with get</div>
 <div class="fsdocs-tip" id="fs23">val PRTEYINNEE : (float * float) list</div>
 <div class="fsdocs-tip" id="fs24">val specComp : GenericChart.GenericChart</div>
-<div class="fsdocs-tip" id="fs25">type Chart =<br />&#160;&#160;static member Area : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Dash:DrawingStyle * ?Width:float -&gt; GenericChart + 1 overload<br />&#160;&#160;static member Bar : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload<br />&#160;&#160;static member BoxPlot : ?x:&#39;a0 * ?y:&#39;a1 * ?Name:string * ?Showlegend:bool * ?Color:string * ?Fillcolor:&#39;a2 * ?Opacity:float * ?Whiskerwidth:&#39;a3 * ?Boxpoints:Boxpoints * ?Boxmean:BoxMean * ?Jitter:&#39;a4 * ?Pointpos:&#39;a5 * ?Orientation:Orientation * ?Marker:Marker * ?Line:Line * ?Alignmentgroup:&#39;a6 * ?Offsetgroup:&#39;a7 * ?Notched:bool * ?NotchWidth:float * ?QuartileMethod:QuartileMethod -&gt; GenericChart + 1 overload<br />&#160;&#160;static member Bubble : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * sizes:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?StackGroup:string * ?Orientation:Orientation * ?GroupNorm:GroupNorm * ?UseWebGL:bool -&gt; GenericChart + 1 overload<br />&#160;&#160;static member Candlestick : open:seq&lt;#IConvertible&gt; * high:seq&lt;#IConvertible&gt; * low:seq&lt;#IConvertible&gt; * close:seq&lt;#IConvertible&gt; * x:seq&lt;#IConvertible&gt; * ?Increasing:Line * ?Decreasing:Line * ?WhiskerWidth:float * ?Line:Line * ?XCalendar:Calendar -&gt; GenericChart + 1 overload<br />&#160;&#160;static member ChoroplethMap : locations:seq&lt;string&gt; * z:seq&lt;#IConvertible&gt; * ?Text:seq&lt;#IConvertible&gt; * ?Locationmode:LocationFormat * ?Autocolorscale:bool * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Marker:Marker * ?GeoJson:&#39;a2 * ?FeatureIdKey:string * ?Zmin:float * ?Zmax:float -&gt; GenericChart<br />&#160;&#160;static member ChoroplethMapbox : locations:seq&lt;#IConvertible&gt; * z:seq&lt;#IConvertible&gt; * geoJson:&#39;a2 * ?FeatureIdKey:string * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart<br />&#160;&#160;static member Column : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload<br />&#160;&#160;static member Contour : data:seq&lt;#seq&lt;&#39;a1&gt;&gt; * ?X:seq&lt;#IConvertible&gt; * ?Y:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Opacity:float * ?Colorscale:Colorscale * ?Showscale:&#39;a4 * ?zSmooth:SmoothAlg * ?Colorbar:&#39;a5 -&gt; GenericChart (requires &#39;a1 :&gt; IConvertible)<br />&#160;&#160;static member DensityMapbox : lon:seq&lt;#IConvertible&gt; * lat:seq&lt;#IConvertible&gt; * ?Z:seq&lt;#IConvertible&gt; * ?Radius:float * ?Opacity:float * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Showscale:bool * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart + 1 overload<br />&#160;&#160;...</div>
+<div class="fsdocs-tip" id="fs25">type Chart =
+  static member Area : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Dash:DrawingStyle * ?Width:float -&gt; GenericChart + 1 overload
+  static member Bar : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload
+  static member BoxPlot : ?x:&#39;a0 * ?y:&#39;a1 * ?Name:string * ?Showlegend:bool * ?Color:string * ?Fillcolor:&#39;a2 * ?Opacity:float * ?Whiskerwidth:&#39;a3 * ?Boxpoints:Boxpoints * ?Boxmean:BoxMean * ?Jitter:&#39;a4 * ?Pointpos:&#39;a5 * ?Orientation:Orientation * ?Marker:Marker * ?Line:Line * ?Alignmentgroup:&#39;a6 * ?Offsetgroup:&#39;a7 * ?Notched:bool * ?NotchWidth:float * ?QuartileMethod:QuartileMethod -&gt; GenericChart + 1 overload
+  static member Bubble : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * sizes:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?StackGroup:string * ?Orientation:Orientation * ?GroupNorm:GroupNorm * ?UseWebGL:bool -&gt; GenericChart + 1 overload
+  static member Candlestick : open:seq&lt;#IConvertible&gt; * high:seq&lt;#IConvertible&gt; * low:seq&lt;#IConvertible&gt; * close:seq&lt;#IConvertible&gt; * x:seq&lt;#IConvertible&gt; * ?Increasing:Line * ?Decreasing:Line * ?WhiskerWidth:float * ?Line:Line * ?XCalendar:Calendar -&gt; GenericChart + 1 overload
+  static member ChoroplethMap : locations:seq&lt;string&gt; * z:seq&lt;#IConvertible&gt; * ?Text:seq&lt;#IConvertible&gt; * ?Locationmode:LocationFormat * ?Autocolorscale:bool * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Marker:Marker * ?GeoJson:&#39;a2 * ?FeatureIdKey:string * ?Zmin:float * ?Zmax:float -&gt; GenericChart
+  static member ChoroplethMapbox : locations:seq&lt;#IConvertible&gt; * z:seq&lt;#IConvertible&gt; * geoJson:&#39;a2 * ?FeatureIdKey:string * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart
+  static member Column : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload
+  static member Contour : data:seq&lt;#seq&lt;&#39;a1&gt;&gt; * ?X:seq&lt;#IConvertible&gt; * ?Y:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Opacity:float * ?Colorscale:Colorscale * ?Showscale:&#39;a4 * ?zSmooth:SmoothAlg * ?Colorbar:&#39;a5 -&gt; GenericChart (requires &#39;a1 :&gt; IConvertible)
+  static member DensityMapbox : lon:seq&lt;#IConvertible&gt; * lat:seq&lt;#IConvertible&gt; * ?Z:seq&lt;#IConvertible&gt; * ?Radius:float * ?Opacity:float * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Showscale:bool * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart + 1 overload
+  ...<br /><em>&lt;summary&gt;
+ Provides a set of static methods for creating charts.
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs26">static member Chart.Column : keysvalues:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart.GenericChart<br />static member Chart.Column : keys:seq&lt;#System.IConvertible&gt; * values:seq&lt;#System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart.GenericChart</div>
 <div class="fsdocs-tip" id="fs27">static member Chart.withTraceName : ?Name:string * ?Showlegend:bool * ?Legendgroup:string * ?Visible:StyleParam.Visible -&gt; (GenericChart.GenericChart -&gt; GenericChart.GenericChart)</div>
 <div class="fsdocs-tip" id="fs28">static member Chart.Combine : gCharts:seq&lt;GenericChart.GenericChart&gt; -&gt; GenericChart.GenericChart</div>
-<div class="fsdocs-tip" id="fs29">module GenericChart<br /><br />from Plotly.NET</div>
-<div class="fsdocs-tip" id="fs30">val toChartHTML : gChart:GenericChart.GenericChart -&gt; string</div>
+<div class="fsdocs-tip" id="fs29">module GenericChart
+
+from Plotly.NET<br /><em>&lt;summary&gt;
+ Module to represent a GenericChart
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs30">val toChartHTML : gChart:GenericChart.GenericChart -&gt; string<br /><em>&lt;summary&gt;
+ Converts a GenericChart to it HTML representation. The div layer has a default size of 600 if not specified otherwise.
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs31">val vs : GenericChart.GenericChart</div>
 <div class="fsdocs-tip" id="fs32">val vs : (float * float) list</div>
-<div class="fsdocs-tip" id="fs33">val zip : list1:&#39;T1 list -&gt; list2:&#39;T2 list -&gt; (&#39;T1 * &#39;T2) list</div>
-<div class="fsdocs-tip" id="fs34">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1</div>
+<div class="fsdocs-tip" id="fs33">val zip : list1:&#39;T1 list -&gt; list2:&#39;T2 list -&gt; (&#39;T1 * &#39;T2) list<br /><em>&lt;summary&gt;Combines the two lists into a list of pairs. The two lists must have equal lengths.&lt;/summary&gt;<br />&lt;param name=&quot;list1&quot;&gt;The first input list.&lt;/param&gt;<br />&lt;param name=&quot;list2&quot;&gt;The second input list.&lt;/param&gt;<br />&lt;returns&gt;A single list containing pairs of matching elements from the input lists.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs34">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1<br /><em>&lt;summary&gt;Return the first element of a tuple, &lt;c&gt;fst (a,b) = a&lt;/c&gt;.&lt;/summary&gt;<br />&lt;param name=&quot;tuple&quot;&gt;The input tuple.&lt;/param&gt;<br />&lt;returns&gt;The first value.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs35">val matching : (float * float) list</div>
-<div class="fsdocs-tip" id="fs36">val filter : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T list</div>
+<div class="fsdocs-tip" id="fs36">val filter : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T list<br /><em>&lt;summary&gt;Returns a new collection containing only the elements of the collection
+ for which the given predicate returns &quot;true&quot;&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;A list containing only the elements that satisfy the predicate.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs37">val x : float</div>
 <div class="fsdocs-tip" id="fs38">val y : float</div>
 <div class="fsdocs-tip" id="fs39">val nonMatching : (float * float) list</div>
 <div class="fsdocs-tip" id="fs40">val allPossibleMatchups : (float * float) list</div>
 <div class="fsdocs-tip" id="fs41">val x : float list</div>
 <div class="fsdocs-tip" id="fs42">val y : float list</div>
-<div class="fsdocs-tip" id="fs43">val unzip : list:(&#39;T1 * &#39;T2) list -&gt; &#39;T1 list * &#39;T2 list</div>
+<div class="fsdocs-tip" id="fs43">val unzip : list:(&#39;T1 * &#39;T2) list -&gt; &#39;T1 list * &#39;T2 list<br /><em>&lt;summary&gt;Splits a list of pairs into two lists.&lt;/summary&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;Two lists of split elements.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs44">val i : int</div>
-<div class="fsdocs-tip" id="fs45">property List.Length: int with get</div>
+<div class="fsdocs-tip" id="fs45">property List.Length: int with get<br /><em>&lt;summary&gt;Gets the number of items contained in the list&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs46">val j : int</div>
 <div class="fsdocs-tip" id="fs47">static member Chart.Point : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart<br />static member Chart.Point : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart</div>
 <div class="fsdocs-tip" id="fs48">static member Chart.withMarkerStyle : ?Size:int * ?Color:string * ?Symbol:StyleParam.Symbol * ?Opacity:float -&gt; (GenericChart.GenericChart -&gt; GenericChart.GenericChart)</div>
-<div class="fsdocs-tip" id="fs49">module StyleParam<br /><br />from Plotly.NET</div>
-<div class="fsdocs-tip" id="fs50">Multiple items<br />union case StyleParam.MapboxLayerType.Symbol: StyleParam.MapboxLayerType<br /><br />--------------------<br />type Symbol =<br />&#160;&#160;| Circle = 0<br />&#160;&#160;| Square = 1<br />&#160;&#160;| Diamond = 2<br />&#160;&#160;| Cross = 3<br />&#160;&#160;| X = 4<br />&#160;&#160;| TriangleUp = 5<br />&#160;&#160;| TriangleDown = 6<br />&#160;&#160;| TriangleLeft = 7<br />&#160;&#160;| TriangleRight = 8<br />&#160;&#160;| TriangleNE = 9<br />&#160;&#160;| TriangleSE = 10<br />&#160;&#160;| TriangleSW = 11<br />&#160;&#160;| TriangleNW = 12<br />&#160;&#160;| Pentagon = 13<br />&#160;&#160;| Hexagon = 14<br />&#160;&#160;| Hexagon2 = 15<br />&#160;&#160;| Octagon = 16<br />&#160;&#160;| Star = 17<br />&#160;&#160;| Hexagram = 18<br />&#160;&#160;| StarTriangleUp = 19<br />&#160;&#160;| StarTriangleDown = 20<br />&#160;&#160;| StarSquare = 21<br />&#160;&#160;| StarDiamond = 22<br />&#160;&#160;| DiamondTall = 23<br />&#160;&#160;| DiamondWide = 24<br />&#160;&#160;| Hourglass = 25<br />&#160;&#160;| Bowtie = 26<br />&#160;&#160;| CircleCross = 27<br />&#160;&#160;| CircleX = 28<br />&#160;&#160;| SquareCross = 29<br />&#160;&#160;| SquareX = 30<br />&#160;&#160;| DiamondCross = 31<br />&#160;&#160;| DiamondX = 32<br />&#160;&#160;| CrossThin = 33<br />&#160;&#160;| XThin = 34<br />&#160;&#160;| Asterisk = 35<br />&#160;&#160;| Hash = 36<br />&#160;&#160;| YUp = 37<br />&#160;&#160;| YDown = 38<br />&#160;&#160;| YLeft = 39<br />&#160;&#160;| YRight = 40<br />&#160;&#160;| LineEW = 41<br />&#160;&#160;| LineNS = 42<br />&#160;&#160;| LineNE = 43<br />&#160;&#160;| LineNW = 44</div>
+<div class="fsdocs-tip" id="fs49">module StyleParam
+
+from Plotly.NET</div>
+<div class="fsdocs-tip" id="fs50">type Symbol =
+  | Circle = 0
+  | Square = 1
+  | Diamond = 2
+  | Cross = 3
+  | X = 4
+  | TriangleUp = 5
+  | TriangleDown = 6
+  | TriangleLeft = 7
+  | TriangleRight = 8
+  | TriangleNE = 9
+  | TriangleSE = 10
+  | TriangleSW = 11
+  | TriangleNW = 12
+  | Pentagon = 13
+  | Hexagon = 14
+  | Hexagon2 = 15
+  | Octagon = 16
+  | Star = 17
+  | Hexagram = 18
+  | StarTriangleUp = 19
+  | StarTriangleDown = 20
+  | StarSquare = 21
+  | StarDiamond = 22
+  | DiamondTall = 23
+  | DiamondWide = 24
+  | Hourglass = 25
+  | Bowtie = 26
+  | CircleCross = 27
+  | CircleX = 28
+  | SquareCross = 29
+  | SquareX = 30
+  | DiamondCross = 31
+  | DiamondX = 32
+  | CrossThin = 33
+  | XThin = 34
+  | Asterisk = 35
+  | Hash = 36
+  | YUp = 37
+  | YDown = 38
+  | YLeft = 39
+  | YRight = 40
+  | LineEW = 41
+  | LineNS = 42
+  | LineNE = 43
+  | LineNW = 44</div>
 <div class="fsdocs-tip" id="fs51">StyleParam.Symbol.Cross: StyleParam.Symbol = 3</div>
-<div class="fsdocs-tip" id="fs52">module Colors<br /><br />from Plotly.NET</div>
-<div class="fsdocs-tip" id="fs53">val toWebColor : c:Colors.Color -&gt; string</div>
-<div class="fsdocs-tip" id="fs54">module Table<br /><br />from Plotly.NET.Colors</div>
-<div class="fsdocs-tip" id="fs55">module Office<br /><br />from Plotly.NET.Colors.Table</div>
+<div class="fsdocs-tip" id="fs52">module Colors
+
+from Plotly.NET<br /><em>&lt;summary&gt;
+ Represents an ARGB (alpha, red, green, blue) color
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs53">val toWebColor : c:Colors.Color -&gt; string<br /><em>&lt;summary&gt;
+ Gets the web color representataion (#FFFFFF)
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs54">module Table
+
+from Plotly.NET.Colors</div>
+<div class="fsdocs-tip" id="fs55">module Office
+
+from Plotly.NET.Colors.Table<br /><em>&lt;summary&gt;
+ Color palette from Microsoft office 2016
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs56">val grey : Colors.Color</div>
 <div class="fsdocs-tip" id="fs57">StyleParam.Symbol.Circle: StyleParam.Symbol = 0</div>
 <div class="fsdocs-tip" id="fs58">val blue : Colors.Color</div>
 <div class="fsdocs-tip" id="fs59">static member Chart.Line : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart<br />static member Chart.Line : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart</div>
 <div class="fsdocs-tip" id="fs60">static member Chart.withLineStyle : ?Width:float * ?Color:string * ?Shape:StyleParam.Shape * ?Dash:StyleParam.DrawingStyle * ?Smoothing:float * ?Colorscale:StyleParam.Colorscale -&gt; (GenericChart.GenericChart -&gt; GenericChart.GenericChart)</div>
-<div class="fsdocs-tip" id="fs61">type DrawingStyle =<br />&#160;&#160;| Solid<br />&#160;&#160;| Dash<br />&#160;&#160;| Dot<br />&#160;&#160;| DashDot<br />&#160;&#160;| User of int<br />&#160;&#160;&#160;&#160;static member convert : (DrawingStyle -&gt; obj)<br />&#160;&#160;&#160;&#160;static member toString : (DrawingStyle -&gt; string)</div>
+<div class="fsdocs-tip" id="fs61">type DrawingStyle =
+  | Solid
+  | Dash
+  | Dot
+  | DashDot
+  | User of int
+    static member convert : (DrawingStyle -&gt; obj)
+    static member toString : (DrawingStyle -&gt; string)<br /><em>&lt;summary&gt;
+ Dash: Sets the drawing style of the lines segments in this trace.
+ Sets the style of the lines. Set to a dash string type or a dash length in px.
+&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs62">union case StyleParam.DrawingStyle.Dash: StyleParam.DrawingStyle</div>
 <div class="fsdocs-tip" id="fs63">val darkGreen : Colors.Color</div>
 <div class="fsdocs-tip" id="fs64">StyleParam.Symbol.TriangleUp: StyleParam.Symbol = 5</div>
@@ -459,22 +598,62 @@ serves as a very good introduction into the topic and gives you many ideas on ho
 <div class="fsdocs-tip" id="fs73">val PRTEIINNEE&#39; : (float * float) list</div>
 <div class="fsdocs-tip" id="fs74">val PRTEYINNEE&#39; : (float * float) list</div>
 <div class="fsdocs-tip" id="fs75">val specComp&#39; : GenericChart.GenericChart</div>
-<div class="fsdocs-tip" id="fs76">type Path =<br />&#160;&#160;{ K: int<br />&#160;&#160;&#160;&#160;PathIndices: (int * int) list }</div>
+<div class="fsdocs-tip" id="fs76">type Path =
+  { K: int
+    PathIndices: (int * int) list }</div>
 <div class="fsdocs-tip" id="fs77">Path.K: int</div>
-<div class="fsdocs-tip" id="fs78">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type int = int32<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =<br />&#160;&#160;int</div>
+<div class="fsdocs-tip" id="fs78">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
 <div class="fsdocs-tip" id="fs79">Path.PathIndices: (int * int) list</div>
-<div class="fsdocs-tip" id="fs80">type &#39;T list = List&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs80">type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
+
+ Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1; 2; 3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/lists&quot;&gt;F# Language Guide - Lists&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
 <div class="fsdocs-tip" id="fs81">val findAllPaths : maxK:int -&gt; m:Matrix&lt;float&gt; -&gt; Path list</div>
 <div class="fsdocs-tip" id="fs82">val maxK : int</div>
 <div class="fsdocs-tip" id="fs83">val m : Matrix&lt;float&gt;</div>
-<div class="fsdocs-tip" id="fs84">Multiple items<br />module Matrix<br /><br />from FSharp.Stats<br /><br />--------------------<br />type Matrix&lt;&#39;T&gt; =<br />&#160;&#160;| DenseRepr of DenseMatrix&lt;&#39;T&gt;<br />&#160;&#160;| SparseRepr of SparseMatrix&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IEnumerable<br />&#160;&#160;&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IStructuralEquatable<br />&#160;&#160;&#160;&#160;interface IStructuralComparable<br />&#160;&#160;&#160;&#160;interface IComparable<br />&#160;&#160;&#160;&#160;override Equals : yobj:obj -&gt; bool<br />&#160;&#160;&#160;&#160;override GetHashCode : unit -&gt; int<br />&#160;&#160;&#160;&#160;member GetSlice : start1:int option * finish1:int option * start2:int option * finish2:int option -&gt; Matrix&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member PermuteColumns : p:permutation -&gt; Matrix&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member PermuteRows : p:permutation -&gt; Matrix&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;...</div>
-<div class="fsdocs-tip" id="fs85">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type float = System.Double<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =<br />&#160;&#160;float</div>
+<div class="fsdocs-tip" id="fs84">Multiple items<br />module Matrix
+
+from FSharp.Stats<br /><br />--------------------<br />type Matrix&lt;&#39;T&gt; =
+  | DenseRepr of DenseMatrix&lt;&#39;T&gt;
+  | SparseRepr of SparseMatrix&lt;&#39;T&gt;
+    interface IEnumerable
+    interface IEnumerable&lt;&#39;T&gt;
+    interface IStructuralEquatable
+    interface IStructuralComparable
+    interface IComparable
+    override Equals : yobj:obj -&gt; bool
+    override GetHashCode : unit -&gt; int
+    member GetSlice : start1:int option * finish1:int option * start2:int option * finish2:int option -&gt; Matrix&lt;&#39;T&gt;
+    member PermuteColumns : p:permutation -&gt; Matrix&lt;&#39;T&gt;
+    member PermuteRows : p:permutation -&gt; Matrix&lt;&#39;T&gt;
+    ...</div>
+<div class="fsdocs-tip" id="fs85">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure. 
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
 <div class="fsdocs-tip" id="fs86">val extendInAllPossibleDirections : (Matrix&lt;float&gt; -&gt; int -&gt; int -&gt; Path -&gt; Path list)</div>
 <div class="fsdocs-tip" id="fs87">val currentRow : int</div>
 <div class="fsdocs-tip" id="fs88">val path : Path</div>
 <div class="fsdocs-tip" id="fs89">val lastRow : int</div>
 <div class="fsdocs-tip" id="fs90">val lastCol : int</div>
-<div class="fsdocs-tip" id="fs91">property List.Head: int * int with get</div>
+<div class="fsdocs-tip" id="fs91">property List.Head: int * int with get<br /><em>&lt;summary&gt;Gets the first element of the list&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs92">val colinearCol : int</div>
 <div class="fsdocs-tip" id="fs93">property Matrix.NumCols: int with get</div>
 <div class="fsdocs-tip" id="fs94">val acc&#39; : (int * int) list</div>
@@ -486,33 +665,71 @@ serves as a very good introduction into the topic and gives you many ideas on ho
 <div class="fsdocs-tip" id="fs100">val x : int * int</div>
 <div class="fsdocs-tip" id="fs101">val y : int * int</div>
 <div class="fsdocs-tip" id="fs102">val t : (int * int) list</div>
-<div class="fsdocs-tip" id="fs103">val snd : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T2</div>
+<div class="fsdocs-tip" id="fs103">val snd : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T2<br /><em>&lt;summary&gt;Return the second element of a tuple, &lt;c&gt;snd (a,b) = b&lt;/c&gt;.&lt;/summary&gt;<br />&lt;param name=&quot;tuple&quot;&gt;The input tuple.&lt;/param&gt;<br />&lt;returns&gt;The second value.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs104">val loop : (Path list -&gt; int -&gt; Path list)</div>
 <div class="fsdocs-tip" id="fs105">val paths : Path list</div>
 <div class="fsdocs-tip" id="fs106">val currentRowIdx : int</div>
 <div class="fsdocs-tip" id="fs107">property Matrix.NumRows: int with get</div>
 <div class="fsdocs-tip" id="fs108">val expandedPaths : Path list</div>
-<div class="fsdocs-tip" id="fs109">val collect : mapping:(&#39;T -&gt; &#39;U list) -&gt; list:&#39;T list -&gt; &#39;U list</div>
+<div class="fsdocs-tip" id="fs109">val collect : mapping:(&#39;T -&gt; &#39;U list) -&gt; list:&#39;T list -&gt; &#39;U list<br /><em>&lt;summary&gt;For each element of the list, applies the given function. Concatenates all the results and return the combined list.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform each input element into a sublist to be concatenated.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The concatenation of the transformed sublists.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs110">val calcSimilarityAt_simple : k:int -&gt; specA:int [] -&gt; specB:int [] -&gt; int</div>
 <div class="fsdocs-tip" id="fs111">val k : int</div>
 <div class="fsdocs-tip" id="fs112">val specA : int []</div>
 <div class="fsdocs-tip" id="fs113">val specB : int []</div>
 <div class="fsdocs-tip" id="fs114">val n : int</div>
 <div class="fsdocs-tip" id="fs115">namespace System</div>
-<div class="fsdocs-tip" id="fs116">type Math =<br />&#160;&#160;static member Abs : value: decimal -&gt; decimal + 6 overloads<br />&#160;&#160;static member Acos : d: float -&gt; float<br />&#160;&#160;static member Acosh : d: float -&gt; float<br />&#160;&#160;static member Asin : d: float -&gt; float<br />&#160;&#160;static member Asinh : d: float -&gt; float<br />&#160;&#160;static member Atan : d: float -&gt; float<br />&#160;&#160;static member Atan2 : y: float * x: float -&gt; float<br />&#160;&#160;static member Atanh : d: float -&gt; float<br />&#160;&#160;static member BigMul : a: int * b: int -&gt; int64 + 2 overloads<br />&#160;&#160;static member BitDecrement : x: float -&gt; float<br />&#160;&#160;...</div>
+<div class="fsdocs-tip" id="fs116">type Math =
+  static member Abs : value: decimal -&gt; decimal + 6 overloads
+  static member Acos : d: float -&gt; float
+  static member Acosh : d: float -&gt; float
+  static member Asin : d: float -&gt; float
+  static member Asinh : d: float -&gt; float
+  static member Atan : d: float -&gt; float
+  static member Atan2 : y: float * x: float -&gt; float
+  static member Atanh : d: float -&gt; float
+  static member BigMul : a: int * b: int -&gt; int64 + 2 overloads
+  static member BitDecrement : x: float -&gt; float
+  ...<br /><em>&lt;summary&gt;Provides constants and static methods for trigonometric, logarithmic, and other common mathematical functions.&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs117">System.Math.Max(val1: uint64, val2: uint64) : uint64<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: uint32, val2: uint32) : uint32<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: uint16, val2: uint16) : uint16<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: float32, val2: float32) : float32<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: sbyte, val2: sbyte) : sbyte<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: int64, val2: int64) : int64<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: int, val2: int) : int<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: int16, val2: int16) : int16<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: float, val2: float) : float<br />&#160;&#160;&#160;<em>(+0 other overloads)</em><br />System.Math.Max(val1: decimal, val2: decimal) : decimal<br />&#160;&#160;&#160;<em>(+0 other overloads)</em></div>
-<div class="fsdocs-tip" id="fs118">Multiple items<br />module Array<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Array<br /><br />from FSharpAux<br /><br />--------------------<br />module Array<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="fsdocs-tip" id="fs119">val max : array:&#39;T [] -&gt; &#39;T (requires comparison)</div>
+<div class="fsdocs-tip" id="fs118">Multiple items<br />module Array
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on array
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Array
+
+from FSharpAux<br /><br />--------------------<br />module Array
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with arrays.&lt;/summary&gt;<br />&lt;remarks&gt;
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/arrays&quot;&gt;F# Language Guide - Arrays&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
+<div class="fsdocs-tip" id="fs119">val max : array:&#39;T [] -&gt; &#39;T (requires comparison)<br /><em>&lt;summary&gt;Returns the greatest of all elements of the array, compared via Operators.max on the function result.&lt;/summary&gt;<br />&lt;remarks&gt;Throws ArgumentException for empty arrays.&lt;/remarks&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;<br />&lt;returns&gt;The maximum element.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs120">val vecA : Vector&lt;float&gt;</div>
 <div class="fsdocs-tip" id="fs121">val tmp : Vector&lt;float&gt;</div>
-<div class="fsdocs-tip" id="fs122">Multiple items<br />module Vector<br /><br />from FSharp.Stats<br /><br />--------------------<br />type Vector&lt;&#39;T&gt; =<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;interface IStructuralEquatable<br />&#160;&#160;interface IStructuralComparable<br />&#160;&#160;interface IComparable<br />&#160;&#160;new : opsV:INumeric&lt;&#39;T&gt; option * arrV:&#39;T array -&gt; Vector&lt;&#39;T&gt;<br />&#160;&#160;override Equals : yobj:obj -&gt; bool<br />&#160;&#160;override GetHashCode : unit -&gt; int<br />&#160;&#160;member GetSlice : start:int option * finish:int option -&gt; Vector&lt;&#39;T&gt;<br />&#160;&#160;member Permute : p:permutation -&gt; Vector&lt;&#39;T&gt;<br />&#160;&#160;...<br /><br />--------------------<br />new : opsV:INumeric&lt;&#39;T&gt; option * arrV:&#39;T array -&gt; Vector&lt;&#39;T&gt;</div>
-<div class="fsdocs-tip" id="fs123">val create : count:int -&gt; value:float -&gt; Vector&lt;float&gt;</div>
-<div class="fsdocs-tip" id="fs124">val iter : action:(&#39;T -&gt; unit) -&gt; array:&#39;T [] -&gt; unit</div>
+<div class="fsdocs-tip" id="fs122">Multiple items<br />module Vector
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+Basic vector operations
+&lt;/summary&gt;</em><br /><br />--------------------<br />type Vector&lt;&#39;T&gt; =
+  interface IEnumerable
+  interface IEnumerable&lt;&#39;T&gt;
+  interface IStructuralEquatable
+  interface IStructuralComparable
+  interface IComparable
+  new : opsV:INumeric&lt;&#39;T&gt; option * arrV:&#39;T array -&gt; Vector&lt;&#39;T&gt;
+  override Equals : yobj:obj -&gt; bool
+  override GetHashCode : unit -&gt; int
+  member GetSlice : start:int option * finish:int option -&gt; Vector&lt;&#39;T&gt;
+  member Permute : p:permutation -&gt; Vector&lt;&#39;T&gt;
+  ...<br /><br />--------------------<br />new : opsV:INumeric&lt;&#39;T&gt; option * arrV:&#39;T array -&gt; Vector&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs123">val create : count:int -&gt; value:float -&gt; Vector&lt;float&gt;<br /><em>&lt;summary&gt;
+Creates vector of length count and fills it with value 
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs124">val iter : action:(&#39;T -&gt; unit) -&gt; array:&#39;T [] -&gt; unit<br /><em>&lt;summary&gt;Applies the given function to each element of the array.&lt;/summary&gt;<br />&lt;param name=&quot;action&quot;&gt;The function to apply.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs125">val p : int</div>
 <div class="fsdocs-tip" id="fs126">val vecB : Vector&lt;float&gt;</div>
 <div class="fsdocs-tip" id="fs127">property Vector.Transpose: RowVector&lt;float&gt; with get</div>
 <div class="fsdocs-tip" id="fs128">val longestPath : Path</div>
-<div class="fsdocs-tip" id="fs129">val maxBy : projection:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;T (requires comparison)</div>
+<div class="fsdocs-tip" id="fs129">val maxBy : projection:(&#39;T -&gt; &#39;U) -&gt; list:&#39;T list -&gt; &#39;T (requires comparison)<br /><em>&lt;summary&gt;Returns the greatest of all elements of the list, compared via Operators.max on the function result.&lt;/summary&gt;<br />&lt;remarks&gt;Raises &lt;see cref=&quot;T:System.ArgumentException&quot; /&gt; if &lt;c&gt;list&lt;/c&gt; is empty.&lt;/remarks&gt;<br />&lt;param name=&quot;projection&quot;&gt;The function to transform the list elements into the type to be compared.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the list is empty.&lt;/exception&gt;<br />&lt;returns&gt;The maximum element.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs130">val p : Path</div>
 <div class="fsdocs-tip" id="fs131">val sa : int []</div>
 <div class="fsdocs-tip" id="fs132">val sb : int []</div>

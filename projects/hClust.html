@@ -57,13 +57,18 @@
   general
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
-    Example blog post
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
+    Blog post guide
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
-    Blog post guide
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">
+    Markdown cheatsheet
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
+    Example blog post
   </a>
 </li>             
 <li class="nav-header">
@@ -493,72 +498,177 @@ a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Clu
 <div class="fsdocs-tip" id="fs10">val data : float [] []</div>
 <div class="fsdocs-tip" id="fs11">val fromFileWithSep : (char -&gt; string -&gt; seq&lt;string []&gt;)</div>
 <div class="fsdocs-tip" id="fs12">val separator : char</div>
-<div class="fsdocs-tip" id="fs13">Multiple items<br />val char : value:&#39;T -&gt; char (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type char = System.Char</div>
+<div class="fsdocs-tip" id="fs13">Multiple items<br />val char : value:&#39;T -&gt; char (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to character. Numeric inputs are converted according to the UTF-16 
+ encoding for characters. String inputs must be exactly one character long. For other
+ input types the operation requires an appropriate static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted char.&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type char = System.Char<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Char&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
 <div class="fsdocs-tip" id="fs14">val filePath : string</div>
-<div class="fsdocs-tip" id="fs15">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs15">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Builds a sequence using sequence expression syntax&lt;/summary&gt;<br />&lt;param name=&quot;sequence&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;</em><br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Collections.Generic.IEnumerable`1&quot; /&gt;&lt;/summary&gt;<br />&lt;remarks&gt;
+  See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.SeqModule&quot; /&gt; module for further operations related to sequences.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/sequences&quot;&gt;F# Language Guide - Sequences&lt;/a&gt;.
+&lt;/remarks&gt;</em></div>
 <div class="fsdocs-tip" id="fs16">val sr : System.IO.StreamReader</div>
 <div class="fsdocs-tip" id="fs17">namespace System</div>
 <div class="fsdocs-tip" id="fs18">namespace System.IO</div>
-<div class="fsdocs-tip" id="fs19">type File =<br />&#160;&#160;static member AppendAllLines : path: string * contents: IEnumerable&lt;string&gt; -&gt; unit + 1 overload<br />&#160;&#160;static member AppendAllLinesAsync : path: string * contents: IEnumerable&lt;string&gt; * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload<br />&#160;&#160;static member AppendAllText : path: string * contents: string -&gt; unit + 1 overload<br />&#160;&#160;static member AppendAllTextAsync : path: string * contents: string * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload<br />&#160;&#160;static member AppendText : path: string -&gt; StreamWriter<br />&#160;&#160;static member Copy : sourceFileName: string * destFileName: string -&gt; unit + 1 overload<br />&#160;&#160;static member Create : path: string -&gt; FileStream + 2 overloads<br />&#160;&#160;static member CreateText : path: string -&gt; StreamWriter<br />&#160;&#160;static member Decrypt : path: string -&gt; unit<br />&#160;&#160;static member Delete : path: string -&gt; unit<br />&#160;&#160;...</div>
+<div class="fsdocs-tip" id="fs19">type File =
+  static member AppendAllLines : path: string * contents: IEnumerable&lt;string&gt; -&gt; unit + 1 overload
+  static member AppendAllLinesAsync : path: string * contents: IEnumerable&lt;string&gt; * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload
+  static member AppendAllText : path: string * contents: string -&gt; unit + 1 overload
+  static member AppendAllTextAsync : path: string * contents: string * encoding: Encoding *?cancellationToken: CancellationToken -&gt; Task + 1 overload
+  static member AppendText : path: string -&gt; StreamWriter
+  static member Copy : sourceFileName: string * destFileName: string -&gt; unit + 1 overload
+  static member Create : path: string -&gt; FileStream + 2 overloads
+  static member CreateText : path: string -&gt; StreamWriter
+  static member Decrypt : path: string -&gt; unit
+  static member Delete : path: string -&gt; unit
+  ...<br /><em>&lt;summary&gt;Provides static methods for the creation, copying, deletion, moving, and opening of a single file, and aids in the creation of &lt;see cref=&quot;T:System.IO.FileStream&quot; /&gt; objects.&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs20">System.IO.File.OpenText(path: string) : System.IO.StreamReader</div>
-<div class="fsdocs-tip" id="fs21">val not : value:bool -&gt; bool</div>
-<div class="fsdocs-tip" id="fs22">property System.IO.StreamReader.EndOfStream: bool with get</div>
+<div class="fsdocs-tip" id="fs21">val not : value:bool -&gt; bool<br /><em>&lt;summary&gt;Negate a logical value. Not True equals False and not False equals True&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to negate.&lt;/param&gt;<br />&lt;returns&gt;The result of the negation.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs22">property System.IO.StreamReader.EndOfStream: bool with get<br /><em>&lt;summary&gt;Gets a value that indicates whether the current stream position is at the end of the stream.&lt;/summary&gt;<br />&lt;exception cref=&quot;T:System.ObjectDisposedException&quot;&gt;The underlying stream has been disposed.&lt;/exception&gt;<br />&lt;returns&gt;&lt;see langword=&quot;true&quot; /&gt; if the current stream position is at the end of the stream; otherwise &lt;see langword=&quot;false&quot; /&gt;.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs23">val line : string</div>
 <div class="fsdocs-tip" id="fs24">System.IO.StreamReader.ReadLine() : string</div>
 <div class="fsdocs-tip" id="fs25">val words : string []</div>
 <div class="fsdocs-tip" id="fs26">System.String.Split([&lt;System.ParamArray&gt;] separator: char []) : string []<br />System.String.Split(separator: string [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int) : string []<br />System.String.Split(separator: char,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string, count: int,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char, count: int,?options: System.StringSplitOptions) : string []</div>
-<div class="fsdocs-tip" id="fs27">Multiple items<br />module Seq<br /><br />from Plotly.NET<br /><br />--------------------<br />module Seq<br /><br />from FSharpx.Collections<br /><br />--------------------<br />module Seq<br /><br />from FSharpAux<br /><br />--------------------<br />module Seq<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Seq<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="fsdocs-tip" id="fs28">val skip : count:int -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;</div>
-<div class="fsdocs-tip" id="fs29">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;</div>
+<div class="fsdocs-tip" id="fs27">Multiple items<br />module Seq
+
+from Plotly.NET<br /><br />--------------------<br />module Seq
+
+from FSharpx.Collections<br /><em>&lt;summary&gt;
+ Extensions for F#&#39;s Seq module.
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Seq
+
+from FSharpAux<br /><br />--------------------<br />module Seq
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Seq
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.seq`1&quot; /&gt;.&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs28">val skip : count:int -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Returns a sequence that skips N elements of the underlying sequence and then yields the
+ remaining elements of the sequence.&lt;/summary&gt;<br />&lt;param name=&quot;count&quot;&gt;The number of items to skip.&lt;/param&gt;<br />&lt;param name=&quot;source&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input sequence is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.InvalidOperationException&quot;&gt;Thrown when count exceeds the number of elements
+ in the sequence.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs29">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; source:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;U&gt;<br /><em>&lt;summary&gt;Builds a new collection whose elements are the results of applying the given function
+ to each of the elements of the collection.  The given function will be applied
+ as elements are demanded using the &lt;c&gt;MoveNext&lt;/c&gt; method on enumerators retrieved from the
+ object.&lt;/summary&gt;<br />&lt;remarks&gt;The returned sequence may be passed between threads safely. However, 
+ individual IEnumerator values generated from the returned sequence should not be accessed concurrently.&lt;/remarks&gt;<br />&lt;param name=&quot;mapping&quot;&gt;A function to transform items from the input sequence.&lt;/param&gt;<br />&lt;param name=&quot;source&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input sequence is null.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs30">val arr : string []</div>
-<div class="fsdocs-tip" id="fs31">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type float = System.Double<br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =<br />&#160;&#160;float</div>
-<div class="fsdocs-tip" id="fs32">val toArray : source:seq&lt;&#39;T&gt; -&gt; &#39;T []</div>
-<div class="fsdocs-tip" id="fs33">module Array<br /><br />from FSharp.Stats</div>
-<div class="fsdocs-tip" id="fs34">val shuffleFisherYates : arr:&#39;b [] -&gt; &#39;b []</div>
-<div class="fsdocs-tip" id="fs35">Multiple items<br />module Array<br /><br />from FSharpx.Collections<br /><br />--------------------<br />module Array<br /><br />from FSharpAux<br /><br />--------------------<br />module Array<br /><br />from FSharp.Stats<br /><br />--------------------<br />module Array<br /><br />from Microsoft.FSharp.Collections</div>
-<div class="fsdocs-tip" id="fs36">val mapi : mapping:(int -&gt; &#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []</div>
+<div class="fsdocs-tip" id="fs31">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure. 
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs32">val toArray : source:seq&lt;&#39;T&gt; -&gt; &#39;T []<br /><em>&lt;summary&gt;Builds an array from the given collection.&lt;/summary&gt;<br />&lt;param name=&quot;source&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input sequence is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs33">module Array
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on array
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs34">val shuffleFisherYates : arr:&#39;b [] -&gt; &#39;b []<br /><em>&lt;summary&gt;
+ Shuffels the input array (method: Fisher-Yates)
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs35">Multiple items<br />module Array
+
+from FSharpx.Collections<br /><em>&lt;summary&gt;
+ Extensions for F#&#39;s Array module.
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Array
+
+from FSharpAux<br /><br />--------------------<br />module Array
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on array
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Array
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with arrays.&lt;/summary&gt;<br />&lt;remarks&gt;
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/arrays&quot;&gt;F# Language Guide - Arrays&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
+<div class="fsdocs-tip" id="fs36">val mapi : mapping:(int -&gt; &#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><em>&lt;summary&gt;Builds a new array whose elements are the results of applying the given function
+ to each of the elements of the array. The integer index passed to the
+ function indicates the index of element being transformed.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements and their indices.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The array of transformed elements.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs37">val i : int</div>
 <div class="fsdocs-tip" id="fs38">val lable : string</div>
 <div class="fsdocs-tip" id="fs39">val data : float []</div>
-<div class="fsdocs-tip" id="fs40">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T</div>
-<div class="fsdocs-tip" id="fs41">val unzip : array:(&#39;T1 * &#39;T2) [] -&gt; &#39;T1 [] * &#39;T2 []</div>
-<div class="fsdocs-tip" id="fs42">Multiple items<br />module PriorityQueue<br /><br />from FSharpx.Collections<br /><br />--------------------<br />type PriorityQueue&lt;&#39;T (requires comparison)&gt; =<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;new : comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt; + 1 overload<br />&#160;&#160;member Dequeue : unit -&gt; &#39;T * PriorityQueue&lt;&#39;T&gt;<br />&#160;&#160;member Insert : t:&#39;T -&gt; unit<br />&#160;&#160;member RemoveElement : t:&#39;T -&gt; unit<br />&#160;&#160;member RemoveElementsBy : predicate:(&#39;T -&gt; bool) -&gt; unit<br />&#160;&#160;member UpdateBy : updateElementFunction:(&#39;T -&gt; &#39;T) -&gt; unit<br />&#160;&#160;member UpdateElement : t:&#39;T -&gt; newt:&#39;T -&gt; unit<br />&#160;&#160;member Elements : &#39;T []<br />&#160;&#160;member GetHead : &#39;T<br /><br />--------------------<br />new : comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt;<br />new : values:&#39;T [] * comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs40">val sprintf : format:Printf.StringFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to a string using the given format.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs41">val unzip : array:(&#39;T1 * &#39;T2) [] -&gt; &#39;T1 [] * &#39;T2 []<br /><em>&lt;summary&gt;Splits an array of pairs into two arrays.&lt;/summary&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The two arrays.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs42">Multiple items<br />module PriorityQueue
+
+from FSharpx.Collections<br /><br />--------------------<br />type PriorityQueue&lt;&#39;T (requires comparison)&gt; =
+  interface IEnumerable
+  new : comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt; + 1 overload
+  member Dequeue : unit -&gt; &#39;T * PriorityQueue&lt;&#39;T&gt;
+  member Insert : t:&#39;T -&gt; unit
+  member RemoveElement : t:&#39;T -&gt; unit
+  member RemoveElementsBy : predicate:(&#39;T -&gt; bool) -&gt; unit
+  member UpdateBy : updateElementFunction:(&#39;T -&gt; &#39;T) -&gt; unit
+  member UpdateElement : t:&#39;T -&gt; newt:&#39;T -&gt; unit
+  member Elements : &#39;T []
+  member GetHead : &#39;T<br /><br />--------------------<br />new : comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt;<br />new : values:&#39;T [] * comparisonF:(&#39;T -&gt; float) -&gt; PriorityQueue&lt;&#39;T&gt;</div>
 <div class="fsdocs-tip" id="fs43">val values : &#39;T [] (requires comparison)</div>
 <div class="fsdocs-tip" id="fs44">val comparisonF : (&#39;T -&gt; float) (requires comparison)</div>
 <div class="fsdocs-tip" id="fs45">val sort : (&#39;T [] -&gt; &#39;T []) (requires comparison)</div>
-<div class="fsdocs-tip" id="fs46">val sortByDescending : projection:(&#39;T -&gt; &#39;Key) -&gt; array:&#39;T [] -&gt; &#39;T [] (requires comparison)</div>
+<div class="fsdocs-tip" id="fs46">val sortByDescending : projection:(&#39;T -&gt; &#39;Key) -&gt; array:&#39;T [] -&gt; &#39;T [] (requires comparison)<br /><em>&lt;summary&gt;Sorts the elements of an array, in descending order, using the given projection for the keys and returning a new array. 
+ Elements are compared using &lt;see cref=&quot;M:Microsoft.FSharp.Core.Operators.compare&quot; /&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;This is not a stable sort, i.e. the original order of equal elements is not necessarily preserved. 
+ For a stable sort, consider using &lt;see cref=&quot;M:Microsoft.FSharp.Collections.SeqModule.Sort&quot; /&gt;.&lt;/remarks&gt;<br />&lt;param name=&quot;projection&quot;&gt;The function to transform array elements into the type that is compared.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The sorted array.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs47">val mutable data : &#39;T [] (requires comparison)</div>
-<div class="fsdocs-tip" id="fs48">val empty&lt;&#39;T&gt; : &#39;T []</div>
+<div class="fsdocs-tip" id="fs48">val empty&lt;&#39;T&gt; : &#39;T []<br /><em>&lt;summary&gt;Returns an empty array of the given type.&lt;/summary&gt;<br />&lt;returns&gt;The empty array.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs49">namespace System.Collections</div>
-<div class="fsdocs-tip" id="fs50">type IEnumerable =<br />&#160;&#160;member GetEnumerator : unit -&gt; IEnumerator</div>
+<div class="fsdocs-tip" id="fs50">type IEnumerable =
+  member GetEnumerator : unit -&gt; IEnumerator<br /><em>&lt;summary&gt;Exposes an enumerator, which supports a simple iteration over a non-generic collection.&lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs51">val this : PriorityQueue&lt;&#39;T&gt; (requires comparison)</div>
 <div class="fsdocs-tip" id="fs52">System.Array.GetEnumerator() : System.Collections.IEnumerator</div>
 <div class="fsdocs-tip" id="fs53">val t : &#39;T (requires comparison)</div>
 <div class="fsdocs-tip" id="fs54">val newt : &#39;T (requires comparison)</div>
 <div class="fsdocs-tip" id="fs55">val updated : &#39;T [] (requires comparison)</div>
-<div class="fsdocs-tip" id="fs56">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []</div>
+<div class="fsdocs-tip" id="fs56">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><em>&lt;summary&gt;Builds a new array whose elements are the results of applying the given function
+ to each of the elements of the array.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements of the array.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The array of transformed elements.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs57">val x : &#39;T (requires comparison)</div>
 <div class="fsdocs-tip" id="fs58">val filtered : &#39;T [] (requires comparison)</div>
-<div class="fsdocs-tip" id="fs59">val filter : predicate:(&#39;T -&gt; bool) -&gt; array:&#39;T [] -&gt; &#39;T []</div>
-<div class="fsdocs-tip" id="fs60">val head : array:&#39;T [] -&gt; &#39;T</div>
+<div class="fsdocs-tip" id="fs59">val filter : predicate:(&#39;T -&gt; bool) -&gt; array:&#39;T [] -&gt; &#39;T []<br /><em>&lt;summary&gt;Returns a new collection containing only the elements of the collection
+ for which the given predicate returns &quot;true&quot;.&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;An array containing the elements for which the given predicate returns true.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs60">val head : array:&#39;T [] -&gt; &#39;T<br /><em>&lt;summary&gt;Returns the first element of the array.&lt;/summary&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The first element of the array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs61">val head : &#39;T (requires comparison)</div>
 <div class="fsdocs-tip" id="fs62">val tail : &#39;T [] (requires comparison)</div>
-<div class="fsdocs-tip" id="fs63">val tail : array:&#39;T [] -&gt; &#39;T []</div>
+<div class="fsdocs-tip" id="fs63">val tail : array:&#39;T [] -&gt; &#39;T []<br /><em>&lt;summary&gt;Returns a new array containing the elements of the original except the first element.&lt;/summary&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the array is empty.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;returns&gt;A new array containing the elements of the original except the first element.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs64">val newd : &#39;T [] (requires comparison)</div>
-<div class="fsdocs-tip" id="fs65">val append : array1:&#39;T [] -&gt; array2:&#39;T [] -&gt; &#39;T []</div>
+<div class="fsdocs-tip" id="fs65">val append : array1:&#39;T [] -&gt; array2:&#39;T [] -&gt; &#39;T []<br /><em>&lt;summary&gt;Builds a new array that contains the elements of the first array followed by the elements of the second array.&lt;/summary&gt;<br />&lt;param name=&quot;array1&quot;&gt;The first input array.&lt;/param&gt;<br />&lt;param name=&quot;array2&quot;&gt;The second input array.&lt;/param&gt;<br />&lt;returns&gt;The resulting array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when either of the input arrays is null.&lt;/exception&gt;</em></div>
 <div class="fsdocs-tip" id="fs66">val updateElementFunction : (&#39;T -&gt; &#39;T) (requires comparison)</div>
 <div class="fsdocs-tip" id="fs67">val predicate : (&#39;T -&gt; bool) (requires comparison)</div>
-<div class="fsdocs-tip" id="fs68">[&lt;Struct&gt;]<br />type bool = System.Boolean</div>
+<div class="fsdocs-tip" id="fs68">[&lt;Struct&gt;]
+type bool = System.Boolean<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Boolean&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
 <div class="fsdocs-tip" id="fs69">Neighbour.Similarity: float<br /><em>&#160;inverse of distance</em></div>
 <div class="fsdocs-tip" id="fs70">Neighbour.Source: int list<br /><em>&#160;list of source cluster indices</em></div>
-<div class="fsdocs-tip" id="fs71">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><br />--------------------<br />[&lt;Struct&gt;]<br />type int = int32<br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =<br />&#160;&#160;int</div>
-<div class="fsdocs-tip" id="fs72">type &#39;T list = List&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs71">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs72">type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
+
+ Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1; 2; 3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/lists&quot;&gt;F# Language Guide - Lists&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
 <div class="fsdocs-tip" id="fs73">Neighbour.Target: int list<br /><em>&#160;list of target cluster indices</em></div>
 <div class="fsdocs-tip" id="fs74">val d : float</div>
 <div class="fsdocs-tip" id="fs75">val s : int list</div>
 <div class="fsdocs-tip" id="fs76">val t : int list</div>
 <div class="fsdocs-tip" id="fs77">val neighbours : Neighbour []</div>
-<div class="fsdocs-tip" id="fs78">type Neighbour =<br />&#160;&#160;{ Similarity: float<br />&#160;&#160;&#160;&#160;Source: int list<br />&#160;&#160;&#160;&#160;Target: int list }<br />&#160;&#160;&#160;&#160;static member Create : d:float -&gt; s:int list -&gt; t:int list -&gt; Neighbour<br /><em>&#160;Type to store similarities</em></div>
+<div class="fsdocs-tip" id="fs78">type Neighbour =
+  { Similarity: float
+    Source: int list
+    Target: int list }
+    static member Create : d:float -&gt; s:int list -&gt; t:int list -&gt; Neighbour<br /><em>&#160;Type to store similarities</em></div>
 <div class="fsdocs-tip" id="fs79">static member Neighbour.Create : d:float -&gt; s:int list -&gt; t:int list -&gt; Neighbour</div>
 <div class="fsdocs-tip" id="fs80">val myPQueue : PriorityQueue&lt;Neighbour&gt;</div>
 <div class="fsdocs-tip" id="fs81">val x : Neighbour</div>
@@ -566,14 +676,65 @@ a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Clu
 <div class="fsdocs-tip" id="fs83">member PriorityQueue.RemoveElement : t:&#39;T -&gt; unit</div>
 <div class="fsdocs-tip" id="fs84">member PriorityQueue.UpdateElement : t:&#39;T -&gt; newt:&#39;T -&gt; unit</div>
 <div class="fsdocs-tip" id="fs85">member PriorityQueue.RemoveElementsBy : predicate:(&#39;T -&gt; bool) -&gt; unit</div>
-<div class="fsdocs-tip" id="fs86">Multiple items<br />module List<br /><br />from FSharpx.Collections<br /><br />--------------------<br />module List<br /><br />from FSharpAux<br /><br />--------------------<br />module List<br /><br />from FSharp.Stats<br /><br />--------------------<br />module List<br /><br />from Microsoft.FSharp.Collections<br /><br />--------------------<br />type List&lt;&#39;T&gt; =<br />&#160;&#160;| ( [] )<br />&#160;&#160;| ( :: ) of Head: &#39;T * Tail: &#39;T list<br />&#160;&#160;&#160;&#160;interface IReadOnlyList&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IReadOnlyCollection&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;interface IEnumerable<br />&#160;&#160;&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;&#160;&#160;member GetReverseIndex : rank:int * offset:int -&gt; int<br />&#160;&#160;&#160;&#160;member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list<br />&#160;&#160;&#160;&#160;member Head : &#39;T<br />&#160;&#160;&#160;&#160;member IsEmpty : bool<br />&#160;&#160;&#160;&#160;member Item : index:int -&gt; &#39;T with get<br />&#160;&#160;&#160;&#160;...</div>
-<div class="fsdocs-tip" id="fs87">val contains : value:&#39;T -&gt; source:&#39;T list -&gt; bool (requires equality)</div>
+<div class="fsdocs-tip" id="fs86">Multiple items<br />module List
+
+from FSharpx.Collections<br /><em>&lt;summary&gt;
+ Extensions for F#&#39;s List module.
+&lt;/summary&gt;</em><br /><br />--------------------<br />module List
+
+from FSharpAux<br /><br />--------------------<br />module List
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on list
+&lt;/summary&gt;</em><br /><br />--------------------<br />module List
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with values of type &lt;see cref=&quot;T:Microsoft.FSharp.Collections.list`1&quot; /&gt;.&lt;/summary&gt;<br />&lt;namespacedoc&gt;&lt;summary&gt;Operations for collections such as lists, arrays, sets, maps and sequences. See also 
+    &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/fsharp-collection-types&quot;&gt;F# Collection Types&lt;/a&gt; in the F# Language Guide.
+ &lt;/summary&gt;&lt;/namespacedoc&gt;</em><br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  | ( [] )
+  | ( :: ) of Head: &#39;T * Tail: &#39;T list
+    interface IReadOnlyList&lt;&#39;T&gt;
+    interface IReadOnlyCollection&lt;&#39;T&gt;
+    interface IEnumerable
+    interface IEnumerable&lt;&#39;T&gt;
+    member GetReverseIndex : rank:int * offset:int -&gt; int
+    member GetSlice : startIndex:int option * endIndex:int option -&gt; &#39;T list
+    static member Cons : head:&#39;T * tail:&#39;T list -&gt; &#39;T list
+    member Head : &#39;T
+    member IsEmpty : bool
+    member Item : index:int -&gt; &#39;T with get
+    ...<br /><em>&lt;summary&gt;The type of immutable singly-linked lists.&lt;/summary&gt;<br />&lt;remarks&gt;Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1;2;3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+ &lt;/remarks&gt;<br />&lt;exclude /&gt;</em></div>
+<div class="fsdocs-tip" id="fs87">val contains : value:&#39;T -&gt; source:&#39;T list -&gt; bool (requires equality)<br /><em>&lt;summary&gt;Tests if the list contains the specified element.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to locate in the input list.&lt;/param&gt;<br />&lt;param name=&quot;source&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;True if the input list contains the specified element; false otherwise.&lt;/returns&gt;</em></div>
 <div class="fsdocs-tip" id="fs88">member PriorityQueue.UpdateBy : updateElementFunction:(&#39;T -&gt; &#39;T) -&gt; unit</div>
 <div class="fsdocs-tip" id="fs89">namespace C5</div>
 <div class="fsdocs-tip" id="fs90">val myHeap : IntervalHeap&lt;Neighbour&gt;</div>
-<div class="fsdocs-tip" id="fs91">Multiple items<br />type IntervalHeap&lt;&#39;T&gt; =<br />&#160;&#160;inherit CollectionValueBase&lt;&#39;T&gt;<br />&#160;&#160;interface IPriorityQueue&lt;&#39;T&gt;<br />&#160;&#160;interface IExtensible&lt;&#39;T&gt;<br />&#160;&#160;interface ICollectionValue&lt;&#39;T&gt;<br />&#160;&#160;interface IEnumerable&lt;&#39;T&gt;<br />&#160;&#160;interface IEnumerable<br />&#160;&#160;interface IShowable<br />&#160;&#160;interface IFormattable<br />&#160;&#160;new :?memoryType: MemoryType -&gt; unit + 4 overloads<br />&#160;&#160;member Add : item: &#39;T -&gt; bool + 1 overload<br />&#160;&#160;...<br /><br />--------------------<br />IntervalHeap(?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(comparer: System.Collections.Generic.IComparer&lt;&#39;T&gt;,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(capacity: int,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(capacity: int, comparer: System.Collections.Generic.IComparer&lt;&#39;T&gt;,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;</div>
-<div class="fsdocs-tip" id="fs92">type MemoryType =<br />&#160;&#160;| Normal = 0<br />&#160;&#160;| Safe = 1<br />&#160;&#160;| Strict = 2</div>
-<div class="fsdocs-tip" id="fs93">field MemoryType.Normal: MemoryType = 0</div>
+<div class="fsdocs-tip" id="fs91">Multiple items<br />type IntervalHeap&lt;&#39;T&gt; =
+  inherit CollectionValueBase&lt;&#39;T&gt;
+  interface IPriorityQueue&lt;&#39;T&gt;
+  interface IExtensible&lt;&#39;T&gt;
+  interface ICollectionValue&lt;&#39;T&gt;
+  interface IEnumerable&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IShowable
+  interface IFormattable
+  new :?memoryType: MemoryType -&gt; unit + 4 overloads
+  member Add : item: &#39;T -&gt; bool + 1 overload
+  ...<br /><em>&lt;summary&gt;
+            A priority queue class based on an interval heap data structure.
+            &lt;/summary&gt;<br />&lt;typeparam name=&quot;T&quot;&gt;The item type&lt;/typeparam&gt;</em><br /><br />--------------------<br />IntervalHeap(?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(comparer: System.Collections.Generic.IComparer&lt;&#39;T&gt;,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(capacity: int,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;<br />IntervalHeap(capacity: int, comparer: System.Collections.Generic.IComparer&lt;&#39;T&gt;,?memoryType: MemoryType) : IntervalHeap&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs92">type MemoryType =
+  | Normal = 0
+  | Safe = 1
+  | Strict = 2<br /><em>&lt;summary&gt;
+            It specifies the memory type strategy of the internal enumerator implemented to iterate over the collection.
+            &lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs93">field MemoryType.Normal: MemoryType = 0<br /><em>&lt;summary&gt;
+            Normal is the usual operator type. A new instance of an enumerator is always returned
+            for multithread safety purposes.
+            &lt;/summary&gt;</em></div>
 <div class="fsdocs-tip" id="fs94">IntervalHeap.AddAll(items: System.Collections.Generic.IEnumerable&lt;Neighbour&gt;) : unit</div>
 <div class="fsdocs-tip" id="fs95">val max : Neighbour</div>
 <div class="fsdocs-tip" id="fs96">IntervalHeap.FindMax() : Neighbour<br />IntervalHeap.FindMax(handle: byref&lt;IPriorityQueueHandle&lt;Neighbour&gt;&gt;) : Neighbour</div>
