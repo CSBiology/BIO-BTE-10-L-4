@@ -120,6 +120,11 @@ Fig 3: Workflow as proposed in pseudo code in Reference#2.
     - You can find the classic clustering dataset "iris" [here](https://github.com/fslaborg/FSharp.Stats/tree/developer/docs/data).
 
   - An implementation of an priority queue is given below.
+    
+  - _Please read this project description carefully before starting the implementation steps. A modification given in [Reference#2](https://github.com/srirambaskaran/efficient-hierarchical-clustering). 
+  that boosts the efficiancy is not covered by the steps below. See the "7: Further coding considerations" in the end!_
+
+
 *)
 
 (******)
@@ -315,8 +320,12 @@ myHeap.Filter (fun x -> x.Similarity = 5.)  // filters entries based on predicat
 ### 7<sup>th</sup> step: Further coding considerations
 
   - Removing elements from the priority queue is slow. Is there a better way to avoid the deletion? 
+    
+    - Reference#2 suggests:
+     
+    > There is a repeated removal from Q when i,m are merged. This can be avoided with a new implementation where we maintain multiple priority queues and find the maximum of each priority queue and pick the one with max value. We can ignore the priority queue for m. When considering amortized analysis of this algorithm, this efficiently performs the deletion and restricts the number of calls to Heapify algorithm.
   
-    - maybe a Map(int[],bool), or a nested priority queue (see Reference#2) would be beneficial
+    - maybe a Map(int[],bool), or a nested priority queue would be beneficial
 
     - or another implementation of heap/priority queues like C5.IntervalHeap could be faster
 
