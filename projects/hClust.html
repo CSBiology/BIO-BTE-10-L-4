@@ -80,13 +80,13 @@
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/spectral-alignment.html">
-    Alignment of Peptide derived MS Spectra
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/evolutionary-distance.html">
+    Phylogenetic tree reconstruction based on evolutionary distance
   </a>
 </li>             
 <li class="nav-item">
-  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/evolutionary-distance.html">
-    Phylogenetic tree reconstruction based on evolutionary distance
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/spectral-alignment.html">
+    Alignment of Peptide derived MS Spectra
   </a>
 </li>             
 <li class="nav-item">
@@ -214,6 +214,10 @@ Subsequently the tree can be cut at any vertical line which will result in a def
 </ul>
 </li>
 <li>An implementation of an priority queue is given below.</li>
+<li>
+<p><em>Please read this project description carefully before starting the implementation steps. A modification given in <a href="https://github.com/srirambaskaran/efficient-hierarchical-clustering">Reference#2</a>.
+that boosts the efficiancy is not covered by the steps below. See the "7: Further coding considerations" in the end!</em></p>
+</li>
 </ul>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.1&quot;</span>
 <span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux, 1.0.0&quot;</span>
@@ -442,7 +446,13 @@ a binary tree structure such as <code>ML.Unsupervised.HierarchicalClustering.Clu
 <li>
 <p>Removing elements from the priority queue is slow. Is there a better way to avoid the deletion?</p>
 <ul>
-<li><p>maybe a Map(int[],bool), or a nested priority queue (see Reference#2) would be beneficial</p></li>
+<li>
+<p>Reference#2 suggests:</p>
+<blockquote>
+<p>There is a repeated removal from Q when i,m are merged. This can be avoided with a new implementation where we maintain multiple priority queues and find the maximum of each priority queue and pick the one with max value. We can ignore the priority queue for m. When considering amortized analysis of this algorithm, this efficiently performs the deletion and restricts the number of calls to Heapify algorithm.</p>
+</blockquote>
+</li>
+<li><p>maybe a Map(int[],bool), or a nested priority queue would be beneficial</p></li>
 <li>or another implementation of heap/priority queues like C5.IntervalHeap could be faster</li>
 </ul>
 </li>
