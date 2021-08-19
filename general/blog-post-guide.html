@@ -201,7 +201,7 @@ There may be a question for permission to start the local webserver. Allow it. Y
 <p>You may have realized that your initialized template contains a markdown cheatsheat. Use this cheatsheet for all your markdown needs. an online version is also available <a href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">here</a>.</p>
 <p>You might also have realized that the styling of your markdown looks different than this page (see the screenshot below for reference as well).
 That is not a problem and depends on the styling that fsdocs uses. please use the default one that is coming with the template.</p>
-<p><img src="/img/markdown_cheatsheet.png" alt="cheatsheet_screenshot" /></p>
+<p><img src="../img/markdown_cheatsheet.png" alt="cheatsheet_screenshot" /></p>
 <h3><a name="Literate-F-scripts" class="anchor" href="#Literate-F-scripts">Literate F# scripts</a></h3>
 <p>Literate F# scripts are a powerfull fusion of markdown with F# scripting and advanced formatting methods.</p>
 <p>With literate F# scripts you can tell the full story from the problem to your solution and show of how it works and what kinds of results it produces.</p>
@@ -258,29 +258,29 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 <span onmouseout="hideTip(event, 'fs8', 14)" onmouseover="showTip(event, 'fs8', 14)" class="id">myChart</span>
 <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="m">GenericChart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="id">toChartHTML</span>
 </code></pre>
-<div id="f8e93732-b6da-425f-b1c2-74b55b9654c6" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="90e50023-2b50-4ecd-88c6-2806b63fcffe" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_f8e93732b6da425fb1c274b55b9654c6 = function() {
+            var renderPlotly_90e500232b504ecd88c62806b63fcffe = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{},"marker":{}}];
             var layout = {};
             var config = {};
-            Plotly.newPlot('f8e93732-b6da-425f-b1c2-74b55b9654c6', data, layout, config);
+            Plotly.newPlot('90e50023-2b50-4ecd-88c6-2806b63fcffe', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_f8e93732b6da425fb1c274b55b9654c6();
+                    renderPlotly_90e500232b504ecd88c62806b63fcffe();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_f8e93732b6da425fb1c274b55b9654c6();
+                renderPlotly_90e500232b504ecd88c62806b63fcffe();
             }
 </script>
 
@@ -295,29 +295,29 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 <p>which will omit the part of the code block that is only there to display the chart:</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="id">myChart2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 18)" onmouseover="showTip(event, 'fs9', 18)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="id">Spline</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
 </code></pre>
-<div id="15091920-9cd7-46d9-af23-ad4abd517c2e" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="f086e1cf-face-4bc2-9710-a3e85f87a000" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_150919209cd746d9af23ad4abd517c2e = function() {
+            var renderPlotly_f086e1cfface4bc29710a3e85f87a000 = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{"shape":"spline"},"marker":{}}];
             var layout = {};
             var config = {};
-            Plotly.newPlot('15091920-9cd7-46d9-af23-ad4abd517c2e', data, layout, config);
+            Plotly.newPlot('f086e1cf-face-4bc2-9710-a3e85f87a000', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_150919209cd746d9af23ad4abd517c2e();
+                    renderPlotly_f086e1cfface4bc29710a3e85f87a000();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_150919209cd746d9af23ad4abd517c2e();
+                renderPlotly_f086e1cfface4bc29710a3e85f87a000();
             }
 </script>
 
