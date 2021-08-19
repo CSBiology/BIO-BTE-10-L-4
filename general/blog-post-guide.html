@@ -141,8 +141,9 @@
 <ul>
 <li><a href="#markdown">Markdown</a></li>
 <li><a href="#literate-f-scripts">Literate F# scripts</a></li>
-<li><a href="#code-examples">Code examples</a></li>
-<li><a href="#rendering-charts">rendering charts</a></li>
+<li><a href="#Including-output">Including output</a></li>
+<li><a href="#Including-values">Including values</a></li>
+<li><a href="#Rendering-charts">rendering charts</a></li>
 </ul>
 </li>
 <li>
@@ -220,7 +221,11 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 <h3><a name="Including-output" class="anchor" href="#Including-output">Including output</a></h3>
 <p>there are multiple ways of including output of function calls or values of bindings.</p>
 <p>To include the output of a function that returns unit (so for example a <code>printfn</code> call), put <code>(***include-output***)</code> below the call:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="fn">printfn</span> <span class="s">&quot;Hi&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="id">printfn</span> <span class="s">&quot;Hi&quot;</span>
+    <span class="c">(***include-output***)</span>
+</code></pre>
+<p>which will be rendered as:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs4', 7)" onmouseover="showTip(event, 'fs4', 7)" class="fn">printfn</span> <span class="s">&quot;Hi&quot;</span>
 </code></pre>
 <table class="pre"><tr><td><pre><code>Hi</code></pre></td></tr></table>
 <h3><a name="Including-values" class="anchor" href="#Including-values">Including values</a></h3>
@@ -230,7 +235,7 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
     <span class="c">(***include-value:x***)</span>
 </code></pre>
 <p>becomes:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">x</span> <span class="o">=</span> <span class="n">42</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 8)" onmouseover="showTip(event, 'fs5', 8)" class="id">x</span> <span class="o">=</span> <span class="n">42</span>
 </code></pre>
 <table class="pre"><tr><td><pre><code>42</code></pre></td></tr></table>
 <h3><a name="Rendering-charts" class="anchor" href="#Rendering-charts">Rendering charts</a></h3>
@@ -246,36 +251,36 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 </code></pre>
 <p>which will be rendered as:</p>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-preview.6&quot;</span>
-<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Plotly</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">NET</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 9)" onmouseover="showTip(event, 'fs6', 9)" class="id">Plotly</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 10)" onmouseover="showTip(event, 'fs7', 10)" class="id">NET</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="id">myChart</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="id">Line</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 11)" onmouseover="showTip(event, 'fs8', 11)" class="id">myChart</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="id">Line</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
 
-<span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="id">myChart</span>
-<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="m">GenericChart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="id">toChartHTML</span>
+<span onmouseout="hideTip(event, 'fs8', 14)" onmouseover="showTip(event, 'fs8', 14)" class="id">myChart</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 15)" onmouseover="showTip(event, 'fs11', 15)" class="m">GenericChart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 16)" onmouseover="showTip(event, 'fs12', 16)" class="id">toChartHTML</span>
 </code></pre>
-<div id="ff302dba-7dc9-4ee2-91aa-f08d0a8163d8" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="f8e93732-b6da-425f-b1c2-74b55b9654c6" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8 = function() {
+            var renderPlotly_f8e93732b6da425fb1c274b55b9654c6 = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{},"marker":{}}];
             var layout = {};
             var config = {};
-            Plotly.newPlot('ff302dba-7dc9-4ee2-91aa-f08d0a8163d8', data, layout, config);
+            Plotly.newPlot('f8e93732-b6da-425f-b1c2-74b55b9654c6', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8();
+                    renderPlotly_f8e93732b6da425fb1c274b55b9654c6();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8();
+                renderPlotly_f8e93732b6da425fb1c274b55b9654c6();
             }
 </script>
 
@@ -288,31 +293,31 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
     <span class="c">(***include-it-raw***)</span> 
 </code></pre>
 <p>which will omit the part of the code block that is only there to display the chart:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="id">myChart2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 17)" onmouseover="showTip(event, 'fs9', 17)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="id">Spline</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 17)" onmouseover="showTip(event, 'fs13', 17)" class="id">myChart2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 18)" onmouseover="showTip(event, 'fs9', 18)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="id">Spline</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
 </code></pre>
-<div id="74c3f901-eb3d-4799-a906-bb7385b623a6" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<div id="15091920-9cd7-46d9-af23-ad4abd517c2e" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
 <script type="text/javascript">
 
-            var renderPlotly_74c3f901eb3d4799a906bb7385b623a6 = function() {
+            var renderPlotly_150919209cd746d9af23ad4abd517c2e = function() {
             var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
             fsharpPlotlyRequire(['plotly'], function(Plotly) {
 
             var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{"shape":"spline"},"marker":{}}];
             var layout = {};
             var config = {};
-            Plotly.newPlot('74c3f901-eb3d-4799-a906-bb7385b623a6', data, layout, config);
+            Plotly.newPlot('15091920-9cd7-46d9-af23-ad4abd517c2e', data, layout, config);
 });
             };
             if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
                 var script = document.createElement("script");
                 script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
                 script.onload = function(){
-                    renderPlotly_74c3f901eb3d4799a906bb7385b623a6();
+                    renderPlotly_150919209cd746d9af23ad4abd517c2e();
                 };
                 document.getElementsByTagName("head")[0].appendChild(script);
             }
             else {
-                renderPlotly_74c3f901eb3d4799a906bb7385b623a6();
+                renderPlotly_150919209cd746d9af23ad4abd517c2e();
             }
 </script>
 
