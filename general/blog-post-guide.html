@@ -203,8 +203,119 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 <p><img src="/img/markdown_cheatsheet.png" alt="cheatsheet_screenshot" /></p>
 <h3><a name="Literate-F-scripts" class="anchor" href="#Literate-F-scripts">Literate F# scripts</a></h3>
 <p>Literate F# scripts are a powerfull fusion of markdown with F# scripting and advanced formatting methods.</p>
-<h3><a name="Code-examples" class="anchor" href="#Code-examples">Code examples</a></h3>
-<h3><a name="rendering-charts" class="anchor" href="#rendering-charts">rendering charts</a></h3>
+<p>With literate F# scripts you can tell the full story from the problem to your solution and show of how it works and what kinds of results it produces.</p>
+<p>To write markdown, just put it in these parentheses `<code>(** ... *)</code> like this: <code>(** # i am a heading! *)</code>. you can also do that across multiple lines.</p>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="c">(**</span>
+<span class="c">    # Hi!</span>
+<span class="c">    *markdown here :D*</span>
+<span class="c">    *)</span>
+</code></pre>
+<p>But the real awesome thing is that you can write normal F# code that will be rendered beautifully on your generated webpage.</p>
+<p>It also contains hover tooltips! Try it by hovering over some of the code below with your mouse!</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">a</span> <span class="o">=</span> <span class="n">42</span>
+
+<span class="c">///try hovering over myFunction!</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="fn">myFunction</span> <span onmouseout="hideTip(event, 'fs3', 3)" onmouseover="showTip(event, 'fs3', 3)" class="fn">someParameter</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs4', 4)" onmouseover="showTip(event, 'fs4', 4)" class="fn">printfn</span> <span class="s">$&quot;i got some {</span><span onmouseout="hideTip(event, 'fs3', 5)" onmouseover="showTip(event, 'fs3', 5)" class="fn">someParameter</span><span class="s">}!&quot;</span>
+</code></pre>
+<h3><a name="Including-output" class="anchor" href="#Including-output">Including output</a></h3>
+<p>there are multiple ways of including output of function calls or values of bindings.</p>
+<p>To include the output of a function that returns unit (so for example a <code>printfn</code> call), put <code>(***include-output***)</code> below the call:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs4', 6)" onmouseover="showTip(event, 'fs4', 6)" class="fn">printfn</span> <span class="s">&quot;Hi&quot;</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>Hi</code></pre></td></tr></table>
+<h3><a name="Including-values" class="anchor" href="#Including-values">Including values</a></h3>
+<p>To include the value of a binding, use <code>(***include-value: yourBindingname***)</code>:</p>
+<p>so this:</p>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">let</span> <span class="id">x</span> <span class="o">=</span> <span class="n">42</span>
+    <span class="c">(***include-value:x***)</span>
+</code></pre>
+<p>becomes:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs5', 7)" onmouseover="showTip(event, 'fs5', 7)" class="id">x</span> <span class="o">=</span> <span class="n">42</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>42</code></pre></td></tr></table>
+<h3><a name="Rendering-charts" class="anchor" href="#Rendering-charts">Rendering charts</a></h3>
+<p>Chart rendering is a special value inclusion. Because Plotly.NET charts create html already, the raw string value of them (created by <code>Chart.toChartHTML</code>) has to be included via <code>(***include-it-raw***)</code> like this:</p>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-preview.6&quot;</span>
+    <span class="k">open</span> <span class="id">Plotly</span><span class="pn">.</span><span class="id">NET</span>
+
+    <span class="k">let</span> <span class="id">myChart</span> <span class="o">=</span> <span class="id">Chart</span><span class="pn">.</span><span class="id">Line</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+
+    <span class="id">myChart</span>
+    <span class="o">|&gt;</span> <span class="id">GenericChart</span><span class="pn">.</span><span class="id">toChartHTML</span>
+    <span class="c">(***include-it-raw***)</span> 
+</code></pre>
+<p>which will be rendered as:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-preview.6&quot;</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs6', 8)" onmouseover="showTip(event, 'fs6', 8)" class="id">Plotly</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs7', 9)" onmouseover="showTip(event, 'fs7', 9)" class="id">NET</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs8', 10)" onmouseover="showTip(event, 'fs8', 10)" class="id">myChart</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 11)" onmouseover="showTip(event, 'fs9', 11)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs10', 12)" onmouseover="showTip(event, 'fs10', 12)" class="id">Line</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+
+<span onmouseout="hideTip(event, 'fs8', 13)" onmouseover="showTip(event, 'fs8', 13)" class="id">myChart</span>
+<span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="m">GenericChart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="id">toChartHTML</span>
+</code></pre>
+<div id="ff302dba-7dc9-4ee2-91aa-f08d0a8163d8" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<script type="text/javascript">
+
+            var renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8 = function() {
+            var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
+            fsharpPlotlyRequire(['plotly'], function(Plotly) {
+
+            var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{},"marker":{}}];
+            var layout = {};
+            var config = {};
+            Plotly.newPlot('ff302dba-7dc9-4ee2-91aa-f08d0a8163d8', data, layout, config);
+});
+            };
+            if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
+                var script = document.createElement("script");
+                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
+                script.onload = function(){
+                    renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8();
+                };
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+            else {
+                renderPlotly_ff302dba7dc94ee291aaf08d0a8163d8();
+            }
+</script>
+
+<p>You can also hide blocks via <code>(***hide***)</code>, a good use case is the inclusion of charts:</p>
+<pre class="fssnip highlighted"><code lang="fsharp">    <span class="k">let</span> <span class="id">myChart2</span> <span class="o">=</span> <span class="id">Chart</span><span class="pn">.</span><span class="id">Spline</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+
+    <span class="c">(***hide***)</span>
+    <span class="id">myChart2</span>
+    <span class="o">|&gt;</span> <span class="id">GenericChart</span><span class="pn">.</span><span class="id">toChartHTML</span>
+    <span class="c">(***include-it-raw***)</span> 
+</code></pre>
+<p>which will omit the part of the code block that is only there to display the chart:</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="id">myChart2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs9', 17)" onmouseover="showTip(event, 'fs9', 17)" class="rt">Chart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs14', 18)" onmouseover="showTip(event, 'fs14', 18)" class="id">Spline</span><span class="pn">(</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">42</span><span class="pn">;</span> <span class="n">2</span><span class="pn">,</span><span class="n">69</span><span class="pn">;</span> <span class="n">3</span><span class="pn">,</span><span class="n">1337</span><span class="pn">]</span><span class="pn">)</span>
+</code></pre>
+<div id="74c3f901-eb3d-4799-a906-bb7385b623a6" style="width: 600px; height: 600px;"><!-- Plotly chart will be drawn inside this DIV --></div>
+<script type="text/javascript">
+
+            var renderPlotly_74c3f901eb3d4799a906bb7385b623a6 = function() {
+            var fsharpPlotlyRequire = requirejs.config({context:'fsharp-plotly',paths:{plotly:'https://cdn.plot.ly/plotly-latest.min'}}) || require;
+            fsharpPlotlyRequire(['plotly'], function(Plotly) {
+
+            var data = [{"type":"scatter","x":[1,2,3],"y":[42,69,1337],"mode":"lines","line":{"shape":"spline"},"marker":{}}];
+            var layout = {};
+            var config = {};
+            Plotly.newPlot('74c3f901-eb3d-4799-a906-bb7385b623a6', data, layout, config);
+});
+            };
+            if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
+                var script = document.createElement("script");
+                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
+                script.onload = function(){
+                    renderPlotly_74c3f901eb3d4799a906bb7385b623a6();
+                };
+                document.getElementsByTagName("head")[0].appendChild(script);
+            }
+            else {
+                renderPlotly_74c3f901eb3d4799a906bb7385b623a6();
+            }
+</script>
+
 <h2><a name="Submission-guidelines" class="anchor" href="#Submission-guidelines">Submission guidelines</a></h2>
 <h3><a name="General-content-guidelines" class="anchor" href="#General-content-guidelines">General content guidelines</a></h3>
 <h3><a name="Submitting-your-blog-post" class="anchor" href="#Submitting-your-blog-post">Submitting your blog post</a></h3>
@@ -212,7 +323,40 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
                 </div>
             </div>
         </div>
-        
+        <div class="fsdocs-tip" id="fs1">val a : int</div>
+<div class="fsdocs-tip" id="fs2">val myFunction : someParameter:&#39;a -&gt; unit<br /><em>try hovering over myFunction!</em></div>
+<div class="fsdocs-tip" id="fs3">val someParameter : &#39;a</div>
+<div class="fsdocs-tip" id="fs4">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to &lt;c&gt;stdout&lt;/c&gt; using the given format, and add a newline.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs5">val x : int</div>
+<div class="fsdocs-tip" id="fs6">namespace Plotly</div>
+<div class="fsdocs-tip" id="fs7">namespace Plotly.NET</div>
+<div class="fsdocs-tip" id="fs8">val myChart : GenericChart.GenericChart</div>
+<div class="fsdocs-tip" id="fs9">type Chart =
+  static member Area : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Dash:DrawingStyle * ?Width:float -&gt; GenericChart + 1 overload
+  static member Bar : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload
+  static member BoxPlot : ?x:&#39;a0 * ?y:&#39;a1 * ?Name:string * ?Showlegend:bool * ?Color:string * ?Fillcolor:&#39;a2 * ?Opacity:float * ?Whiskerwidth:&#39;a3 * ?Boxpoints:Boxpoints * ?Boxmean:BoxMean * ?Jitter:&#39;a4 * ?Pointpos:&#39;a5 * ?Orientation:Orientation * ?Marker:Marker * ?Line:Line * ?Alignmentgroup:&#39;a6 * ?Offsetgroup:&#39;a7 * ?Notched:bool * ?NotchWidth:float * ?QuartileMethod:QuartileMethod -&gt; GenericChart + 1 overload
+  static member Bubble : x:seq&lt;#IConvertible&gt; * y:seq&lt;#IConvertible&gt; * sizes:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?MarkerSymbol:Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?StackGroup:string * ?Orientation:Orientation * ?GroupNorm:GroupNorm * ?UseWebGL:bool -&gt; GenericChart + 1 overload
+  static member Candlestick : open:seq&lt;#IConvertible&gt; * high:seq&lt;#IConvertible&gt; * low:seq&lt;#IConvertible&gt; * close:seq&lt;#IConvertible&gt; * x:seq&lt;#IConvertible&gt; * ?Increasing:Line * ?Decreasing:Line * ?WhiskerWidth:float * ?Line:Line * ?XCalendar:Calendar -&gt; GenericChart + 1 overload
+  static member ChoroplethMap : locations:seq&lt;string&gt; * z:seq&lt;#IConvertible&gt; * ?Text:seq&lt;#IConvertible&gt; * ?Locationmode:LocationFormat * ?Autocolorscale:bool * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Marker:Marker * ?GeoJson:&#39;a2 * ?FeatureIdKey:string * ?Zmin:float * ?Zmax:float -&gt; GenericChart
+  static member ChoroplethMapbox : locations:seq&lt;#IConvertible&gt; * z:seq&lt;#IConvertible&gt; * geoJson:&#39;a2 * ?FeatureIdKey:string * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart
+  static member Column : keys:seq&lt;#IConvertible&gt; * values:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#IConvertible&gt; * ?TextPosition:TextPosition * ?TextFont:Font * ?Marker:Marker -&gt; GenericChart + 1 overload
+  static member Contour : data:seq&lt;#seq&lt;&#39;a1&gt;&gt; * ?X:seq&lt;#IConvertible&gt; * ?Y:seq&lt;#IConvertible&gt; * ?Name:string * ?Showlegend:bool * ?Opacity:float * ?Colorscale:Colorscale * ?Showscale:&#39;a4 * ?zSmooth:SmoothAlg * ?Colorbar:&#39;a5 -&gt; GenericChart (requires &#39;a1 :&gt; IConvertible)
+  static member DensityMapbox : lon:seq&lt;#IConvertible&gt; * lat:seq&lt;#IConvertible&gt; * ?Z:seq&lt;#IConvertible&gt; * ?Radius:float * ?Opacity:float * ?Text:seq&lt;#IConvertible&gt; * ?Below:string * ?Colorscale:Colorscale * ?Colorbar:Colorbar * ?Showscale:bool * ?ZAuto:bool * ?ZMin:float * ?ZMid:float * ?ZMax:float -&gt; GenericChart + 1 overload
+  ...<br /><em>&lt;summary&gt;
+ Provides a set of static methods for creating charts.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs10">static member Chart.Line : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart<br />static member Chart.Line : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart</div>
+<div class="fsdocs-tip" id="fs11">module GenericChart
+
+from Plotly.NET<br /><em>&lt;summary&gt;
+ Module to represent a GenericChart
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs12">val toChartHTML : gChart:GenericChart.GenericChart -&gt; string<br /><em>&lt;summary&gt;
+ Converts a GenericChart to it HTML representation. The div layer has a default size of 600 if not specified otherwise.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs13">val myChart2 : GenericChart.GenericChart</div>
+<div class="fsdocs-tip" id="fs14">static member Chart.Spline : xy:seq&lt;#System.IConvertible * #System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?Smoothing:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart<br />static member Chart.Spline : x:seq&lt;#System.IConvertible&gt; * y:seq&lt;#System.IConvertible&gt; * ?Name:string * ?ShowMarkers:bool * ?Showlegend:bool * ?MarkerSymbol:StyleParam.Symbol * ?Color:string * ?Opacity:float * ?Labels:seq&lt;#System.IConvertible&gt; * ?TextPosition:StyleParam.TextPosition * ?TextFont:Font * ?Dash:StyleParam.DrawingStyle * ?Width:float * ?Smoothing:float * ?StackGroup:string * ?Orientation:StyleParam.Orientation * ?GroupNorm:StyleParam.GroupNorm * ?UseWebGL:bool -&gt; GenericChart.GenericChart</div>
+
     </div>
 
     <!-- BEGIN SEARCH BOX: this adds support for the search box -->
