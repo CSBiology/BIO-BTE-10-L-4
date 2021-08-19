@@ -19,8 +19,9 @@ This is a guide on how to create content for the blog post that marks the final 
 - [Creating content](#creating-content)
   - [Markdown](#markdown)
   - [Literate F# scripts](#literate-f-scripts)
-  - [Code examples](#code-examples)
-  - [rendering charts](#rendering-charts)
+  - [Including output](#Including-output)
+  - [Including values](#Including-values)
+  - [rendering charts](#Rendering-charts)
 - [Submission guidelines](#submission-guidelines)
   - [General content guidelines](#general-content-guidelines)
   - [Submitting your blog post](#submitting-your-blog-post)
@@ -121,6 +122,12 @@ there are multiple ways of including output of function calls or values of bindi
 
 To include the output of a function that returns unit (so for example a `printfn` call), put `(***include-output***)` below the call:
 
+```
+    printfn "Hi"
+    (***include-output***)
+```
+
+which will be rendered as:
 *)
 
 printfn "Hi"
