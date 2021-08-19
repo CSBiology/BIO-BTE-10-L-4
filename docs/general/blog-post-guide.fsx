@@ -1,3 +1,4 @@
+(**
 ---
 title: Blog post guide
 category: general
@@ -91,14 +92,115 @@ That is not a problem and depends on the styling that fsdocs uses. please use th
 
 Literate F# scripts are a powerfull fusion of markdown with F# scripting and advanced formatting methods. 
 
+With literate F# scripts you can tell the full story from the problem to your solution and show of how it works and what kinds of results it produces.
 
+To write markdown, just put it in these parentheses ``(** ... *)` like this: `(** # i am a heading! *)`. you can also do that across multiple lines.
 
-### Code examples
+```
+    (**
+    # Hi!
+    *markdown here :D*
+    *)
+```
 
-### rendering charts
+But the real awesome thing is that you can write normal F# code that will be rendered beautifully on your generated webpage.
+
+It also contains hover tooltips! Try it by hovering over some of the code below with your mouse!
+*)
+
+let a = 42
+
+///try hovering over myFunction!
+let myFunction someParameter = printfn $"i got some {someParameter}!"
+
+(** 
+
+### Including output
+
+there are multiple ways of including output of function calls or values of bindings.
+
+To include the output of a function that returns unit (so for example a `printfn` call), put `(***include-output***)` below the call:
+
+*)
+
+printfn "Hi"
+(***include-output***)
+
+(**
+
+### Including values
+
+To include the value of a binding, use `(***include-value: yourBindingname***)`:
+
+so this:
+
+```
+    let x = 42
+    (***include-value:x***)
+```
+
+becomes:
+
+*)
+
+let x = 42
+(***include-value:x***)
+
+(**
+
+### Rendering charts
+
+Chart rendering is a special value inclusion. Because Plotly.NET charts create html already, the raw string value of them (created by `Chart.toChartHTML`) has to be included via `(***include-it-raw***)` like this: 
+
+```
+    #r "nuget: Plotly.NET, 2.0.0-preview.6"
+    open Plotly.NET
+
+    let myChart = Chart.Line([1,42; 2,69; 3,1337])
+
+    myChart
+    |> GenericChart.toChartHTML
+    (***include-it-raw***) 
+```
+ which will be rendered as:
+*)
+
+#r "nuget: Plotly.NET, 2.0.0-preview.6"
+open Plotly.NET
+
+let myChart = Chart.Line([1,42; 2,69; 3,1337])
+
+myChart
+|> GenericChart.toChartHTML
+(***include-it-raw***) 
+
+(** 
+You can also hide blocks via `(***hide***)`, a good use case is the inclusion of charts:
+
+```
+    let myChart2 = Chart.Spline([1,42; 2,69; 3,1337])
+
+    (***hide***)
+    myChart2
+    |> GenericChart.toChartHTML
+    (***include-it-raw***) 
+```
+
+which will omit the part of the code block that is only there to display the chart:
+*)
+
+let myChart2 = Chart.Spline([1,42; 2,69; 3,1337])
+
+(***hide***)
+myChart2
+|> GenericChart.toChartHTML
+(***include-it-raw***) 
+
+(**
 
 ## Submission guidelines
 
 ### General content guidelines
 
 ### Submitting your blog post
+*)
