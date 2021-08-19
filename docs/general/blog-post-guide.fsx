@@ -87,7 +87,7 @@ You may have realized that your initialized template contains a markdown cheatsh
 You might also have realized that the styling of your markdown looks different than this page (see the screenshot below for reference as well). 
 That is not a problem and depends on the styling that fsdocs uses. please use the default one that is coming with the template.
 
-![cheatsheet_screenshot](/img/markdown_cheatsheet.png)
+![cheatsheet_screenshot](../img/markdown_cheatsheet.png)
 
 ### Literate F# scripts
 
