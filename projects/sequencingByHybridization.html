@@ -157,10 +157,10 @@ rather than vertices, correspond to those l-mers, and then to find a path in thi
 <ul>
 <li>Create a F# script file (.fsx) and paste the following text at the top of your file:</li>
 </ul>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.FGL&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: Cyjs.NET&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux, 1.1.0&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-preview.1&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.FGL, 0.0.2&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Cyjs.NET, 0.0.4&quot;</span>
 
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharpAux</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">BioFSharp</span>
@@ -260,40 +260,7 @@ rather than vertices, correspond to those l-mers, and then to find a path in thi
 <span onmouseout="hideTip(event, 'fs29', 233)" onmouseover="showTip(event, 'fs29', 233)" class="id">graphWithEdges</span>
 <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs32', 234)" onmouseover="showTip(event, 'fs32', 234)" class="fn">toCyJS</span>
 </code></pre>
-<!DOCTYPE html>
-<html>
-<head>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min.js"></script>
-</head>
-<body> <style>#e305aaa343e { width: 600px; height: 400px; display: block } </style>
-<div id="e305aaa343e"></div>
-<script type="text/javascript">
-
-            var renderCyjs_a44b570c2675455f8c39238cb1535613 = function() {
-            var fsharpCyjsRequire = requirejs.config({context:'fsharp-cyjs',paths:{cyjs:'https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.18.0/cytoscape.min'}}) || require;
-            fsharpCyjsRequire(['cyjs'], function(Cyjs) {
-
-            var graphdata = {"container":document.getElementById('e305aaa343e'),"elements":[{"data":{"id":"1","label":"AT"}},{"data":{"id":"2","label":"TG"}},{"data":{"id":"3","label":"GT"}},{"data":{"id":"4","label":"GG"}},{"data":{"id":"5","label":"GC"}},{"data":{"id":"6","label":"CG"}},{"data":{"id":"7","label":"CA"}},{"data":{"id":"12","source":"1","target":"2","weight":"ATG"}},{"data":{"id":"24","source":"2","target":"4","weight":"TGG"}},{"data":{"id":"25","source":"2","target":"5","weight":"TGC"}},{"data":{"id":"32","source":"3","target":"2","weight":"GTG"}},{"data":{"id":"45","source":"4","target":"5","weight":"GGC"}},{"data":{"id":"56","source":"5","target":"6","weight":"GCG"}},{"data":{"id":"57","source":"5","target":"7","weight":"GCA"}},{"data":{"id":"63","source":"6","target":"3","weight":"CGT"}}],"style":[{"selector":"node","style":{"content":"data(label)"}},{"selector":"edge","style":{"curve-style":"bezier","opacity":0.666,"width":"mapData(weight,70,100,5,5)","target-arrow-shape":"triangle","line-color":"data(color)","target-arrow-color":"data(color)","source-arrow-color":"data(color)"}}],"layout":{"name":"breadthfirst"}}
-            var cy = cytoscape( graphdata );
-            cy.userZoomingEnabled( false );
-            
-});
-            };
-            if ((typeof(requirejs) !==  typeof(Function)) || (typeof(requirejs.config) !== typeof(Function))) {
-                var script = document.createElement("script");
-                script.setAttribute("src", "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js");
-                script.onload = function(){
-                    renderCyjs_a44b570c2675455f8c39238cb1535613();
-                };
-                document.getElementsByTagName("head")[0].appendChild(script);
-            }
-            else {
-                renderCyjs_a44b570c2675455f8c39238cb1535613();
-            }
-</script>
- </body>
-</html>
-
+<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
 <ul>
 <li>
 <p>This graph is semibalanced <code>(|indegree - outdegree| = 1)</code>. If a graph has an Eulerian path starting at vertex <em>s</em> and ending at vertex <em>t</em>, then all its vertices are balanced,
@@ -416,7 +383,9 @@ Contains the Nucleotide type and its according functions.
     static member op_Explicit : value:#IBioItem -&gt; byte + 1 overload<br /><em>&lt;summary&gt;
  Nucleotide Codes
 &lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs12">module BioArray
+<div class="fsdocs-tip" id="fs12">Multiple items<br />module BioArray
+
+from BioFSharp.BioCollectionsExtensions<br /><br />--------------------<br />module BioArray
 
 from BioFSharp<br /><em>&lt;summary&gt;
 This module contains the BioArray type and its according functions. The BioArray type is an array of objects using the IBioItem interface

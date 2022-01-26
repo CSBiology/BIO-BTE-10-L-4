@@ -307,12 +307,12 @@ create a F# script (.fsx), load and open the following libraries:
 </li>
 </ul>
 <p>the top of your script file should look like this:</p>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux.IO&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.1&quot;</span> 
-<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-beta6&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp.IO, 2.0.0-beta6&quot;</span>
-<span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-beta9&quot;</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux, 1.1.0&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharpAux.IO, 1.1.0&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.4.3&quot;</span> 
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp, 2.0.0-preview.1&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: BioFSharp.IO, 2.0.0-preview.1&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: Plotly.NET, 2.0.0-preview.16&quot;</span>
 
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharpAux</span>
 <span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 2)" onmouseover="showTip(event, 'fs1', 2)" class="id">FSharpAux</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 3)" onmouseover="showTip(event, 'fs2', 3)" class="id">IO</span>
@@ -337,15 +337,15 @@ To perform hierarchical clustering to reconstruct the phylogenetic trees, use th
 </li>
 </ul>
 <br>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 11)" onmouseover="showTip(event, 'fs3', 11)" class="id">BioFSharp</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs3', 17)" onmouseover="showTip(event, 'fs3', 17)" class="id">BioFSharp</span>
 </code></pre>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs9', 12)" onmouseover="showTip(event, 'fs9', 12)" class="fn">yourDistance</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs10', 13)" onmouseover="showTip(event, 'fs10', 13)" class="fn">seqA</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="fn">seqB</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs11', 17)" onmouseover="showTip(event, 'fs11', 17)" class="if">seq</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs12', 18)" onmouseover="showTip(event, 'fs12', 18)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> <span class="o">..</span><span class="pn">.</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs15', 18)" onmouseover="showTip(event, 'fs15', 18)" class="fn">yourDistance</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs16', 19)" onmouseover="showTip(event, 'fs16', 19)" class="fn">seqA</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 20)" onmouseover="showTip(event, 'fs10', 20)" class="if">seq</span><span class="pn">&lt;</span><span class="pn">#</span><span onmouseout="hideTip(event, 'fs17', 21)" onmouseover="showTip(event, 'fs17', 21)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs18', 22)" onmouseover="showTip(event, 'fs18', 22)" class="fn">seqB</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 23)" onmouseover="showTip(event, 'fs10', 23)" class="if">seq</span><span class="pn">&lt;</span><span class="pn">#</span><span onmouseout="hideTip(event, 'fs17', 24)" onmouseover="showTip(event, 'fs17', 24)" class="if">IBioItem</span><span class="pn">&gt;</span><span class="pn">)</span> <span class="o">=</span> <span class="n">42.</span> <span class="c">//do real distance calculations here</span>
 </code></pre>
 <pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//reconstruct a phylogenetic tree from tagged sequences</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 19)" onmouseover="showTip(event, 'fs14', 19)" class="id">myTree</span> <span class="o">=</span>
-    <span onmouseout="hideTip(event, 'fs15', 20)" onmouseover="showTip(event, 'fs15', 20)" class="rt">PhylogeneticTree</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="id">ofTaggedBioSequences</span>
-        <span onmouseout="hideTip(event, 'fs9', 22)" onmouseover="showTip(event, 'fs9', 22)" class="fn">yourDistance</span> <span class="c">// your distance function for either p, JC69, or K81 distance</span>
-        <span class="id">yourSequences</span> <span class="c">// your adequate nucleotide test sequences as tagged sequences </span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="id">myTree</span> <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="m">PhylogeneticTree</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="id">ofTaggedBioSequences</span>
+        <span onmouseout="hideTip(event, 'fs15', 28)" onmouseover="showTip(event, 'fs15', 28)" class="fn">yourDistance</span> <span class="c">// your distance function for either p, JC69, or K81 distance</span>
+        <span onmouseout="hideTip(event, 'fs9', 29)" onmouseover="showTip(event, 'fs9', 29)" class="id">yourSequences</span> <span class="c">// your adequate nucleotide test sequences as tagged sequences </span>
 </code></pre>
 <br>
 <hr />
@@ -358,19 +358,19 @@ to perform Multiple sequence alignment between your real world sequence examples
 </li>
 </ul>
 <br>
-<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs17', 23)" onmouseover="showTip(event, 'fs17', 23)" class="m">ClustalOWrapper</span>
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 24)" onmouseover="showTip(event, 'fs18', 24)" class="id">cw</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 25)" onmouseover="showTip(event, 'fs19', 25)" class="fn">ClustalOWrapper</span><span class="pn">(</span><span class="s">&quot;path/where/you/extracted/clustal-omega-1.2.2-win64/clustalo.exe&quot;</span><span class="pn">)</span> <span class="c">// replace with real path from your machine here!</span>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">open</span> <span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="m">ClustalOWrapper</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 31)" onmouseover="showTip(event, 'fs23', 31)" class="id">cw</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs24', 32)" onmouseover="showTip(event, 'fs24', 32)" class="fn">ClustalOWrapper</span><span class="pn">(</span><span class="s">&quot;path/where/you/extracted/clustal-omega-1.2.2-win64/clustalo.exe&quot;</span><span class="pn">)</span> <span class="c">// replace with real path from your machine here!</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs20', 26)" onmouseover="showTip(event, 'fs20', 26)" class="id">sequences</span> <span class="o">=</span> 
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="id">sequences</span> <span class="o">=</span> 
     <span class="pn">[</span>
-    <span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="id">create</span> <span class="s">&quot;seq1&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAA&quot;</span><span class="pn">)</span>
-    <span onmouseout="hideTip(event, 'fs21', 29)" onmouseover="showTip(event, 'fs21', 29)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="id">create</span> <span class="s">&quot;seq2&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAACA&quot;</span><span class="pn">)</span>
-    <span onmouseout="hideTip(event, 'fs21', 31)" onmouseover="showTip(event, 'fs21', 31)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="id">create</span> <span class="s">&quot;seq3&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAAAT&quot;</span><span class="pn">)</span>
-    <span onmouseout="hideTip(event, 'fs21', 33)" onmouseover="showTip(event, 'fs21', 33)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs22', 34)" onmouseover="showTip(event, 'fs22', 34)" class="id">create</span> <span class="s">&quot;seq4&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGGAAAA&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs11', 34)" onmouseover="showTip(event, 'fs11', 34)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 35)" onmouseover="showTip(event, 'fs26', 35)" class="id">create</span> <span class="s">&quot;seq1&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAA&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs11', 36)" onmouseover="showTip(event, 'fs11', 36)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 37)" onmouseover="showTip(event, 'fs26', 37)" class="id">create</span> <span class="s">&quot;seq2&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAACA&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs11', 38)" onmouseover="showTip(event, 'fs11', 38)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 39)" onmouseover="showTip(event, 'fs26', 39)" class="id">create</span> <span class="s">&quot;seq3&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGAAAAAAT&quot;</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs11', 40)" onmouseover="showTip(event, 'fs11', 40)" class="rt">TaggedSequence</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 41)" onmouseover="showTip(event, 'fs26', 41)" class="id">create</span> <span class="s">&quot;seq4&quot;</span> <span class="pn">(</span><span class="s">&quot;ATGGAAAA&quot;</span><span class="pn">)</span>
     <span class="pn">]</span>
 
-<span class="k">let</span> <span onmouseout="hideTip(event, 'fs23', 35)" onmouseover="showTip(event, 'fs23', 35)" class="id">alignedSequences</span> <span class="o">=</span> 
-    <span onmouseout="hideTip(event, 'fs18', 36)" onmouseover="showTip(event, 'fs18', 36)" class="id">cw</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 37)" onmouseover="showTip(event, 'fs24', 37)" class="id">AlignSequences</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs20', 38)" onmouseover="showTip(event, 'fs20', 38)" class="id">sequences</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs25', 39)" onmouseover="showTip(event, 'fs25', 39)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs26', 40)" onmouseover="showTip(event, 'fs26', 40)" class="id">empty</span><span class="pn">)</span>
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs27', 42)" onmouseover="showTip(event, 'fs27', 42)" class="id">alignedSequences</span> <span class="o">=</span> 
+    <span onmouseout="hideTip(event, 'fs23', 43)" onmouseover="showTip(event, 'fs23', 43)" class="id">cw</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs28', 44)" onmouseover="showTip(event, 'fs28', 44)" class="id">AlignSequences</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs25', 45)" onmouseover="showTip(event, 'fs25', 45)" class="id">sequences</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs29', 46)" onmouseover="showTip(event, 'fs29', 46)" class="m">Seq</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs30', 47)" onmouseover="showTip(event, 'fs30', 47)" class="id">empty</span><span class="pn">)</span>
 </code></pre>
 <br>
 <hr />
@@ -442,14 +442,45 @@ and follow these steps:</p>
 <div class="fsdocs-tip" id="fs6">namespace FSharp.Stats</div>
 <div class="fsdocs-tip" id="fs7">namespace Plotly</div>
 <div class="fsdocs-tip" id="fs8">namespace Plotly.NET</div>
-<div class="fsdocs-tip" id="fs9">val yourDistance : seqA:seq&lt;IBioItem&gt; -&gt; seqB:seq&lt;IBioItem&gt; -&gt; &#39;a</div>
-<div class="fsdocs-tip" id="fs10">val seqA : seq&lt;IBioItem&gt;</div>
-<div class="fsdocs-tip" id="fs11">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Builds a sequence using sequence expression syntax&lt;/summary&gt;<br />&lt;param name=&quot;sequence&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;</em><br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Collections.Generic.IEnumerable`1&quot; /&gt;&lt;/summary&gt;<br />&lt;remarks&gt;
+<div class="fsdocs-tip" id="fs9">val yourSequences : seq&lt;TaggedSequence&lt;string,Nucleotides.Nucleotide&gt;&gt;</div>
+<div class="fsdocs-tip" id="fs10">Multiple items<br />val seq : sequence:seq&lt;&#39;T&gt; -&gt; seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Builds a sequence using sequence expression syntax&lt;/summary&gt;<br />&lt;param name=&quot;sequence&quot;&gt;The input sequence.&lt;/param&gt;<br />&lt;returns&gt;The result sequence.&lt;/returns&gt;</em><br /><br />--------------------<br />type seq&lt;&#39;T&gt; = System.Collections.Generic.IEnumerable&lt;&#39;T&gt;<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Collections.Generic.IEnumerable`1&quot; /&gt;&lt;/summary&gt;<br />&lt;remarks&gt;
   See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.SeqModule&quot; /&gt; module for further operations related to sequences.
 
   See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/sequences&quot;&gt;F# Language Guide - Sequences&lt;/a&gt;.
 &lt;/remarks&gt;</em></div>
-<div class="fsdocs-tip" id="fs12">type IBioItem =
+<div class="fsdocs-tip" id="fs11">type TaggedSequence&lt;&#39;T,&#39;S&gt; =
+  { Tag: &#39;T
+    Sequence: seq&lt;&#39;S&gt; }
+    static member create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;
+    static member mapSequence : mapping:(seq&lt;&#39;S&gt; -&gt; seq&lt;&#39;M&gt;) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;M&gt;
+    static member mapTag : mapping:(&#39;T -&gt; &#39;U) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;U,&#39;S&gt;<br /><em>&lt;summary&gt;
+ Record of a sequence and its tag
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs12">Multiple items<br />val string : value:&#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;</em><br /><br />--------------------<br />type string = System.String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs13">module Nucleotides
+
+from BioFSharp<br /><em>&lt;summary&gt;
+Contains the Nucleotide type and its according functions.
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs14">type Nucleotide =
+  | A
+  | T
+  | G
+  | C
+  | U
+  | I
+  | Gap
+  | Ter
+  | R
+  | Y
+  ...
+    interface IBioItem
+    static member op_Explicit : value:#IBioItem -&gt; byte + 1 overload<br /><em>&lt;summary&gt;
+ Nucleotide Codes
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs15">val yourDistance : seqA:seq&lt;#IBioItem&gt; -&gt; seqB:seq&lt;#IBioItem&gt; -&gt; float</div>
+<div class="fsdocs-tip" id="fs16">val seqA : seq&lt;#IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs17">type IBioItem =
   abstract member Formula : Formula
   abstract member Name : string
   abstract member Symbol : char
@@ -457,30 +488,23 @@ and follow these steps:</p>
   abstract member isTerminator : bool<br /><em>&lt;summary&gt;
 Marker interface for BioItem base.
 &lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs13">val seqB : seq&lt;IBioItem&gt;</div>
-<div class="fsdocs-tip" id="fs14">val myTree : PhylogeneticTree&lt;TaggedSequence&lt;string,IBioItem&gt; * string&gt;</div>
-<div class="fsdocs-tip" id="fs15">type PhylogeneticTree&lt;&#39;T&gt; =
+<div class="fsdocs-tip" id="fs18">val seqB : seq&lt;#IBioItem&gt;</div>
+<div class="fsdocs-tip" id="fs19">val myTree : PhylogeneticTree&lt;TaggedSequence&lt;string,Nucleotides.Nucleotide&gt; * float&gt;</div>
+<div class="fsdocs-tip" id="fs20">Multiple items<br />module PhylogeneticTree
+
+from BioFSharp<br /><br />--------------------<br />type PhylogeneticTree&lt;&#39;T&gt; =
   | Branch of &#39;T * List&lt;PhylogeneticTree&lt;&#39;T&gt;&gt;
-    static member addChildToNodes : condition:(PhylogeneticTree&lt;&#39;T&gt; -&gt; bool) -&gt; child:PhylogeneticTree&lt;&#39;T&gt; -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T&gt;
-    static member countLeafs : tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; int
-    static member fold : acc:&#39;State -&gt; folder:(&#39;State -&gt; PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State
-    static member iter : action:(PhylogeneticTree&lt;&#39;T&gt; -&gt; unit) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; unit
-    static member map : mapping:(PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;t) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;t&gt;
-    static member mapFold : acc:&#39;State -&gt; mapping:(PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;t) -&gt; folder:(&#39;State -&gt; &#39;t -&gt; &#39;State) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; &#39;State
-    static member ofHierarchicalCluster : branchTag:&#39;T -&gt; distanceConverter:(float -&gt; &#39;Distance) -&gt; hCluster:Cluster&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T * &#39;Distance&gt;
-    static member ofTaggedBioSequences : distanceFunction:(seq&lt;&#39;a1&gt; -&gt; seq&lt;&#39;a1&gt; -&gt; float) -&gt; sequences:seq&lt;TaggedSequence&lt;string,&#39;a1&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;string,&#39;a1&gt; * string&gt; (requires &#39;a1 :&gt; IBioItem)
-    static member ofTaggedSequencesWithLinker : branchTag:&#39;T -&gt; distanceConverter:(float -&gt; &#39;Distance) -&gt; distanceFunction:(seq&lt;&#39;S&gt; -&gt; seq&lt;&#39;S&gt; -&gt; float) -&gt; linker:LancWilliamsLinker -&gt; sequences:seq&lt;TaggedSequence&lt;&#39;T,&#39;S&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;&#39;T,&#39;S&gt; * &#39;Distance&gt;
-    static member tryGetNodeBy : condition:(PhylogeneticTree&lt;&#39;T&gt; -&gt; bool) -&gt; tree:PhylogeneticTree&lt;&#39;T&gt; -&gt; PhylogeneticTree&lt;&#39;T&gt; option<br /><em>&lt;summary&gt;
+  | Leaf of &#39;T<br /><em>&lt;summary&gt;
  Recursive representation of a phylogenetic tree
 &lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs16">static member PhylogeneticTree.ofTaggedBioSequences : distanceFunction:(seq&lt;&#39;a1&gt; -&gt; seq&lt;&#39;a1&gt; -&gt; float) -&gt; sequences:seq&lt;TaggedSequence&lt;string,&#39;a1&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;string,&#39;a1&gt; * string&gt; (requires &#39;a1 :&gt; IBioItem)</div>
-<div class="fsdocs-tip" id="fs17">module ClustalOWrapper
+<div class="fsdocs-tip" id="fs21">val ofTaggedBioSequences : distanceFunction:(seq&lt;&#39;a&gt; -&gt; seq&lt;&#39;a&gt; -&gt; float) -&gt; sequences:seq&lt;TaggedSequence&lt;string,&#39;a&gt;&gt; -&gt; PhylogeneticTree&lt;TaggedSequence&lt;string,&#39;a&gt; * float&gt; (requires &#39;a :&gt; IBioItem)<br /><em>&lt;summary&gt;Performs hierarchical clustering of the input TaggedSequences using the provided distance function. Returns the result as a Phylogenetic tree.&lt;/summary&gt;<br />&lt;parameter name=&quot;distanceFunction&quot;&gt;a function that determines the distance between two sequences e.g. evolutionary distance based on a substitution model&lt;/parameter&gt;<br />&lt;parameter name=&quot;sequences&quot;&gt;the input TaggedSequences&lt;/parameter&gt;</em></div>
+<div class="fsdocs-tip" id="fs22">module ClustalOWrapper
 
 from BioFSharp.IO<br /><em>&lt;summary&gt;
 Wrapper and its helpers for Clustal Omega multiple alignment tools
 &lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs18">val cw : ClustalOWrapper</div>
-<div class="fsdocs-tip" id="fs19">Multiple items<br />module ClustalOWrapper
+<div class="fsdocs-tip" id="fs23">val cw : ClustalOWrapper</div>
+<div class="fsdocs-tip" id="fs24">Multiple items<br />module ClustalOWrapper
 
 from BioFSharp.IO<br /><em>&lt;summary&gt;
 Wrapper and its helpers for Clustal Omega multiple alignment tools
@@ -490,19 +514,11 @@ Wrapper and its helpers for Clustal Omega multiple alignment tools
   member AlignSequences : input:seq&lt;TaggedSequence&lt;string,char&gt;&gt; * parameters:seq&lt;ClustalParams&gt; * ?name:string -&gt; Alignment&lt;TaggedSequence&lt;string,char&gt;,AlignmentInfo&gt;<br /><em>&lt;summary&gt;
  A wrapper to perform Clustal Omega alignment tasks    
 &lt;/summary&gt;</em><br /><br />--------------------<br />new : ?rootPath:string -&gt; ClustalOWrapper</div>
-<div class="fsdocs-tip" id="fs20">val sequences : TaggedSequence&lt;string,char&gt; list</div>
-<div class="fsdocs-tip" id="fs21">type TaggedSequence&lt;&#39;T,&#39;S&gt; =
-  { Tag: &#39;T
-    Sequence: seq&lt;&#39;S&gt; }
-    static member create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;
-    static member mapSequence : mapping:(seq&lt;&#39;S&gt; -&gt; seq&lt;&#39;M&gt;) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;M&gt;
-    static member mapTag : mapping:(&#39;T -&gt; &#39;U) -&gt; ts:TaggedSequence&lt;&#39;T,&#39;S&gt; -&gt; TaggedSequence&lt;&#39;U,&#39;S&gt;<br /><em>&lt;summary&gt;
- Record of a sequence and its tag
-&lt;/summary&gt;</em></div>
-<div class="fsdocs-tip" id="fs22">static member TaggedSequence.create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;</div>
-<div class="fsdocs-tip" id="fs23">val alignedSequences : Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
-<div class="fsdocs-tip" id="fs24">member ClustalOWrapper.AlignSequences : input:seq&lt;TaggedSequence&lt;string,char&gt;&gt; * parameters:seq&lt;Parameters.ClustalParams&gt; * ?name:string -&gt; Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
-<div class="fsdocs-tip" id="fs25">Multiple items<br />module Seq
+<div class="fsdocs-tip" id="fs25">val sequences : TaggedSequence&lt;string,char&gt; list</div>
+<div class="fsdocs-tip" id="fs26">static member TaggedSequence.create : tag:&#39;T -&gt; sequence:seq&lt;&#39;S&gt; -&gt; TaggedSequence&lt;&#39;T,&#39;S&gt;</div>
+<div class="fsdocs-tip" id="fs27">val alignedSequences : Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
+<div class="fsdocs-tip" id="fs28">member ClustalOWrapper.AlignSequences : input:seq&lt;TaggedSequence&lt;string,char&gt;&gt; * parameters:seq&lt;Parameters.ClustalParams&gt; * ?name:string -&gt; Alignment.Alignment&lt;TaggedSequence&lt;string,char&gt;,Clustal.AlignmentInfo&gt;</div>
+<div class="fsdocs-tip" id="fs29">Multiple items<br />module Seq
 
 from Plotly.NET<br /><br />--------------------<br />module Seq
 
@@ -522,7 +538,7 @@ from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations fo
   static member valueFunction : dataEntry:&#39;a -&gt; (&#39;a -&gt; obj) []
   static member write : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit
   static member writeOrAppend : path:string -&gt; data:seq&lt;&#39;a&gt; -&gt; unit</div>
-<div class="fsdocs-tip" id="fs26">val empty&lt;&#39;T&gt; : seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Creates an empty sequence.&lt;/summary&gt;<br />&lt;returns&gt;An empty sequence.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs30">val empty&lt;&#39;T&gt; : seq&lt;&#39;T&gt;<br /><em>&lt;summary&gt;Creates an empty sequence.&lt;/summary&gt;<br />&lt;returns&gt;An empty sequence.&lt;/returns&gt;</em></div>
 
     </div>
 
