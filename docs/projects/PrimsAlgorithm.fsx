@@ -87,7 +87,7 @@ In Prim's algorithm, you start a new graph by selecting a single vertex in the o
 
 *)
 
-#r "nuget: FSharp.FGL" 
+#r "nuget: FSharp.FGL, 0.0.2"
 
 open FSharp.FGL
 open FSharp.FGL.Undirected
@@ -120,7 +120,7 @@ Vertices.remove (fst v1) gWithEdge
 ### Visualize the graph:
 *)
 
-#r "nuget: Cyjs.NET"
+#r "nuget: Cyjs.NET, 0.0.4"
 
 open Cyjs.NET
 

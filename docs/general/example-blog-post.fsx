@@ -39,7 +39,7 @@ I identified the following sub problems:
 Lets get started writing some code:
 *)
 
-#r "nuget: Plotly.NET, 2.0.0-preview.6"
+#r "nuget: Plotly.NET, 2.0.0-preview.16"
 
 open Plotly.NET
 

@@ -53,10 +53,10 @@ rather than vertices, correspond to those l-mers, and then to find a path in thi
 * Create a F# script file (.fsx) and paste the following text at the top of your file:
 
 ```
-#r "nuget: FSharpAux"
-#r "nuget: BioFSharp"
-#r "nuget: FSharp.FGL"
-#r "nuget: Cyjs.NET"
+#r "nuget: FSharpAux, 1.1.0"
+#r "nuget: BioFSharp, 2.0.0-preview.1"
+#r "nuget: FSharp.FGL, 0.0.2"
+#r "nuget: Cyjs.NET, 0.0.4"
 
 open FSharpAux
 open BioFSharp
@@ -72,10 +72,10 @@ open Cyjs.NET
 * All functions should operate on either `BioArray`, `BioList` or `BioSeq`
 *)
 (***hide***)
-#r "nuget: FSharpAux"
-#r "nuget: BioFSharp"
-#r "nuget: FSharp.FGL"
-#r "nuget: Cyjs.NET"
+#r "nuget: FSharpAux, 1.1.0"
+#r "nuget: BioFSharp, 2.0.0-preview.1"
+#r "nuget: FSharp.FGL, 0.0.2"
+#r "nuget: Cyjs.NET, 0.0.4"
 
 open FSharpAux
 open BioFSharp

@@ -160,7 +160,7 @@ let x = 42
 Chart rendering is a special value inclusion. Because Plotly.NET charts create html already, the raw string value of them (created by `Chart.toChartHTML`) has to be included via `(***include-it-raw***)` like this: 
 
 ```
-    #r "nuget: Plotly.NET, 2.0.0-preview.6"
+    #r "nuget: Plotly.NET, 2.0.0-preview.16"
     open Plotly.NET
 
     let myChart = Chart.Line([1,42; 2,69; 3,1337])
@@ -172,7 +172,7 @@ Chart rendering is a special value inclusion. Because Plotly.NET charts create h
  which will be rendered as:
 *)
 
-#r "nuget: Plotly.NET, 2.0.0-preview.6"
+#r "nuget: Plotly.NET, 2.0.0-preview.16"
 open Plotly.NET
 
 let myChart = Chart.Line([1,42; 2,69; 3,1337])

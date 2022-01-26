@@ -129,10 +129,10 @@ Fig 3: Workflow as proposed in pseudo code in Reference#2.
 
 (******)
 
-#r "nuget: FSharp.Stats, 0.4.1"
-#r "nuget: FSharpAux, 1.0.0"
+#r "nuget: FSharpAux, 1.1.0"
+#r "nuget: FSharp.Stats, 0.4.3"
 #r "nuget: FSharpx.Collections, 2.1.3"
-#r "nuget: Plotly.NET, 2.0.0-beta9"
+#r "nuget: Plotly.NET, 2.0.0-preview.16"
             
 open FSharp.Stats
 open FSharpAux

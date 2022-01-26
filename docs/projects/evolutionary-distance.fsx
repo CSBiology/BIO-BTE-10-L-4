@@ -232,12 +232,12 @@ What are the advantages and weaknesses of this approach? Inform yourself.
 the top of your script file should look like this:
 *)
 
-#r "nuget: FSharpAux"
-#r "nuget: FSharpAux.IO"
-#r "nuget: FSharp.Stats, 0.4.1" 
-#r "nuget: BioFSharp, 2.0.0-beta6"
-#r "nuget: BioFSharp.IO, 2.0.0-beta6"
-#r "nuget: Plotly.NET, 2.0.0-beta9"
+#r "nuget: FSharpAux, 1.1.0"
+#r "nuget: FSharpAux.IO, 1.1.0"
+#r "nuget: FSharp.Stats, 0.4.3" 
+#r "nuget: BioFSharp, 2.0.0-preview.1"
+#r "nuget: BioFSharp.IO, 2.0.0-preview.1"
+#r "nuget: Plotly.NET, 2.0.0-preview.16"
 
 open FSharpAux
 open FSharpAux.IO
@@ -264,11 +264,14 @@ You can use the fact that all of these sequence types are implementing `IEnumera
 
 *)
 
+(***hide***)
+let yourSequences: seq<TaggedSequence<string,Nucleotides.Nucleotide>> = []
+
 (***do-not-eval***)
 open BioFSharp
 
 (***do-not-eval***)
-let yourDistance (seqA: seq<IBioItem>) (seqB:seq<IBioItem>) = ...
+let yourDistance (seqA: seq<#IBioItem>) (seqB:seq<#IBioItem>) = 42. //do real distance calculations here
 
 (***do-not-eval***)
 //reconstruct a phylogenetic tree from tagged sequences

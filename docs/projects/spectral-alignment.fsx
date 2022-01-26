@@ -31,14 +31,15 @@ Let us motivate this problem by visual examination of the fragment spectra*'* of
 
 *'*: For simplicity we will only consider b-ions at charge 1.
 *)
-(*** hide ***)
-#r "nuget: FSharpAux"
-#r "nuget: FSharpAux.IO"
-#r "nuget: FSharp.Stats, 0.4.1" 
-#r "nuget: BioFSharp, 2.0.0-beta6"
+
+(*** hide ***) 
+#r "nuget: FSharpAux, 1.1.0"
+#r "nuget: FSharpAux.IO, 1.1.0"
+#r "nuget: FSharp.Stats, 0.4.3" 
+#r "nuget: BioFSharp, 2.0.0-preview.1"
 #r "nuget: BioFSharp.Mz, 0.1.5-beta"
 #r "nuget: BioFSharp.IO, 2.0.0-beta6"
-#r "nuget: Plotly.NET, 2.0.0-preview.6"
+#r "nuget: Plotly.NET, 2.0.0-preview.16"
 open FSharpAux
 open FSharpAux.IO
 open BioFSharp
@@ -68,7 +69,7 @@ let specComp =
         |> Chart.Column
         |> Chart.withTraceName "PRTEYINNEE"
     ]    
-    |> Chart.Combine
+    |> Chart.combine
     
 specComp
 |> GenericChart.toChartHTML
@@ -103,19 +104,19 @@ let vs =
         ]
     [
         Chart.Point(allPossibleMatchups)      
-        |> Chart.withMarkerStyle(Size=5,Symbol=StyleParam.Symbol.Cross,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.grey)
+        |> Chart.withMarkerStyle(Size=5,Symbol=StyleParam.MarkerSymbol.Cross,Color=Color.fromKeyword Grey)
         Chart.Point(matching)
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.Circle,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.blue)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.Circle,Color=Color.fromKeyword Blue)
         Chart.Line([0.,0.;1400.,1400.])
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.Circle,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.blue)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.Circle,Color=Color.fromKeyword Blue)
         Chart.Line(vs)
-        |> Chart.withLineStyle(Dash=StyleParam.DrawingStyle.Dash,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.darkGreen)      
+        |> Chart.withLineStyle(Dash=StyleParam.DrawingStyle.Dash,Color=Color.fromKeyword DarkGreen)      
         Chart.Point(nonMatching)      
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.TriangleUp,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.orange)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.TriangleUp,Color=Color.fromKeyword Orange)
     ]    
-    |> Chart.Combine
-    |> Chart.withY_AxisStyle("PRTEIINNEE",MinMax=(1250.,0.))
-    |> Chart.withX_AxisStyle("PRTEYINNEE",MinMax=(0.,1250.))
+    |> Chart.combine
+    |> Chart.withYAxisStyle("PRTEIINNEE",MinMax=(1250.,0.))
+    |> Chart.withXAxisStyle("PRTEYINNEE",MinMax=(0.,1250.))
     |> Chart.withLegend false
 
     
@@ -151,19 +152,19 @@ let vs2 =
         ]
     [
         Chart.Point(allPossibleMatchups)      
-        |> Chart.withMarkerStyle(Size=5,Symbol=StyleParam.Symbol.Cross,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.grey)
+        |> Chart.withMarkerStyle(Size=5,Symbol=StyleParam.MarkerSymbol.Cross,Color=Color.fromKeyword Grey)
         Chart.Point(matching)
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.Circle,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.blue)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.Circle,Color=Color.fromKeyword Blue)
         Chart.Line([0.,0.;1400.,1400.])
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.Circle,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.blue)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.Circle,Color=Color.fromKeyword Blue)
         Chart.Line(vs)
-        |> Chart.withLineStyle(Dash=StyleParam.DrawingStyle.Dash,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.darkGreen)      
+        |> Chart.withLineStyle(Dash=StyleParam.DrawingStyle.Dash,Color=Color.fromKeyword DarkGreen)      
         Chart.Point(nonMatching)      
-        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.Symbol.TriangleUp,Color=Plotly.NET.Colors.toWebColor Plotly.NET.Colors.Table.Office.orange)
+        |> Chart.withMarkerStyle(Size=10,Symbol=StyleParam.MarkerSymbol.TriangleUp,Color=Color.fromKeyword Orange)
     ]    
-    |> Chart.Combine
-    |> Chart.withY_AxisStyle("PRTEIINNEE",MinMax=(1350.,0.))
-    |> Chart.withX_AxisStyle("PRTEYINYEE",MinMax=(0.,1350.))
+    |> Chart.combine
+    |> Chart.withYAxisStyle("PRTEIINNEE",MinMax=(1350.,0.))
+    |> Chart.withXAxisStyle("PRTEYINYEE",MinMax=(0.,1350.))
     |> Chart.withLegend false
 
     
@@ -229,7 +230,7 @@ let specComp' =
         |> Chart.Column
         |> Chart.withTraceName "PRTEYINNEE"
     ]    
-    |> Chart.Combine
+    |> Chart.combine
     
 specComp'
 |> GenericChart.toChartHTML
