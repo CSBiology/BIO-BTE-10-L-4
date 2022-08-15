@@ -170,7 +170,7 @@ type PriorityQueue<'T when 'T : comparison>(values : 'T [], comparisonF : 'T -> 
     member this.UpdateElement (t:'T) (newt:'T) =     
         let updated =
             data 
-            |> Array.map (fun x -> if x = t then newt else t)
+            |> Array.map (fun x -> if x = t then newt else x)
             |> sort
         data <- updated
           
