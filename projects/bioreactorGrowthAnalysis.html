@@ -153,8 +153,8 @@ phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phas
 estimate of the average growth rate (inverse slope).</p>
 </li>
 </ul>
-<p><img src="../img/odData_1.png" alt="" />
-<em>Fig. 1: Schematic view of the data. The saw tooth signals has to be separated into distinct growth-phases. The slope of these lines can be used to estimate the growth rate. The growth changes during the experiment as the slope is lower in the center three growth phases (e.g. the light was turned off and the cells grow slower).</em></p>
+<img src="../img/odData_1.png" alt="" width="80%"/>
+_Fig. 1: Schematic view of the data. The saw tooth signals has to be separated into distinct growth-phases. The slope of these lines can be used to estimate the growth rate. The growth changes during the experiment as the slope is lower in the center three growth phases (e.g. the light was turned off and the cells grow slower)._
 <ul>
 <li>
 The aim of this project is to automate this process. A possible solution to this problem is the following:
@@ -243,8 +243,8 @@ The aim of this project is to automate this process. A possible solution to this
 </table>
 
 <h3><a name="Output" class="anchor" href="#Output">Output:</a></h3>
-<p><img src="../img/odData_2.png" alt="" />
-<em>Fig. 2: A possible visual solution</em></p>
+<img src="../img/odData_2.png" alt="" width="50%"/>
+_Fig. 2: A possible visual solution_
 <h2><a name="Coding-clues" class="anchor" href="#Coding-clues">Coding clues</a></h2>
 <ul>
 <li>
@@ -253,9 +253,14 @@ The output plot can be stored in the same folder with the name containing the cu
 this file, you start the complete analysis workflow without the need to open any script or do any programming at all.</p>
 </li>
 <li>
-<p>Import the data and dissect it by using the pumping volume data. Whenever this data is constant you can start collecting OD data for the current growth phase. When the pump starts diluting again, stop collecting data for the
-current growth data</p>
+<p>The measurements from pump volume and the OD measurements were not performed at the same time points. Therefore some values may be empty! Create two
+collections (pump data and od data respectively).</p>
 </li>
+<li>
+<p>After import, first define the growth phases using the pump data. Whenever this data is constant over a long period its a growth phase.
+When the pump starts diluting again the growth phase ended.</p>
+</li>
+<li>With these intervals from the pump data you can partition the OD data into the respective subintervals. These can be used for fitting</li>
 <li>
 <p>There are various options to fit a line to the data:</p>
 <ul>
@@ -347,7 +352,7 @@ e.g. use <a href="https://fslab.org/FSharp.Stats/GoodnessOfFit.html#Cook-s-dista
 <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs60', 117)" onmouseover="showTip(event, 'fs60', 117)" class="m">GenericChart</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs61', 118)" onmouseover="showTip(event, 'fs61', 118)" class="id">toChartHTML</span>
 </code></pre>
 <table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
-<p><img src="../img/odData_3.png" alt="" /></p>
+<img src="../img/odData_2.png" alt="" width="60%"/>
 <p><em>Fig. 3: Example of Plotly.NET combined graphs</em></p>
 <h2><a name="References" class="anchor" href="#References">References</a></h2>
 <ul>
