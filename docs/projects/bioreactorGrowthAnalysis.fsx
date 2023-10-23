@@ -68,7 +68,7 @@ _Fig. 2: A possible visual solution_
 
 ## Coding clues
 
-  - start by developing in a jupyter notebook or fsx script. The automatic analysis can be done afterwards by creating a skript, that takes a predefined data set that is stored e.g. at the same location as the script.
+  - start by developing in a jupyter notebook or fsx script. The automatic analysis can be realized afterwards by creating a script, that takes a predefined data set that is stored e.g. at the same location as the script.
   The output plot can be stored in the same folder with the name containing the current date. In the end you can create a file named "analysis.cmd" and that just contains "dotnet fsi analysisScriptName.fsx". By double clicking
   this file, you start the complete analysis workflow without the need to open any script or do any programming at all.
   
@@ -111,14 +111,18 @@ open FSharp.Stats
 open Plotly.NET
 open FSharp.Stats.Fitting
 
+// defining data to be fitted with a straight line
 let xs = vector [|1. .. 10.|]
 let ys = vector [|4.;10.;9.;7.;13.;17.;16.;23.;15.;30.|]
 
+// OLS simple linear regression
 let fitA = Fitting.LinearRegression.fit(xs,ys,FittingMethod=Fitting.Method.SimpleLinear)
+// robust regression
 let fitB = Fitting.LinearRegression.fit(xs,ys,FittingMethod=Fitting.Method.Robust RobustEstimator.TheilSen)
 
 
-
+/// this code section is just for the creation of an HTML table that is displayed below
+/// the chart itself. You also can use Plotly tables https://plotly.net/simple-charts/table.html
 let description = 
     // some styling for a html table
     let style = "<style>table {font-family: arial, sans-serif;border-collapse: collapse;width: 75%;}td, th {border: 1px solid #dddddd;text-align: left;padding: 8px;}tr:nth-child(even) {background-color: #dddddd;}</style>"
@@ -142,7 +146,7 @@ let description =
     Giraffe.ViewEngine.HtmlElements.rawText table
 
 
-
+// the chart contains 2 charts in two rows. Every chart contains the raw data and the fitting line
 let chart = 
     [
         [
@@ -158,11 +162,15 @@ let chart =
         |> Chart.combine
 
     ]
+    // chart should be displayed as 2x1 matrix
     |> Chart.Grid(nRows=2,nCols=1)
+    // some styling template
     |> Chart.withTemplate ChartTemplates.lightMirrored
+    // this is a configuration that you can download the figure as SVG file
     |> Chart.withConfig (
         Config.init (ToImageButtonOptions = ConfigObjects.ToImageButtonOptions.init(Format = StyleParam.ImageFormat.SVG))
         )
+    // here the table is added as HTML description
     |> Chart.withDescription [description]
 
 chart
@@ -171,7 +179,7 @@ chart
 
 (**
 
-<img src="../img/odData_2.png" alt="" width="60%"/>
+<img src="../img/odData_3.png" alt="" width="60%"/>
 
 _Fig. 3: Example of Plotly.NET combined graphs_
 
