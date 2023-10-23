@@ -33,8 +33,7 @@ index: 1
   phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected and individually fitted with a straight regression line. The slope of these lines are then used to get an 
   estimate of the average growth rate (inverse slope).
 
-  
-![](../img/odData_1.png)
+<img src="../img/odData_1.png" alt="" width="80%"/>
 _Fig. 1: Schematic view of the data. The saw tooth signals has to be separated into distinct growth-phases. The slope of these lines can be used to estimate the growth rate. The growth changes during the experiment as the slope is lower in the center three growth phases (e.g. the light was turned off and the cells grow slower)._
 
 
@@ -62,7 +61,7 @@ _Fig. 1: Schematic view of the data. The saw tooth signals has to be separated i
   
 ### Output:
 
-![](../img/odData_2.png)
+<img src="../img/odData_2.png" alt="" width="50%"/>
 _Fig. 2: A possible visual solution_
 
 
@@ -73,8 +72,13 @@ _Fig. 2: A possible visual solution_
   The output plot can be stored in the same folder with the name containing the current date. In the end you can create a file named "analysis.cmd" and that just contains "dotnet fsi analysisScriptName.fsx". By double clicking
   this file, you start the complete analysis workflow without the need to open any script or do any programming at all.
   
-  - Import the data and dissect it by using the pumping volume data. Whenever this data is constant you can start collecting OD data for the current growth phase. When the pump starts diluting again, stop collecting data for the 
-  current growth data
+  - The measurements from pump volume and the OD measurements were not performed at the same time points. Therefore some values may be empty! Create two
+  collections (pump data and od data respectively). 
+  
+  - After import, first define the growth phases using the pump data. Whenever this data is constant over a long period its a growth phase. 
+  When the pump starts diluting again the growth phase ended.
+
+  - With these intervals from the pump data you can partition the OD data into the respective subintervals. These can be used for fitting
 
   - There are various options to fit a line to the data:
 
@@ -167,7 +171,7 @@ chart
 
 (**
 
-![](../img/odData_3.png)
+<img src="../img/odData_2.png" alt="" width="60%"/>
 
 _Fig. 3: Example of Plotly.NET combined graphs_
 
