@@ -144,12 +144,12 @@
 <li>
 <p>The bioreactor in the department of Biotechnology and Systems Biology contains eight individual growth cells that contain the green algae <em>Chlamydomonas reinhardtii</em>. Every minute a measurement of the
 optical density is taken (680 and 750 nm). The reactor operates in turbidostatic mode, indicating that the cells density should be kept constant. If the cells grow, the optical density increases and the
-reactor has to dilute the growth medium to restore a constant OD750. Please note, that for photosynthetic active organisms you should use OD750, because OD650 lies within the chlorophyll autofluorescence and therefore
-may be biased.</p>
+reactor has to dilute the growth medium to restore a constant OD750. Please note, that for photosynthetic active organisms it is recommended to use OD750, because OD680 lies within the chlorophyll
+autofluorescence and therefore may be biased if the photosynthesis apparatus changes during the time course of the experiment. It would be interesting to see the differences that are present between 680 and 750.</p>
 </li>
 <li>
 <p>The manual process of analysing the data is quite cumbersome. The exported data set constists of (i) time, (ii) measured OD, and (iii) the activity of the dilution pump. To analyse the growth, the slope of the growth
-phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected and individually fitted with a straight regression line. The slope of these lines are then used to get an
+phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected (usually between 0.36 - 0.44), then ln transformed, and individually fitted with a straight regression line. The slope of these lines are then used to get an
 estimate of the average growth rate (inverse slope).</p>
 </li>
 </ul>
@@ -169,79 +169,60 @@ The aim of this project is to automate this process. A possible solution to this
 <thead>
 <tr class="header">
 <th><p>time(h)</p></th>
-<th><p>time(absolute)</p></th>
 <th><p>OD750</p></th>
 <th><p>pumping volumen</p></th>
-<th><p>misc</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td><p>0.00000</p></td>
-<td><p>2023/10/23 12:45:25</p></td>
-<td><p>0.657</p></td>
+<td><p>-</p></td>
 <td><p>0.0</p></td>
-<td><p>...</p></td>
 </tr>
 <tr class="even">
 <td><p>0.01667</p></td>
-<td><p>2023/10/23 12:46:25</p></td>
 <td><p>0.660</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="odd">
 <td><p>0.03333</p></td>
-<td><p>2023/10/23 12:47:25</p></td>
 <td><p>0.656</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="even">
 <td><p>0.05000</p></td>
-<td><p>2023/10/23 12:48:25</p></td>
 <td><p>0.650</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="odd">
 <td><p>0.06667</p></td>
-<td><p>2023/10/23 12:49:25</p></td>
 <td><p>0.661</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="even">
 <td><p>0.08333</p></td>
-<td><p>2023/10/23 12:50:25</p></td>
-<td><p>0.657</p></td>
+<td><p>-</p></td>
 <td><p>0.0</p></td>
-<td><p>...</p></td>
 </tr>
 <tr class="odd">
 <td><p>0.10000</p></td>
-<td><p>2023/10/23 12:51:25</p></td>
 <td><p>0.658</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="even">
 <td><p>0.11667</p></td>
-<td><p>2023/10/23 12:52:25</p></td>
 <td><p>0.662</p></td>
-<td><p>0.0</p></td>
-<td><p>...</p></td>
+<td><p>-</p></td>
 </tr>
 <tr class="odd">
 <td><p>0.13333</p></td>
-<td><p>2023/10/23 12:53:25</p></td>
-<td><p>0.661</p></td>
+<td><p>-</p></td>
 <td><p>0.1</p></td>
-<td><p>...</p></td>
 </tr>
 </tbody>
 </table>
 
+<p>The input data can be accessed <a href="https://github.com/CSBiology/BIO-BTE-10-L-4/blob/main/docs/img/202310_TR18_CLiP_Rep1_RawTurbidostatData_TestVenny.txt">here</a>:</p>
 <h3><a name="Output" class="anchor" href="#Output">Output:</a></h3>
 <img src="../img/odData_2.png" alt="" width="50%"/>
 _Fig. 2: A possible visual solution_
