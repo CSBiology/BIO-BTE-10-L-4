@@ -26,11 +26,11 @@ index: 1
 
   - The bioreactor in the department of Biotechnology and Systems Biology contains eight individual growth cells that contain the green algae _Chlamydomonas reinhardtii_. Every minute a measurement of the 
   optical density is taken (680 and 750 nm). The reactor operates in turbidostatic mode, indicating that the cells density should be kept constant. If the cells grow, the optical density increases and the 
-  reactor has to dilute the growth medium to restore a constant OD750. Please note, that for photosynthetic active organisms you should use OD750, because OD650 lies within the chlorophyll autofluorescence and therefore
-  may be biased.
+  reactor has to dilute the growth medium to restore a constant OD750. Please note, that for photosynthetic active organisms it is recommended to use OD750, because OD680 lies within the chlorophyll 
+  autofluorescence and therefore may be biased if the photosynthesis apparatus changes during the time course of the experiment. It would be interesting to see the differences that are present between 680 and 750.
 
   - The manual process of analysing the data is quite cumbersome. The exported data set constists of (i) time, (ii) measured OD, and (iii) the activity of the dilution pump. To analyse the growth, the slope of the growth
-  phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected and individually fitted with a straight regression line. The slope of these lines are then used to get an 
+  phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected (usually between 0.36 - 0.44), then ln transformed, and individually fitted with a straight regression line. The slope of these lines are then used to get an 
   estimate of the average growth rate (inverse slope).
 
 <img src="../img/odData_1.png" alt="" width="80%"/>
@@ -46,19 +46,21 @@ _Fig. 1: Schematic view of the data. The saw tooth signals has to be separated i
 ### Input:
 
 
-  |time(h)|time(absolute)|OD750|pumping volumen|misc|
-  |-------|--------------|-----|---------------|----|
-  |0.00000|2023/10/23 12:45:25|0.657|0.0|...|
-  |0.01667|2023/10/23 12:46:25|0.660|0.0|...|
-  |0.03333|2023/10/23 12:47:25|0.656|0.0|...|
-  |0.05000|2023/10/23 12:48:25|0.650|0.0|...|
-  |0.06667|2023/10/23 12:49:25|0.661|0.0|...|
-  |0.08333|2023/10/23 12:50:25|0.657|0.0|...|
-  |0.10000|2023/10/23 12:51:25|0.658|0.0|...|
-  |0.11667|2023/10/23 12:52:25|0.662|0.0|...|
-  |0.13333|2023/10/23 12:53:25|0.661|0.1|...|
+  |time(h)|OD750|pumping volumen|
+  |-------|-----|---------------|
+  |0.00000| - |0.0|
+  |0.01667|0.660| - |
+  |0.03333|0.656| - |
+  |0.05000|0.650| - |
+  |0.06667|0.661| - |
+  |0.08333| - |0.0|
+  |0.10000|0.658| - |
+  |0.11667|0.662| - |
+  |0.13333| - |0.1|
   
-  
+  The input data can be accessed [here](https://github.com/CSBiology/BIO-BTE-10-L-4/blob/main/docs/img/202310_TR18_CLiP_Rep1_RawTurbidostatData_TestVenny.txt):
+
+
 ### Output:
 
 <img src="../img/odData_2.png" alt="" width="50%"/>
