@@ -31,9 +31,10 @@ index: 1
 
   - The manual process of analysing the data is quite cumbersome. The exported data set constists of (i) time, (ii) measured OD, and (iii) the activity of the dilution pump. To analyse the growth, the slope of the growth
   phase OD is required. Therefore, the data is loaded in MS-Excel, the growth phases are manually selected (usually between 0.36 - 0.44), then ln transformed, and individually fitted with a straight regression line. The slope of these lines are then used to get an 
-  estimate of the average growth rate (inverse slope).
+  estimate of the average generation time (ln(2)/slope).
 
 <img src="../img/odData_1.png" alt="" width="80%"/>
+
 _Fig. 1: Schematic view of the data. The saw tooth signals has to be separated into distinct growth-phases. The slope of these lines can be used to estimate the growth rate. The growth changes during the experiment as the slope is lower in the center three growth phases (e.g. the light was turned off and the cells grow slower)._
 
 
@@ -64,6 +65,7 @@ _Fig. 1: Schematic view of the data. The saw tooth signals has to be separated i
 ### Output:
 
 <img src="../img/odData_2.png" alt="" width="50%"/>
+
 _Fig. 2: A possible visual solution_
 
 
