@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Additive Phylogeny</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="">
+    <link rel="shortcut icon" type="image/x-icon" href="/BIO-BTE-10-L-4//img/favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> -->
+
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-default.css" />
+    <link type="text/css" rel="stylesheet" href="/BIO-BTE-10-L-4/content/fsdocs-custom.css" />
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-tips.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/init.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/js/bulma-collapsible.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@creativebulma/bulma-collapsible@1.0.4/dist/css/bulma-collapsible.min.css">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <!-- END SEARCH BOX: this adds support for the search box -->
+    
+</head> 
+
+<body>
+    <div class="columns is-fullheight m-0">
+        <div id="fsdocs-menu" class="column is-2 is-paddingless">
+            <aside class="menu">
+                <div class="container is-paddingless is-marginless has-background-dark">
+                    <a href="/BIO-BTE-10-L-4/">
+                        <figure class="image is-128x128 container">
+                            <img src="/BIO-BTE-10-L-4/img/logo.png">
+                        </figure>
+                    </a>
+                    <h2 class="title has-text-centered has-text-white pb-4">BIO-BTE-10-L-4</h2>
+                </div>
+                <div class="content">
+                    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+                    <div id="header">
+                        <div class="field">
+                            <div class="control has-icons-left has-icons-right searchbox" id="fsdocs-searchbox">
+                                <input data-search-input="" id="search-by" type="search" placeholder="Search..." class="input"/>
+                                <span class="icon is-small is-left">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END SEARCH BOX: this adds support for the search box -->
+                    <ul class="navbar-nav">
+                        <li class="nav-header">
+  general
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/blog-post-guide.html">
+    Blog post guide
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/markdown_cheatsheet.html">
+    Markdown cheatsheet
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/general/example-blog-post.html">
+    Example blog post
+  </a>
+</li>             
+<li class="nav-header">
+  projects
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/tSNE.html">
+    t-Distributed Stochastic Neighbour Embedding
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/bioreactorGrowthAnalysis.html">
+    Automated analysis of bioreactor growth curves
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/hClust.html">
+    Efficient agglomerative hierarchical clustering
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/evolutionary-distance.html">
+    Phylogenetic tree reconstruction based on evolutionary distance
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/spectral-alignment.html">
+    Alignment of Peptide derived MS Spectra
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/PrimsAlgorithm.html">
+    Reduce complex graphs to the best paths
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/sequencingByHybridization.html">
+    Sequencing by Hybridization as an Eulerian Path Problem
+  </a>
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/projects/PhylogeneticAnalysis.html">
+    Additive Phylogeny
+  </a>
+</li>             
+<li class="nav-header">
+  bachelor thesis
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/BIO-BTE-10-L-4/bachelor/molecular-evolution.html">
+    Molecular evolution of thermolabile proteins in microalgae
+  </a>
+</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+        <div class="column is-10 is-paddingless">
+            <div class="section pt-4">
+                <div class="container" id="fsdocs-content">
+                    
+<h1><a name="Additive-Phylogeny-no-project-to-choose-as-WPB-project" class="anchor" href="#Additive-Phylogeny-no-project-to-choose-as-WPB-project">Additive Phylogeny (no project to choose as WPB project)</a></h1>
+<p>This work-in-progress implementation is part of a contribution by Vanessa Leidel
+that aims to implement Additive Phylogeny from Bioinformatics algorithms (Compeau &amp; Pevzner).
+The first half has already been solved, but the back-stepping procedure is still missing.</p>
+<h2><a name="Introduction" class="anchor" href="#Introduction">Introduction</a></h2>
+<p>Additive Phylogeny is a distance based approach to construct phylogenetic trees from an additive distance matrix. A distancematrix is the representation of nodes (species)
+and edges (distances between species) as a table and is additive, if you can recieve a unique simple unrooted tree fitting the distance matrix.
+Real world problems are mostly non additive, but parts of analyzing this problems are very similar to the additive phylogeny approaches (e.g. determining limb length).
+For this reason the implementation of the method additive Phylogeny is an important step in understanding computing evolutionary phylogenetic trees and
+solving special cases of real world problems</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Stats, 0.5.0&quot;</span>
+<span class="pp">#r</span> <span class="s">&quot;nuget: FSharp.Data, 6.2.0&quot;</span>
+
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 1)" onmouseover="showTip(event, 'fs1', 1)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs2', 2)" onmouseover="showTip(event, 'fs2', 2)" class="id">Data</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs1', 3)" onmouseover="showTip(event, 'fs1', 3)" class="id">FSharp</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs3', 4)" onmouseover="showTip(event, 'fs3', 4)" class="id">Stats</span>
+<span class="k">open</span> <span onmouseout="hideTip(event, 'fs4', 5)" onmouseover="showTip(event, 'fs4', 5)" class="id">System</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs5', 6)" onmouseover="showTip(event, 'fs5', 6)" class="id">Collections</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs6', 7)" onmouseover="showTip(event, 'fs6', 7)" class="id">Generic</span>
+</code></pre>
+<h2><a name="creating-a-distance-Matrix-and-proofing-of-Additivity" class="anchor" href="#creating-a-distance-Matrix-and-proofing-of-Additivity">creating a distance Matrix and proofing of Additivity</a></h2>
+<p>Before we start to implement the additive distance matrix approach, we create distance matrices and proof them on additivity.
+In this case the additive matrice needs to be symmetric and has indices representing the species (columnnumber / rownumber) and the values in the rows / columns representing the distance between two species.
+For example, if we start with the following matrix, than row j has indice one and the distance between j and i is 13.
+This matrices can be translated in coding language by creating a type DistanceMatrix, that has member species and DistanceM and a static member create to create the matrix.</p>
+<img src="../img/firstDistanceMatrix.png" alt="drawing" width="30%" title="example matrices"><br>
+<b>Fig.1. </b> Example of a distance matrix at the beginn
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Dieser Typ soll die Distanzmatrix in Form eines Codes darstellen k&#246;nnen, so dass auf die einzelnen Elemente zugegriffen werden kann. </span>
+<span class="c">// Species representiert dabei jeweils den Column/RowNamen und wird f&#252;r die eigentliche Analyse nicht ben&#246;tigt</span>
+<span class="c">// DistanceM representiert die eigentliche Distanzmatrix und ist vom Typ matrix </span>
+<span class="c">// Create ist notwendig um ein Element von diesem Typen zu erstellen</span>
+
+
+<span class="k">type</span> <span class="rt">DistanceMatrix</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span> <span class="o">=</span> <span class="pn">{</span> 
+    <span onmouseout="hideTip(event, 'fs7', 8)" onmouseover="showTip(event, 'fs7', 8)" class="prop">Species</span> <span class="pn">:</span> <span onmouseout="hideTip(event, 'fs8', 9)" onmouseover="showTip(event, 'fs8', 9)" class="rt">string</span> <span class="pn">[</span><span class="pn">]</span> 
+    <span onmouseout="hideTip(event, 'fs9', 10)" onmouseover="showTip(event, 'fs9', 10)" class="prop">DistanceM</span> <span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 11)" onmouseover="showTip(event, 'fs10', 11)" class="rt">matrix</span>
+    <span class="pn">}</span> <span class="k">with</span> 
+        <span class="k">static</span> <span class="k">member</span> <span class="fn">Create</span> <span onmouseout="hideTip(event, 'fs11', 12)" onmouseover="showTip(event, 'fs11', 12)" class="fn">species</span> <span onmouseout="hideTip(event, 'fs12', 13)" onmouseover="showTip(event, 'fs12', 13)" class="fn">distanceM</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">Species</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs11', 14)" onmouseover="showTip(event, 'fs11', 14)" class="fn">species</span><span class="pn">;</span> <span class="prop">DistanceM</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs12', 15)" onmouseover="showTip(event, 'fs12', 15)" class="fn">distanceM</span><span class="pn">}</span> 
+</code></pre>
+<h3><a name="create-Example-Matrices" class="anchor" href="#create-Example-Matrices">create Example Matrices</a></h3>
+<p>In the following we create three different matrices to proof the functions for functionality.
+This are myMatrixAdditive (a 4<em>4 matrice), twentyNineMatrix (29</em>29 matrice) and non-additive matrice (4*4).<br />
+The first matrix was taken from chapter 7 of the book "Bioinformatics Algorithms: An Active Learning Approach", which describes the additive matrices approach and other phylogenetic methods.
+The second matrix was taken as an example from the <a href ="https://bioinformaticsalgorithms.com/data/extradatasets/evolution/Additive_Phylogeny.txt"> Rosalind </a> page associated with the book.
+The third matrix is self-made.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Dieser Block kreiert eine 4*4 matrix, die aus dem Kapitel 7 des Buches &quot;Bioinformatics Algorithms: An Active Learning Approach&quot; entnommen wurde.</span>
+<span class="c">// Dabei wird ein 2D Array zun&#228;chst in eine Matrix umgewandelt sodass auf die Elemente durch z.B. myMatrixAdditive.DistanceM.[0,1] = 13 zugegriffen werden kann</span>
+<span class="c">// Anschlie&#223;end wird die Distanzmatrix mit Rownamen verkn&#252;pft und erstellt</span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs13', 16)" onmouseover="showTip(event, 'fs13', 16)" class="id">myMatrixAdditive</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 17)" onmouseover="showTip(event, 'fs14', 17)" class="fn">distTest</span> <span class="o">=</span> 
+        <span class="pn">[|</span> 
+            <span class="pn">[|</span><span class="n">0.</span><span class="pn">;</span><span class="n">13.</span><span class="pn">;</span><span class="n">21.</span><span class="pn">;</span><span class="n">22.</span><span class="pn">|]</span> 
+            <span class="pn">[|</span><span class="n">13.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">;</span><span class="n">12.</span><span class="pn">;</span><span class="n">13.</span><span class="pn">|]</span> 
+            <span class="pn">[|</span><span class="n">21.</span><span class="pn">;</span><span class="n">12.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">;</span><span class="n">13.</span><span class="pn">|]</span>
+            <span class="pn">[|</span><span class="n">22.</span><span class="pn">;</span><span class="n">13.</span><span class="pn">;</span><span class="n">13.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">|]</span>
+        <span class="pn">|]</span> 
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 18)" onmouseover="showTip(event, 'fs10', 18)" class="fn">matrix</span>
+        
+    <span onmouseout="hideTip(event, 'fs15', 19)" onmouseover="showTip(event, 'fs15', 19)" class="rt">DistanceMatrix</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span><span class="pn">.</span><span class="id">Create</span> <span class="pn">[|</span><span class="s">&quot;i&quot;</span><span class="pn">;</span><span class="s">&quot;j&quot;</span><span class="pn">;</span><span class="s">&quot;k&quot;</span><span class="pn">;</span><span class="s">&quot;l&quot;</span><span class="pn">|]</span> <span onmouseout="hideTip(event, 'fs14', 20)" onmouseover="showTip(event, 'fs14', 20)" class="fn">distTest</span>
+
+
+<span class="c">// Hier wird eine 29*29 Matrix eingef&#252;gt. </span>
+<span class="c">// Dabei nutzt man eine externe Quelle und schneidet die Informationen dieser Quelle soweit zurecht, dass nur die notwendigen Informatinen behalten werden. </span>
+<span class="c">// Es handelt sich hierbei um die oben verlinkte Matrix </span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs16', 21)" onmouseover="showTip(event, 'fs16', 21)" class="id">twentyNineMatrix</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span> <span class="o">=</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs17', 22)" onmouseover="showTip(event, 'fs17', 22)" class="fn">test</span> <span class="o">=</span>
+        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs18', 23)" onmouseover="showTip(event, 'fs18', 23)" class="fn">rawData</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs19', 24)" onmouseover="showTip(event, 'fs19', 24)" class="rt">Http</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs20', 25)" onmouseover="showTip(event, 'fs20', 25)" class="id">RequestString</span> <span class="s">@&quot;https://bioinformaticsalgorithms.com/data/extradatasets/evolution/Additive_Phylogeny.txt&quot;</span>
+        <span onmouseout="hideTip(event, 'fs18', 26)" onmouseover="showTip(event, 'fs18', 26)" class="fn">rawData</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 27)" onmouseover="showTip(event, 'fs21', 27)" class="id">Split</span> <span class="s">&#39;\n&#39;</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 28)" onmouseover="showTip(event, 'fs22', 28)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs23', 29)" onmouseover="showTip(event, 'fs23', 29)" class="id">skip</span> <span class="n">2</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 30)" onmouseover="showTip(event, 'fs22', 30)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 31)" onmouseover="showTip(event, 'fs24', 31)" class="id">take</span> <span class="n">29</span>
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 32)" onmouseover="showTip(event, 'fs22', 32)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 33)" onmouseover="showTip(event, 'fs25', 33)" class="id">map</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs26', 34)" onmouseover="showTip(event, 'fs26', 34)" class="fn">x</span> <span class="k">-&gt;</span>
+            <span onmouseout="hideTip(event, 'fs26', 35)" onmouseover="showTip(event, 'fs26', 35)" class="fn">x</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs21', 36)" onmouseover="showTip(event, 'fs21', 36)" class="id">Split</span> <span class="s">&#39; &#39;</span>
+            <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 37)" onmouseover="showTip(event, 'fs22', 37)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs24', 38)" onmouseover="showTip(event, 'fs24', 38)" class="id">take</span> <span class="n">29</span>
+            <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 39)" onmouseover="showTip(event, 'fs22', 39)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs25', 40)" onmouseover="showTip(event, 'fs25', 40)" class="id">map</span> <span onmouseout="hideTip(event, 'fs27', 41)" onmouseover="showTip(event, 'fs27', 41)" class="fn">float</span>    
+        <span class="pn">)</span>  
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 42)" onmouseover="showTip(event, 'fs10', 42)" class="fn">matrix</span>
+
+    <span onmouseout="hideTip(event, 'fs15', 43)" onmouseover="showTip(event, 'fs15', 43)" class="rt">DistanceMatrix</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span><span class="pn">.</span><span class="id">Create</span> <span class="pn">[|</span><span class="s">&quot;i&quot;</span><span class="pn">;</span><span class="s">&quot;j&quot;</span><span class="pn">;</span><span class="s">&quot;k&quot;</span><span class="pn">;</span><span class="s">&quot;l&quot;</span><span class="pn">;</span><span class="s">&quot;m&quot;</span><span class="pn">;</span><span class="s">&quot;n&quot;</span><span class="pn">;</span><span class="s">&quot;o&quot;</span><span class="pn">;</span><span class="s">&quot;p&quot;</span><span class="pn">;</span><span class="s">&quot;q&quot;</span><span class="pn">;</span><span class="s">&quot;r&quot;</span><span class="pn">;</span><span class="s">&quot;s&quot;</span><span class="pn">;</span><span class="s">&quot;t&quot;</span><span class="pn">;</span><span class="s">&quot;u&quot;</span><span class="pn">;</span><span class="s">&quot;v&quot;</span><span class="pn">;</span><span class="s">&quot;w&quot;</span><span class="pn">;</span><span class="s">&quot;x&quot;</span><span class="pn">;</span><span class="s">&quot;y&quot;</span><span class="pn">;</span><span class="s">&quot;z&quot;</span><span class="pn">;</span><span class="s">&quot;a&quot;</span><span class="pn">;</span><span class="s">&quot;b&quot;</span><span class="pn">;</span><span class="s">&quot;c&quot;</span><span class="pn">;</span><span class="s">&quot;d&quot;</span><span class="pn">;</span><span class="s">&quot;e&quot;</span><span class="pn">;</span><span class="s">&quot;f&quot;</span><span class="pn">;</span><span class="s">&quot;g&quot;</span><span class="pn">;</span><span class="s">&quot;h&quot;</span><span class="pn">;</span><span class="s">&quot;ii&quot;</span><span class="pn">;</span><span class="s">&quot;jj&quot;</span><span class="pn">;</span><span class="s">&quot;kk&quot;</span><span class="pn">|]</span> <span onmouseout="hideTip(event, 'fs17', 44)" onmouseover="showTip(event, 'fs17', 44)" class="fn">test</span>
+
+<span class="c">// Hier wird eine non Additive Matrix, welche Symmetrie aufweist erstellt um die Funktion die auf Additivity &#252;berpr&#252;ft zu pr&#252;fen auf Funktionalit&#228;t</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs28', 45)" onmouseover="showTip(event, 'fs28', 45)" class="id">myNonAdditiveAdditive</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs14', 46)" onmouseover="showTip(event, 'fs14', 46)" class="fn">distTest</span> <span class="o">=</span> 
+        <span class="pn">[|</span> 
+            <span class="pn">[|</span><span class="n">0.</span><span class="pn">;</span><span class="n">3.</span><span class="pn">;</span><span class="n">4.</span><span class="pn">;</span><span class="n">3.</span><span class="pn">|]</span> 
+            <span class="pn">[|</span><span class="n">3.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">;</span><span class="n">4.</span><span class="pn">;</span><span class="n">5.</span><span class="pn">|]</span> 
+            <span class="pn">[|</span><span class="n">4.</span><span class="pn">;</span><span class="n">4.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">;</span><span class="n">2.</span><span class="pn">|]</span>
+            <span class="pn">[|</span><span class="n">3.</span><span class="pn">;</span><span class="n">5.</span><span class="pn">;</span><span class="n">2.</span><span class="pn">;</span><span class="n">0.</span><span class="pn">|]</span>
+        <span class="pn">|]</span> 
+        <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 47)" onmouseover="showTip(event, 'fs10', 47)" class="fn">matrix</span>
+        
+    <span onmouseout="hideTip(event, 'fs15', 48)" onmouseover="showTip(event, 'fs15', 48)" class="rt">DistanceMatrix</span><span class="pn">&lt;</span><span class="ta">&#39;</span><span class="id">a</span><span class="pn">&gt;</span><span class="pn">.</span><span class="id">Create</span> <span class="pn">[|</span><span class="s">&quot;i&quot;</span><span class="pn">;</span><span class="s">&quot;j&quot;</span><span class="pn">;</span><span class="s">&quot;k&quot;</span><span class="pn">;</span><span class="s">&quot;l&quot;</span><span class="pn">|]</span> <span onmouseout="hideTip(event, 'fs14', 49)" onmouseover="showTip(event, 'fs14', 49)" class="fn">distTest</span>
+</code></pre>
+<h3><a name="proofing-of-Additivity" class="anchor" href="#proofing-of-Additivity">proofing of Additivity</a></h3>
+<p>One simple, less time consuming Way to proof a distanceMatrix for additivity is the <b> four point condition </b>. Looking if you can visit every node only once is very time intensive. For this reason the four point condition is the prefered method for big matrices (p.52). The four point condition explains that a matrix is additive, when the four point condition is true for every group of four indices of the matrix. The formula describing the condition is: <br>
+<p align ="center"> <b> d<sub>i,j</sub> + d<sub>k,l</sub> < = d<sub>i,k</sub> + d<sub>j,l</sub> = d<sub>i,l</sub> + d<sub>j,k</sub> </b> </p>
+Furthermore we test if one indice is at least equal to the specCount, because this means that you call a species not present in the matrix.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Diese Formel nimmt eine matrix distMat sowie vier verschiedene speciesIndex als Input und berechnet entsprechend der Formel drei verschiedene Summen. </span>
+<span class="c">// Beispielsweise w&#252;rde f&#252;r myMatrix Additive sum 1 = 26 ; sum 2 = 34 (21+13) und sum 3 = 34 (22 + 12) true herauskommen. </span>
+
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs29', 50)" onmouseover="showTip(event, 'fs29', 50)" class="fn">fourpoint_condition</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 51)" onmouseover="showTip(event, 'fs30', 51)" class="fn">distMat</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 52)" onmouseover="showTip(event, 'fs10', 52)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs31', 53)" onmouseover="showTip(event, 'fs31', 53)" class="fn">specIndex0</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs32', 54)" onmouseover="showTip(event, 'fs32', 54)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs33', 55)" onmouseover="showTip(event, 'fs33', 55)" class="fn">specIndex1</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 56)" onmouseover="showTip(event, 'fs32', 56)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs34', 57)" onmouseover="showTip(event, 'fs34', 57)" class="fn">specIndex2</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 58)" onmouseover="showTip(event, 'fs32', 58)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs35', 59)" onmouseover="showTip(event, 'fs35', 59)" class="fn">specIndex3</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 60)" onmouseover="showTip(event, 'fs32', 60)" class="vt">int</span><span class="pn">)</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 61)" onmouseover="showTip(event, 'fs36', 61)" class="fn">specCount</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 62)" onmouseover="showTip(event, 'fs30', 62)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 63)" onmouseover="showTip(event, 'fs37', 63)" class="id">NumRows</span>
+    <span class="k">if</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs31', 64)" onmouseover="showTip(event, 'fs31', 64)" class="fn">specIndex0</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 65)" onmouseover="showTip(event, 'fs36', 65)" class="fn">specCount</span><span class="pn">)</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs33', 66)" onmouseover="showTip(event, 'fs33', 66)" class="fn">specIndex1</span> <span class="o">&gt;</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs36', 67)" onmouseover="showTip(event, 'fs36', 67)" class="fn">specCount</span> <span class="o">||</span><span onmouseout="hideTip(event, 'fs34', 68)" onmouseover="showTip(event, 'fs34', 68)" class="fn">specIndex2</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 69)" onmouseover="showTip(event, 'fs36', 69)" class="fn">specCount</span> <span class="o">||</span><span onmouseout="hideTip(event, 'fs35', 70)" onmouseover="showTip(event, 'fs35', 70)" class="fn">specIndex3</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 71)" onmouseover="showTip(event, 'fs36', 71)" class="fn">specCount</span> <span class="k">then</span> 
+        <span onmouseout="hideTip(event, 'fs38', 72)" onmouseover="showTip(event, 'fs38', 72)" class="fn">failwithf</span> <span class="s">&quot;specIndex is not present in distance matrix&quot;</span>
+    
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs39', 73)" onmouseover="showTip(event, 'fs39', 73)" class="fn">sum1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 74)" onmouseover="showTip(event, 'fs30', 74)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs31', 75)" onmouseover="showTip(event, 'fs31', 75)" class="fn">specIndex0</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs33', 76)" onmouseover="showTip(event, 'fs33', 76)" class="fn">specIndex1</span><span class="pn">]</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs30', 77)" onmouseover="showTip(event, 'fs30', 77)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs34', 78)" onmouseover="showTip(event, 'fs34', 78)" class="fn">specIndex2</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs35', 79)" onmouseover="showTip(event, 'fs35', 79)" class="fn">specIndex3</span><span class="pn">]</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs40', 80)" onmouseover="showTip(event, 'fs40', 80)" class="fn">sum2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 81)" onmouseover="showTip(event, 'fs30', 81)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs31', 82)" onmouseover="showTip(event, 'fs31', 82)" class="fn">specIndex0</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs34', 83)" onmouseover="showTip(event, 'fs34', 83)" class="fn">specIndex2</span><span class="pn">]</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs30', 84)" onmouseover="showTip(event, 'fs30', 84)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs33', 85)" onmouseover="showTip(event, 'fs33', 85)" class="fn">specIndex1</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs35', 86)" onmouseover="showTip(event, 'fs35', 86)" class="fn">specIndex3</span><span class="pn">]</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs41', 87)" onmouseover="showTip(event, 'fs41', 87)" class="fn">sum3</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 88)" onmouseover="showTip(event, 'fs30', 88)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs31', 89)" onmouseover="showTip(event, 'fs31', 89)" class="fn">specIndex0</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs35', 90)" onmouseover="showTip(event, 'fs35', 90)" class="fn">specIndex3</span><span class="pn">]</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs30', 91)" onmouseover="showTip(event, 'fs30', 91)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs33', 92)" onmouseover="showTip(event, 'fs33', 92)" class="fn">specIndex1</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs34', 93)" onmouseover="showTip(event, 'fs34', 93)" class="fn">specIndex2</span><span class="pn">]</span>
+
+    <span class="pn">(</span><span onmouseout="hideTip(event, 'fs39', 94)" onmouseover="showTip(event, 'fs39', 94)" class="fn">sum1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs40', 95)" onmouseover="showTip(event, 'fs40', 95)" class="fn">sum2</span> <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs39', 96)" onmouseover="showTip(event, 'fs39', 96)" class="fn">sum1</span> <span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs41', 97)" onmouseover="showTip(event, 'fs41', 97)" class="fn">sum3</span><span class="pn">)</span> <span class="o">||</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs39', 98)" onmouseover="showTip(event, 'fs39', 98)" class="fn">sum1</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 99)" onmouseover="showTip(event, 'fs41', 99)" class="fn">sum3</span> <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs39', 100)" onmouseover="showTip(event, 'fs39', 100)" class="fn">sum1</span> <span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs40', 101)" onmouseover="showTip(event, 'fs40', 101)" class="fn">sum2</span><span class="pn">)</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs40', 102)" onmouseover="showTip(event, 'fs40', 102)" class="fn">sum2</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs41', 103)" onmouseover="showTip(event, 'fs41', 103)" class="fn">sum3</span> <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs40', 104)" onmouseover="showTip(event, 'fs40', 104)" class="fn">sum2</span> <span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs39', 105)" onmouseover="showTip(event, 'fs39', 105)" class="fn">sum1</span>
+</code></pre>
+<p>Because we have in Real World almost everywhere bigger Distancematrices, we need a dynamic version, that proofs for every possible group of four indices if it fullfills the four point condition and if not fail.
+To take care that you use every possible indice only one and not have twice the same species, we need one further test that reduces cumputation time.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Diese Formel bestimmt zun&#228;chst die Anzahl der Reihen und Spalten und pr&#252;ft ob diese gleich sind um die Symmetrie einer Matrix zu kontrollieren</span>
+<span class="c">// Anschlie&#223;end wird in einer vierfach verschachtelten loop zun&#228;chst &#252;berpr&#252;ft das der Specindex0 kleiner ist als alle anderen Species und  Specindex 3 immer das gr&#246;&#223;e ist</span>
+<span class="c">// F&#252;r jede dieser Kombinationen (z.B. in einer 29*29 Matrix: 1,2,3,4 ; 1,2,3,5; 1,2,3,6 .... 25,26,27,28) wird nun &#252;berpr&#252;ft ob die Condition erf&#252;llt ist und wenn nicht, wird sofort ein Error geworfen </span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs42', 106)" onmouseover="showTip(event, 'fs42', 106)" class="fn">testingAdditivity</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 107)" onmouseover="showTip(event, 'fs30', 107)" class="fn">distMat</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 108)" onmouseover="showTip(event, 'fs10', 108)" class="rt">matrix</span><span class="pn">)</span>   <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs43', 109)" onmouseover="showTip(event, 'fs43', 109)" class="fn">rowlength</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 110)" onmouseover="showTip(event, 'fs30', 110)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 111)" onmouseover="showTip(event, 'fs37', 111)" class="id">NumRows</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs44', 112)" onmouseover="showTip(event, 'fs44', 112)" class="fn">columnlength</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 113)" onmouseover="showTip(event, 'fs30', 113)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 114)" onmouseover="showTip(event, 'fs45', 114)" class="id">NumCols</span>
+
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs43', 115)" onmouseover="showTip(event, 'fs43', 115)" class="fn">rowlength</span> <span class="o">&lt;&gt;</span> <span onmouseout="hideTip(event, 'fs44', 116)" onmouseover="showTip(event, 'fs44', 116)" class="fn">columnlength</span> <span class="k">then</span> <span onmouseout="hideTip(event, 'fs46', 117)" onmouseover="showTip(event, 'fs46', 117)" class="fn">failwith</span> <span class="s">&quot; Matrix isnt symmetric, but has to be to have a phylogenetic tree&quot;</span>
+    
+    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs31', 118)" onmouseover="showTip(event, 'fs31', 118)" class="fn">specIndex0</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs43', 119)" onmouseover="showTip(event, 'fs43', 119)" class="fn">rowlength</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span> 
+            <span class="k">for</span> <span onmouseout="hideTip(event, 'fs33', 120)" onmouseover="showTip(event, 'fs33', 120)" class="fn">specIndex1</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs43', 121)" onmouseover="showTip(event, 'fs43', 121)" class="fn">rowlength</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span>
+                <span class="k">for</span> <span onmouseout="hideTip(event, 'fs34', 122)" onmouseover="showTip(event, 'fs34', 122)" class="fn">specIndex2</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs43', 123)" onmouseover="showTip(event, 'fs43', 123)" class="fn">rowlength</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span> 
+                    <span class="k">for</span> <span onmouseout="hideTip(event, 'fs35', 124)" onmouseover="showTip(event, 'fs35', 124)" class="fn">specIndex3</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs43', 125)" onmouseover="showTip(event, 'fs43', 125)" class="fn">rowlength</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span>
+                            <span class="k">if</span>  
+                                <span onmouseout="hideTip(event, 'fs31', 126)" onmouseover="showTip(event, 'fs31', 126)" class="fn">specIndex0</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs33', 127)" onmouseover="showTip(event, 'fs33', 127)" class="fn">specIndex1</span> 
+                                <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs31', 128)" onmouseover="showTip(event, 'fs31', 128)" class="fn">specIndex0</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs34', 129)" onmouseover="showTip(event, 'fs34', 129)" class="fn">specIndex2</span> 
+                                <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs31', 130)" onmouseover="showTip(event, 'fs31', 130)" class="fn">specIndex0</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs35', 131)" onmouseover="showTip(event, 'fs35', 131)" class="fn">specIndex3</span>
+                                <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs33', 132)" onmouseover="showTip(event, 'fs33', 132)" class="fn">specIndex1</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs34', 133)" onmouseover="showTip(event, 'fs34', 133)" class="fn">specIndex2</span> 
+                                <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs33', 134)" onmouseover="showTip(event, 'fs33', 134)" class="fn">specIndex1</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs35', 135)" onmouseover="showTip(event, 'fs35', 135)" class="fn">specIndex3</span>
+                                <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs34', 136)" onmouseover="showTip(event, 'fs34', 136)" class="fn">specIndex2</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs35', 137)" onmouseover="showTip(event, 'fs35', 137)" class="fn">specIndex3</span>
+                            <span class="k">then</span> 
+                                <span class="k">if</span> <span onmouseout="hideTip(event, 'fs47', 138)" onmouseover="showTip(event, 'fs47', 138)" class="fn">not</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs29', 139)" onmouseover="showTip(event, 'fs29', 139)" class="fn">fourpoint_condition</span> <span onmouseout="hideTip(event, 'fs30', 140)" onmouseover="showTip(event, 'fs30', 140)" class="fn">distMat</span> <span onmouseout="hideTip(event, 'fs31', 141)" onmouseover="showTip(event, 'fs31', 141)" class="fn">specIndex0</span> <span onmouseout="hideTip(event, 'fs33', 142)" onmouseover="showTip(event, 'fs33', 142)" class="fn">specIndex1</span> <span onmouseout="hideTip(event, 'fs34', 143)" onmouseover="showTip(event, 'fs34', 143)" class="fn">specIndex2</span> <span onmouseout="hideTip(event, 'fs35', 144)" onmouseover="showTip(event, 'fs35', 144)" class="fn">specIndex3</span><span class="pn">)</span> <span class="k">then</span> 
+                                    <span onmouseout="hideTip(event, 'fs38', 145)" onmouseover="showTip(event, 'fs38', 145)" class="fn">failwithf</span> <span class="s">&quot;Matrix is non additive, but it has to be additive to fit a tree&quot;</span>
+
+<span class="c">// test of testing additivity</span>
+<span onmouseout="hideTip(event, 'fs42', 146)" onmouseover="showTip(event, 'fs42', 146)" class="fn">testingAdditivity</span> <span onmouseout="hideTip(event, 'fs13', 147)" onmouseover="showTip(event, 'fs13', 147)" class="id">myMatrixAdditive</span><span class="pn">.</span><span class="id">DistanceM</span>
+</code></pre>
+<null>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs42', 148)" onmouseover="showTip(event, 'fs42', 148)" class="fn">testingAdditivity</span> <span onmouseout="hideTip(event, 'fs16', 149)" onmouseover="showTip(event, 'fs16', 149)" class="id">twentyNineMatrix</span><span class="pn">.</span><span class="id">DistanceM</span>
+</code></pre>
+<null>
+<pre class="fssnip highlighted"><code lang="fsharp"><span onmouseout="hideTip(event, 'fs42', 150)" onmouseover="showTip(event, 'fs42', 150)" class="fn">testingAdditivity</span> <span onmouseout="hideTip(event, 'fs28', 151)" onmouseover="showTip(event, 'fs28', 151)" class="id">myNonAdditiveAdditive</span><span class="pn">.</span><span class="id">DistanceM</span> 
+</code></pre>
+<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
+<h2><a name="The-limb-length-problem" class="anchor" href="#The-limb-length-problem">The limb length problem</a></h2>
+<p>After we have tested if a Matrix is Additive, we need for the distance based approach some more formulas to construct the unique simple tree fitting the distance matrix.
+The appraoch that is described here in this documentation, is shown in the following picture.
+One of the key points to recieve the tree is to cumpute the limb length of an leaf y (y reprersents the index of the species node) to its parent node.</p>
+<img src="../img/method.png" alt="drawing" width="15%" title="converting a distance matrix in a simple tree fitting the matrix"><br>
+<b>Fig.2. </b> Converting the additive distance matrix into a simple tree fitting the matrix and steps
+<p>Figure 2 describes the procedure to get a tree fitting the distance Matrix. first you need to get the limbLength of a leaf y to its parent. A Leaf is always the present-day species. To get the minimal limbLength of an arbirtray leaf y (y can be every index present in the matrix) you have to determine every possible limbLength
+and take the minimal limblength. The formula to determine the limblength is therefore
+<p align ="center"> <b> Limblength(y) = (D<sub>i,y</sub> + D<sub>y,k</sub> - D<sub>i,k</sub>)/2 </b> , where y, i and k are three different species </p>
+Again we have to consider, that the specindex is present in the matrix and we introduce an error, when the specIndex is not present in the matrix</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Diese Formel bekommt als Input die Distanzmatrix ohne Namen der Reihen / Spalten sowie drei verschiedene Indices, welche unterschiedliche Spezies repr&#228;sentieren.</span>
+<span class="c">// Dabei ist specIndex1 der Index der Species y (Species from Interest) und specIndex 2 und SpecIndex 3 die Species mit denen verglichen wird</span>
+<span class="c">// Zun&#228;chst wird gepr&#252;ft ob alle Indices Teil der Matrix (&lt; als die Gr&#246;&#223;e), z.B. in einer 4*4 Matrix kleiner 4</span>
+<span class="c">// Wenn dies der Fall ist wird die Limblength f&#252;r eine bestimmte Kombination berechnet, z.B. f&#252;r Species j verglichen mit i und k --&gt; (13+12-21/2) = 2</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs48', 152)" onmouseover="showTip(event, 'fs48', 152)" class="fn">LimblengthFormula</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 153)" onmouseover="showTip(event, 'fs30', 153)" class="fn">distMat</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 154)" onmouseover="showTip(event, 'fs10', 154)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs33', 155)" onmouseover="showTip(event, 'fs33', 155)" class="fn">specIndex1</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs32', 156)" onmouseover="showTip(event, 'fs32', 156)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs34', 157)" onmouseover="showTip(event, 'fs34', 157)" class="fn">specIndex2</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs32', 158)" onmouseover="showTip(event, 'fs32', 158)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs35', 159)" onmouseover="showTip(event, 'fs35', 159)" class="fn">specIndex3</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs32', 160)" onmouseover="showTip(event, 'fs32', 160)" class="vt">int</span><span class="pn">)</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 161)" onmouseover="showTip(event, 'fs36', 161)" class="fn">specCount</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 162)" onmouseover="showTip(event, 'fs30', 162)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 163)" onmouseover="showTip(event, 'fs37', 163)" class="id">NumRows</span>
+    <span class="k">if</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs33', 164)" onmouseover="showTip(event, 'fs33', 164)" class="fn">specIndex1</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 165)" onmouseover="showTip(event, 'fs36', 165)" class="fn">specCount</span><span class="pn">)</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs34', 166)" onmouseover="showTip(event, 'fs34', 166)" class="fn">specIndex2</span> <span class="o">&gt;</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs36', 167)" onmouseover="showTip(event, 'fs36', 167)" class="fn">specCount</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs35', 168)" onmouseover="showTip(event, 'fs35', 168)" class="fn">specIndex3</span> <span class="o">&gt;</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs36', 169)" onmouseover="showTip(event, 'fs36', 169)" class="fn">specCount</span> <span class="k">then</span> 
+        <span onmouseout="hideTip(event, 'fs38', 170)" onmouseover="showTip(event, 'fs38', 170)" class="fn">failwithf</span> <span class="s">&quot;specIndex is not present in distance matrix&quot;</span> 
+     
+    <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 171)" onmouseover="showTip(event, 'fs30', 171)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs34', 172)" onmouseover="showTip(event, 'fs34', 172)" class="fn">specIndex2</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs33', 173)" onmouseover="showTip(event, 'fs33', 173)" class="fn">specIndex1</span><span class="pn">]</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs30', 174)" onmouseover="showTip(event, 'fs30', 174)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs33', 175)" onmouseover="showTip(event, 'fs33', 175)" class="fn">specIndex1</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs35', 176)" onmouseover="showTip(event, 'fs35', 176)" class="fn">specIndex3</span><span class="pn">]</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs30', 177)" onmouseover="showTip(event, 'fs30', 177)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs34', 178)" onmouseover="showTip(event, 'fs34', 178)" class="fn">specIndex2</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs35', 179)" onmouseover="showTip(event, 'fs35', 179)" class="fn">specIndex3</span><span class="pn">]</span><span class="pn">)</span> <span class="o">/</span> <span class="n">2.</span>
+</code></pre>
+<p>As already described above, we need to get the minimal limblength of a distinct species y.
+For this reason we need to compute all possible limblength of the species y and comapre them with help of a for-loop, that computes for all combinations of species e.g. the limblength and store them in an Array.
+Again we consider that the specIndices are different and every combination has the species only once (e.g. 1 2 1 would lead to an error) and that we compute every combination only once (123 is the same as 132 and so you should only compute once).
+This can be reached by considering the symmetry of a distancematrix and taking specIndex 1 always as the smallest one.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Hier wird f&#252;r alle m&#246;glichen Kombinationen an Tripeln die Limblength einer bestimmten Spezies berechnet und in einem Array gespeichert.</span>
+<span class="c">// Anschlie&#223;end soll die minimale Limblength bestimmt werden,daf&#252;r wird das kleinste Element des Arrays herasugefiltert</span>
+<span class="c">// Bsp. f&#252;r myMatrixAdditive ist Limblength(l) = 7 , twentyNineMatrix hat limblength (Species28) = 890</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs49', 180)" onmouseover="showTip(event, 'fs49', 180)" class="fn">LimbLength</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 181)" onmouseover="showTip(event, 'fs30', 181)" class="fn">distMat</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 182)" onmouseover="showTip(event, 'fs10', 182)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 183)" onmouseover="showTip(event, 'fs50', 183)" class="fn">specIndex</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 184)" onmouseover="showTip(event, 'fs32', 184)" class="vt">int</span><span class="pn">)</span> <span class="o">=</span> 
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs36', 185)" onmouseover="showTip(event, 'fs36', 185)" class="fn">specCount</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 186)" onmouseover="showTip(event, 'fs30', 186)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 187)" onmouseover="showTip(event, 'fs37', 187)" class="id">NumRows</span>
+   
+    <span class="pn">[|</span><span class="k">for</span> <span onmouseout="hideTip(event, 'fs34', 188)" onmouseover="showTip(event, 'fs34', 188)" class="fn">specIndex2</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs36', 189)" onmouseover="showTip(event, 'fs36', 189)" class="fn">specCount</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span> 
+        <span class="k">for</span> <span onmouseout="hideTip(event, 'fs35', 190)" onmouseover="showTip(event, 'fs35', 190)" class="fn">specIndex3</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs36', 191)" onmouseover="showTip(event, 'fs36', 191)" class="fn">specCount</span><span class="o">-</span><span class="n">1</span><span class="pn">)</span> <span class="k">do</span>
+            <span class="k">if</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs35', 192)" onmouseover="showTip(event, 'fs35', 192)" class="fn">specIndex3</span> <span class="o">&gt;</span> <span onmouseout="hideTip(event, 'fs34', 193)" onmouseover="showTip(event, 'fs34', 193)" class="fn">specIndex2</span><span class="pn">)</span> <span class="o">&amp;&amp;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs35', 194)" onmouseover="showTip(event, 'fs35', 194)" class="fn">specIndex3</span><span class="pn">)</span> <span class="o">&lt;&gt;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 195)" onmouseover="showTip(event, 'fs50', 195)" class="fn">specIndex</span><span class="pn">)</span> <span class="o">&amp;&amp;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 196)" onmouseover="showTip(event, 'fs50', 196)" class="fn">specIndex</span><span class="pn">)</span> <span class="o">&lt;&gt;</span> <span onmouseout="hideTip(event, 'fs34', 197)" onmouseover="showTip(event, 'fs34', 197)" class="fn">specIndex2</span> <span class="k">then</span> 
+                <span class="pn">(</span><span onmouseout="hideTip(event, 'fs48', 198)" onmouseover="showTip(event, 'fs48', 198)" class="fn">LimblengthFormula</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 199)" onmouseover="showTip(event, 'fs30', 199)" class="fn">distMat</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 200)" onmouseover="showTip(event, 'fs50', 200)" class="fn">specIndex</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs34', 201)" onmouseover="showTip(event, 'fs34', 201)" class="fn">specIndex2</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs35', 202)" onmouseover="showTip(event, 'fs35', 202)" class="fn">specIndex3</span><span class="pn">)</span><span class="pn">)</span>
+    <span class="pn">|]</span>
+    <span class="o">|&gt;</span><span onmouseout="hideTip(event, 'fs22', 203)" onmouseover="showTip(event, 'fs22', 203)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs51', 204)" onmouseover="showTip(event, 'fs51', 204)" class="id">min</span> 
+
+<span class="c">// Test of LimblengthProblem</span>
+
+<span onmouseout="hideTip(event, 'fs49', 205)" onmouseover="showTip(event, 'fs49', 205)" class="fn">LimbLength</span> <span onmouseout="hideTip(event, 'fs13', 206)" onmouseover="showTip(event, 'fs13', 206)" class="id">myMatrixAdditive</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">3</span>
+<span onmouseout="hideTip(event, 'fs49', 207)" onmouseover="showTip(event, 'fs49', 207)" class="fn">LimbLength</span> <span onmouseout="hideTip(event, 'fs16', 208)" onmouseover="showTip(event, 'fs16', 208)" class="id">twentyNineMatrix</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">28</span>
+</code></pre>
+890.0
+<h2><a name="The-D-sub-bald-sub-Matrix" class="anchor" href="#The-D-sub-bald-sub-Matrix">The D<sub>bald</sub> Matrix</a></h2>
+<p>After we have succesful computed the limbLength we can prepare one further function. As shown in figure 2, the next step after finding the minimal limblength is constructing the D<sub>bald</sub> Matrix. The D<sub>bald</sub> Matrix is a matrix where you update your matrix by trimming the leaf (y) to a limblength = 0. This can be done by subtracting the distances shown in row / column y with the limbLength determined before. This D<sub>bald</sub> matrix is needed to get informations about the length of edges between the species and where the attachmentpoint between a node y and another node is. To get the d<sub>bald</sub> Matrix of the corresponding distance Matrix we create first a function, that updates the values in the corresponding row / column. <br></p>
+<img src="../img/dBald.png" alt="drawing" width="35%" title="determine Dbald"><br>
+<b>Fig.3. </b> Cumputing of the dBald Matrix <br>
+In this case you can recognize that column / row j is updated by reducing it with two eg. 13-2 = 11 for D<sub>i,j</sub>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Diese Formel berechnet die Dbald Distanzen f&#252;r jedes einzelne Feld. </span>
+<span class="c">// Daf&#252;r wird die Limblength der entsprechenden Spezies berechnet und die jeweilige Reihe / Spalte angegeben </span>
+<span class="c">// Der Aufruf updateDistancematrix (myMatrixAdditive.DistanceM) 1 0 1 f&#252;hrt z.B. zu 11 und entspricht dem Wert in Figur 3</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs52', 209)" onmouseover="showTip(event, 'fs52', 209)" class="fn">updateDistancematrix</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 210)" onmouseover="showTip(event, 'fs30', 210)" class="fn">distMat</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 211)" onmouseover="showTip(event, 'fs10', 211)" class="rt">matrix</span><span class="pn">)</span>  <span class="pn">(</span><span onmouseout="hideTip(event, 'fs53', 212)" onmouseover="showTip(event, 'fs53', 212)" class="fn">specIndexRow</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 213)" onmouseover="showTip(event, 'fs32', 213)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs54', 214)" onmouseover="showTip(event, 'fs54', 214)" class="fn">specIndexColumn</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 215)" onmouseover="showTip(event, 'fs32', 215)" class="vt">int</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 216)" onmouseover="showTip(event, 'fs50', 216)" class="fn">specIndex</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 217)" onmouseover="showTip(event, 'fs32', 217)" class="vt">int</span><span class="pn">)</span>  <span class="o">=</span>  
+    <span class="k">if</span>  <span onmouseout="hideTip(event, 'fs30', 218)" onmouseover="showTip(event, 'fs30', 218)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs53', 219)" onmouseover="showTip(event, 'fs53', 219)" class="fn">specIndexRow</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs54', 220)" onmouseover="showTip(event, 'fs54', 220)" class="fn">specIndexColumn</span><span class="pn">]</span> <span class="o">=</span> <span class="n">0.</span> <span class="k">then</span> 
+        <span class="n">0.</span> 
+    <span class="k">else</span>
+        <span onmouseout="hideTip(event, 'fs30', 221)" onmouseover="showTip(event, 'fs30', 221)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs53', 222)" onmouseover="showTip(event, 'fs53', 222)" class="fn">specIndexRow</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs54', 223)" onmouseover="showTip(event, 'fs54', 223)" class="fn">specIndexColumn</span><span class="pn">]</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs49', 224)" onmouseover="showTip(event, 'fs49', 224)" class="fn">LimbLength</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 225)" onmouseover="showTip(event, 'fs30', 225)" class="fn">distMat</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 226)" onmouseover="showTip(event, 'fs50', 226)" class="fn">specIndex</span><span class="pn">)</span>
+</code></pre>
+<p>The updateDistanceMatrix function can now be used to update the complete row and column y. When all values are updated, than you get an new matrix D<sub>bald</sub> shown in Figure 3 with red marked column / row.
+The changing in one function can simply be done using a 2 fold nested loop which contains an if clause that proofs if the values are equal to Rowindex and Columnindex and when not you need not to change the value.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Hier wird die dBaldMatrix aus einer Distanzmatrix und gegebenen specIndex berechnet.</span>
+<span class="c">// Daf&#252;r wird eine verschachtelte loop benutzt, die zun&#228;chst in einem 2D Array alle Values speichert und dabei die entsprechende Reihe / Spalte &#228;ndert, </span>
+<span class="c">// wenn der Rowindex / Columnindex dem SpecIndex entspricht.</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs55', 227)" onmouseover="showTip(event, 'fs55', 227)" class="fn">dBaldMatrix</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 228)" onmouseover="showTip(event, 'fs30', 228)" class="fn">distMat</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 229)" onmouseover="showTip(event, 'fs10', 229)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 230)" onmouseover="showTip(event, 'fs50', 230)" class="fn">specIndex</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 231)" onmouseover="showTip(event, 'fs32', 231)" class="vt">int</span><span class="pn">)</span>   <span class="o">=</span> 
+     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs56', 232)" onmouseover="showTip(event, 'fs56', 232)" class="fn">specCountRow</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 233)" onmouseover="showTip(event, 'fs30', 233)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 234)" onmouseover="showTip(event, 'fs37', 234)" class="id">NumRows</span>
+     <span class="k">let</span> <span onmouseout="hideTip(event, 'fs57', 235)" onmouseover="showTip(event, 'fs57', 235)" class="fn">specCountColumn</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 236)" onmouseover="showTip(event, 'fs30', 236)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs45', 237)" onmouseover="showTip(event, 'fs45', 237)" class="id">NumCols</span>
+
+     <span class="pn">[|</span><span class="k">for</span> <span onmouseout="hideTip(event, 'fs58', 238)" onmouseover="showTip(event, 'fs58', 238)" class="fn">rowindex</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span onmouseout="hideTip(event, 'fs56', 239)" onmouseover="showTip(event, 'fs56', 239)" class="fn">specCountRow</span><span class="o">-</span><span class="n">1</span> <span class="k">do</span> 
+          <span class="pn">[|</span><span class="k">for</span> <span onmouseout="hideTip(event, 'fs59', 240)" onmouseover="showTip(event, 'fs59', 240)" class="fn">columnindex</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span onmouseout="hideTip(event, 'fs57', 241)" onmouseover="showTip(event, 'fs57', 241)" class="fn">specCountColumn</span><span class="o">-</span><span class="n">1</span> <span class="k">do</span>
+               <span class="k">if</span> <span onmouseout="hideTip(event, 'fs58', 242)" onmouseover="showTip(event, 'fs58', 242)" class="fn">rowindex</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs50', 243)" onmouseover="showTip(event, 'fs50', 243)" class="fn">specIndex</span> <span class="o">||</span> <span onmouseout="hideTip(event, 'fs59', 244)" onmouseover="showTip(event, 'fs59', 244)" class="fn">columnindex</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs50', 245)" onmouseover="showTip(event, 'fs50', 245)" class="fn">specIndex</span> <span class="k">then</span> 
+                    <span onmouseout="hideTip(event, 'fs52', 246)" onmouseover="showTip(event, 'fs52', 246)" class="fn">updateDistancematrix</span> <span onmouseout="hideTip(event, 'fs30', 247)" onmouseover="showTip(event, 'fs30', 247)" class="fn">distMat</span> <span onmouseout="hideTip(event, 'fs58', 248)" onmouseover="showTip(event, 'fs58', 248)" class="fn">rowindex</span> <span onmouseout="hideTip(event, 'fs59', 249)" onmouseover="showTip(event, 'fs59', 249)" class="fn">columnindex</span> <span onmouseout="hideTip(event, 'fs50', 250)" onmouseover="showTip(event, 'fs50', 250)" class="fn">specIndex</span>             
+               <span class="k">else</span>              
+                    <span onmouseout="hideTip(event, 'fs30', 251)" onmouseover="showTip(event, 'fs30', 251)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs58', 252)" onmouseover="showTip(event, 'fs58', 252)" class="fn">rowindex</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs59', 253)" onmouseover="showTip(event, 'fs59', 253)" class="fn">columnindex</span><span class="pn">]</span>            
+          <span class="pn">|]</span>
+     <span class="pn">|]</span>
+     <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs10', 254)" onmouseover="showTip(event, 'fs10', 254)" class="fn">matrix</span>    
+
+<span class="c">//Wendet man diese Formel z.B. f&#252;r myMatrixAdditive.DistanceM 1 an so wird Spalte j und Reihe j ver&#228;ndert und es entsteht die Matrix aus Figur 2</span>
+<span class="c">//der Aufruf twentyNineMatrix.DistanceM 28 f&#252;hrt zur Ver&#228;nderung der letzten Reihe --&gt; </span>
+<span class="c">//8142.000 9688.000 4941.000 7419.000 5936.000 1736.000 9053.000 5337.000 1276.000  ....  0.000</span>
+
+<span class="c">// Test of Matrices</span>
+
+<span onmouseout="hideTip(event, 'fs60', 255)" onmouseover="showTip(event, 'fs60', 255)" class="fn">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs55', 256)" onmouseover="showTip(event, 'fs55', 256)" class="fn">dBaldMatrix</span> <span onmouseout="hideTip(event, 'fs13', 257)" onmouseover="showTip(event, 'fs13', 257)" class="id">myMatrixAdditive</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">1</span><span class="pn">)</span>
+<span onmouseout="hideTip(event, 'fs60', 258)" onmouseover="showTip(event, 'fs60', 258)" class="fn">printfn</span> <span class="s">&quot;</span><span class="pf">%A</span><span class="s">&quot;</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs55', 259)" onmouseover="showTip(event, 'fs55', 259)" class="fn">dBaldMatrix</span> <span onmouseout="hideTip(event, 'fs16', 260)" onmouseover="showTip(event, 'fs16', 260)" class="id">twentyNineMatrix</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">28</span><span class="pn">)</span>
+</code></pre>
+<null>
+<h2><a name="Trimming-the-Tree" class="anchor" href="#Trimming-the-Tree">Trimming the Tree</a></h2>
+<p>When we look at Figure 2 we can recognize that next we need to come to the tree D<sub>trimmed</sub>.
+This Tree is different to D<sub>bald</sub>, because we reduce the matrix and remove the changed columns.
+After we again construct Dbald and remove again column / row until we have a 2*2 matrix.
+The function to remove columns / rows can be found in the Fsharp.Stats library and is shown in the next Codeblock</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Hier wird die ver&#228;nderte Reihe entfernt, da diese dem SpecIndex entspricht und die Matrix damit verringert</span>
+<span class="c">//Bsp. delete_species (dBaldMatrix (myMatrixAdditive.DistanceM) 1) f&#252;hrt zu </span>
+<span class="c">//       0 21 22</span>
+<span class="c">//       21 0  13</span>
+<span class="c">//       22 13 0</span>
+  
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs61', 261)" onmouseover="showTip(event, 'fs61', 261)" class="fn">delete_species</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 262)" onmouseover="showTip(event, 'fs30', 262)" class="fn">distMat</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 263)" onmouseover="showTip(event, 'fs10', 263)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs50', 264)" onmouseover="showTip(event, 'fs50', 264)" class="fn">specIndex</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 265)" onmouseover="showTip(event, 'fs32', 265)" class="vt">int</span><span class="pn">)</span>  <span class="o">=</span>
+    <span onmouseout="hideTip(event, 'fs30', 266)" onmouseover="showTip(event, 'fs30', 266)" class="fn">distMat</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 267)" onmouseover="showTip(event, 'fs62', 267)" class="m">Matrix</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs63', 268)" onmouseover="showTip(event, 'fs63', 268)" class="id">removeColAt</span> <span onmouseout="hideTip(event, 'fs50', 269)" onmouseover="showTip(event, 'fs50', 269)" class="fn">specIndex</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs62', 270)" onmouseover="showTip(event, 'fs62', 270)" class="m">Matrix</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs64', 271)" onmouseover="showTip(event, 'fs64', 271)" class="id">removeRowAt</span> <span onmouseout="hideTip(event, 'fs50', 272)" onmouseover="showTip(event, 'fs50', 272)" class="fn">specIndex</span> 
+</code></pre>
+<h2><a name="Finding-the-Attachmentpoint-of-a-leaf" class="anchor" href="#Finding-the-Attachmentpoint-of-a-leaf">Finding the Attachmentpoint of a leaf</a></h2>
+<p>Because we create the tree by Adding leaves backwards, we need a further function, we can prepare.
+This function tries to identify the point of attachment of leaf y. To find the attachment point in the trimmed tree,
+you should "consider that Tree D<sup>bald</sup>, is the same as Tree (D), except that Limblength(j) = 0" (Compeau and Pevnzer, Bioinformatics Algorithms: An Active Learning Approach).
+because we know from the Limblength theorom, that is integrated in dBald that leaves i and k muist be so that limblength(j)=0. This leads to the following assumption:
+The attachmentpoint of a leaf j has to be located at distance<sub>i,j</sub><sup>bald</sup> on a path connecting node i with node k in the trimmed tree.<br>
+When the attachmentpoint is at an existing node, we connect j to this node. otherwise if it occurs at an edge, we insert a new internal node at distance and connect j to it.
+This explanation can now be translated in coding language.</p>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">//Hier wird der Attachmentpoint einer bestimmten leaf distinctLeaf bestimmt. </span>
+<span class="c">//Daf&#252;r wird eine dBaldMatrix bzw. trimmed matrix, sowie die leaf von Interesse als Input ben&#246;tigt sowie die Anzahl der SpecIndices bestimmt</span>
+
+<span class="k">let</span> <span onmouseout="hideTip(event, 'fs65', 273)" onmouseover="showTip(event, 'fs65', 273)" class="fn">attachmentPoint</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs66', 274)" onmouseover="showTip(event, 'fs66', 274)" class="fn">dBald</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs10', 275)" onmouseover="showTip(event, 'fs10', 275)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs67', 276)" onmouseover="showTip(event, 'fs67', 276)" class="fn">distinctLeaf</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs32', 277)" onmouseover="showTip(event, 'fs32', 277)" class="vt">int</span><span class="pn">)</span> <span class="o">=</span>
+    <span class="c">// entspricht der Anzahl an Specindices z.B. in einer 29 * 29 Matrix = 28</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs68', 278)" onmouseover="showTip(event, 'fs68', 278)" class="fn">NumberOfSpecies</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs66', 279)" onmouseover="showTip(event, 'fs66', 279)" class="fn">dBald</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 280)" onmouseover="showTip(event, 'fs37', 280)" class="id">NumRows</span><span class="o">-</span><span class="n">1</span>
+
+      
+    <span class="c">//in dieser verschachtelten For loop werden alle m&#246;glichen Attachmentpoints f&#252;r eine bestimmte leaf bestimmt und in einem Array gespeichert </span>
+    <span class="c">//z.B. f&#252;r 29*29 matrix 0,26 = 8142 bis 26,27 = 868</span>
+     
+    <span class="pn">[|</span><span class="k">for</span> <span onmouseout="hideTip(event, 'fs69', 281)" onmouseover="showTip(event, 'fs69', 281)" class="fn">i</span> <span class="o">=</span> <span class="n">0</span> <span class="k">to</span> <span onmouseout="hideTip(event, 'fs68', 282)" onmouseover="showTip(event, 'fs68', 282)" class="fn">NumberOfSpecies</span><span class="o">-</span><span class="n">1</span> <span class="k">do</span> 
+        <span class="k">for</span> <span onmouseout="hideTip(event, 'fs70', 283)" onmouseover="showTip(event, 'fs70', 283)" class="fn">j</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs69', 284)" onmouseover="showTip(event, 'fs69', 284)" class="fn">i</span><span class="o">+</span><span class="n">1</span> <span class="k">to</span> <span onmouseout="hideTip(event, 'fs68', 285)" onmouseover="showTip(event, 'fs68', 285)" class="fn">NumberOfSpecies</span><span class="o">-</span><span class="n">1</span> <span class="k">do</span>
+            <span class="k">if</span> <span onmouseout="hideTip(event, 'fs66', 286)" onmouseover="showTip(event, 'fs66', 286)" class="fn">dBald</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs69', 287)" onmouseover="showTip(event, 'fs69', 287)" class="fn">i</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs70', 288)" onmouseover="showTip(event, 'fs70', 288)" class="fn">j</span><span class="pn">]</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs66', 289)" onmouseover="showTip(event, 'fs66', 289)" class="fn">dBald</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs69', 290)" onmouseover="showTip(event, 'fs69', 290)" class="fn">i</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs67', 291)" onmouseover="showTip(event, 'fs67', 291)" class="fn">distinctLeaf</span><span class="pn">]</span> <span class="o">+</span> <span onmouseout="hideTip(event, 'fs66', 292)" onmouseover="showTip(event, 'fs66', 292)" class="fn">dBald</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs67', 293)" onmouseover="showTip(event, 'fs67', 293)" class="fn">distinctLeaf</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs70', 294)" onmouseover="showTip(event, 'fs70', 294)" class="fn">j</span><span class="pn">]</span><span class="pn">)</span> <span class="k">then</span> 
+                   <span class="pn">(</span><span onmouseout="hideTip(event, 'fs69', 295)" onmouseover="showTip(event, 'fs69', 295)" class="fn">i</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs70', 296)" onmouseover="showTip(event, 'fs70', 296)" class="fn">j</span><span class="pn">)</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs66', 297)" onmouseover="showTip(event, 'fs66', 297)" class="fn">dBald</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs69', 298)" onmouseover="showTip(event, 'fs69', 298)" class="fn">i</span><span class="pn">,</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs67', 299)" onmouseover="showTip(event, 'fs67', 299)" class="fn">distinctLeaf</span><span class="pn">)</span><span class="pn">]</span>
+    <span class="pn">|]</span>
+     
+    <span class="c">// Anschlie&#223;end wird das Array in kleinere Arrays groupiert, wobei die Gruppierung nach gleicher Menge (i) erfolgt --&gt; alle mit 0 in eine Gruppe usw.</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 300)" onmouseover="showTip(event, 'fs22', 300)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs71', 301)" onmouseover="showTip(event, 'fs71', 301)" class="id">groupBy</span> <span class="pn">(</span><span class="k">fun</span> <span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs69', 302)" onmouseover="showTip(event, 'fs69', 302)" class="id">i</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs70', 303)" onmouseover="showTip(event, 'fs70', 303)" class="fn">j</span><span class="pn">)</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs72', 304)" onmouseover="showTip(event, 'fs72', 304)" class="fn">d</span><span class="pn">)</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs69', 305)" onmouseover="showTip(event, 'fs69', 305)" class="fn">i</span><span class="pn">)</span>
+    <span class="c">// Es wird das maximale Element herasugefiltert und dabei das erste Element desa Tupels genutzt, in diesem Fall z.B. 26</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 306)" onmouseover="showTip(event, 'fs22', 306)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs73', 307)" onmouseover="showTip(event, 'fs73', 307)" class="id">maxBy</span> <span onmouseout="hideTip(event, 'fs74', 308)" onmouseover="showTip(event, 'fs74', 308)" class="fn">fst</span>
+    <span class="c">// nun wird auf alle Elemente dieser Gruppe zugegriffen und das erste Element behalten z.B hier (26,27), 868 --&gt; </span>
+    <span class="c">// diese sagt nun das auf der Strecke zwischen Knoten 26 und Knoten 27 auf der Distanz 868 ein weiterer Knoten liegen muss</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs75', 309)" onmouseover="showTip(event, 'fs75', 309)" class="fn">snd</span>
+    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs22', 310)" onmouseover="showTip(event, 'fs22', 310)" class="m">Array</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs76', 311)" onmouseover="showTip(event, 'fs76', 311)" class="id">head</span>
+    
+<span class="c">// Test of Attachmentpoint</span>
+
+<span onmouseout="hideTip(event, 'fs65', 312)" onmouseover="showTip(event, 'fs65', 312)" class="fn">attachmentPoint</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs55', 313)" onmouseover="showTip(event, 'fs55', 313)" class="fn">dBaldMatrix</span> <span onmouseout="hideTip(event, 'fs13', 314)" onmouseover="showTip(event, 'fs13', 314)" class="id">myMatrixAdditive</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">3</span><span class="pn">)</span> <span class="n">3</span> <span class="c">// (1,2 --&gt;6)</span>
+</code></pre>
+((1, 2), 6.0)
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs65', 315)" onmouseover="showTip(event, 'fs65', 315)" class="fn">attachmentPoint</span> <span class="pn">(</span> <span onmouseout="hideTip(event, 'fs55', 316)" onmouseover="showTip(event, 'fs55', 316)" class="fn">dBaldMatrix</span> <span onmouseout="hideTip(event, 'fs16', 317)" onmouseover="showTip(event, 'fs16', 317)" class="id">twentyNineMatrix</span><span class="pn">.</span><span class="id">DistanceM</span> <span class="n">28</span><span class="pn">)</span><span class="pn">)</span> <span class="n">28</span><span class="pn">)</span> <span class="c">// (26,27---&gt;868)</span>
+</code></pre>
+((26, 27), 868.0)
+<h2><a name="Creating-a-algorithm-for-distance-based-phylogeny-construction" class="anchor" href="#Creating-a-algorithm-for-distance-based-phylogeny-construction">Creating a algorithm for distance-based phylogeny construction</a></h2>
+<p>After we have designed all essential functions for the additive phylogeny mechanism we can create an Algorithm for the finding of a simple tree fitting the n*n distance matrix D. For the creation of the Algorithm you can use either Figure 2 or the Pseudocode in Fig 5.<br></p>
+<img src="../img/Pseudocode.png" alt="drawing" width="35%" title="Pseudocode additive phylogeny"><br>
+<b>Fig.4</b> Pseudocode of Additive Phylogeny <br>
+<p>But before we start to design the mechanism, we first create a type, where we can store the pathes and have a list which describes the created tree. This type is called PhylTreeConnection and contains the members SourceToTargetIndex and Distance. SourcetotargetIndex describes, which nodes are connected and distance how the distance is between the nodes. For example Fig.5. which shows a list how it should look like in the end</p>
+<img src="../img/example.png" alt="drawing" width="35%" title="example"><br>
+<b> Fig.5.</b> Example of a result
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="c">// Hier wird ein Typ deklariert, welche die Darstellung des phylogenetischen Baum am Ende erm&#246;glicht </span>
+<span class="k">type</span> <span class="rt">PhylTreeConnection</span> <span class="o">=</span> <span class="pn">{</span> 
+    <span onmouseout="hideTip(event, 'fs77', 318)" onmouseover="showTip(event, 'fs77', 318)" class="prop">SourceToTargetIndex</span><span class="pn">:</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 319)" onmouseover="showTip(event, 'fs32', 319)" class="vt">int</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs32', 320)" onmouseover="showTip(event, 'fs32', 320)" class="vt">int</span><span class="pn">)</span>
+    <span onmouseout="hideTip(event, 'fs78', 321)" onmouseover="showTip(event, 'fs78', 321)" class="prop">Distance</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs27', 322)" onmouseover="showTip(event, 'fs27', 322)" class="vt">float</span>
+    <span class="pn">}</span> <span class="k">with</span> 
+        <span class="k">static</span> <span class="k">member</span> <span class="fn">Create</span> <span onmouseout="hideTip(event, 'fs79', 323)" onmouseover="showTip(event, 'fs79', 323)" class="fn">sourceToTargetIndex</span> <span onmouseout="hideTip(event, 'fs80', 324)" onmouseover="showTip(event, 'fs80', 324)" class="fn">distance</span> <span class="o">=</span> <span class="pn">{</span> <span class="prop">SourceToTargetIndex</span><span class="o">=</span> <span onmouseout="hideTip(event, 'fs79', 325)" onmouseover="showTip(event, 'fs79', 325)" class="fn">sourceToTargetIndex</span><span class="pn">;</span> <span class="prop">Distance</span><span class="o">=</span><span onmouseout="hideTip(event, 'fs80', 326)" onmouseover="showTip(event, 'fs80', 326)" class="fn">distance</span><span class="pn">}</span> 
+</code></pre>
+<p>Now we are able to create the phylogenetic tree with help of combinating the functions. The steps of the additive phylogeny Mechanism are described in the following steps:</p>
+<ul>
+<li>addPhyl is a function, which gets only the distancematrix as input  and you proof first if the matrix is additive, because the function works only for additive matrices</li>
+<li>
+<p>Now we define some variables of the algorithm, that you need during the process:</p>
+<ul>
+<li>distmat is a <b>mutable</b> variable, that you need only as storage for the actual version of distanceMatrix,because you have to reduce this matrix until its a 2*2 Matrix</li>
+<li>n is again a <b>mutable</b> variable, that has to be always the last species (Row) of the Matrix and needs to be updated during algorithm</li>
+<li>lengthOfMatrix is a <b> nonmutable</b> variable, that stores the size of the input matrix</li>
+<li>resultList is a <b>mutable</b> variable, that is in the beginning empty and is needed as List to store the pathes at the end</li>
+<li>graph and attachmentsStore are two dictionaries, that stores all limbLength and distancematrices until we reach a length of 3*3 (graph) as well as the computed attachmentpoints for each matrixtype --&gt; both habe the same length</li>
+<li>internalNodes is a mutable variable and describes the index of inserted nodes. It starts with the highest point and ends with the smallest</li>
+</ul>
+</li>
+<li>
+<p>After we have defined all variables we can start with the algorithm, that in general consist of an if else clause. The if Part first proofs if we habe only a 2*2 matrix.</p>
+<ul>
+<li>If the size of distancematrix is 2*2, then the maximal Specindex n is 1 and we have directly the simple tree consisting of an single edge connecting both species and having size equal to the distance shown in the distancematrix</li>
+</ul>
+</li>
+<li>
+<p>if we have no 2*2 Matrix then we have a quite more complex algorithm and we need the else part</p>
+<ul>
+<li>first we need to trimm the Matrix until its a 2*2 Matrix but store the updated matrix in each step. For each matrix (n), we also need to store the attachmentpoint as well. Here we use the defined dictionaries attachmentpoint and graph.</li>
+<li>
+<p>These dictionaries are filled in a simple while loop that has as termination condition size of matrix 2*2 (n &lt; 2).  The procedure of filling the dictionary is done in different steps</p>
+<ul>
+<li>First we fill for every round during loop graph by computing the corresponding limblength and the dBald matrix</li>
+<li>Then we can fill another dictionary that contains the attacghmentspoints as well as source and target</li>
+<li>Now we trimm the distancematrix in the same while loop and update n. The trimminmg is done be remove every time the last row / column in the matrix and n has always to be the specindex of the last row / column</li>
+</ul>
+</li>
+<li>
+<p>After we have succesful reduced the the distancematrix iterative and stored the corresponding limblength and attachmentspoints in graph / attachmentsstore, we can start now with the Traceback, where the initial graph consisting of node 0 and 1 is updated by insering all corresponding nodes from attachmentsstore together with limblength stored in graph</p>
+<ul>
+<li><p>For the Traceback we first update n, because we need n equal to 2 and we need to insert the single path of the 2*2 matrix being the starting point in resultlist, representing the tree. For this source is 0 , target is 1 and the distance is the distance represented in distancematrix.[0,1]. Because of symmetry source and target can also be changed and have the same distance. In this case target is 0 and source 1.</p></li>
+<li>Then we have to choose our first dBaldMatrix and the corresponding limblength and store this in a tuple (limblength,dMatix). For this we use n and assign the entry in graph to n</li>
+<li>In another tuple we store the first attachmentpoint as well as the corresponding src and target stored in attachmentsStore</li>
+<li>Next, we need to find the path in the actual tree that has to be modified. This path that has to be modified is assigned to edgeToModify. <b><u>Attention:</u></b> This Step is actually errorprone. Becuase we search after the first step in resultList for a path 1,2. But there exists no such Path. For this reason we need to find pathes were 1 is the src  and we need to find a path were 2 is the target. This path are in this case (1,55) and (55,2). Then we must look at the distances from this pathes 2291 and 4032. Because the attachmentpoint between 1 and 2 is at 2678 we know that the attachmentpoint now has to be inserted on the path between 55,2 at distance size 387. This step is not working actually, becuase it actually searchs only after pathes being completely actual</li>
+<li>if we have found the path to modify in the resultList, we also need to assign the inverse path, because both pathes are part in the description of the simple tree. For that we only need to change the value of src in the value of target and target in src. The Distance is because of symmetry the same</li>
+<li>
+<p>Next we need to define, which pathes have to be added to the path. In general this are every time 2*3 different edges called A as well as their inverse path</p>
+<ul>
+<li>edgeAdditionA and edgeAdditionAinverse describe the Path from the src to internalNode and the length between them e.g. (0,55 with Distance 745)</li>
+<li>edgeAdditionB and edgeAdditionBinverse describe the path from the internal Node to the target and the Distance which is equal to the edgetomodify Distance - the computed Distance from attachmentpoint</li>
+<li>edgeAdditionC and edgeAdditionCinverse describe the Step where we add the next species (n) back to the tree (e.g.55 -2). This Path has the length limblength</li>
+</ul>
+</li>
+<li>After Definition we update internalNodes and the resultList. While internalnodes has to be reduced by one, we have to remove the modified edges from resultList and add the computed edges, also n has to be increased by one</li>
+<li>To improve clarity we also have to sort the list by the Srcindex and then we can return the unique tree fitting the additive distancematrix</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre class="fssnip highlighted"><code lang="fsharp"><span class="k">let</span> <span onmouseout="hideTip(event, 'fs81', 327)" onmouseover="showTip(event, 'fs81', 327)" class="fn">addPhyl</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs30', 328)" onmouseover="showTip(event, 'fs30', 328)" class="fn">distMat</span><span class="pn">:</span><span onmouseout="hideTip(event, 'fs10', 329)" onmouseover="showTip(event, 'fs10', 329)" class="rt">matrix</span><span class="pn">)</span> <span class="o">=</span>
+    <span class="c">//Hier wird getestet ob die in die Funktion gegebene distanzmatrix die Anforderungen einer additiven Matrix erf&#252;llt, </span>
+    <span class="c">//da der Algorithmus nur f&#252;r eine additive Matrix funktionsf&#228;hig ist. Daf&#252;r wird die Funktion testingAdditivity aufgerufen.</span>
+    
+    <span onmouseout="hideTip(event, 'fs42', 330)" onmouseover="showTip(event, 'fs42', 330)" class="fn">testingAdditivity</span> <span onmouseout="hideTip(event, 'fs30', 331)" onmouseover="showTip(event, 'fs30', 331)" class="fn">distMat</span>
+
+    <span class="c">// Hier werden verschiedene Variablen (zum Teil ver&#228;nderbar) deklariert. Diese werden im Laufe des Algorithmus ben&#246;tigt und m&#252;ssen zum Teil ver&#228;nderbar sein</span>
+
+    <span class="c">// ver&#228;nderbare Variable, welche die aktuelle Version der Matrix beinhaltet, da die Matrix ver&#228;ndert werden muss (Stichwort Dbald)</span>
+    <span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs82', 332)" onmouseover="showTip(event, 'fs82', 332)" class="mv">dist_Mat</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 333)" onmouseover="showTip(event, 'fs30', 333)" class="fn">distMat</span>
+
+    <span class="c">// ver&#228;nderliche Varialble, die immer auf die letzte Reihe / Spalte der aktuellen Matrix verweist  </span>
+    <span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs83', 334)" onmouseover="showTip(event, 'fs83', 334)" class="mv">n</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs82', 335)" onmouseover="showTip(event, 'fs82', 335)" class="mv">dist_Mat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 336)" onmouseover="showTip(event, 'fs37', 336)" class="id">NumRows</span><span class="o">-</span><span class="n">1</span> 
+
+    <span class="c">// Unver&#228;nderliche Variable, welche auf die L&#228;nge der InputMatrix verweist</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs84', 337)" onmouseover="showTip(event, 'fs84', 337)" class="fn">lengthOfMatrix</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 338)" onmouseover="showTip(event, 'fs30', 338)" class="fn">distMat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 339)" onmouseover="showTip(event, 'fs37', 339)" class="id">NumRows</span><span class="o">-</span><span class="n">1</span>
+
+    <span class="c">// Hier wird eine leere Liste vom Typ PhylTreeConnection deklariert in der die Pfade am Ende gelistet sind und der Tree beschrieben wird </span>
+    <span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs85', 340)" onmouseover="showTip(event, 'fs85', 340)" class="mv">resultList</span><span class="pn">:</span> <span onmouseout="hideTip(event, 'fs86', 341)" onmouseover="showTip(event, 'fs86', 341)" class="rt">PhylTreeConnection</span> <span onmouseout="hideTip(event, 'fs87', 342)" onmouseover="showTip(event, 'fs87', 342)" class="rt">list</span> <span class="o">=</span> <span class="pn">[</span><span class="pn">]</span>
+
+    <span class="c">//Hier werden twei mutable dictionaries deklariert. graph ist daf&#252;r notwendig, alle Matrixen zu speichern und damit r&#252;ckw&#228;rts aufl&#246;sen zu k&#246;nnen  </span>
+    <span class="c">//und enth&#228;lt den Wert von n als Schl&#252;ssel ebensp wie der attachmentsstore der src,target und den attachmentPoint speichert. </span>
+    
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs88', 343)" onmouseover="showTip(event, 'fs88', 343)" class="fn">graph</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs89', 344)" onmouseover="showTip(event, 'fs89', 344)" class="rt">Dictionary</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs32', 345)" onmouseover="showTip(event, 'fs32', 345)" class="vt">int</span><span class="pn">,</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs27', 346)" onmouseover="showTip(event, 'fs27', 346)" class="vt">float</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs10', 347)" onmouseover="showTip(event, 'fs10', 347)" class="rt">matrix</span><span class="pn">)</span> <span class="pn">&gt;</span><span class="pn">(</span><span class="pn">)</span>
+    <span class="k">let</span> <span onmouseout="hideTip(event, 'fs90', 348)" onmouseover="showTip(event, 'fs90', 348)" class="fn">attachmentsStore</span> <span class="o">=</span> <span class="k">new</span> <span onmouseout="hideTip(event, 'fs89', 349)" onmouseover="showTip(event, 'fs89', 349)" class="rt">Dictionary</span><span class="pn">&lt;</span><span onmouseout="hideTip(event, 'fs32', 350)" onmouseover="showTip(event, 'fs32', 350)" class="vt">int</span><span class="pn">,</span><span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs32', 351)" onmouseover="showTip(event, 'fs32', 351)" class="vt">int</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs32', 352)" onmouseover="showTip(event, 'fs32', 352)" class="vt">int</span><span class="pn">)</span><span class="pn">*</span><span onmouseout="hideTip(event, 'fs27', 353)" onmouseover="showTip(event, 'fs27', 353)" class="vt">float</span><span class="pn">)</span><span class="pn">&gt;</span><span class="pn">(</span><span class="pn">)</span>
+
+    <span class="c">// internalNodes ist die variable, welche den Index des einzuf&#252;genden Knoten deklariert</span>
+    <span class="k">let</span> <span class="k">mutable</span> <span onmouseout="hideTip(event, 'fs91', 354)" onmouseover="showTip(event, 'fs91', 354)" class="mv">internalNodes</span> <span class="o">=</span> <span class="n">2</span><span class="o">*</span><span onmouseout="hideTip(event, 'fs82', 355)" onmouseover="showTip(event, 'fs82', 355)" class="mv">dist_Mat</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs37', 356)" onmouseover="showTip(event, 'fs37', 356)" class="id">NumRows</span><span class="o">-</span><span class="n">3</span>
+    
+    <span class="c">//  Hier wird gepr&#252;ft, ob eine 2*2 Matrix vorliegt, oder eine gr&#246;&#223;ere Matrix.</span>
+    <span class="c">//     Wenn eine 2*2 Matrix vorliegt, dann muss der Algorithmus nicht weiter durchlaufen werden </span>
+    <span class="c">//     und es kann direkt der phylogenetische Baum, bestehend aus einer einfachen Verbindung der beiden Spezies erstellt werden.</span>
+    <span class="c">//     Die L&#228;nge der Verbindung entspricht der Distanz zwischen den beiden Spezies. Folglich wird  der Baum in der Liste </span>
+    <span class="c">//     dargestellt durch den Eintrag von Source to Target (0,1) bzw. (1,0) und der Distanz zwischen beiden Spezies und die Liste wird zur&#252;ckgegeben   </span>
+    
+    <span class="k">if</span> <span onmouseout="hideTip(event, 'fs83', 357)" onmouseover="showTip(event, 'fs83', 357)" class="mv">n</span> <span class="o">=</span> <span class="n">1</span> <span class="k">then</span>
+        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs80', 358)" onmouseover="showTip(event, 'fs80', 358)" class="fn">distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs82', 359)" onmouseover="showTip(event, 'fs82', 359)" class="mv">dist_Mat</span><span class="pn">.</span><span class="pn">[</span><span class="n">0</span><span class="pn">,</span><span class="n">1</span><span class="pn">]</span>
+        <span onmouseout="hideTip(event, 'fs85', 360)" onmouseover="showTip(event, 'fs85', 360)" class="mv">resultList</span> <span class="k">&lt;-</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span class="n">0</span><span class="pn">,</span><span class="n">1</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs80', 361)" onmouseover="showTip(event, 'fs80', 361)" class="fn">distance</span><span class="pn">}</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs85', 362)" onmouseover="showTip(event, 'fs85', 362)" class="mv">resultList</span>
+        <span onmouseout="hideTip(event, 'fs85', 363)" onmouseover="showTip(event, 'fs85', 363)" class="mv">resultList</span> <span class="k">&lt;-</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span class="n">1</span><span class="pn">,</span><span class="n">0</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs80', 364)" onmouseover="showTip(event, 'fs80', 364)" class="fn">distance</span><span class="pn">}</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs85', 365)" onmouseover="showTip(event, 'fs85', 365)" class="mv">resultList</span>
+        <span onmouseout="hideTip(event, 'fs85', 366)" onmouseover="showTip(event, 'fs85', 366)" class="mv">resultList</span>
+
+    <span class="c">// Diese Verzweigung wird ausgef&#252;hrt falls keine 2*2 Matrix vorliegt</span>
+    
+    <span class="k">else</span>
+
+     
+        <span class="c">// Hier werden die in Zeile 24 und 25 deklarieren Dictionaries graph und attachmentsStore solange gef&#252;llt bis eine Matrixgr&#246;&#223;e 2+2 erreicht ist.</span>
+        <span class="c">// Das Dictionary graph beinhaltet dabei als Schl&#252;ssel n und ordnet diesem die jeweilige limbLength sowie die Distanzmatrix zu aus welcher die aktuelle Pfad L&#228;nge entnommen werden kann</span>
+        <span class="c">// Im Dictionary attachmentsStore werden die berechneten attachmentpoints von zwei Spezies gespeichert sowie src und target</span>
+    
+        <span class="k">while</span> <span onmouseout="hideTip(event, 'fs83', 367)" onmouseover="showTip(event, 'fs83', 367)" class="mv">n</span> <span class="o">&gt;</span><span class="o">=</span> <span class="n">2</span> <span class="k">do</span>
+            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs92', 368)" onmouseover="showTip(event, 'fs92', 368)" class="fn">limblength</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs49', 369)" onmouseover="showTip(event, 'fs49', 369)" class="fn">LimbLength</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs82', 370)" onmouseover="showTip(event, 'fs82', 370)" class="mv">dist_Mat</span><span class="pn">)</span> <span onmouseout="hideTip(event, 'fs83', 371)" onmouseover="showTip(event, 'fs83', 371)" class="mv">n</span>
+            <span onmouseout="hideTip(event, 'fs82', 372)" onmouseover="showTip(event, 'fs82', 372)" class="mv">dist_Mat</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs55', 373)" onmouseover="showTip(event, 'fs55', 373)" class="fn">dBaldMatrix</span> <span onmouseout="hideTip(event, 'fs82', 374)" onmouseover="showTip(event, 'fs82', 374)" class="mv">dist_Mat</span> <span onmouseout="hideTip(event, 'fs83', 375)" onmouseover="showTip(event, 'fs83', 375)" class="mv">n</span> 
+            <span onmouseout="hideTip(event, 'fs88', 376)" onmouseover="showTip(event, 'fs88', 376)" class="fn">graph</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs93', 377)" onmouseover="showTip(event, 'fs93', 377)" class="id">Add</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs83', 378)" onmouseover="showTip(event, 'fs83', 378)" class="mv">n</span><span class="pn">,</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs92', 379)" onmouseover="showTip(event, 'fs92', 379)" class="fn">limblength</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs82', 380)" onmouseover="showTip(event, 'fs82', 380)" class="mv">dist_Mat</span><span class="pn">)</span><span class="pn">)</span>
+
+            <span class="c">//    printfn &quot;n: %i&quot; n</span>
+            <span class="c">//     printfn &quot;limblength:  %f %A&quot; limblength dist_Mat</span>
+            <span class="c">//     Beispielhafte Ausgabe wenn n = 3 erreicht ist, zur Ansicht was in dictionary graph gespeichert wird</span>
+             
+            <span class="c">//  n: 3</span>
+            <span class="c">//  limblength: 409.000000 </span>
+            <span class="c">//         0        1        2        3</span>
+                                                
+            <span class="c">// 0 -&gt;    0.000 3036.000 4777.000 1132.000</span>
+            <span class="c">// 1 -&gt; 3036.000    0.000 6323.000 2678.000</span>
+            <span class="c">// 2 -&gt; 4777.000 6323.000    0.000 3645.000</span>
+            <span class="c">// 3 -&gt; 1132.000 2678.000 3645.000    0.000</span>
+             
+
+            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs94', 381)" onmouseover="showTip(event, 'fs94', 381)" class="fn">attachment</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs65', 382)" onmouseover="showTip(event, 'fs65', 382)" class="fn">attachmentPoint</span> <span onmouseout="hideTip(event, 'fs82', 383)" onmouseover="showTip(event, 'fs82', 383)" class="mv">dist_Mat</span> <span onmouseout="hideTip(event, 'fs83', 384)" onmouseover="showTip(event, 'fs83', 384)" class="mv">n</span>
+            <span class="k">let</span> <span onmouseout="hideTip(event, 'fs95', 385)" onmouseover="showTip(event, 'fs95', 385)" class="fn">x</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs75', 386)" onmouseover="showTip(event, 'fs75', 386)" class="fn">snd</span> <span onmouseout="hideTip(event, 'fs94', 387)" onmouseover="showTip(event, 'fs94', 387)" class="fn">attachment</span> 
+            <span class="k">let</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs96', 388)" onmouseover="showTip(event, 'fs96', 388)" class="fn">src</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs97', 389)" onmouseover="showTip(event, 'fs97', 389)" class="fn">target</span><span class="pn">)</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs74', 390)" onmouseover="showTip(event, 'fs74', 390)" class="fn">fst</span> <span onmouseout="hideTip(event, 'fs94', 391)" onmouseover="showTip(event, 'fs94', 391)" class="fn">attachment</span>
+            
+            <span onmouseout="hideTip(event, 'fs90', 392)" onmouseover="showTip(event, 'fs90', 392)" class="fn">attachmentsStore</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs98', 393)" onmouseover="showTip(event, 'fs98', 393)" class="id">Add</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs83', 394)" onmouseover="showTip(event, 'fs83', 394)" class="mv">n</span><span class="pn">,</span><span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs96', 395)" onmouseover="showTip(event, 'fs96', 395)" class="fn">src</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs97', 396)" onmouseover="showTip(event, 'fs97', 396)" class="fn">target</span><span class="pn">)</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs95', 397)" onmouseover="showTip(event, 'fs95', 397)" class="fn">x</span><span class="pn">)</span><span class="pn">)</span>
+            <span class="c">//  printfn &quot; n: %i x: %f src: %i target:%i&quot; n x src target </span>
+            <span class="c">// Beispielshafte Ausgabe wenn n = 3 erreicht ist in der 29*29 Matrix aus Rosalind</span>
+            <span class="c">// n: 3 x: 2678.000000 src: 1 target:2</span>
+            
+                
+            <span class="c">// Hier wird die Matrix getrimmt und n geupdatet sodass n wieder dem Index der letzten Reihe / Spalte entspricht</span>
+
+            <span onmouseout="hideTip(event, 'fs82', 398)" onmouseover="showTip(event, 'fs82', 398)" class="mv">dist_Mat</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs61', 399)" onmouseover="showTip(event, 'fs61', 399)" class="fn">delete_species</span> <span onmouseout="hideTip(event, 'fs82', 400)" onmouseover="showTip(event, 'fs82', 400)" class="mv">dist_Mat</span> <span onmouseout="hideTip(event, 'fs83', 401)" onmouseover="showTip(event, 'fs83', 401)" class="mv">n</span>
+            <span onmouseout="hideTip(event, 'fs83', 402)" onmouseover="showTip(event, 'fs83', 402)" class="mv">n</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs83', 403)" onmouseover="showTip(event, 'fs83', 403)" class="mv">n</span><span class="o">-</span><span class="n">1</span>
+        
+        
+        <span class="c">// Bis hier wurde die distanzmatrix iterativ reduziert und die jeweiligen Attachmentpoints und limblength in graph und attachmentsStore gespeichert</span>
+        <span class="c">// Nun muss im TraceBack-Schritt in jeder Iteration ein initial graph bnestehen aus node 0 und 1 mit allen fehleden nodes vervollst&#228;ndigt werden. Diese werden </span>
+        <span class="c">// an den punkten aus attachmentstore angef&#252;gt mit der limblength, die in graph gespeichert ist. </span>
+        <span class="c">// Daf&#252;r wird zun&#228;chst der aktuelle Pfad der in der Matrix als Schnittpunkt 0,1 dargestellt ist in resultList eingef&#252;gt </span>
+        
+
+        <span onmouseout="hideTip(event, 'fs85', 404)" onmouseover="showTip(event, 'fs85', 404)" class="mv">resultList</span> <span class="k">&lt;-</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span class="n">0</span><span class="pn">,</span><span class="n">1</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 405)" onmouseover="showTip(event, 'fs30', 405)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span class="n">0</span><span class="pn">,</span><span class="n">1</span><span class="pn">]</span><span class="pn">}</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs85', 406)" onmouseover="showTip(event, 'fs85', 406)" class="mv">resultList</span>
+        <span onmouseout="hideTip(event, 'fs85', 407)" onmouseover="showTip(event, 'fs85', 407)" class="mv">resultList</span> <span class="k">&lt;-</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span class="n">1</span><span class="pn">,</span><span class="n">0</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs30', 408)" onmouseover="showTip(event, 'fs30', 408)" class="fn">distMat</span><span class="pn">.</span><span class="pn">[</span><span class="n">1</span><span class="pn">,</span><span class="n">0</span><span class="pn">]</span><span class="pn">}</span><span class="uc">::</span><span onmouseout="hideTip(event, 'fs85', 409)" onmouseover="showTip(event, 'fs85', 409)" class="mv">resultList</span>
+
+        <span class="c">// Hier wird n wieder angepasst sodass n = 2 ist und damit dem kleinsten Schl&#252;ssel in den Dictionaries entspricht</span>
+        <span onmouseout="hideTip(event, 'fs83', 410)" onmouseover="showTip(event, 'fs83', 410)" class="mv">n</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs83', 411)" onmouseover="showTip(event, 'fs83', 411)" class="mv">n</span><span class="o">+</span><span class="n">1</span>
+
+         
+            <span class="c">// Im folgenden Schritt wird der traceback durchgef&#252;hrt und nach und nach die bestimmten attachmentpoints eingef&#252;gt. </span>
+            <span class="c">// Daf&#252;r wird eine zweite While loop erstellt die solange wie n nicht dem maximalen Specindex entspricht den Traceback durchf&#252;hrt.</span>
+        
+        <span class="k">let</span> <span onmouseout="hideTip(event, 'fs99', 412)" onmouseover="showTip(event, 'fs99', 412)" class="fn">traceback</span> <span class="o">=</span>
+            <span class="k">while</span> <span onmouseout="hideTip(event, 'fs83', 413)" onmouseover="showTip(event, 'fs83', 413)" class="mv">n</span> <span class="o">&lt;</span> <span onmouseout="hideTip(event, 'fs84', 414)" onmouseover="showTip(event, 'fs84', 414)" class="fn">lengthOfMatrix</span> <span class="k">do</span> <span class="pn">(</span>
+
+            
+            <span class="c">//    Hier wird die aktuelle resultList f&#252;r jeden Durchgang geprintet:  printfn &quot;resultList: %A&quot; resultList, Bsp. zu Beginn und nach dem ersten Durchlauf  </span>
+            <span class="c">//     resultList zu Beginn: [{ SourceToTargetIndex = (1, 0) Distance = 3036.0 }; { SourceToTargetIndex = (0, 1) Distance = 3036.0 }]</span>
+            <span class="c">//     resultList nach Durchgang 1:[{ SourceToTargetIndex = (0, 55) Distance = 745.0 }; { SourceToTargetIndex = (55, 0) Distance = 745.0 }; </span>
+            <span class="c">//                                  { SourceToTargetIndex = (55, 1) Distance = 2291.0 };</span>
+            <span class="c">//                                  { SourceToTargetIndex = (1, 55) Distance = 2291.0 }; { SourceToTargetIndex = (55, 2) Distance = 4032.0 }; </span>
+            <span class="c">//                                  { SourceToTargetIndex = (2, 55) Distance = 4032.0 }]</span>
+              
+
+
+                <span class="c">// Take the currentGraphElement</span>
+                <span class="k">let</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs92', 415)" onmouseover="showTip(event, 'fs92', 415)" class="fn">limblength</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs100', 416)" onmouseover="showTip(event, 'fs100', 416)" class="fn">dMatrix</span><span class="pn">)</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs88', 417)" onmouseover="showTip(event, 'fs88', 417)" class="fn">graph</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs83', 418)" onmouseover="showTip(event, 'fs83', 418)" class="mv">n</span><span class="pn">]</span>
+                <span class="c">// Take the currentAttachmentPoint</span>
+                <span class="k">let</span> <span class="pn">(</span><span class="pn">(</span><span onmouseout="hideTip(event, 'fs96', 419)" onmouseover="showTip(event, 'fs96', 419)" class="fn">src</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs101', 420)" onmouseover="showTip(event, 'fs101', 420)" class="fn">trg</span><span class="pn">)</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs80', 421)" onmouseover="showTip(event, 'fs80', 421)" class="fn">distance</span><span class="pn">)</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs90', 422)" onmouseover="showTip(event, 'fs90', 422)" class="fn">attachmentsStore</span><span class="pn">.</span><span class="pn">[</span><span onmouseout="hideTip(event, 'fs83', 423)" onmouseover="showTip(event, 'fs83', 423)" class="mv">n</span><span class="pn">]</span>
+
+        
+                <span class="c">//  Hier kann Beispielshaft durch den Print Befehl &#252;berpr&#252;ft werden; ob der  Attachmentpoint richtig &#252;bertragen wurde - Ausgabe f&#252;r twentyNineMatrix</span>
+
+                <span class="c">//     printfn &quot;index: %i, src: %i, trg: %i, distance: %f&quot;n src trg distance</span>
+                <span class="c">//     index: 2, src: 0, trg: 1, distance: 745.000000</span>
+                <span class="c">//     index: 3, src: 1, trg: 2, distance: 2678.000000</span>
+
+                
+                <span class="c">//  Ab hier ist der Code noch nicht vollst&#228;ndig funcktionsf&#228;hig, da aktuell nur nach edgestomodify gesucht wird die genau dem src, target entsprechen, dies ist allerdings nicht ausreichend, da vorher bereits Pfade ver&#228;ndert wurden und im Pfad zwischen 1 und 2 z.B. schon eine internalNode eingef&#252;gt wurde</span>
+                <span class="c">//     Problem: Es soll nodeindex 3 auf dem path zwischen nodes 1 und 2 angef&#252;gt werden, aber dieser path ist nicht verf&#252;gbar weil im vorigsen schritt schon </span>
+                <span class="c">//     ein artificail node (55) zwischen 1 und 2 eingef&#252;gt wurde. Deswegen m&#252;sste man resultlist jetzt untersuchen nach dem Path 1 -&gt; 2 und die edge identifizieren an der </span>
+                <span class="c">//     der zus&#228;tzliche node (54) angef&#252;gt werden soll (aufgrund der distanzen 1-55: 2291 und 55-2: 4032 m&#252;sste node 54 demnach zwischen 55 und 2 in der Distanz 387 eingesetzt werden</span>
+
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs102', 424)" onmouseover="showTip(event, 'fs102', 424)" class="fn">edgeToModify</span> <span class="o">=</span> 
+                    <span onmouseout="hideTip(event, 'fs85', 425)" onmouseover="showTip(event, 'fs85', 425)" class="mv">resultList</span> <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs103', 426)" onmouseover="showTip(event, 'fs103', 426)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs104', 427)" onmouseover="showTip(event, 'fs104', 427)" class="id">find</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs105', 428)" onmouseover="showTip(event, 'fs105', 428)" class="fn">element</span> <span class="k">-&gt;</span> 
+                        <span onmouseout="hideTip(event, 'fs105', 429)" onmouseover="showTip(event, 'fs105', 429)" class="fn">element</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 430)" onmouseover="showTip(event, 'fs77', 430)" class="id">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs96', 431)" onmouseover="showTip(event, 'fs96', 431)" class="fn">src</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs101', 432)" onmouseover="showTip(event, 'fs101', 432)" class="fn">trg</span><span class="pn">)</span> <span class="o">||</span>
+                        <span onmouseout="hideTip(event, 'fs105', 433)" onmouseover="showTip(event, 'fs105', 433)" class="fn">element</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 434)" onmouseover="showTip(event, 'fs77', 434)" class="id">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs101', 435)" onmouseover="showTip(event, 'fs101', 435)" class="fn">trg</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs96', 436)" onmouseover="showTip(event, 'fs96', 436)" class="fn">src</span><span class="pn">)</span> 
+                        <span class="pn">)</span>
+
+                <span class="c">// Hier soll der inverse Path von edge to Modify (Bsp. von 0,1 =&gt; 1,0) bestimmt und zugeordnet werden, da dieser auch aus der Liste entnommen werden muss</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs106', 437)" onmouseover="showTip(event, 'fs106', 437)" class="fn">edgeToModifyInnverse</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs75', 438)" onmouseover="showTip(event, 'fs75', 438)" class="fn">snd</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs102', 439)" onmouseover="showTip(event, 'fs102', 439)" class="fn">edgeToModify</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 440)" onmouseover="showTip(event, 'fs77', 440)" class="id">SourceToTargetIndex</span><span class="pn">)</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs74', 441)" onmouseover="showTip(event, 'fs74', 441)" class="fn">fst</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs102', 442)" onmouseover="showTip(event, 'fs102', 442)" class="fn">edgeToModify</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 443)" onmouseover="showTip(event, 'fs77', 443)" class="id">SourceToTargetIndex</span><span class="pn">)</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs102', 444)" onmouseover="showTip(event, 'fs102', 444)" class="fn">edgeToModify</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs78', 445)" onmouseover="showTip(event, 'fs78', 445)" class="id">Distance</span><span class="pn">}</span>
+               
+                <span class="c">//  Hier wird das im vorherigen Codeabschnitt bestimmte edgeToModify und der inverse Pfad bestimmt</span>
+                <span class="c">//     printfn &quot; edgetomodify: %A , edgetomodify inverse: %A&quot;     edgeToModify edgeToModifyInnverse </span>
+                <span class="c">//     edgetomodify: { SourceToTargetIndex = (1, 0) Distance = 3036.0 } , edgetomodify inverse: { SourceToTargetIndex = (0, 1) Distance = 3036.0 }</span>
+                
+
+                <span class="c">// Hier werden die Pfade bestimmt, die in resultList hinzugef&#252;gt werden sollen und an welcher Stelle ein Knoten eingef&#252;gt werden soll</span>
+                <span class="c">//     edgeAdditionA: Beschreibt den Pfad zwischen der Quelle und dem einzuf&#252;gnden internal Node (z.B. 0 -55 ==&gt; Distance 745 oder 55-54 ==&gt;  distance 387 )</span>
+                <span class="c">//     edgeAdditionB: Beschreibt den Pfad zwischen InternalNodes und dem target also von z.B. 55-1 ==&gt; 2291 oder 54 -2 ==&gt; 1354. </span>
+                <span class="c">//     Daf&#252;r muss die edgeToModiy Distanz von den einzelnen Distanzen ( Distanzen der beteiligten Teilpfade / Attachmentpoindistanz) abgezogen werden.</span>
+                <span class="c">//     edgeAdditionC: Hier wird die aktuelle Spezies wieder zum Baum hinzugef&#252;gt im Abstand der limblength zum aktuellen InternalNode ( z.B. im ersten Schritt wird Spezies 2 wieder eingef&#252;ht)</span>
+                
+                
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs107', 446)" onmouseover="showTip(event, 'fs107', 446)" class="fn">edgeAdditionA</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs96', 447)" onmouseover="showTip(event, 'fs96', 447)" class="fn">src</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs91', 448)" onmouseover="showTip(event, 'fs91', 448)" class="mv">internalNodes</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs80', 449)" onmouseover="showTip(event, 'fs80', 449)" class="fn">distance</span><span class="pn">}</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs108', 450)" onmouseover="showTip(event, 'fs108', 450)" class="fn">edgeAdditionA_inverse</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs91', 451)" onmouseover="showTip(event, 'fs91', 451)" class="mv">internalNodes</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs96', 452)" onmouseover="showTip(event, 'fs96', 452)" class="fn">src</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs80', 453)" onmouseover="showTip(event, 'fs80', 453)" class="fn">distance</span><span class="pn">}</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs109', 454)" onmouseover="showTip(event, 'fs109', 454)" class="fn">edgeAdditionB</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs91', 455)" onmouseover="showTip(event, 'fs91', 455)" class="mv">internalNodes</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs101', 456)" onmouseover="showTip(event, 'fs101', 456)" class="fn">trg</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs102', 457)" onmouseover="showTip(event, 'fs102', 457)" class="fn">edgeToModify</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs78', 458)" onmouseover="showTip(event, 'fs78', 458)" class="id">Distance</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs80', 459)" onmouseover="showTip(event, 'fs80', 459)" class="fn">distance</span><span class="pn">}</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs110', 460)" onmouseover="showTip(event, 'fs110', 460)" class="fn">edgeAdditionB_inverse</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs101', 461)" onmouseover="showTip(event, 'fs101', 461)" class="fn">trg</span><span class="pn">,</span> <span onmouseout="hideTip(event, 'fs91', 462)" onmouseover="showTip(event, 'fs91', 462)" class="mv">internalNodes</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs102', 463)" onmouseover="showTip(event, 'fs102', 463)" class="fn">edgeToModify</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs78', 464)" onmouseover="showTip(event, 'fs78', 464)" class="id">Distance</span> <span class="o">-</span> <span onmouseout="hideTip(event, 'fs80', 465)" onmouseover="showTip(event, 'fs80', 465)" class="fn">distance</span><span class="pn">}</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs111', 466)" onmouseover="showTip(event, 'fs111', 466)" class="fn">edgeAdditionC</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs91', 467)" onmouseover="showTip(event, 'fs91', 467)" class="mv">internalNodes</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs83', 468)" onmouseover="showTip(event, 'fs83', 468)" class="mv">n</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 469)" onmouseover="showTip(event, 'fs92', 469)" class="fn">limblength</span><span class="pn">}</span>
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs112', 470)" onmouseover="showTip(event, 'fs112', 470)" class="fn">edgeAdditionC_inverse</span> <span class="o">=</span> <span class="pn">{</span><span class="prop">SourceToTargetIndex</span> <span class="o">=</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs83', 471)" onmouseover="showTip(event, 'fs83', 471)" class="mv">n</span><span class="pn">,</span><span onmouseout="hideTip(event, 'fs91', 472)" onmouseover="showTip(event, 'fs91', 472)" class="mv">internalNodes</span><span class="pn">)</span><span class="pn">;</span> <span class="prop">Distance</span> <span class="o">=</span> <span onmouseout="hideTip(event, 'fs92', 473)" onmouseover="showTip(event, 'fs92', 473)" class="fn">limblength</span><span class="pn">}</span>
+
+                <span class="c">// Beispielshafte Ausgabe nach dem ersten Durchlauf von edgeAddition A , edgeAddition B und edgeAddition C </span>
+                <span class="c">//     Edgeaddition A: { SourceToTargetIndex = (0, 55) Distance = 745.0 } </span>
+                <span class="c">//     edgeAdditionB: { SourceToTargetIndex = (55, 1) Distance = 2291.0 } </span>
+                <span class="c">//     edgeAdditionC: { SourceToTargetIndex = (55, 2) Distance = 4032.0 } </span>
+                                                                                     
+                <span class="c">// Aktualisieren von internal Nodes </span>
+
+                <span onmouseout="hideTip(event, 'fs91', 474)" onmouseover="showTip(event, 'fs91', 474)" class="mv">internalNodes</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs91', 475)" onmouseover="showTip(event, 'fs91', 475)" class="mv">internalNodes</span><span class="o">-</span><span class="n">1</span>
+
+                <span class="c">//  Hier wird der phylogenetische Baum  geupdated. </span>
+                <span class="c">//      Daf&#252;r werden die zu ver&#228;ndernden Pfade zun&#228;chst aus der Liste entferent und anschlie&#223;end werden die vorher bestimmten Pfade der Liste hinzugef&#252;gt.</span>
+                <span class="c">//      Zuletzt wird der &#252;bersichtlichkeithalber die Liste nach den Src sotiert und n geupdatet. Nach Beendigung der While Loop wird zuletzt die fertige resultList, </span>
+                <span class="c">//      welche den Baum beschreibt ausgegeben </span>
+              
+
+                <span class="k">let</span> <span onmouseout="hideTip(event, 'fs113', 476)" onmouseover="showTip(event, 'fs113', 476)" class="fn">newResultList</span> <span class="o">=</span> 
+                    <span onmouseout="hideTip(event, 'fs85', 477)" onmouseover="showTip(event, 'fs85', 477)" class="mv">resultList</span>
+                    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs103', 478)" onmouseover="showTip(event, 'fs103', 478)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs114', 479)" onmouseover="showTip(event, 'fs114', 479)" class="id">where</span>  <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs115', 480)" onmouseover="showTip(event, 'fs115', 480)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs115', 481)" onmouseover="showTip(event, 'fs115', 481)" class="fn">x</span> <span class="o">&lt;&gt;</span> <span onmouseout="hideTip(event, 'fs102', 482)" onmouseover="showTip(event, 'fs102', 482)" class="fn">edgeToModify</span> <span class="o">&amp;&amp;</span> <span onmouseout="hideTip(event, 'fs115', 483)" onmouseover="showTip(event, 'fs115', 483)" class="fn">x</span> <span class="o">&lt;&gt;</span> <span onmouseout="hideTip(event, 'fs106', 484)" onmouseover="showTip(event, 'fs106', 484)" class="fn">edgeToModifyInnverse</span><span class="pn">)</span>
+                    <span class="o">|&gt;</span> <span onmouseout="hideTip(event, 'fs103', 485)" onmouseover="showTip(event, 'fs103', 485)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs116', 486)" onmouseover="showTip(event, 'fs116', 486)" class="id">append</span> <span class="pn">[</span><span onmouseout="hideTip(event, 'fs107', 487)" onmouseover="showTip(event, 'fs107', 487)" class="fn">edgeAdditionA</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs108', 488)" onmouseover="showTip(event, 'fs108', 488)" class="fn">edgeAdditionA_inverse</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs109', 489)" onmouseover="showTip(event, 'fs109', 489)" class="fn">edgeAdditionB</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs110', 490)" onmouseover="showTip(event, 'fs110', 490)" class="fn">edgeAdditionB_inverse</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs111', 491)" onmouseover="showTip(event, 'fs111', 491)" class="fn">edgeAdditionC</span><span class="pn">;</span><span onmouseout="hideTip(event, 'fs112', 492)" onmouseover="showTip(event, 'fs112', 492)" class="fn">edgeAdditionC_inverse</span><span class="pn">]</span>
+                    <span class="o">|&gt;</span><span onmouseout="hideTip(event, 'fs103', 493)" onmouseover="showTip(event, 'fs103', 493)" class="m">List</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs117', 494)" onmouseover="showTip(event, 'fs117', 494)" class="id">sortBy</span> <span class="pn">(</span><span class="k">fun</span> <span onmouseout="hideTip(event, 'fs115', 495)" onmouseover="showTip(event, 'fs115', 495)" class="fn">x</span> <span class="k">-&gt;</span> <span onmouseout="hideTip(event, 'fs74', 496)" onmouseover="showTip(event, 'fs74', 496)" class="fn">fst</span> <span class="pn">(</span><span onmouseout="hideTip(event, 'fs115', 497)" onmouseover="showTip(event, 'fs115', 497)" class="fn">x</span><span class="pn">.</span><span onmouseout="hideTip(event, 'fs77', 498)" onmouseover="showTip(event, 'fs77', 498)" class="id">SourceToTargetIndex</span><span class="pn">)</span><span class="pn">)</span>
+                <span onmouseout="hideTip(event, 'fs85', 499)" onmouseover="showTip(event, 'fs85', 499)" class="mv">resultList</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs113', 500)" onmouseover="showTip(event, 'fs113', 500)" class="fn">newResultList</span>
+                <span onmouseout="hideTip(event, 'fs83', 501)" onmouseover="showTip(event, 'fs83', 501)" class="mv">n</span> <span class="k">&lt;-</span> <span onmouseout="hideTip(event, 'fs83', 502)" onmouseover="showTip(event, 'fs83', 502)" class="mv">n</span><span class="o">+</span><span class="n">1</span>
+                <span class="pn">)</span>
+
+        <span onmouseout="hideTip(event, 'fs85', 503)" onmouseover="showTip(event, 'fs85', 503)" class="mv">resultList</span>
+      
+        
+<span class="c">// Beispielshafte Ausgabe zur Darstellung des Problems</span>
+<span class="c">// printfn &quot;resultList: %A&quot; resultList</span>
+<span class="c">// printfn &quot;index: %i, src: %i, trg: %i, distance: %f&quot;n src trg distance</span>
+
+<span class="c">// resultList: [{ SourceToTargetIndex = (1, 0)</span>
+<span class="c">//    Distance = 3036.0 }; { SourceToTargetIndex = (0, 1)</span>
+<span class="c">//                           Distance = 3036.0 }]</span>
+<span class="c">// index: 2, src: 0, trg: 1, distance: 745.000000</span>
+<span class="c">// resultList: [{ SourceToTargetIndex = (0, 55)</span>
+<span class="c">//    Distance = 745.0 }; { SourceToTargetIndex = (55, 0)</span>
+<span class="c">//                          Distance = 745.0 }; { SourceToTargetIndex = (55, 1)</span>
+<span class="c">//                                                Distance = 2291.0 };</span>
+<span class="c">//  { SourceToTargetIndex = (1, 55)</span>
+<span class="c">//    Distance = 2291.0 }; { SourceToTargetIndex = (55, 2)</span>
+<span class="c">//                           Distance = 4032.0 }; { SourceToTargetIndex = (2, 55)</span>
+<span class="c">//                                                  Distance = 4032.0 }]</span>
+<span class="c">// index: 3, src: 1, trg: 2, distance: 2678.000000</span>
+
+
+
+<span class="c">// test off addPhyl</span>
+
+<span onmouseout="hideTip(event, 'fs81', 504)" onmouseover="showTip(event, 'fs81', 504)" class="fn">addPhyl</span> <span onmouseout="hideTip(event, 'fs16', 505)" onmouseover="showTip(event, 'fs16', 505)" class="id">twentyNineMatrix</span><span class="pn">.</span><span class="id">DistanceM</span>
+</code></pre>
+<table class="pre"><tr><td><pre><code>No value returned by any evaluator</code></pre></td></tr></table>
+
+                </div>
+            </div>
+        </div>
+        <div class="fsdocs-tip" id="fs1">Multiple items<br />namespace FSharp<br /><br />--------------------<br />namespace Microsoft.FSharp</div>
+<div class="fsdocs-tip" id="fs2">Multiple items<br />namespace FSharp.Data<br /><br />--------------------<br />namespace Microsoft.FSharp.Data</div>
+<div class="fsdocs-tip" id="fs3">namespace FSharp.Stats</div>
+<div class="fsdocs-tip" id="fs4">namespace System</div>
+<div class="fsdocs-tip" id="fs5">namespace System.Collections</div>
+<div class="fsdocs-tip" id="fs6">namespace System.Collections.Generic</div>
+<div class="fsdocs-tip" id="fs7">DistanceMatrix.Species: string []</div>
+<div class="fsdocs-tip" id="fs8">Multiple items<br />val string : value:&#39;T -&gt; string<br /><em>&lt;summary&gt;Converts the argument to a string using &lt;c&gt;ToString&lt;/c&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;For standard integer and floating point values the and any type that implements &lt;c&gt;IFormattable&lt;/c&gt;&lt;c&gt;ToString&lt;/c&gt; conversion uses &lt;c&gt;CultureInfo.InvariantCulture&lt;/c&gt;. &lt;/remarks&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted string.&lt;/returns&gt;</em><br /><br />--------------------<br />type string = System.String<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.String&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs9">DistanceMatrix.DistanceM: matrix</div>
+<div class="fsdocs-tip" id="fs10">Multiple items<br />val matrix : ll:seq&lt;#seq&lt;float&gt;&gt; -&gt; Matrix&lt;float&gt;<br /><br />--------------------<br />type matrix = Matrix&lt;float&gt;</div>
+<div class="fsdocs-tip" id="fs11">val species : string []</div>
+<div class="fsdocs-tip" id="fs12">val distanceM : matrix</div>
+<div class="fsdocs-tip" id="fs13">val myMatrixAdditive&lt;&#39;a&gt; : DistanceMatrix&lt;obj&gt;</div>
+<div class="fsdocs-tip" id="fs14">val distTest : Matrix&lt;float&gt;</div>
+<div class="fsdocs-tip" id="fs15">type DistanceMatrix&lt;&#39;a&gt; =
+  { Species: string []
+    DistanceM: matrix }
+    static member Create : species:string [] -&gt; distanceM:matrix -&gt; DistanceMatrix&lt;&#39;a0&gt;</div>
+<div class="fsdocs-tip" id="fs16">val twentyNineMatrix&lt;&#39;a&gt; : DistanceMatrix&lt;obj&gt;</div>
+<div class="fsdocs-tip" id="fs17">val test : Matrix&lt;float&gt;</div>
+<div class="fsdocs-tip" id="fs18">val rawData : string</div>
+<div class="fsdocs-tip" id="fs19">type Http =
+  private new : unit -&gt; Http
+  static member private AppendQueryToUrl : url:string * query:(string * string) list -&gt; string
+  static member AsyncRequest : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:string * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; Async&lt;HttpResponse&gt;
+  static member AsyncRequestStream : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; Async&lt;HttpResponseWithStream&gt;
+  static member AsyncRequestString : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:string * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; Async&lt;string&gt;
+  static member private EncodeFormData : query:string -&gt; string
+  static member private InnerRequest : url:string * toHttpResponse:(string -&gt; int -&gt; string -&gt; string -&gt; &#39;a0 option -&gt; Map&lt;string,string&gt; -&gt; Map&lt;string,string&gt; -&gt; Stream -&gt; Async&lt;&#39;a1&gt;) * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:&#39;a0 * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; Async&lt;&#39;a1&gt;
+  static member Request : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:string * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; HttpResponse
+  static member RequestStream : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; HttpResponseWithStream
+  static member RequestString : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:string * ?customizeHttpRequest:(HttpWebRequest -&gt; HttpWebRequest) * ?timeout:int -&gt; string<br /><em>&lt;summary&gt;
+ Utilities for working with network via HTTP. Includes methods for downloading
+ resources with specified headers, query parameters and HTTP body
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs20">static member Http.RequestString : url:string * ?query:(string * string) list * ?headers:seq&lt;string * string&gt; * ?httpMethod:string * ?body:HttpRequestBody * ?cookies:seq&lt;string * string&gt; * ?cookieContainer:System.Net.CookieContainer * ?silentHttpErrors:bool * ?silentCookieErrors:bool * ?responseEncodingOverride:string * ?customizeHttpRequest:(System.Net.HttpWebRequest -&gt; System.Net.HttpWebRequest) * ?timeout:int -&gt; string</div>
+<div class="fsdocs-tip" id="fs21">System.String.Split([&lt;System.ParamArray&gt;] separator: char []) : string []<br />System.String.Split(separator: string [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int) : string []<br />System.String.Split(separator: char,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: string, count: int,?options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char [], count: int, options: System.StringSplitOptions) : string []<br />System.String.Split(separator: char, count: int,?options: System.StringSplitOptions) : string []</div>
+<div class="fsdocs-tip" id="fs22">Multiple items<br />module Array
+
+from FSharp.Stats<br /><em>&lt;summary&gt;
+ Module to compute common statistical measure on array
+&lt;/summary&gt;</em><br /><br />--------------------<br />module Array
+
+from Microsoft.FSharp.Collections<br /><em>&lt;summary&gt;Contains operations for working with arrays.&lt;/summary&gt;<br />&lt;remarks&gt;
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/arrays&quot;&gt;F# Language Guide - Arrays&lt;/a&gt;.
+ &lt;/remarks&gt;</em><br /><br />--------------------<br />type Array =
+  new : unit -&gt; Array
+  static member geomspace : start:float * stop:float * num:int * ?IncludeEndpoint:bool -&gt; float array
+  static member linspace : start:float * stop:float * num:int * ?IncludeEndpoint:bool -&gt; float []<br /><br />--------------------<br />new : unit -&gt; Array</div>
+<div class="fsdocs-tip" id="fs23">val skip : count:int -&gt; array:&#39;T [] -&gt; &#39;T []<br /><em>&lt;summary&gt;Builds a new array that contains the elements of the given array, excluding the first N elements.&lt;/summary&gt;<br />&lt;param name=&quot;count&quot;&gt;The number of elements to skip.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;A copy of the input array, after removing the first N elements.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentExcepion&quot;&gt;Thrown when count is negative or exceeds the number of 
+ elements in the array.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs24">val take : count:int -&gt; array:&#39;T [] -&gt; &#39;T []<br /><em>&lt;summary&gt;Returns the first N elements of the array.&lt;/summary&gt;<br />&lt;remarks&gt;Throws &lt;c&gt;InvalidOperationException&lt;/c&gt;
+ if the count exceeds the number of elements in the array. &lt;c&gt;Array.truncate&lt;/c&gt;
+ returns as many items as the array contains instead of throwing an exception.&lt;/remarks&gt;<br />&lt;param name=&quot;count&quot;&gt;The number of items to take.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The result array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.InvalidOperationException&quot;&gt;Thrown when count exceeds the number of elements
+ in the list.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs25">val map : mapping:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;U []<br /><em>&lt;summary&gt;Builds a new array whose elements are the results of applying the given function
+ to each of the elements of the array.&lt;/summary&gt;<br />&lt;param name=&quot;mapping&quot;&gt;The function to transform elements of the array.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The array of transformed elements.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs26">val x : string</div>
+<div class="fsdocs-tip" id="fs27">Multiple items<br />val float : value:&#39;T -&gt; float (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to 64-bit float. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Double.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted float&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type float = System.Double<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type float&lt;&#39;Measure&gt; =
+  float<br /><em>&lt;summary&gt;The type of double-precision floating point numbers, annotated with a unit of measure. 
+ The unit of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Double&quot; /&gt;.&lt;/summary&gt;<br />&lt;category index=&quot;6&quot;&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs28">val myNonAdditiveAdditive&lt;&#39;a&gt; : DistanceMatrix&lt;obj&gt;</div>
+<div class="fsdocs-tip" id="fs29">val fourpoint_condition : distMat:matrix -&gt; specIndex0:int -&gt; specIndex1:int -&gt; specIndex2:int -&gt; specIndex3:int -&gt; bool</div>
+<div class="fsdocs-tip" id="fs30">val distMat : matrix</div>
+<div class="fsdocs-tip" id="fs31">val specIndex0 : int</div>
+<div class="fsdocs-tip" id="fs32">Multiple items<br />val int : value:&#39;T -&gt; int (requires member op_Explicit)<br /><em>&lt;summary&gt;Converts the argument to signed 32-bit integer. This is a direct conversion for all 
+ primitive numeric types. For strings, the input is converted using &lt;c&gt;Int32.Parse()&lt;/c&gt;  
+ with InvariantCulture settings. Otherwise the operation requires an appropriate
+ static conversion method on the input type.&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The input value.&lt;/param&gt;<br />&lt;returns&gt;The converted int&lt;/returns&gt;</em><br /><br />--------------------<br />[&lt;Struct&gt;]
+type int = int32<br /><em>&lt;summary&gt;An abbreviation for the CLI type &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types&lt;/category&gt;</em><br /><br />--------------------<br />type int&lt;&#39;Measure&gt; =
+  int<br /><em>&lt;summary&gt;The type of 32-bit signed integer numbers, annotated with a unit of measure. The unit
+ of measure is erased in compiled code and when values of this type
+ are analyzed using reflection. The type is representationally equivalent to 
+ &lt;see cref=&quot;T:System.Int32&quot; /&gt;.&lt;/summary&gt;<br />&lt;category&gt;Basic Types with Units of Measure&lt;/category&gt;</em></div>
+<div class="fsdocs-tip" id="fs33">val specIndex1 : int</div>
+<div class="fsdocs-tip" id="fs34">val specIndex2 : int</div>
+<div class="fsdocs-tip" id="fs35">val specIndex3 : int</div>
+<div class="fsdocs-tip" id="fs36">val specCount : int</div>
+<div class="fsdocs-tip" id="fs37">property Matrix.NumRows: int with get</div>
+<div class="fsdocs-tip" id="fs38">val failwithf : format:Printf.StringFormat&lt;&#39;T,&#39;Result&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to a string buffer and raise an exception with the given
+ result. Helper printers must return strings.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs39">val sum1 : float</div>
+<div class="fsdocs-tip" id="fs40">val sum2 : float</div>
+<div class="fsdocs-tip" id="fs41">val sum3 : float</div>
+<div class="fsdocs-tip" id="fs42">val testingAdditivity : distMat:matrix -&gt; unit</div>
+<div class="fsdocs-tip" id="fs43">val rowlength : int</div>
+<div class="fsdocs-tip" id="fs44">val columnlength : int</div>
+<div class="fsdocs-tip" id="fs45">property Matrix.NumCols: int with get</div>
+<div class="fsdocs-tip" id="fs46">val failwith : message:string -&gt; &#39;T<br /><em>&lt;summary&gt;Throw a &lt;see cref=&quot;T:System.Exception&quot; /&gt; exception.&lt;/summary&gt;<br />&lt;param name=&quot;message&quot;&gt;The exception message.&lt;/param&gt;<br />&lt;returns&gt;The result value.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs47">val not : value:bool -&gt; bool<br /><em>&lt;summary&gt;Negate a logical value. Not True equals False and not False equals True&lt;/summary&gt;<br />&lt;param name=&quot;value&quot;&gt;The value to negate.&lt;/param&gt;<br />&lt;returns&gt;The result of the negation.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs48">val LimblengthFormula : distMat:matrix -&gt; specIndex1:int -&gt; specIndex2:int -&gt; specIndex3:int -&gt; float</div>
+<div class="fsdocs-tip" id="fs49">val LimbLength : distMat:matrix -&gt; specIndex:int -&gt; float</div>
+<div class="fsdocs-tip" id="fs50">val specIndex : int</div>
+<div class="fsdocs-tip" id="fs51">val min : array:&#39;T [] -&gt; &#39;T (requires comparison)<br /><em>&lt;summary&gt;Returns the lowest of all elements of the array, compared via Operators.min.&lt;/summary&gt;<br />&lt;remarks&gt;Throws ArgumentException for empty arrays&lt;/remarks&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;<br />&lt;returns&gt;The minimum element.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs52">val updateDistancematrix : distMat:matrix -&gt; specIndexRow:int -&gt; specIndexColumn:int -&gt; specIndex:int -&gt; float</div>
+<div class="fsdocs-tip" id="fs53">val specIndexRow : int</div>
+<div class="fsdocs-tip" id="fs54">val specIndexColumn : int</div>
+<div class="fsdocs-tip" id="fs55">val dBaldMatrix : distMat:matrix -&gt; specIndex:int -&gt; Matrix&lt;float&gt;</div>
+<div class="fsdocs-tip" id="fs56">val specCountRow : int</div>
+<div class="fsdocs-tip" id="fs57">val specCountColumn : int</div>
+<div class="fsdocs-tip" id="fs58">val rowindex : int</div>
+<div class="fsdocs-tip" id="fs59">val columnindex : int</div>
+<div class="fsdocs-tip" id="fs60">val printfn : format:Printf.TextWriterFormat&lt;&#39;T&gt; -&gt; &#39;T<br /><em>&lt;summary&gt;Print to &lt;c&gt;stdout&lt;/c&gt; using the given format, and add a newline.&lt;/summary&gt;<br />&lt;param name=&quot;format&quot;&gt;The formatter.&lt;/param&gt;<br />&lt;returns&gt;The formatted result.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs61">val delete_species : distMat:matrix -&gt; specIndex:int -&gt; Matrix&lt;float&gt;</div>
+<div class="fsdocs-tip" id="fs62">Multiple items<br />module Matrix
+
+from FSharp.Stats<br /><br />--------------------<br />type Matrix&lt;&#39;T&gt; =
+  | DenseRepr of DenseMatrix&lt;&#39;T&gt;
+  | SparseRepr of SparseMatrix&lt;&#39;T&gt;
+    interface IMatrixFormattable
+    interface IFsiFormattable
+    interface IEnumerable
+    interface IEnumerable&lt;&#39;T&gt;
+    interface IStructuralEquatable
+    interface IStructuralComparable
+    interface IComparable
+    override Equals : yobj:obj -&gt; bool
+    member Format : rowStartCount:int * rowEndCount:int * columnStartCount:int * columnEndCount:int * showInfo:bool -&gt; string + 2 overloads
+    member FormatStrings : rowStartCount:int * rowEndCount:int * columnStartCount:int * columnEndCount:int -&gt; string [] []
+    ...</div>
+<div class="fsdocs-tip" id="fs63">val removeColAt : index:int -&gt; m:Matrix&lt;&#39;a&gt; -&gt; Matrix&lt;&#39;a&gt;<br /><em>&lt;summary&gt;
+ Removes a column at a given index
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs64">val removeRowAt : index:int -&gt; m:Matrix&lt;&#39;T&gt; -&gt; Matrix&lt;&#39;T&gt;<br /><em>&lt;summary&gt;
+ Removes a row at a given index
+&lt;/summary&gt;</em></div>
+<div class="fsdocs-tip" id="fs65">val attachmentPoint : dBald:matrix -&gt; distinctLeaf:int -&gt; (int * int) * float</div>
+<div class="fsdocs-tip" id="fs66">val dBald : matrix</div>
+<div class="fsdocs-tip" id="fs67">val distinctLeaf : int</div>
+<div class="fsdocs-tip" id="fs68">val NumberOfSpecies : int</div>
+<div class="fsdocs-tip" id="fs69">val i : int</div>
+<div class="fsdocs-tip" id="fs70">val j : int</div>
+<div class="fsdocs-tip" id="fs71">val groupBy : projection:(&#39;T -&gt; &#39;Key) -&gt; array:&#39;T [] -&gt; (&#39;Key * &#39;T []) [] (requires equality)<br /><em>&lt;summary&gt;Applies a key-generating function to each element of an array and yields an array of 
+ unique keys. Each unique key contains an array of all elements that match 
+ to this key.&lt;/summary&gt;<br />&lt;param name=&quot;projection&quot;&gt;A function that transforms an element of the array into a comparable key.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The result array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs72">val d : float</div>
+<div class="fsdocs-tip" id="fs73">val maxBy : projection:(&#39;T -&gt; &#39;U) -&gt; array:&#39;T [] -&gt; &#39;T (requires comparison)<br /><em>&lt;summary&gt;Returns the greatest of all elements of the array, compared via Operators.max on the function result.&lt;/summary&gt;<br />&lt;remarks&gt;Throws ArgumentException for empty arrays.&lt;/remarks&gt;<br />&lt;param name=&quot;projection&quot;&gt;The function to transform the elements into a type supporting comparison.&lt;/param&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;<br />&lt;returns&gt;The maximum element.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs74">val fst : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T1<br /><em>&lt;summary&gt;Return the first element of a tuple, &lt;c&gt;fst (a,b) = a&lt;/c&gt;.&lt;/summary&gt;<br />&lt;param name=&quot;tuple&quot;&gt;The input tuple.&lt;/param&gt;<br />&lt;returns&gt;The first value.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs75">val snd : tuple:(&#39;T1 * &#39;T2) -&gt; &#39;T2<br /><em>&lt;summary&gt;Return the second element of a tuple, &lt;c&gt;snd (a,b) = b&lt;/c&gt;.&lt;/summary&gt;<br />&lt;param name=&quot;tuple&quot;&gt;The input tuple.&lt;/param&gt;<br />&lt;returns&gt;The second value.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs76">val head : array:&#39;T [] -&gt; &#39;T<br /><em>&lt;summary&gt;Returns the first element of the array.&lt;/summary&gt;<br />&lt;param name=&quot;array&quot;&gt;The input array.&lt;/param&gt;<br />&lt;returns&gt;The first element of the array.&lt;/returns&gt;<br />&lt;exception cref=&quot;T:System.ArgumentNullException&quot;&gt;Thrown when the input array is null.&lt;/exception&gt;<br />&lt;exception cref=&quot;T:System.ArgumentException&quot;&gt;Thrown when the input array is empty.&lt;/exception&gt;</em></div>
+<div class="fsdocs-tip" id="fs77">PhylTreeConnection.SourceToTargetIndex: int * int</div>
+<div class="fsdocs-tip" id="fs78">PhylTreeConnection.Distance: float</div>
+<div class="fsdocs-tip" id="fs79">val sourceToTargetIndex : int * int</div>
+<div class="fsdocs-tip" id="fs80">val distance : float</div>
+<div class="fsdocs-tip" id="fs81">val addPhyl : distMat:matrix -&gt; PhylTreeConnection list</div>
+<div class="fsdocs-tip" id="fs82">val mutable dist_Mat : matrix</div>
+<div class="fsdocs-tip" id="fs83">val mutable n : int</div>
+<div class="fsdocs-tip" id="fs84">val lengthOfMatrix : int</div>
+<div class="fsdocs-tip" id="fs85">val mutable resultList : PhylTreeConnection list</div>
+<div class="fsdocs-tip" id="fs86">type PhylTreeConnection =
+  { SourceToTargetIndex: int * int
+    Distance: float }
+    static member Create : sourceToTargetIndex:(int * int) -&gt; distance:float -&gt; PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs87">type &#39;T list = List&lt;&#39;T&gt;<br /><em>&lt;summary&gt;The type of immutable singly-linked lists. &lt;/summary&gt;<br />&lt;remarks&gt;See the &lt;see cref=&quot;T:Microsoft.FSharp.Collections.ListModule&quot; /&gt; module for further operations related to lists.
+
+ Use the constructors &lt;c&gt;[]&lt;/c&gt; and &lt;c&gt;::&lt;/c&gt; (infix) to create values of this type, or
+ the notation &lt;c&gt;[1; 2; 3]&lt;/c&gt;. Use the values in the &lt;c&gt;List&lt;/c&gt; module to manipulate 
+ values of this type, or pattern match against the values directly.
+
+  See also &lt;a href=&quot;https://docs.microsoft.com/dotnet/fsharp/language-reference/lists&quot;&gt;F# Language Guide - Lists&lt;/a&gt;.
+ &lt;/remarks&gt;</em></div>
+<div class="fsdocs-tip" id="fs88">val graph : Dictionary&lt;int,(float * matrix)&gt;</div>
+<div class="fsdocs-tip" id="fs89">Multiple items<br />type Dictionary&lt;&#39;TKey,&#39;TValue&gt; =
+  interface ICollection&lt;KeyValuePair&lt;&#39;TKey,&#39;TValue&gt;&gt;
+  interface IEnumerable&lt;KeyValuePair&lt;&#39;TKey,&#39;TValue&gt;&gt;
+  interface IEnumerable
+  interface IDictionary&lt;&#39;TKey,&#39;TValue&gt;
+  interface IReadOnlyCollection&lt;KeyValuePair&lt;&#39;TKey,&#39;TValue&gt;&gt;
+  interface IReadOnlyDictionary&lt;&#39;TKey,&#39;TValue&gt;
+  interface ICollection
+  interface IDictionary
+  interface IDeserializationCallback
+  interface ISerializable
+  ...<br /><em>&lt;summary&gt;Represents a collection of keys and values.&lt;/summary&gt;<br />&lt;typeparam name=&quot;TKey&quot;&gt;The type of the keys in the dictionary.&lt;/typeparam&gt;<br />&lt;typeparam name=&quot;TValue&quot;&gt;The type of the values in the dictionary.&lt;/typeparam&gt;</em><br /><br />--------------------<br />Dictionary() : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(dictionary: IDictionary&lt;&#39;TKey,&#39;TValue&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(collection: IEnumerable&lt;KeyValuePair&lt;&#39;TKey,&#39;TValue&gt;&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(comparer: IEqualityComparer&lt;&#39;TKey&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(capacity: int) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(dictionary: IDictionary&lt;&#39;TKey,&#39;TValue&gt;, comparer: IEqualityComparer&lt;&#39;TKey&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(collection: IEnumerable&lt;KeyValuePair&lt;&#39;TKey,&#39;TValue&gt;&gt;, comparer: IEqualityComparer&lt;&#39;TKey&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;<br />Dictionary(capacity: int, comparer: IEqualityComparer&lt;&#39;TKey&gt;) : Dictionary&lt;&#39;TKey,&#39;TValue&gt;</div>
+<div class="fsdocs-tip" id="fs90">val attachmentsStore : Dictionary&lt;int,((int * int) * float)&gt;</div>
+<div class="fsdocs-tip" id="fs91">val mutable internalNodes : int</div>
+<div class="fsdocs-tip" id="fs92">val limblength : float</div>
+<div class="fsdocs-tip" id="fs93">Dictionary.Add(key: int, value: float * matrix) : unit</div>
+<div class="fsdocs-tip" id="fs94">val attachment : (int * int) * float</div>
+<div class="fsdocs-tip" id="fs95">val x : float</div>
+<div class="fsdocs-tip" id="fs96">val src : int</div>
+<div class="fsdocs-tip" id="fs97">val target : int</div>
+<div class="fsdocs-tip" id="fs98">Dictionary.Add(key: int, value: (int * int) * float) : unit</div>
+<div class="fsdocs-tip" id="fs99">val traceback : unit</div>
+<div class="fsdocs-tip" id="fs100">val dMatrix : matrix</div>
+<div class="fsdocs-tip" id="fs101">val trg : int</div>
+<div class="fsdocs-tip" id="fs102">val edgeToModify : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs103">Multiple items<br />type List =
+  new : unit -&gt; List
+  static member geomspace : start:float * stop:float * num:int * ?IncludeEndpoint:bool -&gt; float list
+  static member linspace : start:float * stop:float * num:int * ?IncludeEndpoint:bool -&gt; float list<br /><br />--------------------<br />type List&lt;&#39;T&gt; =
+  interface ICollection&lt;&#39;T&gt;
+  interface IEnumerable&lt;&#39;T&gt;
+  interface IEnumerable
+  interface IList&lt;&#39;T&gt;
+  interface IReadOnlyCollection&lt;&#39;T&gt;
+  interface IReadOnlyList&lt;&#39;T&gt;
+  interface ICollection
+  interface IList
+  new : unit -&gt; unit + 2 overloads
+  member Add : item: &#39;T -&gt; unit
+  ...<br /><em>&lt;summary&gt;Represents a strongly typed list of objects that can be accessed by index. Provides methods to search, sort, and manipulate lists.&lt;/summary&gt;<br />&lt;typeparam name=&quot;T&quot;&gt;The type of elements in the list.&lt;/typeparam&gt;</em><br /><br />--------------------<br />new : unit -&gt; List<br /><br />--------------------<br />List() : List&lt;&#39;T&gt;<br />List(collection: IEnumerable&lt;&#39;T&gt;) : List&lt;&#39;T&gt;<br />List(capacity: int) : List&lt;&#39;T&gt;</div>
+<div class="fsdocs-tip" id="fs104">val find : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T<br /><em>&lt;summary&gt;Returns the first element for which the given function returns True.
+ Raises &lt;c&gt;KeyNotFoundException&lt;/c&gt; if no such element exists.&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;exception cref=&quot;T:System.Collections.Generic.KeyNotFoundException&quot;&gt;Thrown if the predicate evaluates to false for
+ all the elements of the list.&lt;/exception&gt;<br />&lt;returns&gt;The first element that satisfies the predicate.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs105">val element : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs106">val edgeToModifyInnverse : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs107">val edgeAdditionA : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs108">val edgeAdditionA_inverse : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs109">val edgeAdditionB : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs110">val edgeAdditionB_inverse : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs111">val edgeAdditionC : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs112">val edgeAdditionC_inverse : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs113">val newResultList : PhylTreeConnection list</div>
+<div class="fsdocs-tip" id="fs114">val where : predicate:(&#39;T -&gt; bool) -&gt; list:&#39;T list -&gt; &#39;T list<br /><em>&lt;summary&gt;Returns a new list containing only the elements of the list
+ for which the given predicate returns &quot;true&quot;&lt;/summary&gt;<br />&lt;param name=&quot;predicate&quot;&gt;The function to test the input elements.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;A list containing only the elements that satisfy the predicate.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs115">val x : PhylTreeConnection</div>
+<div class="fsdocs-tip" id="fs116">val append : list1:&#39;T list -&gt; list2:&#39;T list -&gt; &#39;T list<br /><em>&lt;summary&gt;Returns a new list that contains the elements of the first list
+ followed by elements of the second.&lt;/summary&gt;<br />&lt;param name=&quot;list1&quot;&gt;The first input list.&lt;/param&gt;<br />&lt;param name=&quot;list2&quot;&gt;The second input list.&lt;/param&gt;<br />&lt;returns&gt;The resulting list.&lt;/returns&gt;</em></div>
+<div class="fsdocs-tip" id="fs117">val sortBy : projection:(&#39;T -&gt; &#39;Key) -&gt; list:&#39;T list -&gt; &#39;T list (requires comparison)<br /><em>&lt;summary&gt;Sorts the given list using keys given by the given projection. Keys are compared using &lt;see cref=&quot;M:Microsoft.FSharp.Core.Operators.compare&quot; /&gt;.&lt;/summary&gt;<br />&lt;remarks&gt;This is a stable sort, i.e. the original order of equal elements is preserved.&lt;/remarks&gt;<br />&lt;param name=&quot;projection&quot;&gt;The function to transform the list elements into the type to be compared.&lt;/param&gt;<br />&lt;param name=&quot;list&quot;&gt;The input list.&lt;/param&gt;<br />&lt;returns&gt;The sorted list.&lt;/returns&gt;</em></div>
+
+    </div>
+
+    <!-- BEGIN SEARCH BOX: this adds support for the search box -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.css" />
+    <script type="text/javascript">var fsdocs_search_baseurl = '/BIO-BTE-10-L-4/'</script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.8/lunr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/JavaScript-autoComplete/1.0.4/auto-complete.min.js"></script>
+    <script type="text/javascript" src="/BIO-BTE-10-L-4/content/fsdocs-search.js"></script>
+    <!-- END SEARCH BOX: this adds support for the search box -->
+</body>
+<footer>
+    <script>
+        bulmaCollapsible.attach('.is-collapsible');
+    </script>
+</footer>
+</html>
